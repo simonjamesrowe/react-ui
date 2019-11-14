@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import { Header } from "./components/pages/Header";
 import { Headline } from "./components/pages/Headline";
+import { Profile } from "./components/pages/Profile";
 
 const App: React.FC = () => {
   const [loading, setLoading] = React.useState<boolean>(true);
@@ -22,6 +23,7 @@ const App: React.FC = () => {
       <Header />
       <div className="wrapper">
         <Headline />
+        <Profile />
       </div>
     </>
   );
