@@ -2,21 +2,28 @@ import React from "react";
 import simon from "../../assets/images/simon.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import Rating from "react-rating";
+import {
+  Popover,
+  PopoverContent,
+  OverlayTrigger,
+  ProgressBar
+} from "react-bootstrap";
+import { faHandPointRight, faStar } from "@fortawesome/free-solid-svg-icons";
 
 class Skill {
+  public variant: "success" | "danger" | "warning" | "info" = "info";
   constructor(
     public title: string,
     public rating: number,
     public skills: Skill[] = []
-  ) {}
-
-  public getProgressColor(): string {
+  ) {
     if (this.rating > 90) {
-      return "success";
+      this.variant = "success";
     } else if (this.rating > 85) {
-      return "info";
+      this.variant = "info";
     } else {
-      return "warning";
+      this.variant = "warning";
     }
   }
 }
@@ -138,24 +145,80 @@ const Profile = () => {
                 serverless applications at AWS, I have a proven track record of
                 delivering business value whilst mitigating risk.
               </p>
+              <div className="profile-widget">
+                <h5>Social Profiles</h5>
+                <ul className="widget-social">
+                  <li>
+                    <a target="_blank" href="">
+                      <FontAwesomeIcon size="lg" icon={faGithub} />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank"
+                      href="https://www.linkedin.com/in/simon-rowe-2a94ab1/"
+                    >
+                      <FontAwesomeIcon size="lg" icon={faLinkedin} />
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div className="profile-widget">
-              <h5>Social Profiles</h5>
-              <ul className="widget-social">
-                <li>
-                  <a target="_blank" href="">
-                    <FontAwesomeIcon className="fa-lg" icon={faGithub} />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    target="_blank"
-                    href="https://www.linkedin.com/in/simon-rowe-2a94ab1/"
-                  >
-                    <FontAwesomeIcon className="fa-lg" icon={faLinkedin} />
-                  </a>
-                </li>
-              </ul>
+            <div className="col-md-4">
+              <h5>My Skills</h5>
+              {skills.map(skill => {
+                const popOver = (
+                  <Popover id={skill.title}>
+                    <Popover.Content>
+                      <div className="progressItem">
+                        <ul>
+                          {skill.skills.map(subskill => (
+                            <>
+                              <li>
+                                <span className="subskill-title">
+                                  {subskill.title}
+                                </span>
+                                <span className="subskill-rating">
+                                  <Rating
+                                    initialRating={subskill.rating}
+                                    stop={10}
+                                    step={2}
+                                    fullSymbol={
+                                      <FontAwesomeIcon icon={faStar} />
+                                    }
+                                    emptySymbol={
+                                      <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    }
+                                  />
+                                </span>
+                              </li>
+                            </>
+                          ))}
+                        </ul>
+                      </div>
+                    </Popover.Content>
+                  </Popover>
+                );
+                return (
+                  <>
+                    <div className="progress-title">
+                      {skill.title} &nbsp;
+                      <OverlayTrigger
+                        overlay={popOver}
+                        trigger="hover"
+                        placement="right"
+                      >
+                        <FontAwesomeIcon
+                          className="pointer"
+                          size="lg"
+                          icon={faHandPointRight}
+                        />
+                      </OverlayTrigger>
+                    </div>
+                    <ProgressBar now={skill.rating} variant={skill.variant} />
+                  </>
+                );
+              })}
             </div>
           </div>
         </div>

@@ -4,7 +4,7 @@ import { Header } from "./components/pages/Header";
 import { Headline } from "./components/pages/Headline";
 import { Profile } from "./components/pages/Profile";
 
-const App: React.FC = () => {
+const App = () => {
   const [loading, setLoading] = React.useState<boolean>(true);
 
   React.useEffect(() => {
