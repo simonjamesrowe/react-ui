@@ -1,13 +1,20 @@
 import React from "react";
+import background from "../../assets/videos/background.mp4";
 
 const Headline = () => {
   return (
     <>
       <section
         className="module-header full-height parallax bg-dark bg-dark-30 d-none d-sm-block"
-        data-jarallax-video="https://www.youtube.com/watch?v=vNrZTCmtAos"
         id="home"
       >
+        <video
+          loop={true}
+          id="video-background"
+          src={background}
+          autoPlay={true}
+        />
+
         <div className="container">
           <div className="row">
             <div className="col-md-12">

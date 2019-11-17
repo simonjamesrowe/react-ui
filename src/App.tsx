@@ -3,6 +3,7 @@ import "./App.css";
 import { Header } from "./components/pages/Header";
 import { Headline } from "./components/pages/Headline";
 import { Profile } from "./components/pages/Profile";
+import { Resume } from "./components/pages/Resume";
 
 const App = () => {
   const [loading, setLoading] = React.useState<boolean>(true);
@@ -24,6 +25,7 @@ const App = () => {
       <div className="wrapper">
         <Headline />
         <Profile />
+        <Resume />
       </div>
     </>
   );
