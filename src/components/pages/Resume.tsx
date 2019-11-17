@@ -120,21 +120,25 @@ const Resume = () => {
                 <div className="timeline-top" />
                 {jobs.map(job => (
                   <>
-                    <div className="timeline-badge" />
-                    <div className="timeline-panel">
-                      <div className="timeline-preview">
-                        <img src={job.image} alt="" />
+                    <li>
+                      <div className="timeline-badge" />
+                      <div className="timeline-panel">
+                        <div className="timeline-preview">
+                          <img src={job.image} alt="" />
+                        </div>
+                        <div className="timeline-body">
+                          <h5 className="timeline-title">{job.position}</h5>
+                          <h6 className="timeline-description">
+                            {job.company}| {job.period}
+                          </h6>
+                          <div
+                            dangerouslySetInnerHTML={{
+                              __html: job.description
+                            }}
+                          />
+                        </div>
                       </div>
-                      <div className="timeline-body">
-                        <h5 className="timeline-title">{job.position}</h5>
-                        <h6 className="timeline-description">
-                          {job.company}| {job.period}
-                        </h6>
-                        <div
-                          dangerouslySetInnerHTML={{ __html: job.description }}
-                        />
-                      </div>
-                    </div>
+                    </li>
                   </>
                 ))}
               </ul>
