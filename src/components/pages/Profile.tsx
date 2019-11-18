@@ -110,116 +110,114 @@ const Profile = () => {
               </h6>
             </div>
           </div>
-          <div className="row">
-            <div className="col-md-4">
-              <p>
-                <img src={simon} alt="" />
-              </p>
+        </div>
+        <div className="row">
+          <div className="col-sm-12 col-md-4">
+            <p>
+              <img src={simon} alt="" />
+            </p>
+          </div>
+          <div className="col-sm-12 col-md-4 ">
+            <h5>Profesional Profile</h5>
+            <p>
+              I am driven to achieve real business value in the shortest time
+              possible through the power of scalable software, utilizing open
+              source technologies, mainly surrounding java and the spring
+              framework.
+            </p>
+            <p>
+              With over 13 years of developing, architecting and running java
+              based web applications, my professional experience has spanned
+              many industries from investment banking to media, across multiple
+              countries. My mantra stays the same – keep it simple! Nobody
+              benefits from complicated out of hours releases of monoliths,
+              inherent with risks.
+            </p>
+            <p>
+              This is where my skill and passion for Java, Spring, Docker,
+              Cucumber, Git and AWS becomes one of my greatest assets. Whether
+              it be cultivating new development comprising of CI pipelines with
+              zero outage cloud deployments, to architecture of scalable
+              serverless applications at AWS, I have a proven track record of
+              delivering business value whilst mitigating risk.
+            </p>
+            <div className="profile-widget">
+              <h5>Social Profiles</h5>
+              <ul className="widget-social">
+                <li key="github">
+                  <a
+                    target="_blank"
+                    href="https://github.com/simonrowe"
+                    rel="noopener noreferrer"
+                  >
+                    <FontAwesomeIcon size="lg" icon={faGithub} />
+                  </a>
+                </li>
+                <li key="linkedin">
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.linkedin.com/in/simon-rowe-2a94ab1/"
+                  >
+                    <FontAwesomeIcon size="lg" icon={faLinkedin} />
+                  </a>
+                </li>
+              </ul>
             </div>
-            <div className="col-md-4">
-              <h5>Profesional Profile</h5>
-              <p>
-                I am driven to achieve real business value in the shortest time
-                possible through the power of scalable software, utilizing open
-                source technologies, mainly surrounding java and the spring
-                framework.
-              </p>
-              <p>
-                With over 13 years of developing, architecting and running java
-                based web applications, my professional experience has spanned
-                many industries from investment banking to media, across
-                multiple countries. My mantra stays the same – keep it simple!
-                Nobody benefits from complicated out of hours releases of
-                monoliths, inherent with risks.
-              </p>
-              <p>
-                This is where my skill and passion for Java, Spring, Docker,
-                Cucumber, Git and AWS becomes one of my greatest assets. Whether
-                it be cultivating new development comprising of CI pipelines
-                with zero outage cloud deployments, to architecture of scalable
-                serverless applications at AWS, I have a proven track record of
-                delivering business value whilst mitigating risk.
-              </p>
-              <div className="profile-widget">
-                <h5>Social Profiles</h5>
-                <ul className="widget-social">
-                  <li key="github">
-                    <a
-                      target="_blank"
-                      href="https://github.com/simonrowe"
-                      rel="noopener noreferrer"
-                    >
-                      <FontAwesomeIcon size="lg" icon={faGithub} />
-                    </a>
-                  </li>
-                  <li key="linkedin">
-                    <a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href="https://www.linkedin.com/in/simon-rowe-2a94ab1/"
-                    >
-                      <FontAwesomeIcon size="lg" icon={faLinkedin} />
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <h5>My Skills</h5>
-              {skills.map((skill, j) => {
-                const popOver = (
-                  <Popover id={skill.title}>
-                    <Popover.Content>
-                      <div className="progressItem">
-                        <ul>
-                          {skill.skills.map((subskill, i) => (
-                            <React.Fragment key={i}>
-                              <li>
-                                <span className="subskill-title">
-                                  {subskill.title}
-                                </span>
-                                <span className="subskill-rating">
-                                  <Rating
-                                    initialRating={subskill.rating}
-                                    stop={10}
-                                    step={2}
-                                    fullSymbol={
-                                      <FontAwesomeIcon icon={faStar} />
-                                    }
-                                    emptySymbol={
-                                      <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                    }
-                                  />
-                                </span>
-                              </li>
-                            </React.Fragment>
-                          ))}
-                        </ul>
-                      </div>
-                    </Popover.Content>
-                  </Popover>
-                );
-                return (
-                  <React.Fragment key={j}>
-                    <div className="progress-title" key={j}>
-                      {skill.title} &nbsp;
-                      <OverlayTrigger
-                        overlay={popOver}
-                        trigger="hover"
-                        placement="right"
-                      >
-                        <FontAwesomeIcon
-                          className="pointer"
-                          size="lg"
-                          icon={faHandPointRight}
-                        />
-                      </OverlayTrigger>
+          </div>
+          <div className="col-sm-12 col-md-4">
+            <h5>My Skills</h5>
+            {skills.map((skill, j) => {
+              const popOver = (
+                <Popover id={skill.title}>
+                  <Popover.Content>
+                    <div className="progressItem">
+                      <ul>
+                        {skill.skills.map((subskill, i) => (
+                          <React.Fragment key={i}>
+                            <li>
+                              <span className="subskill-title">
+                                {subskill.title}
+                              </span>
+                              <span className="subskill-rating">
+                                <Rating
+                                  initialRating={subskill.rating}
+                                  stop={10}
+                                  step={2}
+                                  fullSymbol={<FontAwesomeIcon icon={faStar} />}
+                                  emptySymbol={
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                  }
+                                />
+                              </span>
+                            </li>
+                          </React.Fragment>
+                        ))}
+                      </ul>
                     </div>
-                    <ProgressBar now={skill.rating} variant={skill.variant} />
-                  </React.Fragment>
-                );
-              })}
-            </div>
+                  </Popover.Content>
+                </Popover>
+              );
+              return (
+                <React.Fragment key={j}>
+                  <div className="progress-title" key={j}>
+                    {skill.title} &nbsp;
+                    <OverlayTrigger
+                      overlay={popOver}
+                      trigger="hover"
+                      placement="right"
+                    >
+                      <FontAwesomeIcon
+                        className="pointer"
+                        size="lg"
+                        icon={faHandPointRight}
+                      />
+                    </OverlayTrigger>
+                  </div>
+                  <ProgressBar now={skill.rating} variant={skill.variant} />
+                </React.Fragment>
+              );
+            })}
           </div>
         </div>
       </div>
