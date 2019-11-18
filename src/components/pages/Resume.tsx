@@ -118,9 +118,9 @@ const Resume = () => {
             <div className="col-md-12">
               <ul className="timeline">
                 <div className="timeline-top" />
-                {jobs.map(job => (
-                  <>
-                    <li key={job.company + job.period}>
+                {jobs.map((job, i) => (
+                  <React.Fragment key={i}>
+                    <li>
                       <div className="timeline-badge" />
                       <div className="timeline-panel">
                         <div className="timeline-preview">
@@ -139,7 +139,7 @@ const Resume = () => {
                         </div>
                       </div>
                     </li>
-                  </>
+                  </React.Fragment>
                 ))}
               </ul>
             </div>

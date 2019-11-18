@@ -173,8 +173,8 @@ const Profile = () => {
                       <div className="progressItem">
                         <ul>
                           {skill.skills.map((subskill, i) => (
-                            <>
-                              <li key={i}>
+                            <React.Fragment key={i}>
+                              <li>
                                 <span className="subskill-title">
                                   {subskill.title}
                                 </span>
@@ -192,7 +192,7 @@ const Profile = () => {
                                   />
                                 </span>
                               </li>
-                            </>
+                            </React.Fragment>
                           ))}
                         </ul>
                       </div>
@@ -200,7 +200,7 @@ const Profile = () => {
                   </Popover>
                 );
                 return (
-                  <>
+                  <React.Fragment key={j}>
                     <div className="progress-title" key={j}>
                       {skill.title} &nbsp;
                       <OverlayTrigger
@@ -216,7 +216,7 @@ const Profile = () => {
                       </OverlayTrigger>
                     </div>
                     <ProgressBar now={skill.rating} variant={skill.variant} />
-                  </>
+                  </React.Fragment>
                 );
               })}
             </div>
