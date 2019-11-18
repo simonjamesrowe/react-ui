@@ -4,14 +4,6 @@ const Header = () => {
   return (
     <header className="header header-center">
       <div className="container-fluid">
-        <div className="nav-toggle">
-          <a href="#" data-toggle="collapse" data-target=".inner-navigation">
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-          </a>
-        </div>
-
         <div className="inner-navigation collapse">
           <div className="inner-nav onepage-nav" id="navbarContent">
             <ul>

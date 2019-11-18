@@ -93,7 +93,7 @@ const Resume = () => {
     1
   );
 
-  const [jobs, setJobs] = React.useState<Job[]>([
+  const [jobs] = React.useState<Job[]>([
     universal,
     workcover,
     macquarie,
@@ -120,7 +120,7 @@ const Resume = () => {
                 <div className="timeline-top" />
                 {jobs.map(job => (
                   <>
-                    <li>
+                    <li key={job.company + job.period}>
                       <div className="timeline-badge" />
                       <div className="timeline-panel">
                         <div className="timeline-preview">

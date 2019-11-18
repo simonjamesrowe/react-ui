@@ -3,12 +3,7 @@ import simon from "../../assets/images/simon.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import Rating from "react-rating";
-import {
-  Popover,
-  PopoverContent,
-  OverlayTrigger,
-  ProgressBar
-} from "react-bootstrap";
+import { Popover, OverlayTrigger, ProgressBar } from "react-bootstrap";
 import { faHandPointRight, faStar } from "@fortawesome/free-solid-svg-icons";
 
 class Skill {
@@ -29,7 +24,7 @@ class Skill {
 }
 
 const Profile = () => {
-  const [skills, setSkills] = React.useState([
+  const [skills] = React.useState([
     new Skill("Java", 92, [
       new Skill("1.4", 8),
       new Skill("5", 8),
@@ -148,14 +143,19 @@ const Profile = () => {
               <div className="profile-widget">
                 <h5>Social Profiles</h5>
                 <ul className="widget-social">
-                  <li>
-                    <a target="_blank" href="">
+                  <li key="github">
+                    <a
+                      target="_blank"
+                      href="https://github.com/simonrowe"
+                      rel="noopener noreferrer"
+                    >
                       <FontAwesomeIcon size="lg" icon={faGithub} />
                     </a>
                   </li>
-                  <li>
+                  <li key="linkedin">
                     <a
                       target="_blank"
+                      rel="noopener noreferrer"
                       href="https://www.linkedin.com/in/simon-rowe-2a94ab1/"
                     >
                       <FontAwesomeIcon size="lg" icon={faLinkedin} />
@@ -166,15 +166,15 @@ const Profile = () => {
             </div>
             <div className="col-md-4">
               <h5>My Skills</h5>
-              {skills.map(skill => {
+              {skills.map((skill, j) => {
                 const popOver = (
                   <Popover id={skill.title}>
                     <Popover.Content>
                       <div className="progressItem">
                         <ul>
-                          {skill.skills.map(subskill => (
+                          {skill.skills.map((subskill, i) => (
                             <>
-                              <li>
+                              <li key={i}>
                                 <span className="subskill-title">
                                   {subskill.title}
                                 </span>
@@ -201,7 +201,7 @@ const Profile = () => {
                 );
                 return (
                   <>
-                    <div className="progress-title">
+                    <div className="progress-title" key={j}>
                       {skill.title} &nbsp;
                       <OverlayTrigger
                         overlay={popOver}

@@ -2787,7 +2787,7 @@ button {
 }
 
 .bg-gradient:after {
-    background: radial-gradient(left top, circle cover, #0cb4ce 9%, #006cff 48%, #6442ff 91%);
+    background: radial-gradient(left top, circle farthest-corner, #0cb4ce 9%, #006cff 48%, #6442ff 91%);
     background: -webkit-radial-gradient(left top, circle cover, #0cb4ce 9%, #006cff 48%, #6442ff 91%);
     opacity: .9;
     content: "";
