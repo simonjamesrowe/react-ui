@@ -1,9 +1,11 @@
 import React from "react";
 import "./App.css";
-import { Header } from "./components/pages/Header";
+import { MobileMenu } from "./components/pages/MobileMenu";
+import { Menu } from "./components/pages/Menu";
 import { Headline } from "./components/pages/Headline";
 import { Profile } from "./components/pages/Profile";
 import { Resume } from "./components/pages/Resume";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const App = () => {
   const [loading, setLoading] = React.useState<boolean>(true);
@@ -11,6 +13,7 @@ const App = () => {
   React.useEffect(() => {
     setTimeout(() => setLoading(false), 2000);
   }, []);
+  const mobile = useMediaQuery("(max-width:991px)");
 
   return (
     <>
@@ -21,9 +24,10 @@ const App = () => {
           </div>
         </div>
       )}
-      <Header />
+      {mobile && <MobileMenu />}
+      {!mobile && <Menu />}
       <div className="wrapper">
-        <Headline />
+        {!mobile && <Headline />}
         <Profile />
         <Resume />
       </div>

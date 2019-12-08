@@ -1,6 +1,6 @@
 import React from "react";
 
-const Header = () => {
+const Menu = () => {
   return (
     <header className="header header-center">
       <div className="container-fluid">
@@ -30,4 +30,4 @@ const Header = () => {
   );
 };
 
-export { Header };
+export { Menu };
