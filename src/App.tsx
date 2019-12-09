@@ -8,12 +8,40 @@ import { Resume } from "./components/pages/Resume";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const App = () => {
+  const mobile = useMediaQuery("(max-width:991px)");
   const [loading, setLoading] = React.useState<boolean>(true);
+
+  const onScroll = (event: any) => {
+    const header = document.getElementById("header") as HTMLElement;
+    if (header) {
+      let darkMenu = true;
+      if ((window.scrollY as number) > 5) {
+        darkMenu = false;
+      }
+
+      if (
+        darkMenu &&
+        header.className !== "header header-center header-light"
+      ) {
+        header.className = "header header-center header-light";
+      }
+
+      if (
+        !darkMenu &&
+        header.className !== "header header-center header-small"
+      ) {
+        header.className = "header header-center header-small";
+      }
+    }
+  };
 
   React.useEffect(() => {
     setTimeout(() => setLoading(false), 2000);
-  }, []);
-  const mobile = useMediaQuery("(max-width:991px)");
+    window.addEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [window.scrollY]);
 
   return (
     <>

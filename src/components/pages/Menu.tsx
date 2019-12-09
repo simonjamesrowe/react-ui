@@ -2,7 +2,7 @@ import React from "react";
 
 const Menu = () => {
   return (
-    <header className="header header-center">
+    <header id="header" className="header header-center header-light">
       <div className="container-fluid">
         <div className="inner-navigation collapse">
           <div className="inner-nav onepage-nav" id="navbarContent">
