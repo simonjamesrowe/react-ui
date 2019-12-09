@@ -5,21 +5,13 @@ import List from "@material-ui/core/List";
 import clsx from "clsx";
 import HomeIcon from "@material-ui/icons/Home";
 import Link from "@material-ui/core/Link";
-import PersonIcon from "@material-ui/icons/Person";
 import VerticalSplitIcon from "@material-ui/icons/VerticalSplit";
 import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import {
-  makeStyles,
-  useTheme,
-  Theme,
-  createStyles
-} from "@material-ui/core/styles";
+import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
-
-const drawerWidth = 240;
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

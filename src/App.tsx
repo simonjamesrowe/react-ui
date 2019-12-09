@@ -41,7 +41,7 @@ const App = () => {
     return () => {
       window.removeEventListener("scroll", onScroll);
     };
-  }, [window.scrollY]);
+  }, []);
 
   return (
     <>
