@@ -25,52 +25,48 @@ class Skill {
 
 const Profile = () => {
   const [skills] = React.useState([
-    new Skill("Java", 92, [
-      new Skill("1.4", 8),
-      new Skill("5", 8),
-      new Skill("6", 8),
-      new Skill("7", 9.5),
-      new Skill("8", 9)
+    new Skill("Java/Kotlin", 92, [
+      new Skill("Java 8", 9),
+      new Skill("Java 11", 9),
+      new Skill("Kotlin", 7)
     ]),
     new Skill("Spring", 95, [
-      new Skill("Boot", 9.5),
-      new Skill("Cloud", 8),
-      new Skill("Data", 9.5),
-      new Skill("Security", 9),
-      new Skill("Session", 8),
-      new Skill("Hateos", 8),
-      new Skill("Web", 9)
+      new Skill("Spring Boot", 9.5),
+      new Skill("Spring Cloud Stream", 9),
+      new Skill("Spring Data Data", 9.5),
+      new Skill("Spring Security", 9),
+      new Skill("Spring Cloud Netflix", 9),
+      new Skill("Spring Cloud Kubernetes", 9)
     ]),
-    new Skill("Search/NoSql", 84, [
-      new Skill("ElasticSearch", 8),
-      new Skill("Solr", 9),
-      new Skill("MongoDB", 8),
-      new Skill("DynamoDB", 8.5)
-    ]),
-    new Skill("AWS", 89, [
-      new Skill("ECS", 9.5),
-      new Skill("Fargate", 9),
-      new Skill("CloudFormation", 9.5),
-      new Skill("S3", 9.5),
-      new Skill("SQS", 9),
-      new Skill("ELB", 8.5),
-      new Skill("CloudWatch", 8),
-      new Skill("AutoScaling", 7.5),
-      new Skill("Route53", 7),
-      new Skill("IAM", 8),
-      new Skill("Lambda", 8.5),
-      new Skill("RDS", 8),
-      new Skill("ElasticCache", 7)
+    new Skill("Cloud", 89, [
+      new Skill("Kubernetes", 8.5),
+      new Skill("AWS - ECS", 9.5),
+      new Skill("AWS - Fargate", 9),
+      new Skill("AWS - CloudFormation", 9.5),
+      new Skill("AWS - S3", 9.5),
+      new Skill("AWS - EKS", 9.5),
+      new Skill("AWS - Route53", 7),
+      new Skill("AWS - IAM", 8),
+      new Skill("AWS - Lambda", 8.5),
+      new Skill("AWS - RDS", 8),
+      new Skill("AWS - ElasticCache", 7),
+      new Skill("Cloud Foundry", 7)
     ]),
     new Skill("CI/CD", 93, [
       new Skill("Maven", 10),
-      new Skill("Ant", 7),
+      new Skill("Gradle", 8),
       new Skill("Jenkins", 8),
+      new Skill("Concourse", 8),
+      new Skill("Nexus", 8),
       new Skill("Docker", 8),
       new Skill("Git", 7.5),
-      new Skill("SVN", 8)
+      new Skill("Git Ops", 7.5)
     ]),
-    new Skill("RDBMS", 87, [
+    new Skill("Data/Search", 87, [
+      new Skill("ElasticSearch", 8),
+      new Skill("Solr", 9),
+      new Skill("MongoDB", 8),
+      new Skill("DynamoDB", 8.5),
       new Skill("MySQL", 8.5),
       new Skill("Postgres", 7.5),
       new Skill("SQL Server", 8),
@@ -79,6 +75,7 @@ const Profile = () => {
       new Skill("DB2", 7.5)
     ]),
     new Skill("TDD", 93, [
+      new Skill("Test Containers", 8),
       new Skill("Cucumber", 9),
       new Skill("Selenium", 8),
       new Skill("DBUnit", 9),
@@ -88,6 +85,7 @@ const Profile = () => {
     ]),
     new Skill("UI", 80, [
       new Skill("Angular JS", 7.5),
+      new Skill("React", 8.5),
       new Skill("Angular", 8.5),
       new Skill("HTML5", 7.5),
       new Skill("CSS3", 7.5),
