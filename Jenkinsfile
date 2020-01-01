@@ -11,9 +11,6 @@ spec:
     command:
     - cat
     tty: true
-    env:
-     - name: DOCKER_HOST
-       value: 'tcp://localhost:2375'
     volumeMounts:
      - name: docker
        mountPath: '/var/lib/docker' 
