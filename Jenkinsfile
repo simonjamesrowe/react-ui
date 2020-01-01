@@ -7,7 +7,7 @@ spec:
   serviceAccountName: jenkins
   containers:
   - name: docker
-    image: docker:17-dind
+    image: docker:19.03.0-dind
     command:
     - cat
     tty: true
