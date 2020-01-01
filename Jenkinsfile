@@ -11,11 +11,20 @@ spec:
     command:
     - cat
     tty: true
+    env:
+     - name: DOCKER_HOST
+       value: 'tcp://dind:2375'
+    volumeMounts:
+     - name: docker
+        mountPath: /var/lib/docker 
   - name: kubectl
     image: lachlanevenson/k8s-kubectl:v1.17.0
     command:
     - cat
     tty: true
+ volumes:
+  - name: docker
+    emptyDir: {}
 """    
 ) {
     node (POD_LABEL) {
