@@ -16,7 +16,7 @@ spec:
        value: 'tcp://dind:2375'
     volumeMounts:
      - name: docker
-        mountPath: /var/lib/docker 
+       mountPath: '/var/lib/docker' 
   - name: kubectl
     image: lachlanevenson/k8s-kubectl:v1.17.0
     command:
