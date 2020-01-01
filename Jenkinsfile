@@ -8,10 +8,12 @@ spec:
   containers:
   - name: docker
     image: docker:17-dind
+    command:
+    - cat
     tty: true
     env:
      - name: DOCKER_HOST
-       value: 'tcp://dind:2375'
+       value: 'tcp://localhost:2375'
     volumeMounts:
      - name: docker
        mountPath: '/var/lib/docker' 
