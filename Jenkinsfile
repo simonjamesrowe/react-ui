@@ -7,9 +7,7 @@ spec:
   serviceAccountName: jenkins
   containers:
   - name: docker
-    image: docker:17.12.1-ce
-    command:
-    - cat
+    image: docker:17-dind
     tty: true
     env:
      - name: DOCKER_HOST
@@ -17,6 +15,8 @@ spec:
     volumeMounts:
      - name: docker
        mountPath: '/var/lib/docker' 
+    securityContext:
+      privileged: true
   - name: kubectl
     image: lachlanevenson/k8s-kubectl:v1.17.0
     command:
