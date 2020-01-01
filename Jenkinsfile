@@ -22,9 +22,9 @@ spec:
     command:
     - cat
     tty: true
- volumes:
-  - name: docker
-    emptyDir: {}
+  volumes:
+   - name: docker
+     emptyDir: {}
 """    
 ) {
     node (POD_LABEL) {
