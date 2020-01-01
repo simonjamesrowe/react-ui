@@ -1,7 +1,5 @@
-pipeline {
-    agent {
-        kubernetes {
-            yaml """
+podTemplate(
+    yaml """
 apiVersion: v1
 kind: Pod
 metadata:
@@ -14,16 +12,13 @@ spec:
     command:
     - cat
     tty: true
-"""
-        }
-    }
-   
+"""    
+) {
+    node (POD_LABEL) {
         container ('kubectl') {
-            stage('Kubectl') {
-                steps {
-                    sh 'kubectl get all'
-                }
+            stage ("WTF") {
+                sh 'kubectl get all'
             }
         }
-    
+    }
 }
