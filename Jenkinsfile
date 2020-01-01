@@ -7,9 +7,10 @@ kind: Pod
 metadata:
    namespace: default
 spec:
+  serviceAccountName: jenkins
   containers:
   - name: kubectl
-    image: bitnami/kubectl
+    image: lachlanevenson/k8s-helm:v2.8.1
     command:
     - cat
     tty: true
@@ -17,9 +18,11 @@ spec:
         }
     }
     stages {
-        stage('Kubectl') {
-            steps {
-                sh 'kubectl get all'
+        container ('kubectl') {
+            stage('Kubectl') {
+                steps {
+                    sh 'kubectl get all'
+                }
             }
         }
     }
