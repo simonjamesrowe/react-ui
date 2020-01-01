@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                withKubeConfig([credentialsId: 'kubernetes']) {
+                withKubeConfig {
                     sh 'kubectl get all'
                 }
             }
