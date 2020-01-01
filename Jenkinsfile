@@ -2,8 +2,8 @@ pipeline {
     agent any
     stages {
         stage('Test') {
-             withKubeConfig([credentialsId: 'kubernetes']) {
-                steps {
+            steps {
+                withKubeConfig([credentialsId: 'kubernetes']) {
                     sh 'kubectl get all'
                 }
             }
