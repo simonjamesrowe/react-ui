@@ -22,13 +22,19 @@ spec:
 """    
 ) {
     node (POD_LABEL) {
+        container('jnlp') {
+            stage('Checkout code') {
+                checkout scm
+                env.commit = sh returnStdout: true, script: 'git rev-parse HEAD'
+            }
+        }
+
         container ('docker') {
             stage ('build') {
                 sh 'docker build -t simonjamesrowe/react-ui/react-ui:latest .'
             }
-
-            
         }
+        
         container ('kubectl') {
             stage ("deploy") {
                 sh 'kubectl get all'
