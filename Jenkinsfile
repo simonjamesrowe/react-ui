@@ -1,10 +1,26 @@
 pipeline {
-    agent kubernetes
+    agent {
+        kubernetes {
+            yaml """
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+  - name: kubectl
+    image: bitnami/kubectl
+    command:
+    - cat
+    tty: true
+"""
+        }
+    }
     stages {
-        stage('Test') {
+        stage('Kubectl') {
             steps {
-                withKubeConfig([credentialsId : '16efc026-221e-4e28-9d67-efa698a95730', serverUrl: 'https://192.168.64.14:8443']) {
-                    sh 'kubectl get all'
+                container ('kubectl') {
+                    withKubeConfig([credentialsId : '16efc026-221e-4e28-9d67-efa698a95730', serverUrl: 'https://kubernetes.default.svc.cluster.local']) {
+                        sh 'kubectl get all'
+                    }
                 }
             }
         }
