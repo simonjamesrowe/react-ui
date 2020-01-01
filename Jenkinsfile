@@ -1,8 +1,8 @@
 pipeline {
     agent none
     stages {
-        stage('Test') {
-            node {
+        node {
+            stage('Test') {
                 steps {
                     sh 'kubectl get all'
                 }
