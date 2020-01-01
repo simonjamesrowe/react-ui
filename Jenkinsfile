@@ -17,7 +17,7 @@ spec:
 """
         }
     }
-    stages {
+   
         container ('kubectl') {
             stage('Kubectl') {
                 steps {
@@ -25,5 +25,5 @@ spec:
                 }
             }
         }
-    }
+    
 }
