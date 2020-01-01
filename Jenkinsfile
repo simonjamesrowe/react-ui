@@ -7,7 +7,7 @@ spec:
   serviceAccountName: jenkins
   containers:
   - name: kubectl
-    image: lachlanevenson/k8s-helm:v2.8.1
+    image: lachlanevenson/k8s-kubectl:v1.17.0
     command:
     - cat
     tty: true
