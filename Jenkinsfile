@@ -19,9 +19,7 @@ spec:
     stages {
         stage('Kubectl') {
             steps {
-                container ('kubectl') {
-                    sh 'kubectl get all'
-                }
+                sh 'kubectl get all'
             }
         }
     }
