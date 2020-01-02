@@ -7,6 +7,7 @@ metadata:
     app: jenkins
     component: agent
 spec:
+  serviceAccountName: jenkins
   containers:
     - name: jnlp
       image: jenkins/jnlp-slave
