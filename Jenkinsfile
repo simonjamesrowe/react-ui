@@ -9,16 +9,8 @@ metadata:
 spec:
   serviceAccountName: jenkins
   containers:
-    - name: jnlp
-      image: jenkins/jnlp-slave
-      resources:
-        limits:
-          cpu: 1
-          memory: 2Gi
-        requests:
-          cpu: 1
-          memory: 2Gi
-      imagePullPolicy: Always
+    - name: docker
+      image: docker:18.05
       env:
       - name: POD_IP
         valueFrom:
@@ -47,8 +39,10 @@ spec:
             stage('Checkout code') {
                 checkout scm
                 env.commit = sh returnStdout: true, script: 'git rev-parse HEAD'
-            }
-            
+            } 
+        }
+        
+        container('docker') {
             stage ('build') {
                 sh 'docker build -t simonjamesrowe/react-ui/react-ui:latest .'
             }
