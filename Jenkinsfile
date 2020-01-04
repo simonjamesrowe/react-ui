@@ -30,11 +30,15 @@ spec:
             stage('Checkout code') {
                 checkout scm
                 env.commit = sh returnStdout: true, script: 'git rev-parse HEAD'
+                sh 'pwd'
+                sh 'ls -las'
             }
         }
 
         container ('docker') {
             stage ('build') {
+                sh 'pwd'
+                sh 'ls -las'
                 sh 'docker build -t simonjamesrowe/react-ui/react-ui:latest .'
             }
         }
