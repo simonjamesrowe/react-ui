@@ -7,26 +7,22 @@ spec:
   serviceAccountName: jenkins
   containers:
   - name: docker
-    image: docker:17.12.1-ce
+    image: docker:latest
     command:
     - cat
     tty: true
-    env:
-     - name: DOCKER_HOST
-       value: 'tcp://dind:2375'
     volumeMounts:
-     - name: docker
-       mountPath: '/var/lib/docker' 
-    securityContext:
-      privileged: true
+    - mountPath: /var/run/docker.sock
+      name: docker-sock
   - name: kubectl
     image: lachlanevenson/k8s-kubectl:v1.17.0
     command:
     - cat
     tty: true
   volumes:
-  - name: docker
-    emptyDir: {}
+   - name: docker-sock
+     hostPath:
+       path: /var/run/docker.sock
 """    
 ) {
     node (POD_LABEL) {
