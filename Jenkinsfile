@@ -43,8 +43,8 @@ spec:
 
             stage ('upload') {
                 withDockerRegistry([credentialsId: 'simon-rowe-github', url: "https://docker.pkg.github.com/"]) {
-                    sh 'docker tag react-ui:latest docker.pkg.github.com/simonjamesrowe/react-ui/react-ui:$buildVersion'
-                    sh 'docker push docker.pkg.github.com/simonjamesrowe/react-ui/react-ui:$buildVersion'
+                    sh 'docker tag react-ui:latest docker.pkg.github.com/simonjamesrowe/react-ui:$buildVersion'
+                    sh 'docker push docker.pkg.github.com/simonjamesrowe/react-ui:$buildVersion'
                 } 
             }
         }
