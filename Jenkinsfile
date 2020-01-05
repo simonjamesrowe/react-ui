@@ -26,10 +26,16 @@ spec:
 """    
 ) {
     node (POD_LABEL) {
+        environment {
+            env.buildVersion = sh(script: "echo `date +%s`", returnStdout: true).trim()
+        }
+
         container('jnlp') {
             stage('Checkout code') {
                 checkout scm
                 env.commit = sh returnStdout: true, script: 'git rev-parse HEAD'
+                env.buildVersion = env.buildVersion + '-' + env.commit
+                sh 'echo Build Version is ${env.buildVersion}'
             }
         }
 
@@ -40,8 +46,8 @@ spec:
 
             stage ('upload') {
                 withDockerRegistry([credentialsId: 'simon-rowe-github', url: "https://docker.pkg.github.com/"]) {
-                    sh 'docker tag react-ui:latest docker.pkg.github.com/simonjamesrowe/react-ui/react-ui:latest'
-                    sh 'docker push docker.pkg.github.com/simonjamesrowe/react-ui/react-ui:latest'
+                    sh 'docker tag react-ui:latest docker.pkg.github.com/simonjamesrowe/react-ui/react-ui:${env.buildVersion}'
+                    sh 'docker push docker.pkg.github.com/simonjamesrowe/react-ui/react-ui:${env.buildVersion}'
                 } 
             }
         }
