@@ -26,16 +26,13 @@ spec:
 """    
 ) {
     node (POD_LABEL) {
-        environment {
-            def TIMESTAMP = sh(script: "echo `date +%s`", returnStdout: true).trim()
-        }
-
         container('jnlp') {
             stage('Checkout code') {
                 checkout scm
                 env.commit = sh returnStdout: true, script: 'git rev-parse HEAD'
-                env.buildVersion = sh returnStdout: true, script: 'echo $TIMESTAMP-$commit'
-                sh 'echo Build Version is buildVersion'
+                env.timestamp = sh returnStdout: true, script: 'echo `date +%s`'
+                env.buildVersion = sh returnStdout: true, script: 'echo $timestamp-$commit'
+                sh 'echo Build Version is $buildVersion'
             }
         }
 
