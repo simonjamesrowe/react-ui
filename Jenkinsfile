@@ -30,16 +30,19 @@ spec:
             stage('Checkout code') {
                 checkout scm
                 env.commit = sh returnStdout: true, script: 'git rev-parse HEAD'
-                sh 'pwd'
-                sh 'ls -las'
             }
         }
 
         container ('docker') {
             stage ('build') {
-                sh 'pwd'
-                sh 'ls -las'
-                sh 'docker build -t simonjamesrowe/react-ui/react-ui:latest .'
+                sh 'docker build -t react-ui:latest .'
+            }
+
+            stage ('upload') {
+                withDockerRegistry([credentialsId: 'simon-rowe-github', url: "https://docker.pkg.github.com/"]) {
+                    sh 'docker tag react-ui:latest docker.pkg.github.com/simonjamesrowe/react-ui/react-ui:latest'
+                    sh 'docker push docker.pkg.github.com/simonjamesrowe/react-ui/react-ui:latest'
+                } 
             }
         }
 
