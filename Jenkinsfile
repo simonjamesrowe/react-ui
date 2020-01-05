@@ -27,14 +27,14 @@ spec:
 ) {
     node (POD_LABEL) {
         environment {
-            env.buildVersion = sh(script: "echo `date +%s`", returnStdout: true).trim()
+            def TIMESTAMP = sh(script: "echo `date +%s`", returnStdout: true).trim()
         }
 
         container('jnlp') {
             stage('Checkout code') {
                 checkout scm
                 env.commit = sh returnStdout: true, script: 'git rev-parse HEAD'
-                env.buildVersion = env.buildVersion + '-' + env.commit
+                env.buildVersion = sh returnStdout: true, script: 'echo $TIMESTAMP-${env.commit}'
                 sh 'echo Build Version is ${env.buildVersion}'
             }
         }
