@@ -34,8 +34,8 @@ spec:
             stage('Checkout code') {
                 checkout scm
                 env.commit = sh returnStdout: true, script: 'git rev-parse HEAD'
-                env.buildVersion = sh returnStdout: true, script: 'echo $TIMESTAMP-${env.commit}'
-                sh 'echo Build Version is ${env.buildVersion}'
+                env.buildVersion = sh returnStdout: true, script: 'echo $TIMESTAMP-$commit'
+                sh 'echo Build Version is buildVersion'
             }
         }
 
@@ -46,8 +46,8 @@ spec:
 
             stage ('upload') {
                 withDockerRegistry([credentialsId: 'simon-rowe-github', url: "https://docker.pkg.github.com/"]) {
-                    sh 'docker tag react-ui:latest docker.pkg.github.com/simonjamesrowe/react-ui/react-ui:${env.buildVersion}'
-                    sh 'docker push docker.pkg.github.com/simonjamesrowe/react-ui/react-ui:${env.buildVersion}'
+                    sh 'docker tag react-ui:latest docker.pkg.github.com/simonjamesrowe/react-ui/react-ui:$buildVersion'
+                    sh 'docker push docker.pkg.github.com/simonjamesrowe/react-ui/react-ui:$buildVersion'
                 } 
             }
         }
