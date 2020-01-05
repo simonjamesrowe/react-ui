@@ -30,7 +30,7 @@ spec:
             stage('Checkout code') {
                 checkout scm
                 env.commit = sh returnStdout: true, script: 'git rev-parse HEAD'
-                env.timestamp = sh returnStdout: true, script: 'echo `date +%s`'
+                env.timestamp = sh (returnStdout: true, script: 'echo `date +"%Y%m%d-%H%M"`').trim()
                 env.buildVersion = sh returnStdout: true, script: 'echo $timestamp-$commit'
                 sh 'echo Build Version is $buildVersion'
             }
