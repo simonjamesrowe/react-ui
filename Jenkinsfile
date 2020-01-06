@@ -51,6 +51,7 @@ spec:
 
         container ('kubectl') {
             stage ("deploy") {
+                sh 'kubectl delete -f kube.yml'
                 sh 'kubectl apply -f kube.yml'
             }
         }

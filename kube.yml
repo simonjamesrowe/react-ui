@@ -27,6 +27,8 @@ kind: Service
 metadata:
   name: react-ui
 spec:
+  selector:
+    app: react-ui
   ports:
     - protocol: TCP
       port: 80
