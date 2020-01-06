@@ -45,7 +45,7 @@ spec:
   tls:
   - hosts:
     - www.simonjamesrowe.com
-    secretName: wildcart-cert
+    secretName: wildcard-cert
   rules:
   - host: www.simonjamesrowe.com
     http:
