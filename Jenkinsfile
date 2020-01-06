@@ -51,7 +51,7 @@ spec:
 
         container ('kubectl') {
             stage ("deploy") {
-                sh 'kubectl get all'
+                sh 'kubectl apply -f kube.yml'
             }
         }
     }
