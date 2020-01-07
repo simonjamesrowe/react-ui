@@ -15,12 +15,12 @@ spec:
         app: react-ui
     spec:
       containers:
-      - name: react-ui
-        image: "docker.pkg.github.com/simonjamesrowe/react-ui/react-ui:latest"
-        ports:
-        - containerPort: 80
+        - name: react-ui
+          image: "docker.pkg.github.com/simonjamesrowe/react-ui/react-ui:latest"
+          ports:
+            - containerPort: 80
       imagePullSecrets:
-      - name: regcred
+        - name: regcred
 ---
 apiVersion: v1
 kind: Service
@@ -32,7 +32,7 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 80 
+      targetPort: 80
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -40,16 +40,17 @@ metadata:
   name: react-ui
   annotations:
     kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
 spec:
   rules:
-  - host: www.simonjamesrowe.com
-    http:
-      paths:
-      - path: /
-        backend:
-          serviceName: react-ui
-          servicePort: 80
+    - host: www.simonjamesrowe.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: react-ui
+              servicePort: 80
   tls:
-  - hosts:
-    - www.simonjamesrowe.com
-    secretName: wildcard-cert        
+    - hosts:
+        - www.simonjamesrowe.com
+      secretName: wildcard-cert
