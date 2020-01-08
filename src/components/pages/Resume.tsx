@@ -109,7 +109,7 @@ const Resume = () => {
           <div className="row">
             <div className="col-md-12">
               <div className="m-title c-align">
-                <h2>Resume</h2>
+                <h2>Resumé</h2>
                 <h6>My education and experience</h6>
               </div>
             </div>
