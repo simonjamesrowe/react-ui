@@ -119,23 +119,23 @@ const Profile = () => {
             <p>
               I am driven to achieve real business value in the shortest time
               possible through the power of scalable software, utilizing open
-              source technologies, mainly surrounding java and the spring
-              framework.
+              source technologies, mainly surrounding spring, kubernetes and kafka
+              ecosystems.
             </p>
             <p>
-              With over 13 years of developing, architecting and running java
-              based web applications, my professional experience has spanned
+              With years of experience in developing, architecting and running jvm
+              based web applications and micro services, my professional experience has spanned
               many industries from investment banking to media, across multiple
               countries. My mantra stays the same – keep it simple! Nobody
               benefits from complicated out of hours releases of monoliths,
               inherent with risks.
             </p>
             <p>
-              This is where my skill and passion for Java, Spring, Docker,
+              This is where my skill and passion for Java, Spring, Kafka, Kubernetes,
               Cucumber, Git and AWS becomes one of my greatest assets. Whether
-              it be cultivating new development comprising of CI pipelines with
-              zero outage cloud deployments, to architecture of scalable
-              serverless applications at AWS, I have a proven track record of
+              it be cultivating new services to deployment pipelines with
+              zero outages, to architecture of scalable
+              serverless applications on AWS, I have a proven track record of
               delivering business value whilst mitigating risk.
             </p>
             <div className="profile-widget">
