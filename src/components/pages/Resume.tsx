@@ -6,6 +6,8 @@ import civicaImg from "../../assets/images/resume/civica.jpg";
 import macquarieImg from "../../assets/images/resume/macquarie.png";
 import umpgImg from "../../assets/images/resume/umpg.png";
 import sasImg from "../../assets/images/resume/sas.png";
+import pivotalImg from "../../assets/images/resume/pivotal.png";
+import uppImg from "../../assets/images/resume/upp.png";
 
 class Job {
   constructor(
@@ -19,11 +21,20 @@ class Job {
 }
 
 const Resume = () => {
+  const pivotal: Job = new Job(
+    "Pivotal",
+    pivotalImg,
+    "Aug 2018 - Apr 2019",
+    "Senior Platform Architect",
+    "<p>Worked as applications focused platform architect, aiding clients to become successful by building cloud native apps utilizing spring and cloud foundry.</p>" +
+    "<p>Ran the most ever subscribed webinar for Pivotal EMEA (at the time): <a href=\"https://bit.ly/39XfMFg\">Securing microservices with Spring and Cloud Foundry</a>",
+    3
+  );
   const universal: Job = new Job(
     "Universal Music Publishing",
     umpgImg,
-    "Jul 2011 - Present",
-    "Director, Java Development",
+    "Jul 2011 - Aug 2018",
+    "Senior Director, Java Development",
     "<p>Responsible for architecture and delivery of greenfield internal and public facing business applications. " +
       "Super scrum master, removing obstacles for four dynamic scrum teams. Frequent commiter.</p>" +
       "<p>Re-architecture of multiple monoliths with single points of failure to AWS," +
@@ -94,6 +105,7 @@ const Resume = () => {
   );
 
   const [jobs] = React.useState<Job[]>([
+    pivotal,
     universal,
     workcover,
     macquarie,

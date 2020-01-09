@@ -31,7 +31,7 @@ spec:
                 checkout scm
                 env.commit = sh returnStdout: true, script: 'git rev-parse --short HEAD'
                 env.timestamp = sh (returnStdout: true, script: 'echo `date +"%Y%m%d%H%M"`').trim()
-                env.buildVersion = sh returnStdout: true, script: 'echo $timestamp-$commit'
+                env.buildVersion = sh (returnStdout: true, script: 'echo $timestamp-$commit').trim()
                 sh 'echo Build Version is $buildVersion'
             }
         }
