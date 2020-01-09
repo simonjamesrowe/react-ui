@@ -51,8 +51,8 @@ spec:
 
         container ('kubectl') {
             stage ("deploy") {
-                sh 'kubectl delete -f kube.yml'
-                sh 'kubectl apply -f kube.yml'
+                sh 'sed "s/{{version}}/$buildVersion/g" kube.yml > kube-with-version.yml'
+                sh 'kubectl apply -f kube-with-version.yml'
             }
         }
     }
