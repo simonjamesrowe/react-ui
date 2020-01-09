@@ -8,6 +8,9 @@ import umpgImg from "../../assets/images/resume/umpg.png";
 import sasImg from "../../assets/images/resume/sas.png";
 import pivotalImg from "../../assets/images/resume/pivotal.png";
 import uppImg from "../../assets/images/resume/upp.png";
+import resumePdf from "../../assets/SimonRowe.pdf";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
 
 class Job {
   constructor(
@@ -21,6 +24,17 @@ class Job {
 }
 
 const Resume = () => {
+  const upp: Job = new Job(
+    "Upp Technologies",
+    uppImg,
+    "Apr 2019 - Present",
+    "Software Engineering Lead",
+    "<p>Hands on lead engineer in a small cross functional team.</p>" +
+    "<p>Utilized Java 11, Spring, Kafka, Mongo and Kubernetes to build a suite of microservices, implementing the event sourcing pattern. Took ownership of everything from development" +
+    "to deployment (using Jenkins pipelines) and operations. </p>" +
+    "<p>Built multiple spring boot starter libraries, and customized spring initializr to quickly bootstrap new microservices.</p>",
+    1
+  );
   const pivotal: Job = new Job(
     "Pivotal",
     pivotalImg,
@@ -105,6 +119,7 @@ const Resume = () => {
   );
 
   const [jobs] = React.useState<Job[]>([
+    upp,
     pivotal,
     universal,
     workcover,
@@ -121,7 +136,7 @@ const Resume = () => {
           <div className="row">
             <div className="col-md-12">
               <div className="m-title c-align">
-                <h2>Resumé</h2>
+                <h2>Resumé <a href={resumePdf} target="_blank"><FontAwesomeIcon size="xs" icon={faDownload} /></a></h2>
                 <h6>My education and experience</h6>
               </div>
             </div>
