@@ -1828,7 +1828,6 @@ button {
   background-color: transparent;
   position: fixed;
   z-index: 1040;
-  height: 80px;
   width: 100%;
   padding: 0 50px;
   transition: height 0.3s ease-out, background 0.3s ease-out, box-shadow 0.5s,
@@ -1849,7 +1848,7 @@ button {
 .header.header-small {
   background-color: #fff;
   color: #b7b7b7;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.466);
 }
 
 .header.header-shadow {
@@ -2174,6 +2173,10 @@ header.header-small .inner-nav > ul > app-login > li.sub-menu-open > a {
 }
 
 @media (min-width: 992px) {
+  .header {
+    height: 80px;
+  }
+
   .inner-navigation.collapse {
     display: block;
   }

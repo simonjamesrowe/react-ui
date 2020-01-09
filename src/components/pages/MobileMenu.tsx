@@ -41,7 +41,7 @@ const MobileMenu = () => {
   };
 
   return (
-    <header className="header header-center">
+    <header className="header header-center header-small">
       <div className="container-fluid">
         <div className={classes.root}>
           <IconButton

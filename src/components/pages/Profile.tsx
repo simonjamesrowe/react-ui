@@ -103,8 +103,7 @@ const Profile = () => {
             <div className="m-title c-align">
               <h2>Simon Rowe</h2>
               <h6>
-                Agile Software Engineer – Utilising Java, Spring, Angular &amp;
-                AWS to architect and deliver enterprise software solutions{" "}
+              Passionate about building cloud native apps utilizing Spring, Kafka and Kubernetes. 
               </h6>
             </div>
           </div>
