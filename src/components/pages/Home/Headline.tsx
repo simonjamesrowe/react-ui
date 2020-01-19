@@ -1,5 +1,5 @@
 import React from "react";
-import background from "../../assets/videos/background.mp4";
+import background from "../../../assets/videos/background.mp4";
 
 const Headline = () => {
   return (

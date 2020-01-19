@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import { MobileMenu } from "./components/pages/MobileMenu";
-import { Menu } from "./components/pages/Menu";
-import { Headline } from "./components/pages/Headline";
-import { Profile } from "./components/pages/Profile";
-import { Resume } from "./components/pages/Resume";
+import { MobileMenu } from "./components/common/MobileMenu";
+import Menu from "./components/common/Menu";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { Home } from "./components/pages/Home/index";
+import { Blog } from "./components/pages/Blog/index";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const App = () => {
   const mobile = useMediaQuery("(max-width:991px)");
@@ -15,7 +15,7 @@ const App = () => {
     const header = document.getElementById("header") as HTMLElement;
     if (header) {
       let darkMenu = true;
-      if ((window.scrollY as number) > 5) {
+      if (window.scrollY > 5) {
         darkMenu = false;
       }
 
@@ -45,20 +45,26 @@ const App = () => {
 
   return (
     <>
-      {loading && (
-        <div className="page-loader">
-          <div className="cssload-container">
-            <div className="cssload-whirlpool">&nbsp;</div>
+      <Router>
+        {loading && (
+          <div className="page-loader">
+            <div className="cssload-container">
+              <div className="cssload-whirlpool">&nbsp;</div>
+            </div>
           </div>
-        </div>
-      )}
-      {mobile && <MobileMenu />}
-      {!mobile && <Menu />}
-      <div className="wrapper">
-        {!mobile && <Headline />}
-        <Profile />
-        <Resume />
-      </div>
+        )}
+        {mobile && <MobileMenu />}
+        {!mobile && <Menu />}
+        <Switch>
+          <Route path="/" exact={true}>
+            <Home mobile={mobile} />
+          </Route>
+          <Route path="/blog" component={Blog} />
+          <Route>
+            <Home mobile={mobile} />
+          </Route>
+        </Switch>
+      </Router>
     </>
   );
 };

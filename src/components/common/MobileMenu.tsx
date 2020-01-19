@@ -61,7 +61,7 @@ const MobileMenu = () => {
           >
             <div role="presentation">
               <List>
-                <Link href="#">
+                <Link href="/#">
                   <ListItem button key="home" onClick={handleDrawerClose}>
                     <ListItemIcon>
                       <HomeIcon />
@@ -70,7 +70,7 @@ const MobileMenu = () => {
                   </ListItem>
                 </Link>
                 <Divider />
-                <Link href="#resume">
+                <Link href="/#resume">
                   <ListItem button key="resume" onClick={handleDrawerClose}>
                     <ListItemIcon>
                       <VerticalSplitIcon />
