@@ -2,7 +2,7 @@ import React from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 
 const Menu: React.SFC<RouteComponentProps> = props => {
-  let headerClass = "header header-center header-mobile";
+  let headerClass = "header header-center header-light";
   if (props.location.pathname === "/blog") {
     headerClass = "header header-center header-small";
   }
