@@ -2688,9 +2688,9 @@ header.header-small .inner-nav > ul > app-login > li.sub-menu-open > a {
 }
 
 @media (max-width: 991px) {
-  .module:nth-child(2) {
+  .module {
     background-color: #fff;
-    padding: 120px 0 100px;
+    padding: 100px 0 100px;
   }
 }
 
