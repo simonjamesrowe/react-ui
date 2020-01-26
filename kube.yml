@@ -61,5 +61,7 @@ spec:
   tls:
     - hosts:
         - www.simonjamesrowe.com
-        - simonjamesrowe.com
       secretName: wildcard-cert
+    - hosts:
+        - simonjamesrowe.com
+      secretName: website-cert
