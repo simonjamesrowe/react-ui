@@ -51,7 +51,15 @@ spec:
             backend:
               serviceName: react-ui
               servicePort: 80
+    - host: simonjamesrowe.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: react-ui
+              servicePort: 80
   tls:
     - hosts:
         - www.simonjamesrowe.com
+        - simonjamesrowe.com
       secretName: wildcard-cert
