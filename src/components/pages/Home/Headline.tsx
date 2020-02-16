@@ -1,5 +1,4 @@
 import React from "react";
-import background from "../../../assets/videos/background.mp4";
 import { IProfile } from "../../../services/ProfileService";
 import { CSSProperties } from "@material-ui/core/styles/withStyles";
 

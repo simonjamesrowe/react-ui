@@ -7,6 +7,7 @@ import { Home } from "./components/pages/Home/index";
 import { Blog } from "./components/pages/Blog/index";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { IProfile, ProfileService } from "./services/ProfileService";
+import { RouteComponentProps, withRouter } from "react-router-dom";
 
 const profileService = new ProfileService();
 
@@ -17,6 +18,9 @@ const App = () => {
 
   const onScroll = (event: any) => {
     const header = document.getElementById("header") as HTMLElement;
+    if (window.location.pathname === "/blog") {
+      return;
+    }
     if (header) {
       let darkMenu = true;
       if (window.scrollY > 5) {
@@ -71,6 +75,44 @@ const App = () => {
             </Route>
           </Switch>
         )}
+        <footer className="footer">
+          <div className="container">
+            <div className="row align-items-center">
+              <div className="col-md-6">
+                <span className="copyright">© 2020 simonjamesrowe.com</span>
+              </div>
+              <div className="col-md-6">
+                <ul className="social-icons">
+                  <li>
+                    <a href="#">
+                      <i className="fa fa-facebook-square"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i className="fa fa-google-plus-square"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i className="fa fa-twitter-square"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i className="fa fa-behance-square"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i className="fa fa-pinterest-square"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
       </Router>
     </>
   );
