@@ -6,10 +6,14 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { Home } from "./components/pages/Home/index";
 import { Blog } from "./components/pages/Blog/index";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { IProfile, ProfileService } from "./services/ProfileService";
+
+const profileService = new ProfileService();
 
 const App = () => {
   const mobile = useMediaQuery("(max-width:991px)");
   const [loading, setLoading] = React.useState<boolean>(true);
+  const [profile, setProfile] = React.useState<IProfile>();
 
   const onScroll = (event: any) => {
     const header = document.getElementById("header") as HTMLElement;
@@ -36,8 +40,9 @@ const App = () => {
   };
 
   React.useEffect(() => {
-    setTimeout(() => setLoading(false), 2000);
+    setTimeout(() => setLoading(false), 1000);
     window.addEventListener("scroll", onScroll);
+    profileService.getProfile().then(data => setProfile(data));
     return () => {
       window.removeEventListener("scroll", onScroll);
     };
@@ -46,7 +51,7 @@ const App = () => {
   return (
     <>
       <Router>
-        {loading && (
+        {(loading || !profile) && (
           <div className="page-loader">
             <div className="cssload-container">
               <div className="cssload-whirlpool">&nbsp;</div>
@@ -55,15 +60,17 @@ const App = () => {
         )}
         {mobile && <MobileMenu />}
         {!mobile && <Menu />}
-        <Switch>
-          <Route path="/" exact={true}>
-            <Home mobile={mobile} />
-          </Route>
-          <Route path="/blog" component={Blog} />
-          <Route>
-            <Home mobile={mobile} />
-          </Route>
-        </Switch>
+        {profile && (
+          <Switch>
+            <Route path="/" exact={true}>
+              <Home mobile={mobile} profile={profile} />
+            </Route>
+            <Route path="/blog" component={Blog} />
+            <Route>
+              <Home mobile={mobile} profile={profile} />
+            </Route>
+          </Switch>
+        )}
       </Router>
     </>
   );
