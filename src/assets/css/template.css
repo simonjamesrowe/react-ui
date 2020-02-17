@@ -3630,6 +3630,13 @@ a[rel~="gallery"]:hover {
   margin: 0 -4px;
 }
 
+@media (max-width: 767px) {
+  .widget_recent_entries_custom,
+  .widget_tag_cloud {
+    display: none;
+  }
+}
+
 .widget_recent_works > ul:before,
 .widget_recent_works > ul:after {
   content: " ";
