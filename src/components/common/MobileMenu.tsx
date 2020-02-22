@@ -63,7 +63,7 @@ const MobileMenu = () => {
           >
             <div role="presentation">
               <List>
-                <NavLink to="/#">
+                <NavLink to="/#profile">
                   <ListItem button key="home" onClick={handleDrawerClose}>
                     <ListItemIcon>
                       <HomeIcon />
