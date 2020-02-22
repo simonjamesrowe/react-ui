@@ -5,7 +5,7 @@ import { TagService } from "../../../services/TagService";
 import Moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-
+import { Link } from "react-router-dom";
 const blogService = new BlogService();
 const tagService = new TagService();
 
@@ -41,21 +41,23 @@ const Blog = () => {
                     <h6>Recent Posts</h6>
                   </div>
                   <ul>
-                    {blogs.map((blog, key) => (
-                      <li className="clearfix" key={key}>
-                        <div className="wi">
-                          <a href="#">
-                            <img src={blog.imageUrl} alt="" />
-                          </a>
-                        </div>
-                        <div className="wb">
-                          <a href="#">{blog.title}</a>
-                          <span className="post-date">
-                            {Moment(blog.createdAt).format(" MMMM DD, YYYY")}
-                          </span>
-                        </div>
-                      </li>
-                    ))}
+                    {blogs
+                      .filter((blog, key) => key < 5)
+                      .map((blog, key: number) => (
+                        <li className="clearfix" key={key}>
+                          <div className="wi">
+                            <Link to={`/blog/${blog.id}`}>
+                              <img src={blog.imageUrl} alt="" />
+                            </Link>
+                          </div>
+                          <div className="wb">
+                            <Link to={`/blog/${blog.id}`}>{blog.title}</Link>
+                            <span className="post-date">
+                              {Moment(blog.createdAt).format(" MMMM DD, YYYY")}
+                            </span>
+                          </div>
+                        </li>
+                      ))}
                   </ul>
                 </aside>
                 <aside className="widget widget_tag_cloud">

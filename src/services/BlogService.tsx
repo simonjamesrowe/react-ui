@@ -18,10 +18,13 @@ export interface ITag {
 }
 
 class BlogService {
-  public getAll = async () => {
-    const response = await axios.get<IBlog[]>(
-      "https://api.simonjamesrowe.com/blogs?published=true&_sort=createdAt:desc"
-    );
+  public getAll = async (limit?: number) => {
+    let queryString =
+      "https://api.simonjamesrowe.com/blogs?published=true&_sort=createdAt:desc";
+    if (limit) {
+      queryString += `&_limit=${limit}`;
+    }
+    const response = await axios.get<IBlog[]>(queryString);
     const blogs = response.data;
     blogs.forEach(blog => {
       if (blog.image.length > 0) {
