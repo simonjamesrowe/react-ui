@@ -10,8 +10,10 @@ import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
+import BookmarksIcon from "@material-ui/icons/Bookmarks";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
+import { NavHashLink as NavLink } from "react-router-hash-link";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -61,23 +63,32 @@ const MobileMenu = () => {
           >
             <div role="presentation">
               <List>
-                <Link href="#">
+                <NavLink to="/#">
                   <ListItem button key="home" onClick={handleDrawerClose}>
                     <ListItemIcon>
                       <HomeIcon />
                     </ListItemIcon>
                     <ListItemText primary="Profile" />
                   </ListItem>
-                </Link>
+                </NavLink>
                 <Divider />
-                <Link href="#resume">
+                <NavLink to="/#resume">
                   <ListItem button key="resume" onClick={handleDrawerClose}>
                     <ListItemIcon>
                       <VerticalSplitIcon />
                     </ListItemIcon>
                     <ListItemText primary="Resume" />
                   </ListItem>
-                </Link>
+                </NavLink>
+                <Divider />
+                <NavLink to="/blog">
+                  <ListItem button key="blog" onClick={handleDrawerClose}>
+                    <ListItemIcon>
+                      <BookmarksIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Blog" />
+                  </ListItem>
+                </NavLink>
                 <Divider />
                 <ListItem button key="resume" className={classes.root}>
                   <Link

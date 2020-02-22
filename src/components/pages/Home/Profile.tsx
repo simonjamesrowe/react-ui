@@ -1,5 +1,5 @@
 import React from "react";
-import simon from "../../assets/images/simon.jpg";
+import simon from "../../../assets/images/simon.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import Rating from "react-rating";
@@ -103,7 +103,8 @@ const Profile = () => {
             <div className="m-title c-align">
               <h2>Simon Rowe</h2>
               <h6>
-              Passionate about building cloud native apps utilizing Spring, Kafka and Kubernetes. 
+                Passionate about building cloud native apps utilizing Spring,
+                Kafka and Kubernetes.
               </h6>
             </div>
           </div>
@@ -119,22 +120,22 @@ const Profile = () => {
             <p>
               I am driven to achieve real business value in the shortest time
               possible through the power of scalable software, utilizing open
-              source technologies, mainly surrounding spring, kubernetes and kafka
-              ecosystems.
+              source technologies, mainly surrounding spring, kubernetes and
+              kafka ecosystems.
             </p>
             <p>
-              With years of experience in developing, architecting and running jvm
-              based web applications and micro services, my professional experience has spanned
-              many industries from investment banking to media, across multiple
-              countries. My mantra stays the same – keep it simple! Nobody
-              benefits from complicated out of hours releases of monoliths,
-              inherent with risks.
+              With years of experience in developing, architecting and running
+              jvm based web applications and micro services, my professional
+              experience has spanned many industries from investment banking to
+              media, across multiple countries. My mantra stays the same – keep
+              it simple! Nobody benefits from complicated out of hours releases
+              of monoliths, inherent with risks.
             </p>
             <p>
-              This is where my skill and passion for Java, Spring, Kafka, Kubernetes,
-              Cucumber, Git and AWS becomes one of my greatest assets. Whether
-              it be cultivating new services to deployment pipelines with
-              zero outages, to architecture of scalable
+              This is where my skill and passion for Java, Spring, Kafka,
+              Kubernetes, Cucumber, Git and AWS becomes one of my greatest
+              assets. Whether it be cultivating new services to deployment
+              pipelines with zero outages, to architecture of scalable
               serverless applications on AWS, I have a proven track record of
               delivering business value whilst mitigating risk.
             </p>

@@ -2688,9 +2688,9 @@ header.header-small .inner-nav > ul > app-login > li.sub-menu-open > a {
 }
 
 @media (max-width: 991px) {
-  .module:nth-child(2) {
+  .module {
     background-color: #fff;
-    padding: 120px 0 100px;
+    padding: 100px 0 100px;
   }
 }
 
@@ -3630,6 +3630,13 @@ a[rel~="gallery"]:hover {
   margin: 0 -4px;
 }
 
+@media (max-width: 767px) {
+  .widget_recent_entries_custom,
+  .widget_tag_cloud {
+    display: none;
+  }
+}
+
 .widget_recent_works > ul:before,
 .widget_recent_works > ul:after {
   content: " ";
@@ -3790,10 +3797,6 @@ a[rel~="gallery"]:hover {
 */
 
 .footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
   background: #000;
   padding: 10px 0;
 }
