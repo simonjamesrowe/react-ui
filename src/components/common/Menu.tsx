@@ -1,9 +1,10 @@
 import React from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 
 const Menu: React.SFC<RouteComponentProps> = props => {
   let headerClass = "header header-center header-light";
-  if (props.location.pathname === "/blog") {
+  if (props.location.pathname.startsWith("/blog")) {
     headerClass = "header header-center header-small";
   }
   return (
@@ -13,19 +14,24 @@ const Menu: React.SFC<RouteComponentProps> = props => {
           <div className="inner-nav onepage-nav" id="navbarContent">
             <ul>
               <li>
-                <a href="/#home">
+                <Link to="/#home">
                   <span className="menu-item-span">Home</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/#profile">
+                <Link to="/#profile">
                   <span className="menu-item-span">Profile</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/#resume">
+                <Link to="/#resume">
                   <span className="menu-item-span">Resume</span>
-                </a>
+                </Link>
+              </li>
+              <li>
+                <Link to="/blog">
+                  <span className="menu-item-span">Blog</span>
+                </Link>
               </li>
             </ul>
           </div>

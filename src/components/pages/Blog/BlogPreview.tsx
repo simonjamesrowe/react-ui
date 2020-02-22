@@ -2,6 +2,7 @@ import React from "react";
 import { IBlog } from "../../../services/BlogService";
 import Moment from "moment";
 import { CSSProperties } from "@material-ui/core/styles/withStyles";
+import { Link } from "react-router-dom";
 interface IBlogPreviewProps {
   blog: IBlog;
   i: number;
@@ -23,19 +24,19 @@ const BlogPreview = ({ blog, i }: IBlogPreviewProps) => {
       <div className="col-md-6 post-item">
         <article className="post">
           <div className="post-preview">
-            <a href="#">
+            <Link to={`/blog/${blog.id}`}>
               <img src={blog.imageUrl} alt="" />
-            </a>
+            </Link>
             {blog.tags.length > 0 && (
               <div className="post-category" style={tagStyle}>
-                <a href="#">{blog.tags[0].name}</a>
+                <Link to={`/blog/${blog.id}`}>{blog.tags[0].name}</Link>
               </div>
             )}
           </div>
           <div className="post-wrapper">
             <div className="post-header">
               <h2 className="post-title">
-                <a href="blog-single.html">{blog.title}</a>
+                <Link to={`/blog/${blog.id}`}>{blog.title}</Link>
               </h2>
             </div>
             <div className="post-content">
@@ -43,7 +44,7 @@ const BlogPreview = ({ blog, i }: IBlogPreviewProps) => {
             </div>
           </div>
           <div className="post-info">
-            <a href="#">Simon Rowe</a> on
+            Simon Rowe on
             {Moment(blog.createdAt).format(" MMMM DD, YYYY")}
           </div>
         </article>
