@@ -8,7 +8,7 @@ export interface IImage {
 export interface IProfile {
   name: string;
   title: string;
-  backgroundImage: IImage[];
+  backgroundImage: IImage;
 }
 
 class ProfileService {
@@ -17,10 +17,6 @@ class ProfileService {
       "https://api.simonjamesrowe.com/profiles"
     );
     const profile = response.data[0];
-    if (profile.backgroundImage.length > 0) {
-      profile.backgroundImage[0].url =
-        "https://api.simonjamesrowe.com" + profile.backgroundImage[0].url;
-    }
     return profile;
   };
 }
