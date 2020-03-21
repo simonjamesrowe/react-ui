@@ -1,7 +1,7 @@
 import axios from "axios";
 import { IImage } from "./ProfileService";
 
-interface IJob {
+export interface IJob {
   _id: string;
   startDate: Date;
   endDate?: Date;
@@ -9,6 +9,7 @@ interface IJob {
   companyUrl: string;
   shortDescription: string;
   companyImage: IImage;
+  title: string;
 }
 
 class JobService {

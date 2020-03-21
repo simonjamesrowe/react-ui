@@ -13,7 +13,7 @@ const Home = ({ mobile, profile }: IHomeProps) => {
   return (
     <>
       {!mobile && <Headline profile={profile} />}
-      <Profile />
+      <Profile profile={profile} />
       <Resume />
     </>
   );

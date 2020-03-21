@@ -3,7 +3,6 @@ import { IBlog, BlogService } from "../../../services/BlogService";
 import Moment from "moment";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
-import { Image } from "react-bootstrap";
 import { CmsImage } from "../../common/CmsImage";
 
 const blogService = new BlogService();
