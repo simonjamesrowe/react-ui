@@ -6,6 +6,7 @@ import Moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { CmsImage } from "../../common/CmsImage";
 const blogService = new BlogService();
 const tagService = new TagService();
 
@@ -47,7 +48,7 @@ const Blog = () => {
                         <li className="clearfix" key={key}>
                           <div className="wi">
                             <Link to={`/blog/${blog.id}`}>
-                              <img src={blog.imageUrl} alt="" />
+                              <CmsImage src={blog.image} />
                             </Link>
                           </div>
                           <div className="wb">

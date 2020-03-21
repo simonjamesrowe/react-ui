@@ -8,7 +8,8 @@ interface IHeadlineProps {
 
 const Headline = ({ profile }: IHeadlineProps) => {
   const style: CSSProperties = {
-    backgroundImage: "url(" + profile.backgroundImage[0].url + ")"
+    backgroundImage:
+      "url(https://api.simonjamesrowe.com" + profile.backgroundImage.url + ")"
   };
   return (
     <>

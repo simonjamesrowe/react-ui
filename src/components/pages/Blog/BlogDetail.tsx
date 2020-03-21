@@ -3,6 +3,7 @@ import { IBlog, BlogService } from "../../../services/BlogService";
 import Moment from "moment";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
+import { CmsImage } from "../../common/CmsImage";
 
 const blogService = new BlogService();
 
@@ -25,7 +26,7 @@ const BlogDetail: React.SFC<RouteComponentProps<{ id: string }>> = props => {
               <div className="col-lg-12">
                 <article className="post">
                   <div className="post-preview">
-                    <img src={blog.imageUrl} alt="" />
+                    <CmsImage src={blog.image} />
                   </div>
                   <div className="post-wrapper">
                     <div className="post-header">

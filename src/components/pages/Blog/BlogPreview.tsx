@@ -3,6 +3,7 @@ import { IBlog } from "../../../services/BlogService";
 import Moment from "moment";
 import { CSSProperties } from "@material-ui/core/styles/withStyles";
 import { Link } from "react-router-dom";
+import { CmsImage } from "../../common/CmsImage";
 interface IBlogPreviewProps {
   blog: IBlog;
   i: number;
@@ -25,7 +26,7 @@ const BlogPreview = ({ blog, i }: IBlogPreviewProps) => {
         <article className="post">
           <div className="post-preview">
             <Link to={`/blog/${blog.id}`}>
-              <img src={blog.imageUrl} alt="" />
+              <CmsImage src={blog.image} />
             </Link>
             {blog.tags.length > 0 && (
               <div className="post-category" style={tagStyle}>

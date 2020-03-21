@@ -1,10 +1,12 @@
 import React from "react";
-import simon from "../../../assets/images/simon.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import Rating from "react-rating";
 import { Popover, OverlayTrigger, ProgressBar } from "react-bootstrap";
 import { faHandPointRight, faStar } from "@fortawesome/free-solid-svg-icons";
+import { IProfile } from "../../../services/ProfileService";
+import { CmsImage } from "../../common/CmsImage";
+import ReactMarkdown from "react-markdown";
 
 class Skill {
   public variant: "success" | "danger" | "warning" | "info" = "info";
@@ -23,7 +25,11 @@ class Skill {
   }
 }
 
-const Profile = () => {
+interface IProfileProperties {
+  profile: IProfile;
+}
+
+const Profile = ({ profile }: IProfileProperties) => {
   const [skills] = React.useState([
     new Skill("Java/Kotlin", 92, [
       new Skill("Java 8", 9),
@@ -101,44 +107,20 @@ const Profile = () => {
         <div className="row">
           <div className="col-md-12">
             <div className="m-title c-align">
-              <h2>Simon Rowe</h2>
-              <h6>
-                Passionate about building cloud native apps utilizing Spring,
-                Kafka and Kubernetes.
-              </h6>
+              <h2>{profile.name}</h2>
+              <h6>{profile.headline}</h6>
             </div>
           </div>
         </div>
         <div className="row">
           <div className="col-sm-12 col-md-4">
             <p>
-              <img src={simon} alt="" />
+              <CmsImage src={profile.profileImage} />
             </p>
           </div>
           <div className="col-sm-12 col-md-4 ">
             <h5>Profesional Profile</h5>
-            <p>
-              I am driven to achieve real business value in the shortest time
-              possible through the power of scalable software, utilizing open
-              source technologies, mainly surrounding spring, kubernetes and
-              kafka ecosystems.
-            </p>
-            <p>
-              With years of experience in developing, architecting and running
-              jvm based web applications and micro services, my professional
-              experience has spanned many industries from investment banking to
-              media, across multiple countries. My mantra stays the same – keep
-              it simple! Nobody benefits from complicated out of hours releases
-              of monoliths, inherent with risks.
-            </p>
-            <p>
-              This is where my skill and passion for Java, Spring, Kafka,
-              Kubernetes, Cucumber, Git and AWS becomes one of my greatest
-              assets. Whether it be cultivating new services to deployment
-              pipelines with zero outages, to architecture of scalable
-              serverless applications on AWS, I have a proven track record of
-              delivering business value whilst mitigating risk.
-            </p>
+            <ReactMarkdown source={profile.description} />
             <div className="profile-widget">
               <h5>Social Profiles</h5>
               <ul className="widget-social">
