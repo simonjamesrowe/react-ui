@@ -7,8 +7,7 @@ export interface IBlog {
   shortDescription: string;
   content: string;
   published: boolean;
-  image: IImage[];
-  imageUrl?: string;
+  image: IImage;
   createdAt: Date;
   tags: ITag[];
 }
@@ -26,11 +25,7 @@ class BlogService {
     }
     const response = await axios.get<IBlog[]>(queryString);
     const blogs = response.data;
-    blogs.forEach(blog => {
-      if (blog.image.length > 0) {
-        blog.imageUrl = "https://api.simonjamesrowe.com" + blog.image[0].url;
-      }
-    });
+
     return blogs;
   };
 
@@ -39,9 +34,6 @@ class BlogService {
       `https://api.simonjamesrowe.com/blogs/${id}`
     );
     const blog = response.data;
-    if (blog.image.length > 0) {
-      blog.imageUrl = "https://api.simonjamesrowe.com" + blog.image[0].url;
-    }
     return blog;
   };
 }
