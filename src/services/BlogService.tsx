@@ -1,5 +1,6 @@
 import axios from "axios";
-import { IImage } from "./ProfileService";
+import {IImage} from "./ProfileService";
+import {properties} from "./Environment";
 
 export interface IBlog {
   id: string;
@@ -19,7 +20,7 @@ export interface ITag {
 class BlogService {
   public getAll = async (limit?: number) => {
     let queryString =
-      "https://api.simonjamesrowe.com/blogs?published=true&_sort=createdAt:desc";
+      `${properties.apiUrl}/blogs?published=true&_sort=createdAt:desc`;
     if (limit) {
       queryString += `&_limit=${limit}`;
     }
@@ -31,7 +32,7 @@ class BlogService {
 
   public get = async (id: string) => {
     const response = await axios.get<IBlog>(
-      `https://api.simonjamesrowe.com/blogs/${id}`
+      `${properties.apiUrl}/blogs/${id}`
     );
     const blog = response.data;
     return blog;

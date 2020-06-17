@@ -1,5 +1,6 @@
 import axios from "axios";
-import { IImage } from "./ProfileService";
+import {IImage} from "./ProfileService";
+import {properties} from "./Environment";
 
 export interface IJob {
   _id: string;
@@ -15,7 +16,7 @@ export interface IJob {
 class JobService {
   public getAll = async () => {
     const response = await axios.get<IJob[]>(
-      "https://api.simonjamesrowe.com/jobs?_sort=startDate:desc"
+      `${properties.apiUrl}/jobs?_sort=startDate:desc`
     );
     const jobs = response.data;
     return jobs;

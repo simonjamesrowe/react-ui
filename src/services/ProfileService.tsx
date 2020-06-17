@@ -1,4 +1,5 @@
 import axios from "axios";
+import {properties} from "./Environment";
 
 export interface IImage {
   url: string;
@@ -17,7 +18,7 @@ export interface IProfile {
 class ProfileService {
   public getProfile = async () => {
     const response = await axios.get<IProfile[]>(
-      "https://api.simonjamesrowe.com/profiles"
+      `${properties.apiUrl}/profiles`
     );
     const profile = response.data[0];
     return profile;
