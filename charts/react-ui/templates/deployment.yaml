@@ -44,7 +44,7 @@ spec:
         - containerPort: {{ .Values.service.internalPort }}
         volumeMounts:
         - name: environment-volume
-          mountPath: /app/environment/
+          mountPath: /app/static/environment/
         livenessProbe:
           httpGet:
             path: {{ .Values.probePath }}
