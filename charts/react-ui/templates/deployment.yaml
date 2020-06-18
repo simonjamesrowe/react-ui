@@ -25,10 +25,6 @@ spec:
 {{ toYaml .Values.podAnnotations | indent 8 }}
 {{- end }}
     spec:
-      volumes:
-      - name: environment-volume
-        configMap:
-          name: {{ template "fullname" . }}-config
       containers:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -42,9 +38,6 @@ spec:
 {{ toYaml .Values.envFrom | indent 10 }}
         ports:
         - containerPort: {{ .Values.service.internalPort }}
-        volumeMounts:
-        - name: environment-volume
-          mountPath: /app/static/environment/
         livenessProbe:
           httpGet:
             path: {{ .Values.probePath }}

@@ -1,11 +1,6 @@
-FROM mhart/alpine-node AS builder
+FROM node:14
 WORKDIR /app
 COPY . .
+ENV NODE_ENV=production
 RUN yarn install
-RUN yarn run build
-
-FROM mhart/alpine-node
-RUN yarn global add serve
-WORKDIR /app
-COPY --from=builder /app/build .
-CMD ["serve", "-p", "80", "-s", "."]
+CMD ["yarn", "start"]
