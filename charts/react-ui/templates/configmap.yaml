@@ -4,4 +4,4 @@ metadata:
   name: {{ template "fullname" . }}-config
 data:
   config.js: >
-    window.API_URL="{{ .Values.apiUrl}";
+    window.API_URL="{{ .Values.apiUrl }}";
