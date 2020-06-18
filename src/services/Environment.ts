@@ -1,10 +1,12 @@
-interface AppProps {
-    apiUrl: String
+interface IAppProps {
+    apiUrl: string
 }
 
-const properties: AppProps = {
-    apiUrl: process.env.API_URL || "https://api-jx-staging.simonjamesrowe.com"
+
+const properties: IAppProps = {
+    // @ts-ignore
+    apiUrl: window.API_URL || "https://api-jx-staging.simonjamesrowe.com"
 }
 
 // @ts-ignore
-export {AppProps, properties};
+export {properties};

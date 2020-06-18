@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "fullname" . }}-config
+data:
+  config.js: >
+    window.API_URL="{{ .Values.apiUrl}";

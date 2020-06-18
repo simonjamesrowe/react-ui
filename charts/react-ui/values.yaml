@@ -7,6 +7,8 @@ image:
   tag: dev
   pullPolicy: IfNotPresent
 
+
+apiUrl: https://api-jx-staging.simonjamesrowe.com
 # define environment variables here as a map of key: value
 env:
 
