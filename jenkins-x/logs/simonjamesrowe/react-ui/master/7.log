@@ -1,0 +1,129 @@
+
+Showing logs for build [32msimonjamesrowe-react-ui-master-pnt6w-7[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-bxqqc[0m
+{"level":"info","ts":1592602470.9803863,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
+{"level":"info","ts":1592602470.9809299,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32msimonjamesrowe-react-ui-master-pnt6w-7[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-dmwmx[0m
+{"level":"info","ts":1592602471.9528759,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1592602471.9621673,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32msimonjamesrowe-react-ui-master-pnt6w-7[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32msimonjamesrowe-react-ui-master-pnt6w-7[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-simonjamesrowe-react-ui-master-pnt6w-n6vkh[0m
+{"level":"info","ts":1592602477.0171506,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
+{"level":"info","ts":1592602480.7201512,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/simonjamesrowe/react-ui.git @ v0.0.7 in path /workspace/source"}
+
+Showing logs for build [32msimonjamesrowe-react-ui-master-pnt6w-7[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:6f366009532353d2ec0b73d94b010846bddde5a1
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32msimonjamesrowe-react-ui-master-pnt6w-7[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
+
+Showing logs for build [32msimonjamesrowe-react-ui-master-pnt6w-7[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0000] Using dockerignore file: /workspace/source/.dockerignore 
+[36mINFO[0m[0000] Retrieving image manifest node:13            
+[36mINFO[0m[0002] Retrieving image manifest node:13            
+[36mINFO[0m[0003] Built cross stage deps: map[]                
+[36mINFO[0m[0003] Retrieving image manifest node:13            
+[36mINFO[0m[0004] Retrieving image manifest node:13            
+[36mINFO[0m[0005] Executing 0 build triggers                   
+[36mINFO[0m[0005] Checking for cached layer harbor.simonjamesrowe.com/todo/cache:7b62ed6308d5a28e2f29e7ac885cb374ddd9edb5753ca8c60a07d566ee27c127... 
+[36mINFO[0m[0006] No cached layer found for cmd COPY . .       
+[36mINFO[0m[0006] Unpacking ****fs as cmd COPY . . requires it. 
+[36mINFO[0m[0037] WORKDIR /app                                 
+[36mINFO[0m[0037] cmd: workdir                                 
+[36mINFO[0m[0037] Changed working directory to /app            
+[36mINFO[0m[0037] Creating directory /app                      
+[36mINFO[0m[0037] Resolving 1 paths                            
+[36mINFO[0m[0037] Taking snapshot of files...                  
+[36mINFO[0m[0037] COPY . .                                     
+[36mINFO[0m[0037] Resolving 187 paths                          
+[36mINFO[0m[0037] Taking snapshot of files...                  
+[36mINFO[0m[0038] ENV NODE_ENV=production                      
+[36mINFO[0m[0038] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0038] RUN yarn install                             
+[36mINFO[0m[0038] Taking snapshot of full filesystem...        
+[36mINFO[0m[0038] Pushing layer harbor.simonjamesrowe.com/todo/cache:7b62ed6308d5a28e2f29e7ac885cb374ddd9edb5753ca8c60a07d566ee27c127 to cache now 
+[36mINFO[0m[0042] Resolving 40895 paths                        
+[36mINFO[0m[0048] cmd: /bin/sh                                 
+[36mINFO[0m[0048] args: [-c yarn install]                      
+[36mINFO[0m[0048] Running: [/bin/sh -c yarn install]           
+yarn install v1.22.4
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+info fsevents@2.1.2: The platform "linux" is incompatible with this module.
+info "fsevents@2.1.2" is an optional dependency and failed compatibility check. Excluding it from installation.
+info fsevents@1.2.13: The platform "linux" is incompatible with this module.
+info "fsevents@1.2.13" is an optional dependency and failed compatibility check. Excluding it from installation.
+info fsevents@2.1.3: The platform "linux" is incompatible with this module.
+info "fsevents@2.1.3" is an optional dependency and failed compatibility check. Excluding it from installation.
+[3/4] Linking dependencies...
+warning " > bootstrap@4.5.0" has unmet peer dependency "jquery@1.9.1 - 3".
+warning " > bootstrap@4.5.0" has unmet peer dependency "popper.js@^1.16.0".
+[4/4] Building fresh packages...
+Done in 125.61s.
+[36mINFO[0m[0174] Taking snapshot of full filesystem...        
+[36mINFO[0m[0176] Resolving 177661 paths                       
+[36mINFO[0m[0255] Pushing layer harbor.simonjamesrowe.com/todo/cache:5d5962157b2d8542de4169dd5fbb28a0b28b2bf79c5a0a5ad2aaab6289385aae to cache now 
+[36mINFO[0m[0255] RUN yarn run build                           
+[36mINFO[0m[0255] cmd: /bin/sh                                 
+[36mINFO[0m[0255] args: [-c yarn run build]                    
+[36mINFO[0m[0255] Running: [/bin/sh -c yarn run build]         
+yarn run v1.22.4
+$ react-scripts build
+Creating an optimized production build...
+Compiled with warnings.
+
+./src/components/pages/Blog/BlogDetail.tsx
+  Line 14:6:  React Hook React.useEffect has a missing dependency: 'props.match.params.id'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+./src/components/pages/Home/Resume.tsx
+  Line 29:39:  Using target="_blank" without rel="noopener noreferrer" is a security risk: see https://mathiasbynens.github.io/rel-noopener  react/jsx-no-target-blank
+
+./src/components/pages/Blog/index.tsx
+  Line 70:23:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+./src/App.tsx
+  Line 91:21:   The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+  Line 96:21:   The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+  Line 101:21:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+  Line 106:21:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+  Line 111:21:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+File sizes after gzip:
+
+  154.75 KB  build/static/js/2.34501461.chunk.js
+  22.47 KB   build/static/css/2.af3c1da9.chunk.css
+  10.22 KB   build/static/css/main.d6af343c.chunk.css
+  4.47 KB    build/static/js/main.fc924748.chunk.js
+  772 B      build/static/js/runtime-main.89ce72de.js
+
+The project was built assuming it is hosted at /.
+You can control this with the homepage field in your package.json.
+
+The build folder is ready to be deployed.
+You may serve it with a static server:
+
+  yarn global add serve
+  serve -s build
+
+Find out more about deployment here:
+
+  bit.ly/CRA-deploy
+
+Done in 54.45s.
+[36mINFO[0m[0310] Taking snapshot of full filesystem...        
+[36mINFO[0m[0311] Resolving 178313 paths                       
+[36mINFO[0m[0386] Pushing layer harbor.simonjamesrowe.com/todo/cache:c23aa65ef91fa9da6864aa1e664517bb7c1f4e1514e2cb283b2831cd753fccc3 to cache now 
+[36mINFO[0m[0386] ENV PORT=8080                                
+[36mINFO[0m[0386] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0386] CMD ["node", "server.js"]                    
+[36mINFO[0m[0386] No files changed in this command, skipping snapshotting. 
+[33mWARN[0m[0387] error uploading layer to cache: failed to push to destination harbor.simonjamesrowe.com/todo/cache:7b62ed6308d5a28e2f29e7ac885cb374ddd9edb5753ca8c60a07d566ee27c127: HEAD https://harbor.simonjamesrowe.com/v2/todo/cache/blobs/sha256:06cfef54efb829b36cf53f3620d8c5c586a9bcdf29fb114fad76da0ba8ba5501: unsupported status code 401 
+error pushing image: failed to push to destination harbor.simonjamesrowe.com/simonjamesrowe/react-ui:0.0.7: POST https://harbor.simonjamesrowe.com/v2/simonjamesrowe/react-ui/blobs/uploads/: UNKNOWN: unknown error; map[DriverName:filesystem Enclosed:map[Err:28 Op:mkdir Path:/storage/docker/registry/v2/repositories/simonjamesrowe/react-ui/_uploads/58d6da66-317d-4b5f-b7b9-1585ff6669e0]]
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-build-container-build'. The execution of the pipeline has stopped.[0m
