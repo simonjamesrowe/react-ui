@@ -3,11 +3,11 @@ interface IAppProps {
 }
 
 
+
 const properties: IAppProps = {
     // @ts-ignore
-    apiUrl: process.env.API_URL || "https://api-jx-staging.simonjamesrowe.com"
+    apiUrl: window.API_URL || "https://api-jx-staging.simonjamesrowe.com"
 }
-console.log("apiUrl is", process.env)
 
 // @ts-ignore
 export {properties};

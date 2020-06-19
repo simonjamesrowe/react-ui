@@ -1,6 +1,8 @@
-FROM node:14
+FROM node:13
 WORKDIR /app
 COPY . .
 ENV NODE_ENV=production
 RUN yarn install
-CMD ["yarn", "start"]
+RUN yarn run build
+ENV PORT=8080
+CMD ["node", "server.js"]

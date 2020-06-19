@@ -4,3 +4,5 @@ NOTICE
 LICENSE
 README.md
 jenkins-x.yml
+node_modules/
+build/

@@ -9,12 +9,9 @@
     "@fortawesome/react-fontawesome": "^0.1.11",
     "@material-ui/core": "^4.10.2",
     "@material-ui/icons": "^4.9.1",
-    "@types/jest": "24.0.22",
-    "@types/node": "12.12.6",
-    "@types/react": "^16.9.38",
-    "@types/react-dom": "^16.9.8",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
+    "express": "^4.17.1",
     "moment": "^2.26.0",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
@@ -26,8 +23,7 @@
     "react-router-hash-link": "^1.2.2",
     "react-scripts": "^3.4.1",
     "redux": "^4.0.4",
-    "redux-thunk": "^2.3.0",
-    "typescript": "3.7.2"
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -51,12 +47,17 @@
     ]
   },
   "devDependencies": {
+    "@types/jest": "^24.0.22",
     "@types/material-ui": "^0.21.7",
+    "@types/node": "^12.12.6",
+    "@types/react": "^16.9.38",
+    "@types/react-dom": "^16.9.8",
     "@types/react-redux": "^7.1.9",
     "@types/react-router-dom": "^5.1.5",
     "@types/react-router-hash-link": "^1.2.1",
     "tslint": "^5.20.1",
     "tslint-config-prettier": "^1.18.0",
-    "tslint-react": "^4.1.0"
+    "tslint-react": "^4.1.0",
+    "typescript": "^3.7.2"
   }
 }
