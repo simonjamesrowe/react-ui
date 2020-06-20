@@ -1,82 +1,78 @@
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-4shv7-2[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-422nk[0m
-{"level":"info","ts":1592461054.7094748,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
-{"level":"info","ts":1592461054.7102456,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Showing logs for build [32msimonjamesrowe-react-ui-master-5qvkr-2[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-xglp6[0m
+{"level":"info","ts":1592642114.0138662,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
+{"level":"info","ts":1592642114.0147085,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-4shv7-2[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-rjxxl[0m
-{"level":"info","ts":1592461055.9231493,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
-{"level":"info","ts":1592461055.9334908,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+Showing logs for build [32msimonjamesrowe-react-ui-master-5qvkr-2[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-lp2dp[0m
+{"level":"info","ts":1592642115.117078,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1592642115.1192217,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-4shv7-2[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+Showing logs for build [32msimonjamesrowe-react-ui-master-5qvkr-2[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-4shv7-2[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-simonjamesrowe-react-ui-master-4shv7-mdgjp[0m
-{"level":"info","ts":1592461061.020936,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
-{"level":"info","ts":1592461064.7524083,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/simonjamesrowe/react-ui.git @ v0.0.2 in path /workspace/source"}
+Showing logs for build [32msimonjamesrowe-react-ui-master-5qvkr-2[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-simonjamesrowe-react-ui-master-5qvkr-7h6z4[0m
+{"level":"info","ts":1592642120.1355927,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
+{"level":"info","ts":1592642123.358391,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/simonjamesrowe/react-ui.git @ v0.0.11 in path /workspace/source"}
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-4shv7-2[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
-Using SHAs from PULL_REFS=master:5f9a30bb1d68a2be2560ebf82c0f6cd9d35baa97
+Showing logs for build [32msimonjamesrowe-react-ui-master-5qvkr-2[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:4c31b10f96d5541d99228a8fcafd5ef5f805e7bf
 WARNING: no SHAs to merge, falling back to initial cloned commit
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-4shv7-2[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Showing logs for build [32msimonjamesrowe-react-ui-master-5qvkr-2[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
 Generated Git credentials file /workspace/xdg_config/git/credentials
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-4shv7-2[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
-[36mINFO[0m[0000] Resolved base name mhart/alpine-node to builder 
+Showing logs for build [32msimonjamesrowe-react-ui-master-5qvkr-2[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
 [36mINFO[0m[0000] Using dockerignore file: /workspace/source/.dockerignore 
-[36mINFO[0m[0000] Retrieving image manifest mhart/alpine-node  
-[36mINFO[0m[0002] Retrieving image manifest mhart/alpine-node  
-[36mINFO[0m[0003] Retrieving image manifest mhart/alpine-node  
-[36mINFO[0m[0004] Retrieving image manifest mhart/alpine-node  
-[36mINFO[0m[0005] Built cross stage deps: map[0:[/app/build]]  
-[36mINFO[0m[0005] Retrieving image manifest mhart/alpine-node  
-[36mINFO[0m[0005] Retrieving image manifest mhart/alpine-node  
-[36mINFO[0m[0006] Executing 0 build triggers                   
-[36mINFO[0m[0006] Checking for cached layer harbor.simonjamesrowe.com/todo/cache:5ee01f0f8e2c534fc94070ce1aa0ec1d668a594573c3dcf2b82843b1ef406894... 
-[36mINFO[0m[0007] No cached layer found for cmd COPY . .       
-[36mINFO[0m[0007] Unpacking ****fs as cmd COPY . . requires it. 
-[36mINFO[0m[0013] WORKDIR /app                                 
-[36mINFO[0m[0013] cmd: workdir                                 
-[36mINFO[0m[0013] Changed working directory to /app            
-[36mINFO[0m[0013] Creating directory /app                      
-[36mINFO[0m[0013] Resolving 1 paths                            
-[36mINFO[0m[0013] Taking snapshot of files...                  
-[36mINFO[0m[0013] COPY . .                                     
-[36mINFO[0m[0013] Resolving 189 paths                          
-[36mINFO[0m[0013] Taking snapshot of files...                  
-[36mINFO[0m[0014] RUN yarn install                             
-[36mINFO[0m[0014] Taking snapshot of full filesystem...        
-[36mINFO[0m[0014] Pushing layer harbor.simonjamesrowe.com/todo/cache:5ee01f0f8e2c534fc94070ce1aa0ec1d668a594573c3dcf2b82843b1ef406894 to cache now 
-[36mINFO[0m[0015] Resolving 5820 paths                         
-[36mINFO[0m[0016] cmd: /bin/sh                                 
-[36mINFO[0m[0016] args: [-c yarn install]                      
-[36mINFO[0m[0016] Running: [/bin/sh -c yarn install]           
+[36mINFO[0m[0000] Retrieving image manifest node:13            
+[36mINFO[0m[0002] Retrieving image manifest node:13            
+[36mINFO[0m[0003] Built cross stage deps: map[]                
+[36mINFO[0m[0003] Retrieving image manifest node:13            
+[36mINFO[0m[0004] Retrieving image manifest node:13            
+[36mINFO[0m[0005] Executing 0 build triggers                   
+[36mINFO[0m[0005] Checking for cached layer harbor.simonjamesrowe.com/todo/cache:338e59ca4b546d44072f7fa8c0fc63fca34ae786f497b13862b519b404b29b2e... 
+[36mINFO[0m[0006] No cached layer found for cmd COPY . .       
+[36mINFO[0m[0006] Unpacking ****fs as cmd COPY . . requires it. 
+[36mINFO[0m[0033] WORKDIR /app                                 
+[36mINFO[0m[0033] cmd: workdir                                 
+[36mINFO[0m[0033] Changed working directory to /app            
+[36mINFO[0m[0033] Creating directory /app                      
+[36mINFO[0m[0033] Resolving 1 paths                            
+[36mINFO[0m[0033] Taking snapshot of files...                  
+[36mINFO[0m[0033] COPY . .                                     
+[36mINFO[0m[0033] Resolving 187 paths                          
+[36mINFO[0m[0033] Taking snapshot of files...                  
+[36mINFO[0m[0034] ENV NODE_ENV=production                      
+[36mINFO[0m[0034] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0034] RUN yarn install                             
+[36mINFO[0m[0034] Taking snapshot of full filesystem...        
+[36mINFO[0m[0034] Pushing layer harbor.simonjamesrowe.com/todo/cache:338e59ca4b546d44072f7fa8c0fc63fca34ae786f497b13862b519b404b29b2e to cache now 
+[36mINFO[0m[0035] Resolving 40895 paths                        
+[36mINFO[0m[0040] cmd: /bin/sh                                 
+[36mINFO[0m[0040] args: [-c yarn install]                      
+[36mINFO[0m[0040] Running: [/bin/sh -c yarn install]           
 yarn install v1.22.4
-warning package-lock.json found. Your project contains lock files generated by tools other than Yarn. It is advised not to mix package managers in order to avoid resolution inconsistencies caused by unsynchronized lock files. To clear this warning, remove package-lock.json.
 [1/4] Resolving packages...
 [2/4] Fetching packages...
 info fsevents@2.1.2: The platform "linux" is incompatible with this module.
 info "fsevents@2.1.2" is an optional dependency and failed compatibility check. Excluding it from installation.
-info fsevents@1.2.11: The platform "linux" is incompatible with this module.
-info "fsevents@1.2.11" is an optional dependency and failed compatibility check. Excluding it from installation.
+info fsevents@1.2.13: The platform "linux" is incompatible with this module.
+info "fsevents@1.2.13" is an optional dependency and failed compatibility check. Excluding it from installation.
 info fsevents@2.1.3: The platform "linux" is incompatible with this module.
 info "fsevents@2.1.3" is an optional dependency and failed compatibility check. Excluding it from installation.
 [3/4] Linking dependencies...
 warning " > bootstrap@4.5.0" has unmet peer dependency "jquery@1.9.1 - 3".
 warning " > bootstrap@4.5.0" has unmet peer dependency "popper.js@^1.16.0".
 [4/4] Building fresh packages...
-success Saved lockfile.
-Done in 170.77s.
-[36mINFO[0m[0188] Taking snapshot of full filesystem...        
-[36mINFO[0m[0191] Resolving 160718 paths                       
-[36mINFO[0m[0260] Pushing layer harbor.simonjamesrowe.com/todo/cache:a050b2f4818e554ea93e8078b58b1a7a8c2e1b22867a5adc91b73bc56a7bfc88 to cache now 
-[36mINFO[0m[0260] RUN yarn run build                           
-[36mINFO[0m[0260] cmd: /bin/sh                                 
-[36mINFO[0m[0260] args: [-c yarn run build]                    
-[36mINFO[0m[0260] Running: [/bin/sh -c yarn run build]         
+Done in 108.59s.
+[36mINFO[0m[0149] Taking snapshot of full filesystem...        
+[36mINFO[0m[0150] Resolving 177661 paths                       
+[36mINFO[0m[0225] RUN yarn run build                           
+[36mINFO[0m[0225] cmd: /bin/sh                                 
+[36mINFO[0m[0225] args: [-c yarn run build]                    
+[36mINFO[0m[0225] Running: [/bin/sh -c yarn run build]         
+[36mINFO[0m[0225] Pushing layer harbor.simonjamesrowe.com/todo/cache:b1d255894793d3d86132713edccb1083e00671bbf81de10a0953509f20e73c85 to cache now 
 yarn run v1.22.4
 $ react-scripts build
 Creating an optimized production build...
-Browserslist: caniuse-lite is outdated. Please run next command `yarn upgrade`
 Compiled with warnings.
 
 ./src/components/pages/Blog/BlogDetail.tsx
@@ -100,10 +96,10 @@ To ignore, add // eslint-disable-next-line to the line before.
 
 File sizes after gzip:
 
-  154.93 KB  build/static/js/2.0fac8a8d.chunk.js
-  22.62 KB   build/static/css/2.9ff99f11.chunk.css
-  10.38 KB   build/static/css/main.3e0fbb0a.chunk.css
-  4.53 KB    build/static/js/main.ddb572ac.chunk.js
+  154.75 KB  build/static/js/2.34501461.chunk.js
+  22.47 KB   build/static/css/2.af3c1da9.chunk.css
+  10.22 KB   build/static/css/main.d6af343c.chunk.css
+  4.47 KB    build/static/js/main.f9105299.chunk.js
   772 B      build/static/js/runtime-main.89ce72de.js
 
 The project was built assuming it is hosted at /.
@@ -119,83 +115,50 @@ Find out more about deployment here:
 
   bit.ly/CRA-deploy
 
-Done in 68.92s.
-[36mINFO[0m[0331] Taking snapshot of full filesystem...        
-[36mINFO[0m[0332] Resolving 161382 paths                       
-[36mINFO[0m[0431] Pushing layer harbor.simonjamesrowe.com/todo/cache:f407a05be09ea367efe686317566c6e6b11ba80adff32b830f3f3d6b7c797754 to cache now 
-[33mWARN[0m[0431] error uploading layer to cache: failed to push to destination harbor.simonjamesrowe.com/todo/cache:5ee01f0f8e2c534fc94070ce1aa0ec1d668a594573c3dcf2b82843b1ef406894: HEAD https://harbor.simonjamesrowe.com/v2/todo/cache/blobs/sha256:1b9d718b137f24e5df055a87d0506a165eae56da279eacdabf4386cbd63452a6: unsupported status code 401 
-[36mINFO[0m[0431] Saving file app/build for later use          
-[36mINFO[0m[0431] Deleting filesystem...                       
-[36mINFO[0m[0437] Retrieving image manifest mhart/alpine-node  
-[36mINFO[0m[0439] Retrieving image manifest mhart/alpine-node  
-[36mINFO[0m[0440] Executing 0 build triggers                   
-[36mINFO[0m[0440] Checking for cached layer harbor.simonjamesrowe.com/todo/cache:5b457cbcda8ef8370a5608d1c40f06bd303bff28c399aa74833c81e4d9274190... 
-[36mINFO[0m[0441] No cached layer found for cmd RUN yarn global add serve 
-[36mINFO[0m[0441] Unpacking ****fs as cmd RUN yarn global add serve requires it. 
-[36mINFO[0m[0446] RUN yarn global add serve                    
-[36mINFO[0m[0446] Taking snapshot of full filesystem...        
-[36mINFO[0m[0446] Resolving 5631 paths                         
-[36mINFO[0m[0448] cmd: /bin/sh                                 
-[36mINFO[0m[0448] args: [-c yarn global add serve]             
-[36mINFO[0m[0448] Running: [/bin/sh -c yarn global add serve]  
-yarn global v1.22.4
-[1/4] Resolving packages...
-[2/4] Fetching packages...
-[3/4] Linking dependencies...
-[4/4] Building fresh packages...
-success Installed "serve@11.3.2" with binaries:
-      - serve
-Done in 4.08s.
-[36mINFO[0m[0452] Taking snapshot of full filesystem...        
-[36mINFO[0m[0452] Resolving 7505 paths                         
-[36mINFO[0m[0454] Pushing layer harbor.simonjamesrowe.com/todo/cache:5b457cbcda8ef8370a5608d1c40f06bd303bff28c399aa74833c81e4d9274190 to cache now 
-[36mINFO[0m[0454] WORKDIR /app                                 
-[36mINFO[0m[0454] cmd: workdir                                 
-[36mINFO[0m[0454] Changed working directory to /app            
-[36mINFO[0m[0454] Creating directory /app                      
-[36mINFO[0m[0454] Resolving 1 paths                            
-[36mINFO[0m[0454] Taking snapshot of files...                  
-[36mINFO[0m[0454] COPY --from=builder /app/build .             
-[36mINFO[0m[0454] Resolving 26 paths                           
-[36mINFO[0m[0454] Taking snapshot of files...                  
-[36mINFO[0m[0454] CMD ["serve", "-p", "80", "-s", "."]         
-[36mINFO[0m[0454] No files changed in this command, skipping snapshotting. 
-[36mINFO[0m[0454] Pushing layer harbor.simonjamesrowe.com/todo/cache:89cd781fa4b81b4cb9672a7c136bfea7aba303c074f77a44225cb18522ab9f19 to cache now 
-[33mWARN[0m[0455] error uploading layer to cache: failed to push to destination harbor.simonjamesrowe.com/todo/cache:5b457cbcda8ef8370a5608d1c40f06bd303bff28c399aa74833c81e4d9274190: HEAD https://harbor.simonjamesrowe.com/v2/todo/cache/blobs/sha256:e5e6704e343d746383fc47a090d48f3d5075f62bf66e9732fa688256870aa1cc: unsupported status code 401 
+Done in 48.43s.
+[36mINFO[0m[0273] Taking snapshot of full filesystem...        
+[36mINFO[0m[0274] Resolving 178313 paths                       
+[36mINFO[0m[0339] Pushing layer harbor.simonjamesrowe.com/todo/cache:4391c845af826dec3793561c5cce17e9c0cc95d5e6cad79dada10c69fbc44e24 to cache now 
+[36mINFO[0m[0339] ENV PORT=8080                                
+[36mINFO[0m[0339] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0339] CMD ["node", "server.js"]                    
+[36mINFO[0m[0339] No files changed in this command, skipping snapshotting. 
+[33mWARN[0m[0340] error uploading layer to cache: failed to push to destination harbor.simonjamesrowe.com/todo/cache:338e59ca4b546d44072f7fa8c0fc63fca34ae786f497b13862b519b404b29b2e: HEAD https://harbor.simonjamesrowe.com/v2/todo/cache/blobs/sha256:bed7ae5b41bc8a796ddb0d6f66d64ce9275101ae2007fe23501363622cd60fa7: unsupported status code 401 
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-4shv7-2[0m stage [32mfrom-build-pack[0m and container [32mstep-build-post-build[0m
+Showing logs for build [32msimonjamesrowe-react-ui-master-5qvkr-2[0m stage [32mfrom-build-pack[0m and container [32mstep-build-post-build[0m
 no CVE provider running in the current ** namespace so skip adding image to be analysed
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-4shv7-2[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-changelog[0m
+Showing logs for build [32msimonjamesrowe-react-ui-master-5qvkr-2[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-changelog[0m
 Converted /workspace/source/charts/react-ui to an unshallow repository
-Generating change log from git ref f8c244b03253cc1b611e29a0fb0e0de3ee4024cc => 7672eb9fd0bbd4acc3d618489c08ca3693188bed
-WARNING: Failed to enrich commit 5f9a30bb1d68a2be2560ebf82c0f6cd9d35baa97 with issues: selected more than one user from users.jenkins.io: [simonrowe x-0]
-WARNING: Failed to enrich commit 5f9a30bb1d68a2be2560ebf82c0f6cd9d35baa97 with issues: selected more than one user from users.jenkins.io: [simonrowe x-0]
+Generating change log from git ref 13eac135693bedb39ab05bbd5f16a61d4ab18f67 => fa0ff542e8ddfdc7e7162847c826d2ca890868e9
+WARNING: Failed to enrich commit 4c31b10f96d5541d99228a8fcafd5ef5f805e7bf with issues: users.jenkins.io "x-0" already exists
+WARNING: Failed to enrich commit 4c31b10f96d5541d99228a8fcafd5ef5f805e7bf with issues: users.jenkins.io "x-0" already exists
 Finding issues in commit messages using git format
-WARNING: No release found for simonjamesrowe/react-ui and tag v0.0.2 so creating a new release
-Updated the release information at https://github.com/simonjamesrowe/react-ui/releases/tag/v0.0.2
+WARNING: No release found for simonjamesrowe/react-ui and tag v0.0.11 so creating a new release
+Updated the release information at https://github.com/simonjamesrowe/react-ui/releases/tag/v0.0.11
 generated: /workspace/source/charts/react-ui/templates/release.yaml
-Created Release react-ui-0-0-2 resource in namespace **
-Updating PipelineActivity simonjamesrowe-react-ui-master-2 with version 0.0.2
-Updated PipelineActivities simonjamesrowe-react-ui-master-2 with release notes URL: https://github.com/simonjamesrowe/react-ui/releases/tag/v0.0.2
+Created Release react-ui-0-0-11 resource in namespace **
+Updating PipelineActivity simonjamesrowe-react-ui-master-2 with version 0.0.11
+Updated PipelineActivities simonjamesrowe-react-ui-master-2 with release notes URL: https://github.com/simonjamesrowe/react-ui/releases/tag/v0.0.11
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-4shv7-2[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-helm-release[0m
+Showing logs for build [32msimonjamesrowe-react-ui-master-5qvkr-2[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-helm-release[0m
 WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
 Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
 Successfully added Helm repository storage.googleapis.com.
 Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
 Successfully added Helm repository jenkins-x-chartmuseum.
 WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
-Uploading chart file react-ui-0.0.2.tgz to http://jenkins-x-chartmuseum:8080/api/charts
+Uploading chart file react-ui-0.0.11.tgz to http://jenkins-x-chartmuseum:8080/api/charts
 Received 201 response: {"saved":true}
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-4shv7-2[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-promote[0m
+Showing logs for build [32msimonjamesrowe-react-ui-master-5qvkr-2[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-promote[0m
 WARNING: prow based install so skip waiting for the merge of Pull Requests to go green as currently there is an issue with gettingstatuses from the PR, see https://github.com/jenkins-x/**/issues/2410
 WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
-Promoting app react-ui version 0.0.2 to namespace **-staging
-Created Pull Request: https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/17
-Added label updatebot to Pull Request https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/17
-got git provider status pending from PR https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/17
-got git provider status pending from PR https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/17
-Pull Request https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/17 is merged at sha bb62db60bb2f500ea1a87ac5e0fd9e1a46f88be9
+Promoting app react-ui version 0.0.11 to namespace **-staging
+Created Pull Request: https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/23
+Added label updatebot to Pull Request https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/23
+got git provider status pending from PR https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/23
+got git provider status pending from PR https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/23
+Pull Request https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/23 is merged at sha 69963fd8b1f50435e945bc6dc113a9670b27ed54
 Pull Request merged but we are not waiting for the update pipeline to complete!
+WARNING: Could not find the service URL in namespace **-staging for names react-ui, **-react-ui, **-staging-react-ui
