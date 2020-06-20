@@ -1,6 +1,7 @@
 import React from "react";
 import { IProfile } from "../../../services/ProfileService";
 import { CSSProperties } from "@material-ui/core/styles/withStyles";
+import {properties} from "../../../services/Environment";
 
 interface IHeadlineProps {
   profile: IProfile;
@@ -9,7 +10,7 @@ interface IHeadlineProps {
 const Headline = ({ profile }: IHeadlineProps) => {
   const style: CSSProperties = {
     backgroundImage:
-      "url(https://api.simonjamesrowe.com" + profile.backgroundImage.url + ")"
+      `url(${properties.apiUrl}${profile.backgroundImage.url})`
   };
   return (
     <>
