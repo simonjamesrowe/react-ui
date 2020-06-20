@@ -1,125 +1,78 @@
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-bzx5w-1[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-cwq86[0m
-{"level":"info","ts":1592459805.4235725,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
-{"level":"info","ts":1592459805.4247923,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Showing logs for build [32msimonjamesrowe-react-ui-master-x6rrd-1[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-jg2tf[0m
+{"level":"info","ts":1592637653.9220624,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
+{"level":"info","ts":1592637653.9226432,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-bzx5w-1[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-k7hsk[0m
-{"level":"info","ts":1592459806.4754763,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
-{"level":"info","ts":1592459806.4905758,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+Showing logs for build [32msimonjamesrowe-react-ui-master-x6rrd-1[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-vgpxg[0m
+{"level":"info","ts":1592637655.1561143,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1592637655.1595767,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-bzx5w-1[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+Showing logs for build [32msimonjamesrowe-react-ui-master-x6rrd-1[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-bzx5w-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-simonjamesrowe-react-ui-master-bzx5w-lh2cg[0m
-{"level":"info","ts":1592459812.9523716,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
-{"level":"info","ts":1592459816.201121,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/simonjamesrowe/react-ui.git @ v0.0.1 in path /workspace/source"}
+Showing logs for build [32msimonjamesrowe-react-ui-master-x6rrd-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-simonjamesrowe-react-ui-master-x6rrd-kb5tp[0m
+{"level":"info","ts":1592637660.216567,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
+{"level":"info","ts":1592637663.8165412,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/simonjamesrowe/react-ui.git @ v0.0.10 in path /workspace/source"}
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-bzx5w-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Showing logs for build [32msimonjamesrowe-react-ui-master-x6rrd-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
 Using SHAs from PULL_REFS=master:
 WARNING: no SHAs to merge, falling back to initial cloned commit
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-bzx5w-1[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Showing logs for build [32msimonjamesrowe-react-ui-master-x6rrd-1[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
 Generated Git credentials file /workspace/xdg_config/git/credentials
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-bzx5w-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-npmrc[0m
-WARNING: failed to find Secret npm-token in namespace **
-
-Showing logs for build [32msimonjamesrowe-react-ui-master-bzx5w-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-npm-install[0m
-
-> core-js@2.6.11 postinstall /workspace/source/node_modules/babel-runtime/node_modules/core-js
-> node -e "try{require('./postinstall')}catch(e){}"
-
-
-> core-js@3.6.5 postinstall /workspace/source/node_modules/core-js
-> node -e "try{require('./postinstall')}catch(e){}"
-
-
-> core-js-pure@3.6.5 postinstall /workspace/source/node_modules/core-js-pure
-> node -e "try{require('./postinstall')}catch(e){}"
-
-npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.13 (node_modules/webpack-dev-server/node_modules/fsevents):
-npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.13: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
-npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.13 (node_modules/watchpack-chokidar2/node_modules/fsevents):
-npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.13: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
-npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.13 (node_modules/jest-haste-map/node_modules/fsevents):
-npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.13: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
-npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@2.1.2 (node_modules/fsevents):
-npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.1.2: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
-
-added 1774 packages from 925 contributors and audited 1782 packages in 59.362s
-found 1 low severity vulnerability
-  run `npm audit fix` to fix them, or `npm audit` for details
-
-Showing logs for build [32msimonjamesrowe-react-ui-master-bzx5w-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-npm-test[0m
-
-> react-ui@0.1.0 test /workspace/source
-> react-scripts test
-
-PASS src/App.test.tsx
-  ✓ renders without crashing (88ms)
-
-Test Suites: 1 passed, 1 total
-Tests:       1 passed, 1 total
-Snapshots:   0 total
-Time:        5.132s
-Ran all test suites.
-
-Showing logs for build [32msimonjamesrowe-react-ui-master-bzx5w-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
-[36mINFO[0m[0001] Resolved base name mhart/alpine-node to builder 
-[36mINFO[0m[0001] Using dockerignore file: /workspace/source/.dockerignore 
-[36mINFO[0m[0001] Retrieving image manifest mhart/alpine-node  
-[36mINFO[0m[0002] Retrieving image manifest mhart/alpine-node  
-[36mINFO[0m[0003] Retrieving image manifest mhart/alpine-node  
-[36mINFO[0m[0004] Retrieving image manifest mhart/alpine-node  
-[36mINFO[0m[0006] Built cross stage deps: map[0:[/app/build]]  
-[36mINFO[0m[0006] Retrieving image manifest mhart/alpine-node  
-[36mINFO[0m[0006] Retrieving image manifest mhart/alpine-node  
-[36mINFO[0m[0007] Executing 0 build triggers                   
-[36mINFO[0m[0014] Checking for cached layer harbor.simonjamesrowe.com/todo/cache:ac9e4d653be149913123ec2087b2b3fd1d1868e5c3db0cc9ff1adfeeb56c5cf5... 
-[36mINFO[0m[0015] No cached layer found for cmd COPY . .       
-[36mINFO[0m[0015] Unpacking ****fs as cmd COPY . . requires it. 
-[36mINFO[0m[0019] WORKDIR /app                                 
-[36mINFO[0m[0019] cmd: workdir                                 
-[36mINFO[0m[0019] Changed working directory to /app            
-[36mINFO[0m[0019] Creating directory /app                      
-[36mINFO[0m[0019] Resolving 1 paths                            
-[36mINFO[0m[0019] Taking snapshot of files...                  
-[36mINFO[0m[0027] COPY . .                                     
-[36mINFO[0m[0046] Resolving 67211 paths                        
-[36mINFO[0m[0049] Taking snapshot of files...                  
-[36mINFO[0m[0064] RUN yarn install                             
-[36mINFO[0m[0064] Taking snapshot of full filesystem...        
-[36mINFO[0m[0064] Pushing layer harbor.simonjamesrowe.com/todo/cache:ac9e4d653be149913123ec2087b2b3fd1d1868e5c3db0cc9ff1adfeeb56c5cf5 to cache now 
-[36mINFO[0m[0066] Resolving 72842 paths                        
-[36mINFO[0m[0075] cmd: /bin/sh                                 
-[36mINFO[0m[0075] args: [-c yarn install]                      
-[36mINFO[0m[0075] Running: [/bin/sh -c yarn install]           
+Showing logs for build [32msimonjamesrowe-react-ui-master-x6rrd-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0000] Using dockerignore file: /workspace/source/.dockerignore 
+[36mINFO[0m[0000] Retrieving image manifest node:13            
+[36mINFO[0m[0002] Retrieving image manifest node:13            
+[36mINFO[0m[0003] Built cross stage deps: map[]                
+[36mINFO[0m[0003] Retrieving image manifest node:13            
+[36mINFO[0m[0004] Retrieving image manifest node:13            
+[36mINFO[0m[0005] Executing 0 build triggers                   
+[36mINFO[0m[0005] Checking for cached layer harbor.simonjamesrowe.com/todo/cache:b63691f8c18391854af6687361188db5b0ce4cb4f972bd0f14c907e6f229518b... 
+[36mINFO[0m[0006] No cached layer found for cmd COPY . .       
+[36mINFO[0m[0006] Unpacking ****fs as cmd COPY . . requires it. 
+[36mINFO[0m[0034] WORKDIR /app                                 
+[36mINFO[0m[0034] cmd: workdir                                 
+[36mINFO[0m[0034] Changed working directory to /app            
+[36mINFO[0m[0034] Creating directory /app                      
+[36mINFO[0m[0034] Resolving 1 paths                            
+[36mINFO[0m[0034] Taking snapshot of files...                  
+[36mINFO[0m[0034] COPY . .                                     
+[36mINFO[0m[0034] Resolving 187 paths                          
+[36mINFO[0m[0034] Taking snapshot of files...                  
+[36mINFO[0m[0034] Pushing layer harbor.simonjamesrowe.com/todo/cache:b63691f8c18391854af6687361188db5b0ce4cb4f972bd0f14c907e6f229518b to cache now 
+[36mINFO[0m[0034] ENV NODE_ENV=production                      
+[36mINFO[0m[0034] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0034] RUN yarn install                             
+[36mINFO[0m[0034] Taking snapshot of full filesystem...        
+[36mINFO[0m[0038] Resolving 40895 paths                        
+[36mINFO[0m[0043] cmd: /bin/sh                                 
+[36mINFO[0m[0043] args: [-c yarn install]                      
+[36mINFO[0m[0043] Running: [/bin/sh -c yarn install]           
 yarn install v1.22.4
-warning package-lock.json found. Your project contains lock files generated by tools other than Yarn. It is advised not to mix package managers in order to avoid resolution inconsistencies caused by unsynchronized lock files. To clear this warning, remove package-lock.json.
 [1/4] Resolving packages...
 [2/4] Fetching packages...
 info fsevents@2.1.2: The platform "linux" is incompatible with this module.
 info "fsevents@2.1.2" is an optional dependency and failed compatibility check. Excluding it from installation.
-info fsevents@1.2.11: The platform "linux" is incompatible with this module.
-info "fsevents@1.2.11" is an optional dependency and failed compatibility check. Excluding it from installation.
+info fsevents@1.2.13: The platform "linux" is incompatible with this module.
+info "fsevents@1.2.13" is an optional dependency and failed compatibility check. Excluding it from installation.
 info fsevents@2.1.3: The platform "linux" is incompatible with this module.
 info "fsevents@2.1.3" is an optional dependency and failed compatibility check. Excluding it from installation.
 [3/4] Linking dependencies...
 warning " > bootstrap@4.5.0" has unmet peer dependency "jquery@1.9.1 - 3".
 warning " > bootstrap@4.5.0" has unmet peer dependency "popper.js@^1.16.0".
 [4/4] Building fresh packages...
-success Saved lockfile.
-Done in 155.13s.
-[36mINFO[0m[0231] Taking snapshot of full filesystem...        
-[36mINFO[0m[0232] Resolving 160807 paths                       
-[36mINFO[0m[0312] Pushing layer harbor.simonjamesrowe.com/todo/cache:64b289b185cfbb052649d5238c54bfc6248ffe4347813cb1204b59d0275c0102 to cache now 
-[36mINFO[0m[0312] RUN yarn run build                           
-[36mINFO[0m[0312] cmd: /bin/sh                                 
-[36mINFO[0m[0312] args: [-c yarn run build]                    
-[36mINFO[0m[0312] Running: [/bin/sh -c yarn run build]         
+Done in 108.17s.
+[36mINFO[0m[0151] Taking snapshot of full filesystem...        
+[36mINFO[0m[0153] Resolving 177661 paths                       
+[36mINFO[0m[0225] Pushing layer harbor.simonjamesrowe.com/todo/cache:9ba642904780c121b4b7755a7b07d83927d25511608638bc82817c5800d1e9c2 to cache now 
+[36mINFO[0m[0225] RUN yarn run build                           
+[36mINFO[0m[0225] cmd: /bin/sh                                 
+[36mINFO[0m[0225] args: [-c yarn run build]                    
+[36mINFO[0m[0225] Running: [/bin/sh -c yarn run build]         
 yarn run v1.22.4
 $ react-scripts build
 Creating an optimized production build...
-Browserslist: caniuse-lite is outdated. Please run next command `yarn upgrade`
 Compiled with warnings.
 
 ./src/components/pages/Blog/BlogDetail.tsx
@@ -143,10 +96,10 @@ To ignore, add // eslint-disable-next-line to the line before.
 
 File sizes after gzip:
 
-  154.93 KB  build/static/js/2.0fac8a8d.chunk.js
-  22.62 KB   build/static/css/2.9ff99f11.chunk.css
-  10.38 KB   build/static/css/main.3e0fbb0a.chunk.css
-  4.53 KB    build/static/js/main.ddb572ac.chunk.js
+  154.75 KB  build/static/js/2.34501461.chunk.js
+  22.47 KB   build/static/css/2.af3c1da9.chunk.css
+  10.22 KB   build/static/css/main.d6af343c.chunk.css
+  4.47 KB    build/static/js/main.fc924748.chunk.js
   772 B      build/static/js/runtime-main.89ce72de.js
 
 The project was built assuming it is hosted at /.
@@ -162,115 +115,48 @@ Find out more about deployment here:
 
   bit.ly/CRA-deploy
 
-Done in 68.14s.
-[36mINFO[0m[0381] Taking snapshot of full filesystem...        
-[36mINFO[0m[0381] Resolving 161471 paths                       
-[36mINFO[0m[0474] Pushing layer harbor.simonjamesrowe.com/todo/cache:bd1824cce6a34319769c7fd63386e6ed7d4253a59c7f9fc9eac932521abd8a12 to cache now 
-[33mWARN[0m[0474] error uploading layer to cache: failed to push to destination harbor.simonjamesrowe.com/todo/cache:ac9e4d653be149913123ec2087b2b3fd1d1868e5c3db0cc9ff1adfeeb56c5cf5: HEAD https://harbor.simonjamesrowe.com/v2/todo/cache/blobs/sha256:ad0ef23b1e330c9b2d23b76e47e172470112b3d660afc8bb3bc1dddefcfb9e1e: unsupported status code 401 
-[36mINFO[0m[0474] Saving file app/build for later use          
-[36mINFO[0m[0474] Deleting filesystem...                       
-[36mINFO[0m[0480] Retrieving image manifest mhart/alpine-node  
-[36mINFO[0m[0482] Retrieving image manifest mhart/alpine-node  
-[36mINFO[0m[0483] Executing 0 build triggers                   
-[36mINFO[0m[0483] Checking for cached layer harbor.simonjamesrowe.com/todo/cache:5b457cbcda8ef8370a5608d1c40f06bd303bff28c399aa74833c81e4d9274190... 
-[36mINFO[0m[0484] No cached layer found for cmd RUN yarn global add serve 
-[36mINFO[0m[0484] Unpacking ****fs as cmd RUN yarn global add serve requires it. 
-[36mINFO[0m[0487] RUN yarn global add serve                    
-[36mINFO[0m[0487] Taking snapshot of full filesystem...        
-[36mINFO[0m[0488] Resolving 5631 paths                         
-[36mINFO[0m[0489] cmd: /bin/sh                                 
-[36mINFO[0m[0489] args: [-c yarn global add serve]             
-[36mINFO[0m[0489] Running: [/bin/sh -c yarn global add serve]  
-yarn global v1.22.4
-[1/4] Resolving packages...
-[2/4] Fetching packages...
-[3/4] Linking dependencies...
-[4/4] Building fresh packages...
-success Installed "serve@11.3.2" with binaries:
-      - serve
-Done in 6.45s.
-[36mINFO[0m[0496] Taking snapshot of full filesystem...        
-[36mINFO[0m[0496] Resolving 7505 paths                         
-[36mINFO[0m[0498] WORKDIR /app                                 
-[36mINFO[0m[0498] cmd: workdir                                 
-[36mINFO[0m[0498] Changed working directory to /app            
-[36mINFO[0m[0498] Creating directory /app                      
-[36mINFO[0m[0498] Resolving 1 paths                            
-[36mINFO[0m[0498] Taking snapshot of files...                  
-[36mINFO[0m[0498] COPY --from=builder /app/build .             
-[36mINFO[0m[0498] Resolving 26 paths                           
-[36mINFO[0m[0498] Taking snapshot of files...                  
-[36mINFO[0m[0498] Pushing layer harbor.simonjamesrowe.com/todo/cache:5b457cbcda8ef8370a5608d1c40f06bd303bff28c399aa74833c81e4d9274190 to cache now 
-[36mINFO[0m[0498] Pushing layer harbor.simonjamesrowe.com/todo/cache:983ed62370a205f326e2cb08b8e106eac00ed772ef678e3590dc79e2c7d825af to cache now 
-[36mINFO[0m[0498] CMD ["serve", "-p", "80", "-s", "."]         
-[36mINFO[0m[0498] No files changed in this command, skipping snapshotting. 
-[33mWARN[0m[0499] error uploading layer to cache: failed to push to destination harbor.simonjamesrowe.com/todo/cache:5b457cbcda8ef8370a5608d1c40f06bd303bff28c399aa74833c81e4d9274190: HEAD https://harbor.simonjamesrowe.com/v2/todo/cache/blobs/sha256:9969ad1b3730fbcb0432550adebc8494f404e95c9b05d9fc16dc1986c53db6cc: unsupported status code 401 
+Done in 48.92s.
+[36mINFO[0m[0274] Taking snapshot of full filesystem...        
+[36mINFO[0m[0275] Resolving 178313 paths                       
+[36mINFO[0m[0332] Pushing layer harbor.simonjamesrowe.com/todo/cache:693c6a7cb0b89c776d5e01103d7e4761365ffc77ebf8dfa6d73beee12344d97e to cache now 
+[36mINFO[0m[0332] ENV PORT=8080                                
+[36mINFO[0m[0332] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0332] CMD ["node", "server.js"]                    
+[36mINFO[0m[0332] No files changed in this command, skipping snapshotting. 
+[33mWARN[0m[0332] error uploading layer to cache: failed to push to destination harbor.simonjamesrowe.com/todo/cache:b63691f8c18391854af6687361188db5b0ce4cb4f972bd0f14c907e6f229518b: HEAD https://harbor.simonjamesrowe.com/v2/todo/cache/blobs/sha256:ec08a5c49e6479339289bf62cad174f6bd75832ff5f902fdbb202ba7c9ca5ce7: unsupported status code 401 
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-bzx5w-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-post-build[0m
+Showing logs for build [32msimonjamesrowe-react-ui-master-x6rrd-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-post-build[0m
 no CVE provider running in the current ** namespace so skip adding image to be analysed
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-bzx5w-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-changelog[0m
+Showing logs for build [32msimonjamesrowe-react-ui-master-x6rrd-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-changelog[0m
 Converted /workspace/source/charts/react-ui to an unshallow repository
-Generating change log from git ref 54cd2c895b7cfd7017ec5356174177cb695b9fb1 => f8c244b03253cc1b611e29a0fb0e0de3ee4024cc
-Associating user x-0 in users.jenkins.io with email simon.rowe@gmail.com to git GitProvider user with login -0 as emails match
-Adding label jenkins.io/git-github-userid=-0 to user x-0 in users.jenkins.io
-WARNING: Failed to enrich commit d98770a722d339ffbcad28b302287f9b4517db4e with issues: User.jenkins.io "x-0" is invalid: metadata.labels: Invalid value: "-0": a valid label must be an empty string or consist of alphanumeric characters, '-', '_' or '.', and must start and end with an alphanumeric character (e.g. 'MyValue',  or 'my_value',  or '12345', regex used for validation is '(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?')
-Associating user x-0 in users.jenkins.io with email simon.rowe@gmail.com to git GitProvider user with login -0 as emails match
-Adding label jenkins.io/git-github-userid=-0 to user x-0 in users.jenkins.io
-WARNING: Failed to enrich commit d98770a722d339ffbcad28b302287f9b4517db4e with issues: User.jenkins.io "x-0" is invalid: metadata.labels: Invalid value: "-0": a valid label must be an empty string or consist of alphanumeric characters, '-', '_' or '.', and must start and end with an alphanumeric character (e.g. 'MyValue',  or 'my_value',  or '12345', regex used for validation is '(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?')
-Finding issues in commit messages using git format
-Associating user x-0 in users.jenkins.io with email simon.rowe@gmail.com to git GitProvider user with login -0 as emails match
-Adding label jenkins.io/git-github-userid=-0 to user x-0 in users.jenkins.io
-WARNING: Failed to enrich commit 86c381aa56cfdd90a8ce6f11d02edd5bd3ecc37a with issues: User.jenkins.io "x-0" is invalid: metadata.labels: Invalid value: "-0": a valid label must be an empty string or consist of alphanumeric characters, '-', '_' or '.', and must start and end with an alphanumeric character (e.g. 'MyValue',  or 'my_value',  or '12345', regex used for validation is '(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?')
-Associating user x-0 in users.jenkins.io with email simon.rowe@gmail.com to git GitProvider user with login -0 as emails match
-Adding label jenkins.io/git-github-userid=-0 to user x-0 in users.jenkins.io
-WARNING: Failed to enrich commit 86c381aa56cfdd90a8ce6f11d02edd5bd3ecc37a with issues: User.jenkins.io "x-0" is invalid: metadata.labels: Invalid value: "-0": a valid label must be an empty string or consist of alphanumeric characters, '-', '_' or '.', and must start and end with an alphanumeric character (e.g. 'MyValue',  or 'my_value',  or '12345', regex used for validation is '(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?')
-Associating user x-0 in users.jenkins.io with email simon.rowe@gmail.com to git GitProvider user with login -0 as emails match
-Adding label jenkins.io/git-github-userid=-0 to user x-0 in users.jenkins.io
-WARNING: Failed to enrich commit ac324f77696ea8bb72647cd304aaa7984c3c7df1 with issues: User.jenkins.io "x-0" is invalid: metadata.labels: Invalid value: "-0": a valid label must be an empty string or consist of alphanumeric characters, '-', '_' or '.', and must start and end with an alphanumeric character (e.g. 'MyValue',  or 'my_value',  or '12345', regex used for validation is '(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?')
-Associating user x-0 in users.jenkins.io with email simon.rowe@gmail.com to git GitProvider user with login -0 as emails match
-Adding label jenkins.io/git-github-userid=-0 to user x-0 in users.jenkins.io
-WARNING: Failed to enrich commit ac324f77696ea8bb72647cd304aaa7984c3c7df1 with issues: User.jenkins.io "x-0" is invalid: metadata.labels: Invalid value: "-0": a valid label must be an empty string or consist of alphanumeric characters, '-', '_' or '.', and must start and end with an alphanumeric character (e.g. 'MyValue',  or 'my_value',  or '12345', regex used for validation is '(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?')
-Associating user x-0 in users.jenkins.io with email simon.rowe@gmail.com to git GitProvider user with login -0 as emails match
-Adding label jenkins.io/git-github-userid=-0 to user x-0 in users.jenkins.io
-WARNING: Failed to enrich commit 42524a7cae96aabecb76a0df46f99b93af8042a8 with issues: User.jenkins.io "x-0" is invalid: metadata.labels: Invalid value: "-0": a valid label must be an empty string or consist of alphanumeric characters, '-', '_' or '.', and must start and end with an alphanumeric character (e.g. 'MyValue',  or 'my_value',  or '12345', regex used for validation is '(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?')
-WARNING: Failed to enrich commit 42524a7cae96aabecb76a0df46f99b93af8042a8 with issues: users.jenkins.io "x-0" already exists
-WARNING: Failed to enrich commit 729bb7269062a6abba1f02b78674066c977befe7 with issues: selected more than one user from users.jenkins.io: [simonrowe x-0]
-WARNING: Failed to enrich commit 729bb7269062a6abba1f02b78674066c977befe7 with issues: selected more than one user from users.jenkins.io: [simonrowe x-0]
-WARNING: Failed to enrich commit 869262ddb746f66046b96b73c896ea66a9c872a3 with issues: selected more than one user from users.jenkins.io: [simonrowe x-0]
-WARNING: Failed to enrich commit 869262ddb746f66046b96b73c896ea66a9c872a3 with issues: users.jenkins.io "x-0" already exists
-WARNING: Failed to enrich commit 95db9b60a1f06cd5898357c1eff58c19b57086de with issues: selected more than one user from users.jenkins.io: [simonrowe x-0]
-WARNING: Failed to enrich commit 95db9b60a1f06cd5898357c1eff58c19b57086de with issues: users.jenkins.io "x-0" already exists
-WARNING: Failed to enrich commit 55ad73a8de51bc439e606affa70d36e876f8b885 with issues: selected more than one user from users.jenkins.io: [simonrowe x-0]
-WARNING: Failed to enrich commit 55ad73a8de51bc439e606affa70d36e876f8b885 with issues: selected more than one user from users.jenkins.io: [simonrowe x-0]
-WARNING: Failed to enrich commit a270af6e79330b279fe9dbc40ac936bf15506d1e with issues: selected more than one user from users.jenkins.io: [simonrowe x-0]
-WARNING: Failed to enrich commit a270af6e79330b279fe9dbc40ac936bf15506d1e with issues: selected more than one user from users.jenkins.io: [simonrowe x-0]
-WARNING: No release found for simonjamesrowe/react-ui and tag v0.0.1 so creating a new release
-Updated the release information at https://github.com/simonjamesrowe/react-ui/releases/tag/v0.0.1
+Generating change log from git ref b2a14d1d76e35c6bf1e41e6cfc2c02cdfb3136c9 => 13eac135693bedb39ab05bbd5f16a61d4ab18f67
+WARNING: No release found for simonjamesrowe/react-ui and tag v0.0.10 so creating a new release
+Updated the release information at https://github.com/simonjamesrowe/react-ui/releases/tag/v0.0.10
 generated: /workspace/source/charts/react-ui/templates/release.yaml
-Created Release react-ui-0-0-1 resource in namespace **
-Updating PipelineActivity simonjamesrowe-react-ui-master-1 with version 0.0.1
-Updated PipelineActivities simonjamesrowe-react-ui-master-1 with release notes URL: https://github.com/simonjamesrowe/react-ui/releases/tag/v0.0.1
+Created Release react-ui-0-0-10 resource in namespace **
+Updating PipelineActivity simonjamesrowe-react-ui-master-1 with version 0.0.10
+Updated PipelineActivities simonjamesrowe-react-ui-master-1 with release notes URL: https://github.com/simonjamesrowe/react-ui/releases/tag/v0.0.10
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-bzx5w-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-helm-release[0m
+Showing logs for build [32msimonjamesrowe-react-ui-master-x6rrd-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-helm-release[0m
 WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
 Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
 Successfully added Helm repository storage.googleapis.com.
 Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
 Successfully added Helm repository jenkins-x-chartmuseum.
 WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
-Uploading chart file react-ui-0.0.1.tgz to http://jenkins-x-chartmuseum:8080/api/charts
+Uploading chart file react-ui-0.0.10.tgz to http://jenkins-x-chartmuseum:8080/api/charts
 Received 201 response: {"saved":true}
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-bzx5w-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-promote[0m
+Showing logs for build [32msimonjamesrowe-react-ui-master-x6rrd-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-promote[0m
 WARNING: prow based install so skip waiting for the merge of Pull Requests to go green as currently there is an issue with gettingstatuses from the PR, see https://github.com/jenkins-x/**/issues/2410
 WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
-Promoting app react-ui version 0.0.1 to namespace **-staging
-Created Pull Request: https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/16
-Added label updatebot to Pull Request https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/16
-got git provider status pending from PR https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/16
-got git provider status pending from PR https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/16
-got git provider status pending from PR https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/16
-Pull Request https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/16 is merged at sha b1e0df2c76ea811ac9a76ded3f64817bc0c17799
+Promoting app react-ui version 0.0.10 to namespace **-staging
+Created Pull Request: https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/22
+Added label updatebot to Pull Request https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/22
+got git provider status pending from PR https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/22
+got git provider status pending from PR https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/22
+got git provider status pending from PR https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/22
+Pull Request https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/22 is merged at sha 353934f547edd358de5c7098d9912989b1c384a3
 Pull Request merged but we are not waiting for the update pipeline to complete!
 WARNING: Could not find the service URL in namespace **-staging for names react-ui, **-react-ui, **-staging-react-ui
