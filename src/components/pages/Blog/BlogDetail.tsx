@@ -4,6 +4,7 @@ import Moment from "moment";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import { CmsImage } from "../../common/CmsImage";
+import {properties} from "../../../services/Environment";
 
 const blogService = new BlogService();
 
@@ -14,7 +15,7 @@ const BlogDetail: React.SFC<RouteComponentProps<{ id: string }>> = props => {
   }, []);
 
   const imageUrl = (url: string) => {
-    return `https://content.simonjamesrowe.com/${url}`;
+    return `${properties.apiUrl}${url}`;
   };
 
   return (

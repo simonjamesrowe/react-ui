@@ -6,7 +6,7 @@ interface IAppProps {
 
 const properties: IAppProps = {
     // @ts-ignore
-    apiUrl: window.API_URL || "https://api-jx-staging.simonjamesrowe.com"
+    apiUrl: window.API_URL || "http://localhost:8080"
 }
 
 // @ts-ignore
