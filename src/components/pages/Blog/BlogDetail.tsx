@@ -47,6 +47,7 @@ const BlogDetail: React.SFC<RouteComponentProps<{ id: string }>> = props => {
                       <ReactMarkdown
                         source={blog.content}
                         transformImageUri={imageUrl}
+                        linkTarget="_blank"
                       />
                     </div>
                   </div>
