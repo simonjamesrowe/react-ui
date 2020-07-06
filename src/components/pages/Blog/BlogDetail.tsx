@@ -5,6 +5,7 @@ import { RouteComponentProps, withRouter } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import { CmsImage } from "../../common/CmsImage";
 import {properties} from "../../../services/Environment";
+import {BlogTag} from "./BlogTag";
 
 const blogService = new BlogService();
 
@@ -28,6 +29,11 @@ const BlogDetail: React.SFC<RouteComponentProps<{ id: string }>> = props => {
                 <article className="post">
                   <div className="post-preview">
                     <CmsImage src={blog.image} />
+                    <div>
+                      {blog.tags.map((tag, i) => (
+                          <BlogTag tag={tag.name} link={"#"} key={i} />
+                      ))}
+                    </div>
                   </div>
                   <div className="post-wrapper">
                     <div className="post-header">
@@ -36,12 +42,8 @@ const BlogDetail: React.SFC<RouteComponentProps<{ id: string }>> = props => {
                         <li>
                           {Moment(blog.createdAt).format(" MMMM DD, YYYY")}
                         </li>
-                        <li>
-                          {blog.tags.map(tag => (
-                            <span>{tag.name} &nbsp;</span>
-                          ))}
-                        </li>
                       </ul>
+
                     </div>
                     <div className="post-content">
                       <ReactMarkdown

@@ -1,25 +1,16 @@
 import React from "react";
 import { IBlog } from "../../../services/BlogService";
 import Moment from "moment";
-import { CSSProperties } from "@material-ui/core/styles/withStyles";
 import { Link } from "react-router-dom";
 import { CmsImage } from "../../common/CmsImage";
+import {BlogTag} from "./BlogTag";
 interface IBlogPreviewProps {
   blog: IBlog;
   i: number;
 }
 
 const BlogPreview = ({ blog, i }: IBlogPreviewProps) => {
-  let tagColour = "#e41919";
-  if (i % 3 === 1) {
-    tagColour = "#ffbb44";
-  }
-  if (i % 3 === 2) {
-    tagColour = "#4CAF50";
-  }
-  const tagStyle: CSSProperties = {
-    backgroundColor: tagColour
-  };
+
   return (
     <>
       <div className="col-md-6 post-item">
@@ -28,13 +19,14 @@ const BlogPreview = ({ blog, i }: IBlogPreviewProps) => {
             <Link to={`/blog/${blog.id}`}>
               <CmsImage src={blog.image} />
             </Link>
-            {blog.tags.length > 0 && (
-              <div className="post-category" style={tagStyle}>
-                <Link to={`/blog/${blog.id}`}>{blog.tags[0].name}</Link>
-              </div>
-            )}
+            <div>
+              {blog.tags.map((tag) =>
+                  <BlogTag tag={tag.name} link={"#"} />
+              )}
+            </div>
           </div>
           <div className="post-wrapper">
+
             <div className="post-header">
               <h2 className="post-title">
                 <Link to={`/blog/${blog.id}`}>{blog.title}</Link>
