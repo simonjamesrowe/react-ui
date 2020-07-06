@@ -38,7 +38,7 @@ const BlogDetail: React.SFC<RouteComponentProps<{ id: string }>> = props => {
                         </li>
                         <li>
                           {blog.tags.map(tag => (
-                            <span>{tag.name}</span>
+                            <span>{tag.name} &nbsp;</span>
                           ))}
                         </li>
                       </ul>
