@@ -1640,8 +1640,8 @@ button {
     transition: 0.2s linear;
 }
 
-.timeline > li > .timeline-panel .timeline-preview img {
-    width: 100%;
+.timeline > li > .timeline-panel .timeline-preview {
+    text-align: center;
 }
 
 .timeline > li > .timeline-panel .timeline-body {
@@ -3208,10 +3208,10 @@ a[rel~="gallery"]:hover {
 .post-preview {
     position: relative;
     overflow: hidden;
+    text-align: center;
 }
 
-.post-preview img {
-    width: 100%;
+.post-preview  {
     transition: all 0.7s cubic-bezier(0.2, 1, 0.22, 1);
 }
 

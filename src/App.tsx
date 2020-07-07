@@ -83,7 +83,7 @@ const App = () => {
           <div className="container">
             <div className="row align-items-center">
               <div className="col-md-6">
-                <span className="copyright">© 2020 simonjamesrowe.com</span>
+                <span className="copyright">© 2020 www.simonjamesrowe.com</span>
               </div>
               <div className="col-md-6">
                 <ul className="social-icons">
