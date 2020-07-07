@@ -3221,7 +3221,7 @@ a[rel~="gallery"]:hover {
 
 .post-preview .post-category,
 .post-preview .post-category {
-    margin: 0 3px 5px;
+    margin: 5px 3px 5px;
     background-color: #ffbb44;
     padding: 4px 8px;
     text-transform: uppercase;
