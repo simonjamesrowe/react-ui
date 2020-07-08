@@ -5,14 +5,13 @@ import { Resume } from "./Resume";
 import { IProfile } from "../../../services/ProfileService";
 
 interface IHomeProps {
-  mobile: boolean;
   profile: IProfile;
 }
 
-const Home = ({ mobile, profile }: IHomeProps) => {
+const Home = ({profile }: IHomeProps) => {
   return (
     <>
-      {!mobile && <Headline profile={profile} />}
+      <Headline profile={profile} />
       <Profile profile={profile} />
       <Resume />
     </>

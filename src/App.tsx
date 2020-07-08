@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { MobileMenu } from "./components/common/MobileMenu";
+import MobileMenu  from "./components/common/MobileMenu";
 import Menu from "./components/common/Menu";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { Home } from "./components/pages/Home/index";
@@ -24,24 +24,17 @@ const App = () => {
       return;
     }
     if (header) {
-      let darkMenu = true;
+      let showMenu = false
       if (window.scrollY > 5) {
-        darkMenu = false;
+        showMenu = true;
       }
 
-      if (
-        darkMenu &&
-        header.className !== "header header-center header-light"
-      ) {
-        header.className = "header header-center header-light";
+      if (showMenu) {
+        header.style.display = "block"
+      } else {
+        header.style.display = "none"
       }
 
-      if (
-        !darkMenu &&
-        header.className !== "header header-center header-small"
-      ) {
-        header.className = "header header-center header-small";
-      }
     }
   };
 
@@ -69,13 +62,13 @@ const App = () => {
         {profile && (
           <Switch>
             <Route path="/" exact={true}>
-              <Home mobile={mobile} profile={profile} />
+              <Home profile={profile} />
             </Route>
             <Route path="/blog/:id" component={BlogDetail} />
             <Route path="/blog" component={Blog} />
 
             <Route>
-              <Home mobile={mobile} profile={profile} />
+              <Home profile={profile} />
             </Route>
           </Switch>
         )}

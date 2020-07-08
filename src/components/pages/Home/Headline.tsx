@@ -15,7 +15,7 @@ const Headline = ({ profile }: IHeadlineProps) => {
   return (
     <>
       <section
-        className="module-header full-height parallax bg-dark bg-dark-30 d-none d-sm-block"
+        className="module-header full-height parallax bg-dark bg-dark-30 d-sm-block"
         id="home"
         style={style}
       >
@@ -26,6 +26,9 @@ const Headline = ({ profile }: IHeadlineProps) => {
               <h1 className="h5">{profile.title}</h1>
             </div>
           </div>
+        </div>
+        <div className="mouse-icon">
+          <div className="wheel"></div>
         </div>
       </section>
     </>

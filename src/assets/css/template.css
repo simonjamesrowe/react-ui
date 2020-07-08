@@ -2546,8 +2546,6 @@ header.header-small .inner-nav > ul > app-login > li.sub-menu-open > a {
     }
 
     .module-header {
-        min-height: auto;
-        height: auto;
         padding: 40px 0;
     }
 
@@ -2586,9 +2584,6 @@ header.header-small .inner-nav > ul > app-login > li.sub-menu-open > a {
         display: none;
     }
 
-    .mouse-icon {
-        display: none;
-    }
 }
 
 @media (max-width: 767px) {
