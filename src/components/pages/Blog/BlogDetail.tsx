@@ -1,11 +1,12 @@
 import React from "react";
-import { IBlog, BlogService } from "../../../services/BlogService";
+import {  BlogService } from "../../../services/BlogService";
 import Moment from "moment";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import { CmsImage } from "../../common/CmsImage";
 import {properties} from "../../../services/Environment";
 import {BlogTag} from "./BlogTag";
+import {IBlog} from "../../../model/Blog";
 
 const blogService = new BlogService();
 

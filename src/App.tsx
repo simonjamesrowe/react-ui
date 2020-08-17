@@ -6,8 +6,9 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { Home } from "./components/pages/Home/index";
 import { Blog } from "./components/pages/Blog/index";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { IProfile, ProfileService } from "./services/ProfileService";
+import {  ProfileService } from "./services/ProfileService";
 import BlogDetail from "./components/pages/Blog/BlogDetail";
+import {IProfile} from "./model/Profile";
 
 const profileService = new ProfileService();
 

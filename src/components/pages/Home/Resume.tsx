@@ -3,10 +3,11 @@ import React from "react";
 import resumePdf from "../../../assets/SimonRowe.pdf";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
-import { JobService, IJob } from "../../../services/JobService";
+import { JobService } from "../../../services/JobService";
 import { CmsImage } from "../../common/CmsImage";
 import ReactMarkdown from "react-markdown";
 import Moment from "moment";
+import {IJob} from "../../../model/Job";
 
 const jobService = new JobService();
 

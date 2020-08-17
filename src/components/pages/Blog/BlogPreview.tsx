@@ -1,9 +1,9 @@
 import React from "react";
-import { IBlog } from "../../../services/BlogService";
 import Moment from "moment";
 import { Link } from "react-router-dom";
 import { CmsImage } from "../../common/CmsImage";
 import {BlogTag} from "./BlogTag";
+import {IBlog} from "../../../model/Blog";
 interface IBlogPreviewProps {
   blog: IBlog;
   i: number;

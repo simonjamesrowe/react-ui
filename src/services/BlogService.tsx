@@ -1,21 +1,7 @@
 import axios from "axios";
-import {IImage} from "./ProfileService";
 import {properties} from "./Environment";
+import {IBlog} from "../model/Blog";
 
-export interface IBlog {
-  id: string;
-  title: string;
-  shortDescription: string;
-  content: string;
-  published: boolean;
-  image: IImage;
-  createdAt: Date;
-  tags: ITag[];
-}
-
-export interface ITag {
-  name: string;
-}
 
 class BlogService {
   public getAll = async (limit?: number) => {

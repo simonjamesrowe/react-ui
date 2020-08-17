@@ -1,6 +1,6 @@
 import React from "react";
-import { IImage } from "../../services/ProfileService";
 import {properties} from "../../services/Environment";
+import {IImage} from "../../model/Image";
 
 interface IImageProperties {
   src?: IImage;

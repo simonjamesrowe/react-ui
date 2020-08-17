@@ -1,5 +1,5 @@
 import React from "react";
-import { BlogService, IBlog, ITag } from "../../../services/BlogService";
+import { BlogService } from "../../../services/BlogService";
 import { BlogPreview } from "./BlogPreview";
 import { TagService } from "../../../services/TagService";
 import Moment from "moment";
@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { CmsImage } from "../../common/CmsImage";
+import {IBlog} from "../../../model/Blog";
+import {ITag} from "../../../model/Tag";
 const blogService = new BlogService();
 const tagService = new TagService();
 

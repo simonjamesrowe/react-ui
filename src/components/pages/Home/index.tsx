@@ -2,7 +2,7 @@ import React from "react";
 import { Headline } from "./Headline";
 import { Profile } from "./Profile";
 import { Resume } from "./Resume";
-import { IProfile } from "../../../services/ProfileService";
+import {IProfile} from "../../../model/Profile";
 
 interface IHomeProps {
   profile: IProfile;

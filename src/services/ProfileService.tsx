@@ -1,19 +1,7 @@
 import axios from "axios";
 import {properties} from "./Environment";
+import {IProfile} from "../model/Profile";
 
-export interface IImage {
-  url: string;
-  name: string;
-}
-
-export interface IProfile {
-  name: string;
-  title: string;
-  backgroundImage: IImage;
-  profileImage: IImage;
-  headline: string;
-  description: string;
-}
 
 class ProfileService {
   public getProfile = async () => {

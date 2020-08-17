@@ -1,6 +1,6 @@
 import axios from "axios";
-import { ITag } from "./BlogService";
 import {properties} from "./Environment";
+import {ITag} from "../model/Tag";
 
 class TagService {
   public getAll = async () => {
