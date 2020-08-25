@@ -3,21 +3,18 @@ import React from "react";
 import resumePdf from "../../../assets/SimonRowe.pdf";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
-import { JobService } from "../../../services/JobService";
 import { CmsImage } from "../../common/CmsImage";
 import ReactMarkdown from "react-markdown";
 import Moment from "moment";
 import {IJob} from "../../../model/Job";
+import {IApplicationState} from "../../../state/Store";
+import {connect} from "react-redux";
 
-const jobService = new JobService();
+interface IProps {
+  jobs : IJob[]
+}
 
-const Resume = () => {
-  const [jobs, setJobs] = React.useState<IJob[]>([]);
-
-  React.useEffect(() => {
-    jobService.getAll().then(data => setJobs(data));
-  }, []);
-
+const Resume = ({jobs}: IProps) => {
   return (
     <>
       <section className="module module-gray" id="resume">
@@ -74,4 +71,12 @@ const Resume = () => {
   );
 };
 
-export { Resume };
+const mapStateToProps = (store: IApplicationState) => {
+  return {
+    jobs: store.jobs.jobs,
+  };
+};
+
+export default connect(
+    mapStateToProps
+)(Resume);

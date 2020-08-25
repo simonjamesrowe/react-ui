@@ -3,7 +3,7 @@ import "./App.css";
 import MobileMenu  from "./components/common/MobileMenu";
 import Menu from "./components/common/Menu";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { Home } from "./components/pages/Home/index";
+import  Home  from "./components/pages/Home/index";
 import { Blog } from "./components/pages/Blog/index";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {  ProfileService } from "./services/ProfileService";
