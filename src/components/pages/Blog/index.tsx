@@ -1,5 +1,5 @@
 import React from "react";
-import { BlogService } from "../../../services/BlogService";
+
 import { BlogPreview } from "./BlogPreview";
 import { TagService } from "../../../services/TagService";
 import Moment from "moment";
@@ -9,14 +9,23 @@ import { Link } from "react-router-dom";
 import { CmsImage } from "../../common/CmsImage";
 import {IBlog} from "../../../model/Blog";
 import {ITag} from "../../../model/Tag";
-const blogService = new BlogService();
+import {connect} from "react-redux";
+import {IApplicationState} from "../../../state/Store";
+import {getAllBlogs} from "../../../services/BlogService";
+
 const tagService = new TagService();
 
-const Blog = () => {
-  const [blogs, setBlogs] = React.useState<IBlog[]>([]);
+interface IBlogProps {
+  blogs: IBlog[],
+  getAllBlogs: typeof getAllBlogs;
+}
+
+
+const Blog = (props : IBlogProps) => {
   const [tags, setTags] = React.useState<ITag[]>([]);
+
   React.useEffect(() => {
-    blogService.getAll().then(data => setBlogs(data));
+    props.getAllBlogs()
     tagService.getAll().then(data => setTags(data));
   }, []);
 
@@ -44,7 +53,7 @@ const Blog = () => {
                     <h6>Recent Posts</h6>
                   </div>
                   <ul>
-                    {blogs
+                    {props.blogs
                       .filter((blog, key) => key < 5)
                       .map((blog, key: number) => (
                         <li className="clearfix" key={key}>
@@ -78,7 +87,7 @@ const Blog = () => {
 
             <div className="col-lg-8 float-right">
               <div className="row blog-grid">
-                {blogs.map((blog, i) => (
+                {props.blogs.map((blog, i) => (
                   <>
                     <BlogPreview blog={blog} i={i} />
                   </>
@@ -92,4 +101,19 @@ const Blog = () => {
   );
 };
 
-export { Blog };
+const mapStateToProps = (store: IApplicationState) => {
+  return {
+    blogs: store.blogs.blogs,
+  };
+};
+
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    getAllBlogs: () => dispatch(getAllBlogs())
+  };
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Blog);
