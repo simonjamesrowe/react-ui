@@ -3,20 +3,28 @@ import "./App.css";
 import MobileMenu  from "./components/common/MobileMenu";
 import Menu from "./components/common/Menu";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { Home } from "./components/pages/Home/index";
-import { Blog } from "./components/pages/Blog/index";
+import  Home  from "./components/pages/Home/index";
+import  Blog  from "./components/pages/Blog/index";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { IProfile, ProfileService } from "./services/ProfileService";
+
 import BlogDetail from "./components/pages/Blog/BlogDetail";
+import {IProfile} from "./model/Profile";
+import {IApplicationState} from "./state/Store";
+import {connect} from "react-redux";
+import {getProfile} from "./services/ProfileService";
 
-const profileService = new ProfileService();
+interface IAppProps {
+  loading: boolean,
+  profile? : IProfile,
+  getProfile: typeof getProfile;
+}
 
-const App = () => {
+const App = (props: IAppProps) => {
   const mobile = useMediaQuery("(max-width:991px)");
   const [loading, setLoading] = React.useState<boolean>(
     !window.location.pathname.startsWith("/blog")
   );
-  const [profile, setProfile] = React.useState<IProfile>();
+
 
   const onScroll = (event: any) => {
     const header = document.getElementById("header") as HTMLElement;
@@ -41,7 +49,7 @@ const App = () => {
   React.useEffect(() => {
     setTimeout(() => setLoading(false), 500);
     window.addEventListener("scroll", onScroll);
-    profileService.getProfile().then(data => setProfile(data));
+    props.getProfile();
     return () => {
       window.removeEventListener("scroll", onScroll);
     };
@@ -50,7 +58,7 @@ const App = () => {
   return (
     <>
       <Router>
-        {(loading || !profile) && (
+        {(loading || !props.profile) && (
           <div className="page-loader">
             <div className="cssload-container">
               <div className="cssload-whirlpool">&nbsp;</div>
@@ -59,16 +67,16 @@ const App = () => {
         )}
         {mobile && <MobileMenu />}
         {!mobile && <Menu />}
-        {profile && (
+        {props.profile && (
           <Switch>
             <Route path="/" exact={true}>
-              <Home profile={profile} />
+              <Home profile={props.profile} />
             </Route>
             <Route path="/blog/:id" component={BlogDetail} />
             <Route path="/blog" component={Blog} />
 
             <Route>
-              <Home profile={profile} />
+              <Home profile={props.profile} />
             </Route>
           </Switch>
         )}
@@ -115,4 +123,23 @@ const App = () => {
   );
 };
 
-export default App;
+
+const mapStateToProps = (store: IApplicationState) => {
+  return {
+    profile: store.profile.profile,
+    loading: store.profile.loading
+  };
+};
+
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    getProfile: () => dispatch(getProfile())
+  };
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(App);
+
+

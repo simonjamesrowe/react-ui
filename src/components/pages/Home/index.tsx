@@ -1,21 +1,37 @@
 import React from "react";
-import { Headline } from "./Headline";
-import { Profile } from "./Profile";
-import { Resume } from "./Resume";
-import { IProfile } from "../../../services/ProfileService";
+import {Headline} from "./Headline";
+import {Profile} from "./Profile";
+import Resume from "./Resume";
+import {IProfile} from "../../../model/Profile";
+import {getAllJobs} from "../../../services/JobService";
+import {connect} from "react-redux";
 
 interface IHomeProps {
-  profile: IProfile;
+    profile: IProfile;
+    getAllJobs: typeof getAllJobs;
 }
 
-const Home = ({profile }: IHomeProps) => {
-  return (
-    <>
-      <Headline profile={profile} />
-      <Profile profile={profile} />
-      <Resume />
-    </>
-  );
+const Home = ( props: IHomeProps) => {
+    React.useEffect(() => {
+        props.getAllJobs();
+    }, []);
+
+    return (
+        <>
+            <Headline profile={props.profile}/>
+            <Profile profile={props.profile}/>
+            <Resume />
+        </>
+    );
 };
 
-export { Home };
+const mapDispatchToProps = (dispatch: any) => {
+    return {
+        getAllJobs: () => dispatch(getAllJobs())
+    };
+};
+
+export default connect(
+    null,
+    mapDispatchToProps
+)(Home);

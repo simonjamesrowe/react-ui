@@ -1,42 +1,38 @@
 import axios from "axios";
-import {IImage} from "./ProfileService";
 import {properties} from "./Environment";
 
-export interface IBlog {
-  id: string;
-  title: string;
-  shortDescription: string;
-  content: string;
-  published: boolean;
-  image: IImage;
-  createdAt: Date;
-  tags: ITag[];
-}
+import {ActionCreator, Dispatch} from "redux";
+import {ThunkAction} from "redux-thunk";
+import {IBlogsState} from "../state/Store";
+import {IBlog} from "../model/Blog";
+import {BlogActions, BlogActionTypes} from "../state/blogs/Actions";
 
-export interface ITag {
-  name: string;
-}
-
-class BlogService {
-  public getAll = async (limit?: number) => {
+export const getAllBlogs: ActionCreator<
+    ThunkAction<Promise<any>, IBlogsState, null, BlogActions>
+    > = (limit?: number) => {
+  return async (dispatch: Dispatch) => {
     let queryString =
-      `${properties.apiUrl}/blogs?published=true&_sort=createdAt:desc`;
+        `${properties.apiUrl}/blogs?published=true&_sort=createdAt:desc`;
     if (limit) {
       queryString += `&_limit=${limit}`;
     }
     const response = await axios.get<IBlog[]>(queryString);
-    const blogs = response.data;
-
-    return blogs;
+    dispatch({
+      blogs: response.data,
+      type: BlogActionTypes.GETALL
+    });
   };
+};
 
-  public get = async (id: string) => {
-    const response = await axios.get<IBlog>(
-      `${properties.apiUrl}/blogs/${id}`
-    );
-    const blog = response.data;
-    return blog;
+export const getOneBlog: ActionCreator<
+    ThunkAction<Promise<any>, IBlogsState, null, BlogActions>
+    > = (id: string) => {
+  return async (dispatch: Dispatch) => {
+    dispatch({
+      blogId: id,
+      type: BlogActionTypes.GETONE
+    });
   };
-}
+};
 
-export { BlogService };
+

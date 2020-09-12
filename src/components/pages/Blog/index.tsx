@@ -1,21 +1,31 @@
 import React from "react";
-import { BlogService, IBlog, ITag } from "../../../services/BlogService";
+
 import { BlogPreview } from "./BlogPreview";
-import { TagService } from "../../../services/TagService";
+import {getAllTags} from "../../../services/TagService";
 import Moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { CmsImage } from "../../common/CmsImage";
-const blogService = new BlogService();
-const tagService = new TagService();
+import {IBlog} from "../../../model/Blog";
+import {ITag} from "../../../model/Tag";
+import {connect} from "react-redux";
+import {IApplicationState} from "../../../state/Store";
+import {getAllBlogs} from "../../../services/BlogService";
 
-const Blog = () => {
-  const [blogs, setBlogs] = React.useState<IBlog[]>([]);
-  const [tags, setTags] = React.useState<ITag[]>([]);
+
+interface IBlogProps {
+  blogs: IBlog[],
+  tags: ITag[],
+  getAllBlogs: typeof getAllBlogs;
+  getAllTags: typeof getAllTags;
+}
+
+const Blog = (props : IBlogProps) => {
+
   React.useEffect(() => {
-    blogService.getAll().then(data => setBlogs(data));
-    tagService.getAll().then(data => setTags(data));
+    props.getAllBlogs();
+    props.getAllTags();
   }, []);
 
   return (
@@ -42,7 +52,7 @@ const Blog = () => {
                     <h6>Recent Posts</h6>
                   </div>
                   <ul>
-                    {blogs
+                    {props.blogs
                       .filter((blog, key) => key < 5)
                       .map((blog, key: number) => (
                         <li className="clearfix" key={key}>
@@ -66,7 +76,7 @@ const Blog = () => {
                     <h6>Tags</h6>
                   </div>
                   <div className="tagcloud">
-                    {tags.map(tag => (
+                    {props.tags.map(tag => (
                       <a href="#">{tag.name}</a>
                     ))}
                   </div>
@@ -76,7 +86,7 @@ const Blog = () => {
 
             <div className="col-lg-8 float-right">
               <div className="row blog-grid">
-                {blogs.map((blog, i) => (
+                {props.blogs.map((blog, i) => (
                   <>
                     <BlogPreview blog={blog} i={i} />
                   </>
@@ -90,4 +100,21 @@ const Blog = () => {
   );
 };
 
-export { Blog };
+const mapStateToProps = (store: IApplicationState) => {
+  return {
+    blogs: store.blogs.blogs,
+    tags: store.tags.tags
+  };
+};
+
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    getAllBlogs: () => dispatch(getAllBlogs()),
+    getAllTags: () => dispatch(getAllTags())
+  };
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Blog);

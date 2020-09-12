@@ -1,7 +1,7 @@
 import React from "react";
-import { IProfile } from "../../../services/ProfileService";
 import { CSSProperties } from "@material-ui/core/styles/withStyles";
 import {properties} from "../../../services/Environment";
+import {IProfile} from "../../../model/Profile";
 
 interface IHeadlineProps {
   profile: IProfile;

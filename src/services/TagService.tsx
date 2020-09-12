@@ -1,15 +1,23 @@
 import axios from "axios";
-import { ITag } from "./BlogService";
 import {properties} from "./Environment";
+import {ITag} from "../model/Tag";
+import {ActionCreator, Dispatch} from "redux";
+import {ThunkAction} from "redux-thunk";
+import {ITagsState} from "../state/Store";
+import {TagActions, TagActionTypes} from "../state/tags/Actions";
 
-class TagService {
-  public getAll = async () => {
+export const getAllTags: ActionCreator<
+    ThunkAction<Promise<any>, ITagsState, null, TagActions>
+    > = () => {
+  return async (dispatch: Dispatch) => {
+    dispatch({type : TagActionTypes.LOADING});
     const response = await axios.get<ITag[]>(
-      `${properties.apiUrl}/tags?_sort=name:asc`
+        `${properties.apiUrl}/tags?_sort=name:asc`
     );
-    const tags = response.data;
-    return tags;
+    dispatch({
+      tags: response.data,
+      type: TagActionTypes.GETALL
+    });
   };
-}
+};
 
-export { TagService };

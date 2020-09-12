@@ -4,9 +4,9 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import Rating from "react-rating";
 import { Popover, OverlayTrigger, ProgressBar } from "react-bootstrap";
 import { faHandPointRight, faStar } from "@fortawesome/free-solid-svg-icons";
-import { IProfile } from "../../../services/ProfileService";
 import { CmsImage } from "../../common/CmsImage";
 import ReactMarkdown from "react-markdown";
+import {IProfile} from "../../../model/Profile";
 
 class Skill {
   public variant: "success" | "danger" | "warning" | "info" = "info";

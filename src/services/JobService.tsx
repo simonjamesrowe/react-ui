@@ -1,26 +1,23 @@
 import axios from "axios";
-import {IImage} from "./ProfileService";
 import {properties} from "./Environment";
+import {IJob} from "../model/Job";
+import {ActionCreator, Dispatch} from "redux";
+import {ThunkAction} from "redux-thunk";
+import {IJobState} from "../state/Store";
+import {JobActions, JobActionTypes} from "../state/jobs/Actions";
 
-export interface IJob {
-  _id: string;
-  startDate: Date;
-  endDate?: Date;
-  company: string;
-  companyUrl: string;
-  shortDescription: string;
-  companyImage: IImage;
-  title: string;
-}
-
-class JobService {
-  public getAll = async () => {
+export const getAllJobs: ActionCreator<
+    ThunkAction<Promise<any>, IJobState, null, JobActions>
+    > = () => {
+  return async (dispatch: Dispatch) => {
+    dispatch({type : JobActionTypes.LOADING});
     const response = await axios.get<IJob[]>(
-      `${properties.apiUrl}/jobs?_sort=startDate:desc`
+        `${properties.apiUrl}/jobs?_sort=startDate:desc`
     );
-    const jobs = response.data;
-    return jobs;
+    dispatch({
+      jobs: response.data,
+      type: JobActionTypes.GETALL
+    });
   };
-}
+};
 
-export { JobService };
