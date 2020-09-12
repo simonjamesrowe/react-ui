@@ -15,9 +15,9 @@ interface IBlogDetailProps extends RouteComponentProps<{ id: string }> {
     getOneBlog: typeof getOneBlog;
 }
 
-const BlogDetail: React.SFC<IBlogDetailProps> = props => {
+const BlogDetail = (props : IBlogDetailProps) => {
     React.useEffect(() => {
-        props.getOneBlog(props.match.params.id);
+        props.getOneBlog((props as RouteComponentProps<{id: string}> ).match.params.id);
     }, []);
 
     const imageUrl = (url: string) => {
