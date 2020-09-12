@@ -1,7 +1,7 @@
 import React from "react";
 
 import { BlogPreview } from "./BlogPreview";
-import { TagService } from "../../../services/TagService";
+import {getAllTags} from "../../../services/TagService";
 import Moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -13,20 +13,19 @@ import {connect} from "react-redux";
 import {IApplicationState} from "../../../state/Store";
 import {getAllBlogs} from "../../../services/BlogService";
 
-const tagService = new TagService();
 
 interface IBlogProps {
   blogs: IBlog[],
+  tags: ITag[],
   getAllBlogs: typeof getAllBlogs;
+  getAllTags: typeof getAllTags;
 }
 
-
 const Blog = (props : IBlogProps) => {
-  const [tags, setTags] = React.useState<ITag[]>([]);
 
   React.useEffect(() => {
-    props.getAllBlogs()
-    tagService.getAll().then(data => setTags(data));
+    props.getAllBlogs();
+    props.getAllTags();
   }, []);
 
   return (
@@ -77,7 +76,7 @@ const Blog = (props : IBlogProps) => {
                     <h6>Tags</h6>
                   </div>
                   <div className="tagcloud">
-                    {tags.map(tag => (
+                    {props.tags.map(tag => (
                       <a href="#">{tag.name}</a>
                     ))}
                   </div>
@@ -104,12 +103,14 @@ const Blog = (props : IBlogProps) => {
 const mapStateToProps = (store: IApplicationState) => {
   return {
     blogs: store.blogs.blogs,
+    tags: store.tags.tags
   };
 };
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    getAllBlogs: () => dispatch(getAllBlogs())
+    getAllBlogs: () => dispatch(getAllBlogs()),
+    getAllTags: () => dispatch(getAllTags())
   };
 };
 

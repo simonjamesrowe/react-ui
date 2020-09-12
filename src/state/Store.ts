@@ -4,6 +4,8 @@ import {jobsReducer} from "./jobs/Reducer";
 import thunk from "redux-thunk";
 import {IBlog} from "../model/Blog";
 import {blogsReducer} from "./blogs/Reducer";
+import {ITag} from "../model/Tag";
+import {tagsReducer} from "./tags/Reducer";
 
 export interface IJobState {
     loading: boolean,
@@ -16,14 +18,23 @@ export interface IBlogsState {
     currentBlog? : IBlog
 }
 
+export interface ITagsState {
+    loading: boolean,
+    tags: ITag[]
+}
+
 export interface IApplicationState {
     jobs: IJobState,
-    blogs: IBlogsState
+    blogs: IBlogsState,
+    tags: ITagsState
 }
+
+
 
 const rootReducer = combineReducers<IApplicationState>({
     jobs: jobsReducer,
-    blogs: blogsReducer
+    blogs: blogsReducer,
+    tags: tagsReducer
 });
 
 export default function configureStore(): Store<IApplicationState> {
