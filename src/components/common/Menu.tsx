@@ -1,14 +1,14 @@
-import React, {CSSProperties} from "react";
+import React from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import { HashLink as Link } from "react-router-hash-link";
 
 const Menu: React.SFC<RouteComponentProps> = props => {
-  let cssProperties : CSSProperties = {display: "none"}
+  let cssClass = "header header-center header-light";
   if (props.location.pathname.startsWith("/blog")) {
-    cssProperties.display = "block";
+    cssClass = "header header-center header-small"
   }
   return (
-    <header id="header" className="header header-center header-small" style={cssProperties}>
+    <header id="header" className={cssClass} >
       <div className="container-fluid">
         <div className="inner-navigation collapse">
           <div className="inner-nav onepage-nav" id="navbarContent">

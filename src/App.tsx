@@ -27,22 +27,26 @@ const App = (props: IAppProps) => {
 
 
   const onScroll = (event: any) => {
+    const isMobile = window.innerWidth <= 991;
     const header = document.getElementById("header") as HTMLElement;
     if (window.location.pathname.startsWith("/blog")) {
       return;
     }
     if (header) {
-      let showMenu = false
+      let top = true
       if (window.scrollY > 5) {
-        showMenu = true;
+        top = false;
       }
-
-      if (showMenu) {
-        header.style.display = "block"
+      
+      if (isMobile && top) {
+        header.style.display = "none";
+      } else if (isMobile && !top) {
+        header.style.display = "block";
+      } else if (top) {
+        header.className = "header header-center header-light";
       } else {
-        header.style.display = "none"
+        header.className = "header header-center header-small";
       }
-
     }
   };
 
