@@ -74,13 +74,13 @@ const App = (props: IAppProps) => {
         {props.profile && (
           <Switch>
             <Route path="/" exact={true}>
-              <Home profile={props.profile} />
+              <Home profile={props.profile} mobile={mobile} />
             </Route>
             <Route path="/blog/:id" component={BlogDetail} />
             <Route path="/blog" component={Blog} />
 
             <Route>
-              <Home profile={props.profile} />
+              <Home profile={props.profile} mobile={mobile} />
             </Route>
           </Switch>
         )}

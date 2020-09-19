@@ -8,6 +8,7 @@ import ReactMarkdown from "react-markdown";
 import {IProfile} from "../../../model/Profile";
 import {getVariant, ISkillGroup} from "../../../model/Skill";
 import {getMediaIcon, ISocialMedia} from "../../../model/SocialMedia";
+import {CmsThumbnail} from "../../common/CmsThumbnail";
 
 
 interface IProfileProperties {
@@ -32,7 +33,7 @@ const Profile = ({ profile, skillsGroups, socialMedias }: IProfileProperties) =>
         <div className="row">
           <div className="col-sm-12 col-md-4">
             <p>
-              <CmsImage src={profile.profileImage} />
+              <CmsImage src={profile.profileImage} type={"small"}/>
             </p>
           </div>
           <div className="col-sm-12 col-md-4 ">
@@ -94,7 +95,7 @@ const Profile = ({ profile, skillsGroups, socialMedias }: IProfileProperties) =>
               return (
                 <React.Fragment key={j}>
                   <div className="progress-title" key={j}>
-                    {skill.name} &nbsp;
+                    {skill.image && <CmsThumbnail  src={skill.image}/>} {skill.name} &nbsp;
                     <OverlayTrigger
                       overlay={popOver}
                       trigger="hover"

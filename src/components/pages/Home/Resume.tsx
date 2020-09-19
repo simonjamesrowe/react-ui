@@ -44,7 +44,7 @@ const Resume = ({jobs, profile}: IProps) => {
                       <div className="timeline-badge" />
                       <div className="timeline-panel">
                         <div className="timeline-preview">
-                          <CmsImage src={job.companyImage} />
+                          <CmsImage src={job.companyImage} type={"small"} />
                         </div>
                         <div className="timeline-body">
                           <h5 className="timeline-title">{job.title}</h5>

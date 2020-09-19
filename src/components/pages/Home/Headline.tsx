@@ -5,12 +5,13 @@ import {IProfile} from "../../../model/Profile";
 
 interface IHeadlineProps {
   profile: IProfile;
+  mobile: boolean;
 }
 
-const Headline = ({ profile }: IHeadlineProps) => {
+const Headline = ({ profile, mobile }: IHeadlineProps) => {
   const style: CSSProperties = {
-    backgroundImage:
-      `url(${properties.apiUrl}${profile.backgroundImage.url})`
+    backgroundImage: mobile ?  `url(${properties.apiUrl}${profile.backgroundImage.formats?.small?.url})` :
+      `url(${properties.apiUrl}${profile.backgroundImage.formats?.large?.url})`
   };
   return (
     <>

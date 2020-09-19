@@ -33,7 +33,7 @@ const BlogDetail = (props : IBlogDetailProps) => {
                             <div className="col-lg-12">
                                 <article className="post">
                                     <div className="post-preview">
-                                        <CmsImage src={props.blog.image}/>
+                                        <CmsImage src={props.blog.image} type={"medium"}/>
                                         <div>
                                             {props.blog.tags.map((tag, i) => (
                                                 <BlogTag tag={tag.name} link={"#"} key={i}/>

@@ -17,7 +17,7 @@ const BlogPreview = ({ blog, i }: IBlogPreviewProps) => {
         <article className="post">
           <div className="post-preview">
             <Link to={`/blog/${blog.id}`}>
-              <CmsImage src={blog.image} />
+              <CmsImage src={blog.image} type={"small"} />
             </Link>
             <div>
               {blog.tags.map((tag) =>

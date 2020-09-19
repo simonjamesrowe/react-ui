@@ -58,7 +58,7 @@ const Blog = (props : IBlogProps) => {
                         <li className="clearfix" key={key}>
                           <div className="wi">
                             <Link to={`/blog/${blog.id}`}>
-                              <CmsImage src={blog.image} />
+                              <CmsImage src={blog.image} type={"thumbnail"}/>
                             </Link>
                           </div>
                           <div className="wb">

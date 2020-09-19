@@ -13,6 +13,7 @@ import {ISocialMedia} from "../../../model/SocialMedia";
 import {getAllSocialMedia} from "../../../services/SocialMediaService";
 
 interface IHomeProps {
+    mobile: boolean;
     profile: IProfile;
     skillsGroups: ISkillGroup[];
     socialMedias: ISocialMedia[];
@@ -30,7 +31,7 @@ const Home = ( props: IHomeProps) => {
 
     return (
         <>
-            <Headline profile={props.profile}/>
+            <Headline profile={props.profile} mobile={props.mobile}/>
             <Profile profile={props.profile} skillsGroups={props.skillsGroups} socialMedias={props.socialMedias}/>
             <Resume />
         </>
