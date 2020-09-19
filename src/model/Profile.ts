@@ -7,4 +7,5 @@ export interface IProfile {
     profileImage: IImage;
     headline: string;
     description: string;
+    cv: IImage;
 }

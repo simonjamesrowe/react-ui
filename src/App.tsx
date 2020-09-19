@@ -37,7 +37,7 @@ const App = (props: IAppProps) => {
       if (window.scrollY > 5) {
         top = false;
       }
-      
+
       if (isMobile && top) {
         header.style.display = "none";
       } else if (isMobile && !top) {

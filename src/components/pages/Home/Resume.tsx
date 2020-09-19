@@ -1,6 +1,5 @@
 import React from "react";
 
-import resumePdf from "../../../assets/SimonRowe.pdf";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { CmsImage } from "../../common/CmsImage";
@@ -9,12 +8,15 @@ import Moment from "moment";
 import {IJob} from "../../../model/Job";
 import {IApplicationState} from "../../../state/Store";
 import {connect} from "react-redux";
+import {IProfile} from "../../../model/Profile";
+import {properties} from "../../../services/Environment";
 
 interface IProps {
-  jobs : IJob[]
+  jobs : IJob[];
+  profile?: IProfile;
 }
 
-const Resume = ({jobs}: IProps) => {
+const Resume = ({jobs, profile}: IProps) => {
   return (
     <>
       <section className="module module-gray" id="resume">
@@ -23,8 +25,8 @@ const Resume = ({jobs}: IProps) => {
             <div className="col-md-12">
               <div className="m-title c-align">
                 <h2>
-                  Resumé{" "}
-                  <a href={resumePdf} target="_blank">
+                  Resumé
+                  <a href={`${properties.apiUrl}${profile!!.cv.url}`} target="_blank">
                     <FontAwesomeIcon size="xs" icon={faDownload} />
                   </a>
                 </h2>
@@ -74,6 +76,7 @@ const Resume = ({jobs}: IProps) => {
 const mapStateToProps = (store: IApplicationState) => {
   return {
     jobs: store.jobs.jobs,
+    profile: store.profile.profile
   };
 };
 

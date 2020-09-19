@@ -8,6 +8,10 @@ import {ITag} from "../model/Tag";
 import {tagsReducer} from "./tags/Reducer";
 import {IProfile} from "../model/Profile";
 import {profileReducer} from "./profile/Reducer";
+import {ISkillGroup} from "../model/Skill";
+import {skillsReducer} from "./skills/Reducer";
+import {ISocialMedia} from "../model/SocialMedia";
+import {socialMediaReducer} from "./socialMedia/Reducer";
 
 export interface IJobState {
     loading: boolean,
@@ -30,11 +34,23 @@ export interface IProfileState {
     profile?: IProfile
 }
 
+export interface ISkillsState {
+    loading: boolean,
+    skillsGroups: ISkillGroup[]
+}
+
+export interface ISocialMediaState {
+    loading: boolean,
+    socialMedias: ISocialMedia[]
+}
+
 export interface IApplicationState {
     jobs: IJobState,
     blogs: IBlogsState,
     tags: ITagsState,
-    profile: IProfileState
+    profile: IProfileState,
+    skills: ISkillsState,
+    socialMedia: ISocialMediaState
 }
 
 
@@ -43,7 +59,9 @@ const rootReducer = combineReducers<IApplicationState>({
     jobs: jobsReducer,
     blogs: blogsReducer,
     tags: tagsReducer,
-    profile: profileReducer
+    profile: profileReducer,
+    skills: skillsReducer,
+    socialMedia: socialMediaReducer
 });
 
 export default function configureStore(): Store<IApplicationState> {
