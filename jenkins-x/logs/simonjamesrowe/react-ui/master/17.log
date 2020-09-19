@@ -1,0 +1,189 @@
+
+Showing logs for build [32msimonjamesrowe-react-ui-master-bqv5x-17[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-zz8z6[0m
+{"level":"info","ts":1600528608.8453352,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
+{"level":"info","ts":1600528608.8481843,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32msimonjamesrowe-react-ui-master-bqv5x-17[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-kt97l[0m
+{"level":"info","ts":1600528610.0542371,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1600528610.0568523,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32msimonjamesrowe-react-ui-master-bqv5x-17[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32msimonjamesrowe-react-ui-master-bqv5x-17[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-simonjamesrowe-react-ui-master-bqv5x-hndbm[0m
+{"level":"info","ts":1600528615.805001,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
+{"level":"info","ts":1600528617.837952,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/simonjamesrowe/react-ui.git @ v0.0.26 in path /workspace/source"}
+
+Showing logs for build [32msimonjamesrowe-react-ui-master-bqv5x-17[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:d7b5847547af0f1c33431b89757c562de13cb11a
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32msimonjamesrowe-react-ui-master-bqv5x-17[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
+
+Showing logs for build [32msimonjamesrowe-react-ui-master-bqv5x-17[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0000] Using dockerignore file: /workspace/source/.dockerignore 
+[36mINFO[0m[0000] Retrieving image manifest node:13            
+[36mINFO[0m[0002] Retrieving image manifest node:13            
+[36mINFO[0m[0004] Built cross stage deps: map[]                
+[36mINFO[0m[0004] Retrieving image manifest node:13            
+[36mINFO[0m[0005] Retrieving image manifest node:13            
+[36mINFO[0m[0006] Executing 0 build triggers                   
+[36mINFO[0m[0006] Checking for cached layer harbor.simonjamesrowe.com/todo/cache:d3a10b1d9463dc420ec5efafc2fcfbeff79c9d29bf6c507e549d98a2022047b2... 
+[36mINFO[0m[0007] No cached layer found for cmd COPY . .       
+[36mINFO[0m[0007] Unpacking ****fs as cmd COPY . . requires it. 
+[36mINFO[0m[0044] WORKDIR /app                                 
+[36mINFO[0m[0044] cmd: workdir                                 
+[36mINFO[0m[0044] Changed working directory to /app            
+[36mINFO[0m[0044] Creating directory /app                      
+[36mINFO[0m[0044] Resolving 1 paths                            
+[36mINFO[0m[0044] Taking snapshot of files...                  
+[36mINFO[0m[0044] COPY . .                                     
+[36mINFO[0m[0044] Resolving 210 paths                          
+[36mINFO[0m[0044] Taking snapshot of files...                  
+[36mINFO[0m[0045] ENV NODE_ENV=production                      
+[36mINFO[0m[0045] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0045] RUN yarn install                             
+[36mINFO[0m[0045] Taking snapshot of full filesystem...        
+[36mINFO[0m[0045] Pushing layer harbor.simonjamesrowe.com/todo/cache:d3a10b1d9463dc420ec5efafc2fcfbeff79c9d29bf6c507e549d98a2022047b2 to cache now 
+[36mINFO[0m[0047] Resolving 40918 paths                        
+[36mINFO[0m[0055] cmd: /bin/sh                                 
+[36mINFO[0m[0055] args: [-c yarn install]                      
+[36mINFO[0m[0055] Running: [/bin/sh -c yarn install]           
+yarn install v1.22.4
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+info fsevents@2.1.2: The platform "linux" is incompatible with this module.
+info "fsevents@2.1.2" is an optional dependency and failed compatibility check. Excluding it from installation.
+info fsevents@1.2.13: The platform "linux" is incompatible with this module.
+info "fsevents@1.2.13" is an optional dependency and failed compatibility check. Excluding it from installation.
+info fsevents@2.1.3: The platform "linux" is incompatible with this module.
+info "fsevents@2.1.3" is an optional dependency and failed compatibility check. Excluding it from installation.
+[3/4] Linking dependencies...
+warning " > bootstrap@4.5.0" has unmet peer dependency "jquery@1.9.1 - 3".
+warning " > bootstrap@4.5.0" has unmet peer dependency "popper.js@^1.16.0".
+[4/4] Building fresh packages...
+Done in 147.48s.
+[36mINFO[0m[0203] Taking snapshot of full filesystem...        
+[36mINFO[0m[0206] Resolving 177684 paths                       
+[36mINFO[0m[0301] RUN yarn run build                           
+[36mINFO[0m[0301] cmd: /bin/sh                                 
+[36mINFO[0m[0301] args: [-c yarn run build]                    
+[36mINFO[0m[0301] Running: [/bin/sh -c yarn run build]         
+[36mINFO[0m[0301] Pushing layer harbor.simonjamesrowe.com/todo/cache:a45b5bf847e1f9146993db1a73c298526005f6f9ac6339edd4882c9bbecfa9c4 to cache now 
+yarn run v1.22.4
+$ react-scripts build
+Creating an optimized production build...
+Compiled with warnings.
+
+./src/state/socialMedia/Actions.ts
+  Line 1:9:  'ISkillGroup' is defined but never used  @typescript-eslint/no-unused-vars
+
+./src/components/pages/Blog/BlogDetail.tsx
+  Line 21:8:  React Hook React.useEffect has a missing dependency: 'props'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+./src/components/pages/Blog/index.tsx
+  Line 29:6:   React Hook React.useEffect has a missing dependency: 'props'. Either include it or remove the dependency array. However, 'props' will change when *any* prop changes, so the preferred fix is to destructure the 'props' object outside of the useEffect call and refer to those specific props inside React.useEffect                                            react-hooks/exhaustive-deps
+  Line 80:23:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+./src/components/pages/Home/Resume.tsx
+  Line 29:71:  Using target="_blank" without rel="noopener noreferrer" is a security risk: see https://mathiasbynens.github.io/rel-noopener  react/jsx-no-target-blank
+
+./src/state/profile/Reducer.ts
+  Line 2:24:  'ITagsState' is defined but never used  @typescript-eslint/no-unused-vars
+
+./src/components/pages/Home/index.tsx
+  Line 30:8:  React Hook React.useEffect has a missing dependency: 'props'. Either include it or remove the dependency array. However, 'props' will change when *any* prop changes, so the preferred fix is to destructure the 'props' object outside of the useEffect call and refer to those specific props inside React.useEffect  react-hooks/exhaustive-deps
+
+./src/services/SocialMediaService.tsx
+  Line 3:9:   'IJob' is defined but never used            @typescript-eslint/no-unused-vars
+  Line 6:9:   'IJobState' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 7:9:   'JobActions' is defined but never used      @typescript-eslint/no-unused-vars
+  Line 7:21:  'JobActionTypes' is defined but never used  @typescript-eslint/no-unused-vars
+
+./src/services/SkillsService.tsx
+  Line 3:9:   'IJob' is defined but never used            @typescript-eslint/no-unused-vars
+  Line 6:9:   'IJobState' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 7:9:   'JobActions' is defined but never used      @typescript-eslint/no-unused-vars
+  Line 7:21:  'JobActionTypes' is defined but never used  @typescript-eslint/no-unused-vars
+  Line 9:9:   'ISkill' is defined but never used          @typescript-eslint/no-unused-vars
+
+./src/App.tsx
+  Line 60:6:    React Hook React.useEffect has a missing dependency: 'props'. Either include it or remove the dependency array. However, 'props' will change when *any* prop changes, so the preferred fix is to destructure the 'props' object outside of the useEffect call and refer to those specific props inside React.useEffect                                            react-hooks/exhaustive-deps
+  Line 96:21:   The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+  Line 101:21:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+  Line 106:21:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+  Line 111:21:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+  Line 116:21:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+File sizes after gzip:
+
+  159.72 KB  build/static/js/2.d06b4ae7.chunk.js
+  22.47 KB   build/static/css/2.af3c1da9.chunk.css
+  10.27 KB   build/static/css/main.8302b58f.chunk.css
+  4.83 KB    build/static/js/main.2d29b4cc.chunk.js
+  772 B      build/static/js/runtime-main.89ce72de.js
+
+The project was built assuming it is hosted at /.
+You can control this with the homepage field in your package.json.
+
+The build folder is ready to be deployed.
+You may serve it with a static server:
+
+  yarn global add serve
+  serve -s build
+
+Find out more about deployment here:
+
+  bit.ly/CRA-deploy
+
+Done in 62.13s.
+[36mINFO[0m[0364] Taking snapshot of full filesystem...        
+[36mINFO[0m[0365] Resolving 178399 paths                       
+[36mINFO[0m[0449] Pushing layer harbor.simonjamesrowe.com/todo/cache:76e6c1e723f1bd0ee573740866c65909d179780baa0a2cfecc7cffa329490e82 to cache now 
+[36mINFO[0m[0449] ENV PORT=8080                                
+[36mINFO[0m[0449] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0449] CMD ["node", "server.js"]                    
+[36mINFO[0m[0449] No files changed in this command, skipping snapshotting. 
+[33mWARN[0m[0450] error uploading layer to cache: failed to push to destination harbor.simonjamesrowe.com/todo/cache:d3a10b1d9463dc420ec5efafc2fcfbeff79c9d29bf6c507e549d98a2022047b2: HEAD https://harbor.simonjamesrowe.com/v2/todo/cache/blobs/sha256:fe48378f602ef51ed676ef31868f9d027ececbaf46c595125911211a62985f66: unsupported status code 401 
+
+Showing logs for build [32msimonjamesrowe-react-ui-master-bqv5x-17[0m stage [32mfrom-build-pack[0m and container [32mstep-build-post-build[0m
+no CVE provider running in the current ** namespace so skip adding image to be analysed
+
+Showing logs for build [32msimonjamesrowe-react-ui-master-bqv5x-17[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-changelog[0m
+Converted /workspace/source/charts/react-ui to an unshallow repository
+Generating change log from git ref 205096c1de7afafc7c1e8ec0cb6f0bd141fb5246 => 0c6f25be51667c418e01e777a200f2047518ca66
+WARNING: Failed to enrich commit d7b5847547af0f1c33431b89757c562de13cb11a with issues: users.jenkins.io "x-0" already exists
+WARNING: Failed to enrich commit d7b5847547af0f1c33431b89757c562de13cb11a with issues: users.jenkins.io "x-0" already exists
+Finding issues in commit messages using git format
+WARNING: No release found for simonjamesrowe/react-ui and tag v0.0.26 so creating a new release
+Updated the release information at https://github.com/simonjamesrowe/react-ui/releases/tag/v0.0.26
+generated: /workspace/source/charts/react-ui/templates/release.yaml
+Created Release react-ui-0-0-26 resource in namespace **
+Updating PipelineActivity simonjamesrowe-react-ui-master-17 with version 0.0.26
+Updated PipelineActivities simonjamesrowe-react-ui-master-17 with release notes URL: https://github.com/simonjamesrowe/react-ui/releases/tag/v0.0.26
+
+Showing logs for build [32msimonjamesrowe-react-ui-master-bqv5x-17[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-helm-release[0m
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Uploading chart file react-ui-0.0.26.tgz to http://jenkins-x-chartmuseum:8080/api/charts
+Received 201 response: {"saved":true}
+
+Showing logs for build [32msimonjamesrowe-react-ui-master-bqv5x-17[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-promote[0m
+WARNING: prow based install so skip waiting for the merge of Pull Requests to go green as currently there is an issue with gettingstatuses from the PR, see https://github.com/jenkins-x/**/issues/2410
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Promoting app react-ui version 0.0.26 to namespace **-staging
+Created Pull Request: https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/45
+Added label updatebot to Pull Request https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/45
+WARNING: Failed to query the Pull Request last commit status for https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/45 ref e940621de7eba5287ef996cfe7727d9d76f660fa Could not find a status for repository simonjamesrowe/environment-simonjamesrowe-staging with ref e940621de7eba5287ef996cfe7727d9d76f660fa
+got git provider status pending from PR https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/45
+got git provider status pending from PR https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/45
+Pull Request https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/45 is merged at sha 2ddd8b24c3350c2709d944957b384d3bdfa9bf5b
+Pull Request merged but we are not waiting for the update pipeline to complete!
+WARNING: Could not find the service URL in namespace **-staging for names react-ui, **-react-ui, **-staging-react-ui
