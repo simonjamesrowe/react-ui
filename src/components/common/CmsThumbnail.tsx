@@ -4,12 +4,19 @@ import {IImage} from "../../model/Image";
 
 interface IImageProperties {
   src?: IImage;
+  size?: "small" | "medium" | "large" ;
 }
 
 const CmsThumbnail = (props: IImageProperties) => {
+  let multiplier : number = 1
+  if (props.size === "medium") {
+    multiplier = 2;
+  } else if (props.size === "large") {
+    multiplier = 3;
+  }
   const thumbnailStype : CSSProperties = {
-    height: "25px",
-    width : "25px"
+    height: (25 * multiplier) + "px",
+    width : (25 * multiplier) + "px"
   };
   return (
     <>

@@ -722,6 +722,7 @@ button {
     .clients-row + .clients-row {
         border-top: 0;
     }
+
 }
 
 /* ------------------------------------------------------------------
@@ -2170,8 +2171,20 @@ header.header-small .inner-nav > ul > app-login > li.sub-menu-open > a {
 .nav-toggle > a span:nth-child(3) {
     margin-top: 4px;
 }
+.content-skills {
+    margin-top: 72px;
+}
 
 @media (min-width: 992px) {
+
+    .header-skills div {
+        margin-left: -30px;
+    }
+
+    .content-skills {
+        margin-top: 80px;
+    }
+
     .header {
         height: 80px;
     }

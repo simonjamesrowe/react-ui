@@ -1,14 +1,15 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Rating from "react-rating";
-import { Popover, OverlayTrigger, ProgressBar } from "react-bootstrap";
-import { faHandPointRight, faStar } from "@fortawesome/free-solid-svg-icons";
+
+import {  ProgressBar } from "react-bootstrap";
+import {  faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { CmsImage } from "../../common/CmsImage";
 import ReactMarkdown from "react-markdown";
 import {IProfile} from "../../../model/Profile";
 import {getVariant, ISkillGroup} from "../../../model/Skill";
 import {getMediaIcon, ISocialMedia} from "../../../model/SocialMedia";
 import {CmsThumbnail} from "../../common/CmsThumbnail";
+import {SkillGroup} from "./SkillGroup";
 
 
 interface IProfileProperties {
@@ -18,6 +19,19 @@ interface IProfileProperties {
 }
 
 const Profile = ({ profile, skillsGroups, socialMedias }: IProfileProperties) => {
+  const [skillsDraw, setSkillsDraw] = React.useState({});
+
+  React.useEffect(() => {
+    skillsGroups.forEach(sk => setSkillsDraw({...skillsDraw, [sk.name] : false}));
+  }, [skillsGroups]);
+
+  const expandSkillGroup = (name: string) => {
+    setSkillsDraw({...skillsDraw, [name] : true});
+  };
+
+  const collapseSkillGroup = (name: string) => {
+    setSkillsDraw({...skillsDraw, [name] : false});
+  }
 
   return (
     <section className="module" id="profile">
@@ -62,51 +76,21 @@ const Profile = ({ profile, skillsGroups, socialMedias }: IProfileProperties) =>
           <div className="col-sm-12 col-md-4">
             <h5>My Skills</h5>
             {skillsGroups.map((skill, j) => {
-              const popOver = (
-                <Popover id={skill.name}>
-                  <Popover.Content>
-                    <div className="progressItem">
-                      <ul>
-                        {skill.skills.map((subskill, i) => (
-                          <React.Fragment key={i}>
-                            <li>
-                              <span className="subskill-title">
-                                {subskill.name}
-                              </span>
-                              <span className="subskill-rating">
-                                <Rating
-                                  initialRating={subskill.rating}
-                                  stop={10}
-                                  step={2}
-                                  fullSymbol={<FontAwesomeIcon icon={faStar} />}
-                                  emptySymbol={
-                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                  }
-                                />
-                              </span>
-                            </li>
-                          </React.Fragment>
-                        ))}
-                      </ul>
-                    </div>
-                  </Popover.Content>
-                </Popover>
-              );
               return (
                 <React.Fragment key={j}>
                   <div className="progress-title" key={j}>
                     {skill.image && <CmsThumbnail  src={skill.image}/>} {skill.name} &nbsp;
-                    <OverlayTrigger
-                      overlay={popOver}
-                      trigger="hover"
-                      placement="right"
-                    >
+                    {/* tslint:disable-next-line:jsx-no-lambda */}
+                      <SkillGroup open={skillsDraw[skill.name]} skillGroup={skill} close={() => {collapseSkillGroup(skill.name)}} />
+                      {/* tslint:disable-next-line:jsx-no-lambda */}
                       <FontAwesomeIcon
                         className="pointer"
                         size="lg"
-                        icon={faHandPointRight}
+                        icon={faChevronDown}
+                        onClick={() => expandSkillGroup(skill.name)}
+                        style={{float : "right"}}
                       />
-                    </OverlayTrigger>
+
                   </div>
                   <ProgressBar now={skill.rating * 10} variant={getVariant(skill.rating)} />
                 </React.Fragment>
