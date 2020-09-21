@@ -18,7 +18,7 @@ export interface ISkill {
 }
 
 export const getVariant = (rating: number) :  "success" | "danger" | "warning" | "info" | undefined => {
-    if (rating > 9) {
+    if (rating >= 9) {
         return "success";
     } else if (rating > 8.5) {
         return "info";

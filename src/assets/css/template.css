@@ -2147,6 +2147,11 @@ header.header-small .inner-nav > ul > app-login > li.sub-menu-open > a {
     padding: 0 0 0 25px;
 }
 
+.text ul, .text ol {
+    padding-left: 15px;
+    list-style: inherit ;
+}
+
 .nav-toggle {
     position: relative;
     z-index: 1;
