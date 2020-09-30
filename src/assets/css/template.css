@@ -707,7 +707,16 @@ button {
     border-top: 1px solid #f2f2f2;
 }
 
+.closeIcon {
+    margin-top: 30px;
+}
+
 @media (max-width: 767px) {
+    .closeIcon {
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+
     .clients-row {
         border: 1px solid #f2f2f2;
         border-bottom: 0;

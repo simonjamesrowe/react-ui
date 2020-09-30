@@ -22,19 +22,13 @@ const SkillGroup = ({open, skillGroup, close}: ISkillGroupProps) => {
     return (
         <SwipeableDrawer anchor={"right"} open={open} onClose={close} onOpen={onOpen}>
             <header className="header header-small header-skills">
-                <div>
-                    <IconButton
-                        color="inherit"
-                        aria-label="close"
-                        edge="end"
-                    >
+                <div className="closeIcon">
                     <FontAwesomeIcon
                         className="pointer"
                         size="2x"
                         icon={faTimes}
                         onClick={close}
                     />
-                    </IconButton>
                 </div>
             </header>
             <div className="container content-skills">
@@ -43,7 +37,9 @@ const SkillGroup = ({open, skillGroup, close}: ISkillGroupProps) => {
                         <CmsImage src={skillGroup.image} type={"thumbnail"}/>
                         <h2> {skillGroup.name} </h2>
                     </div>
-                    <p>{skillGroup.description}</p>
+                    <div className="col-md-12">
+                        <p>{skillGroup.description}</p>
+                    </div>
                 </div>
                 <div className="row">
                     {skillGroup.skills.map((skill, index) =>
@@ -51,11 +47,11 @@ const SkillGroup = ({open, skillGroup, close}: ISkillGroupProps) => {
                             <div className="service">
                                 <div className="m-title c-align">
                                     <div className="icon">
-                                        <CmsThumbnail src={skill.image} size={"medium"}  />
+                                        <CmsThumbnail src={skill.image} size={"medium"}/>
                                     </div>
                                     <h4>{skill.name}</h4>
                                 </div>
-                                <ProgressBar now={skill.rating * 10} variant={getVariant(skill.rating)} />
+                                <ProgressBar now={skill.rating * 10} variant={getVariant(skill.rating)}/>
                                 <div className="text">
                                     <ReactMarkdown
                                         source={skill.description}
