@@ -5,7 +5,6 @@ import {CmsImage} from "../../common/CmsImage";
 import {CmsThumbnail} from "../../common/CmsThumbnail";
 import {ProgressBar} from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
-import IconButton from "@material-ui/core/IconButton";
 import {faTimes} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 

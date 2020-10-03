@@ -2,6 +2,7 @@ import {Reducer} from "redux";
 import {IBlogsState} from "../Store";
 import {BlogActions, BlogActionTypes} from "./Actions";
 import {IBlog} from "../../model/Blog";
+import ReactGA from 'react-ga';
 
 const initialBlogsState: IBlogsState = {
     loading: false,
@@ -26,9 +27,16 @@ export const blogsReducer: Reducer<IBlogsState, BlogActions> = (
             };
         }
         case BlogActionTypes.GETONE: {
+            const viewedBlog = state.blogs.find((blog: IBlog) => blog.id === action.blogId)
+            if (viewedBlog) {
+                ReactGA.event({
+                    category: "Blog",
+                    action: `Blog Post Viewed: ${viewedBlog.title}`
+                });
+            }
             return {
                 ...state,
-                currentBlog: state.blogs.find((blog: IBlog) => blog.id === action.blogId)
+                currentBlog: viewedBlog
             };
         }
     }

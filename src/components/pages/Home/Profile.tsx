@@ -10,6 +10,7 @@ import {getVariant, ISkillGroup} from "../../../model/Skill";
 import {getMediaIcon, ISocialMedia} from "../../../model/SocialMedia";
 import {CmsThumbnail} from "../../common/CmsThumbnail";
 import {SkillGroup} from "./SkillGroup";
+import ReactGA from 'react-ga';
 
 
 interface IProfileProperties {
@@ -26,8 +27,19 @@ const Profile = ({ profile, skillsGroups, socialMedias }: IProfileProperties) =>
   }, [skillsGroups]);
 
   const expandSkillGroup = (name: string) => {
+    ReactGA.event({
+      category: "Skill",
+      action: `Skill Group Expanded: ${name}`,
+    });
     setSkillsDraw({...skillsDraw, [name] : true});
   };
+
+  const trackSocialMedia = (name: string) : void => {
+    ReactGA.event({
+      category: "Social Media",
+      action: `Social Media Clicked: ${name}`,
+    });
+  }
 
   const collapseSkillGroup = (name: string) => {
     setSkillsDraw({...skillsDraw, [name] : false});
@@ -64,6 +76,7 @@ const Profile = ({ profile, skillsGroups, socialMedias }: IProfileProperties) =>
                           title={socialMedia.name}
                           href={socialMedia.link}
                           rel="noopener noreferrer"
+                          onClick={() => {trackSocialMedia(socialMedia.name)}}
                       >
                         <FontAwesomeIcon size="lg" icon={getMediaIcon(socialMedia.type)!!} />
                       </a>
