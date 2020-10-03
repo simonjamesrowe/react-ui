@@ -9,6 +9,7 @@ image:
 
 apiUrl: https://api-jx-staging.simonjamesrowe.com
 gaTrackingToken: UA-179384022-3
+hotJarTrackingToken: 2022739
 # define environment variables here as a map of key: value
 env:
 

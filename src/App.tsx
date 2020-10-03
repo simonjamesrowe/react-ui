@@ -14,6 +14,7 @@ import {connect} from "react-redux";
 import Analytics from 'react-router-ga';
 import {getProfile} from "./services/ProfileService";
 import ReactGA from 'react-ga';
+import { hotjar } from 'react-hotjar';
 import {properties} from "./services/Environment";
 
 interface IAppProps {
@@ -24,6 +25,7 @@ interface IAppProps {
 
 const App = (props: IAppProps) => {
     ReactGA.initialize(properties.gaTrackingToken);
+    hotjar.initialize(Number(properties.hotJarTrackingToken), 6);
 
     const mobile = useMediaQuery("(max-width:991px)");
     const [loading, setLoading] = React.useState<boolean>(

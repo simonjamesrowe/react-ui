@@ -6,3 +6,4 @@ data:
   config.js: >
     window.API_URL="{{ .Values.apiUrl }}";
     window.GA_TRACKING_TOKEN="{{ .Values.gaTrackingToken }}";
+    window.HOT_JAR_TRACKING_TOKEN="{{ .Values.hotJarTrackingToken}}";
