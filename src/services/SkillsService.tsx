@@ -1,12 +1,10 @@
 import axios from "axios";
 import {properties} from "./Environment";
-import {IJob} from "../model/Job";
 import {ActionCreator, Dispatch} from "redux";
 import {ThunkAction} from "redux-thunk";
-import {IJobState, ISkillsState} from "../state/Store";
-import {JobActions, JobActionTypes} from "../state/jobs/Actions";
+import {ISkillsState} from "../state/Store";
 import {SkillsActions, SkillsActionTypes} from "../state/skills/Actions";
-import {ISkill, ISkillGroup} from "../model/Skill";
+import {ISkillGroup} from "../model/Skill";
 
 export const getAllSkills: ActionCreator<
     ThunkAction<Promise<any>, ISkillsState, null, SkillsActions>

@@ -32,8 +32,12 @@ const Home = ( props: IHomeProps) => {
     return (
         <>
             <Headline profile={props.profile} mobile={props.mobile}/>
+            <div className="port_sec_warapper">
+                <Profile profile={props.profile} socialMedias={props.socialMedias}/>
+            </div>
+            {/**
             <Profile profile={props.profile} skillsGroups={props.skillsGroups} socialMedias={props.socialMedias}/>
-            <Resume />
+            <Resume />**/}
         </>
     );
 };
