@@ -11,10 +11,12 @@ import {getAllSkills} from "../../../services/SkillsService";
 import {IApplicationState} from "../../../state/Store";
 import {ISocialMedia} from "../../../model/SocialMedia";
 import {getAllSocialMedia} from "../../../services/SocialMediaService";
+import {IJob} from "../../../model/Job";
 
 interface IHomeProps {
     mobile: boolean;
     profile: IProfile;
+    jobs: IJob[];
     skillsGroups: ISkillGroup[];
     socialMedias: ISocialMedia[];
     getAllJobs: typeof getAllJobs;
@@ -44,7 +46,8 @@ const Home = ( props: IHomeProps) => {
 const mapStateToProps = (store: IApplicationState) => {
     return {
         skillsGroups: store.skills.skillsGroups,
-        socialMedias: store.socialMedia.socialMedias
+        socialMedias: store.socialMedia.socialMedias,
+        jobs: store.jobs.jobs
     };
 };
 

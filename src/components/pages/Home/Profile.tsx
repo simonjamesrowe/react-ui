@@ -1,19 +1,11 @@
 import React from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-
-import {ProgressBar} from "react-bootstrap";
-import {faChevronDown} from "@fortawesome/free-solid-svg-icons";
-import {faPlus} from "@fortawesome/free-solid-svg-icons";
-import {faMinus} from "@fortawesome/free-solid-svg-icons";
+import {faMinus, faPlus} from "@fortawesome/free-solid-svg-icons";
 
 import {CmsImage} from "../../common/CmsImage";
 import ReactMarkdown from "react-markdown";
 import {IProfile} from "../../../model/Profile";
-import {getVariant, ISkillGroup} from "../../../model/Skill";
 import {getMediaIcon, ISocialMedia} from "../../../model/SocialMedia";
-import {CmsThumbnail} from "../../common/CmsThumbnail";
-import {SkillGroup} from "./SkillGroup";
-import ReactGA from 'react-ga';
 import {properties} from "../../../services/Environment";
 
 
