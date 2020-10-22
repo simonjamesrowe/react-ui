@@ -1,7 +1,7 @@
 import React from "react";
 import {Headline} from "./Headline";
 import {Profile} from "./Profile";
-import Resume from "./Resume";
+import {Resume} from "./Resume";
 import {IProfile} from "../../../model/Profile";
 import {getAllJobs} from "../../../services/JobService";
 import {connect} from "react-redux";
@@ -36,6 +36,7 @@ const Home = ( props: IHomeProps) => {
             <Headline profile={props.profile} mobile={props.mobile}/>
             <div className="port_sec_warapper">
                 <Profile profile={props.profile} socialMedias={props.socialMedias}/>
+                <Resume jobs={props.jobs} />
             </div>
             {/**
             <Profile profile={props.profile} skillsGroups={props.skillsGroups} socialMedias={props.socialMedias}/>

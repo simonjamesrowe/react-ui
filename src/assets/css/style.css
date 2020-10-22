@@ -1722,6 +1722,7 @@ h3.education_place {
     padding-left: 0;
     padding-right: 15px;
 }
+
 .experience_section .col-md-12:nth-child(2) .ex_leftside {
     background: #ffc454;
 }
@@ -1737,6 +1738,19 @@ h3.education_place {
 .experience_section .col-md-12:nth-child(6) .ex_leftside {
     background: #ff517e;
 }
+
+.experience_section .col-md-12:nth-child(7) .ex_leftside {
+    background: #ff754a;
+}
+.experience_section .col-md-12:nth-child(8) .ex_leftside {
+    background: #00c8da;
+}
+.experience_section .col-md-12:nth-child(9) .ex_leftside {
+    background: #ffc454;
+}
+.experience_section .col-md-12:nth-child(10) .ex_leftside {
+    background: #ff517e;
+}
 .experience_section .col-md-12:nth-child(2) .ex_leftside:after {
     border-left-color:#ffc454;
 }
@@ -1750,6 +1764,18 @@ h3.education_place {
     border-left-color:#ffc454;
 }
 .experience_section .col-md-12:nth-child(6) .ex_leftside:after {
+    border-left-color:#ff517e;
+}
+.experience_section .col-md-12:nth-child(7) .ex_leftside:after {
+    border-right-color: #ff754a;
+}
+.experience_section .col-md-12:nth-child(8) .ex_leftside:after {
+    border-right-color:#00c8da;
+}
+.experience_section .col-md-12:nth-child(9) .ex_leftside:after {
+    border-left-color:#ffc454;
+}
+.experience_section .col-md-12:nth-child(10) .ex_leftside:after {
     border-left-color:#ff517e;
 }
 
