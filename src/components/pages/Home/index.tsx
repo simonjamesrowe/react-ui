@@ -12,6 +12,7 @@ import {IApplicationState} from "../../../state/Store";
 import {ISocialMedia} from "../../../model/SocialMedia";
 import {getAllSocialMedia} from "../../../services/SocialMediaService";
 import {IJob} from "../../../model/Job";
+import {SkillsOutline} from "./SkillsOutline";
 
 interface IHomeProps {
     mobile: boolean;
@@ -37,6 +38,7 @@ const Home = ( props: IHomeProps) => {
             <div className="port_sec_warapper">
                 <Profile profile={props.profile} socialMedias={props.socialMedias}/>
                 <Resume jobs={props.jobs} />
+                <SkillsOutline skillsGroups={props.skillsGroups} />
             </div>
             {/**
             <Profile profile={props.profile} skillsGroups={props.skillsGroups} socialMedias={props.socialMedias}/>

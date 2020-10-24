@@ -1806,9 +1806,22 @@ h3.education_place {
     z-index: 0;
     margin-bottom: 30px;
 }
+
+.port_services_setions .port_services_box_header {
+    transition: all 0.5s;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(235, 235, 235);
+    padding: 30px;
+    margin: auto;
+    position: relative;
+    z-index: 0;
+    margin-bottom: 30px;
+}
+
 .port_services_setions .port_services_box:hover {
     box-shadow: 0px 12px 29px 0px rgb(0, 0, 0, 0.09);
     border-color: #00000000;
+    cursor: pointer;
 }
 .port_services_setions .port_services_box h2 {
     font-size: 22px;
@@ -3376,4 +3389,27 @@ h2.project_heading:after {
 
 p {
     margin-bottom: 15px;
+}
+
+/* Additional Custom Classes*/
+.fixed-top-drawer {
+    position: sticky;
+    top: 0;
+    left: inherit;
+    right: 0;
+    z-index: 1030;
+}
+
+.navbar {
+    background-color: white;
+    border-bottom: 1px solid rgb(235, 235, 235);
+}
+
+.port_services_setions .port_services_box ul {
+    text-align: left;
+    padding-left: 20px;
+}
+
+.pointer {
+    cursor: pointer;
 }

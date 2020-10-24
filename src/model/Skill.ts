@@ -1,12 +1,14 @@
 import {IImage} from "./Image";
 
 export interface ISkillGroup {
+    _id: string,
     name : string,
     rating: number,
     order: number,
     description?: string,
     image?: IImage,
-    skills : ISkill[]
+    skills : ISkill[],
+    open : boolean
 }
 
 export interface ISkill {
