@@ -16,6 +16,7 @@ import {SkillsOutline} from "./SkillsOutline";
 import {IBlog} from "../../../model/Blog";
 import {getAllBlogs} from "../../../services/BlogService";
 import {BlogPreview} from "./BlogPreview";
+import {Contact} from "./Contact";
 
 interface IHomeProps {
     mobile: boolean;
@@ -46,6 +47,7 @@ const Home = ( props: IHomeProps) => {
                 <Resume jobs={props.jobs} />
                 <SkillsOutline skillsGroups={props.skillsGroups} />
                 <BlogPreview blogs={props.blogs} />
+                <Contact />
             </div>
             {/**
             <Profile profile={props.profile} skillsGroups={props.skillsGroups} socialMedias={props.socialMedias}/>
