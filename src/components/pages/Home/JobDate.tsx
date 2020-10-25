@@ -12,7 +12,7 @@ const JobDate = ({job} : IProps) => {
             <div className="ex_leftside">
                 <h1>{Moment(job.startDate).format("YYYY")}</h1>
                 <h4>{Moment(job.startDate).format("MMM")} to {job.endDate ? Moment(job.endDate)?.format("MMM") : ""}</h4>
-                <h1>{job.endDate ? Moment(job.endDate)?.format("YYYY") : "Current"}</h1>
+                <h1>{job.endDate ? Moment(job.endDate)?.format("YYYY") : "Now"}</h1>
             </div>
         </div>
     )

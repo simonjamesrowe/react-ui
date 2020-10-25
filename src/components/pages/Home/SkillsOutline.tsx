@@ -42,8 +42,6 @@ const SkillsOutline = ({skillsGroups}: IProps) => {
                     }}/>
                 )
             )}
-
-
             <div className="port_services_setions prt_toppadder80">
                 <div className="services_section">
                     <div className="container">

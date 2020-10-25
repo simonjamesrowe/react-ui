@@ -13,16 +13,21 @@ import {ISocialMedia} from "../../../model/SocialMedia";
 import {getAllSocialMedia} from "../../../services/SocialMediaService";
 import {IJob} from "../../../model/Job";
 import {SkillsOutline} from "./SkillsOutline";
+import {IBlog} from "../../../model/Blog";
+import {getAllBlogs} from "../../../services/BlogService";
+import {BlogPreview} from "./BlogPreview";
 
 interface IHomeProps {
     mobile: boolean;
     profile: IProfile;
     jobs: IJob[];
+    blogs: IBlog[];
     skillsGroups: ISkillGroup[];
     socialMedias: ISocialMedia[];
     getAllJobs: typeof getAllJobs;
     getAllSkills: typeof getAllSkills;
     getAllSocialMedia: typeof getAllSocialMedia;
+    getAllBlogs: typeof getAllBlogs;
 }
 
 const Home = ( props: IHomeProps) => {
@@ -30,6 +35,7 @@ const Home = ( props: IHomeProps) => {
         props.getAllJobs();
         props.getAllSkills();
         props.getAllSocialMedia();
+        props.getAllBlogs();
     }, []);
 
     return (
@@ -39,6 +45,7 @@ const Home = ( props: IHomeProps) => {
                 <Profile profile={props.profile} socialMedias={props.socialMedias}/>
                 <Resume jobs={props.jobs} />
                 <SkillsOutline skillsGroups={props.skillsGroups} />
+                <BlogPreview blogs={props.blogs} />
             </div>
             {/**
             <Profile profile={props.profile} skillsGroups={props.skillsGroups} socialMedias={props.socialMedias}/>
@@ -50,7 +57,8 @@ const mapStateToProps = (store: IApplicationState) => {
     return {
         skillsGroups: store.skills.skillsGroups,
         socialMedias: store.socialMedia.socialMedias,
-        jobs: store.jobs.jobs
+        jobs: store.jobs.jobs,
+        blogs: store.blogs.blogs
     };
 };
 
@@ -58,7 +66,8 @@ const mapDispatchToProps = (dispatch: any) => {
     return {
         getAllJobs: () => dispatch(getAllJobs()),
         getAllSkills: () => dispatch(getAllSkills()),
-        getAllSocialMedia: () => dispatch(getAllSocialMedia())
+        getAllSocialMedia: () => dispatch(getAllSocialMedia()),
+        getAllBlogs: () => dispatch(getAllBlogs())
     };
 };
 
