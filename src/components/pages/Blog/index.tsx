@@ -47,7 +47,7 @@ const Blog = (props : IBlogProps) => {
                 <div className="blogsidebar_wrapper">
                   <div className="widget search_widget">
                     <form>
-                      <input className="form-control" type="text" value=""  name="search"
+                      <input className="form-control" type="text"  name="search"
                              placeholder="Search here..." />
                         <a href="javascript:;" className="blog_searchicon"><i className="fas fa-search"></i></a>
                     </form>
