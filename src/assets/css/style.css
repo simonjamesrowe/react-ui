@@ -2791,7 +2791,7 @@ h2.project_heading:after {
     color: #ff517e;
 }
 
-.blog_postinfo ul li a i, .blog_shareinfo .blog_tag a i {
+.blog_postinfo ul li svg, .blog_shareinfo .blog_tag svg {
     padding-right: 5px;
     color: #ff517e;
 }

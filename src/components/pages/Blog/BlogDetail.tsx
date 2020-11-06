@@ -3,7 +3,7 @@ import ReactMarkdown from "react-markdown";
 import {CmsImage} from "../../common/CmsImage";
 import {properties} from "../../../services/Environment";
 import {IBlog} from "../../../model/Blog";
-import {faCalendarAlt, faUserEdit} from "@fortawesome/free-solid-svg-icons";
+import {faCalendarAlt, faUserEdit, faTags} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import Moment from "moment";
 
@@ -30,9 +30,12 @@ const BlogDetail = ({blog} : IProps ) => {
                                 <li><FontAwesomeIcon icon={faCalendarAlt} /> {Moment(blog.createdAt).format("DD-MMM-YYYY")}
                                 </li>
                                 <li> <FontAwesomeIcon icon={faUserEdit} /> by Simon Rowe</li>
+                                <li><FontAwesomeIcon icon={faTags} /> {blog.tags.map(tag => tag.name).join(", ")}</li>
                             </ul>
                         </div>
-                        <h4 className="blog_heading">{blog.title}</h4>
+
+                        <h4 className="blog_heading">{blog.title}</h4><br />
+
                         <ReactMarkdown
                             source={blog.content}
                             transformImageUri={imageUrl}
