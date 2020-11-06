@@ -1,7 +1,13 @@
 import React from "react";
 import {RouteComponentProps, withRouter} from "react-router-dom";
+import {getMediaClass, getMediaIcon, ISocialMedia} from "../../model/SocialMedia";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-const SideBar: React.SFC<RouteComponentProps> = props => {
+interface IProps extends RouteComponentProps {
+    socialMedias: ISocialMedia[]
+}
+
+const SideBar =  ({socialMedias} : IProps) => {
 
     return (
         <>
@@ -170,37 +176,14 @@ const SideBar: React.SFC<RouteComponentProps> = props => {
                             <p>Follow Us</p>
                         </div>
                         <ul className="social_list">
-                            <li>
-                                <a href="javascript:;" className="siderbar_icon">
-                                    <span className="first_icon"><i className="fab fa-facebook-f nav_fb"></i></span>
-                                    <span className="second_icon"><i className="fab fa-facebook-f nav_fb"></i></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" className="siderbar_icon">
-                                    <span className="first_icon"><i className="fab fa-linkedin-in nav_in"></i></span>
-                                    <span className="second_icon"><i className="fab fa-linkedin-in nav_in"></i></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" className="siderbar_icon">
-                                    <span className="first_icon"><i className="fab fa-whatsapp nav_whats"></i></span>
-                                    <span className="second_icon"><i className="fab fa-whatsapp nav_whats"></i></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" className="siderbar_icon">
-                                    <span className="first_icon"><i className="fab fa-twitter nav_twit"></i></span>
-                                    <span className="second_icon"><i className="fab fa-twitter nav_twit"></i></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" className="siderbar_icon">
-                                    <span className="first_icon"><i className="fab fa-instagram nav_insta"></i></span>
-                                    <span className="second_icon"><i className="fab fa-instagram nav_insta"></i></span>
-                                </a>
-                            </li>
-
+                            {socialMedias.map(socialMedia => (
+                                <li>
+                                    <a href={socialMedia.link} className="siderbar_icon">
+                                        <span className="first_icon"><FontAwesomeIcon icon={getMediaIcon(socialMedia.type)!!} className={getMediaClass(socialMedia.type)} /></span>
+                                        <span className="second_icon"><FontAwesomeIcon icon={getMediaIcon(socialMedia.type)!!} className={getMediaClass(socialMedia.type)} /></span>
+                                    </a>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>

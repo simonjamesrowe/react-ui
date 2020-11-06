@@ -6,7 +6,6 @@ import Home from "./components/pages/Home/index";
 import Blog from "./components/pages/Blog/index";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import loader from "./assets/images/loader.gif"
-import BlogDetail from "./components/pages/Blog/BlogDetail";
 import {IProfile} from "./model/Profile";
 import {IApplicationState} from "./state/Store";
 import {connect} from "react-redux";
@@ -16,11 +15,15 @@ import ReactGA from 'react-ga';
 import {hotjar} from 'react-hotjar';
 import {properties} from "./services/Environment";
 import SideBar from "./components/common/Sidebar";
+import {ISocialMedia} from "./model/SocialMedia";
+import {getAllSocialMedia} from "./services/SocialMediaService";
 
 interface IAppProps {
     loading: boolean,
     profile?: IProfile,
+    socialMedias: ISocialMedia[],
     getProfile: typeof getProfile;
+    getAllSocialMedia: typeof getAllSocialMedia;
 }
 
 const App = (props: IAppProps) => {
@@ -51,6 +54,7 @@ const App = (props: IAppProps) => {
         setTimeout(() => setLoading(false), 500);
         window.addEventListener("scroll", onScroll);
         props.getProfile();
+        props.getAllSocialMedia();
         return () => {
             window.removeEventListener("scroll", onScroll);
         };
@@ -67,17 +71,17 @@ const App = (props: IAppProps) => {
                             </div>
                         </div>
                     )}
-                    <SideBar/>
+                    <SideBar socialMedias={props.socialMedias}/>
                     {props.profile && (
                         <Switch>
                             <Route path="/" exact={true}>
-                                <Home profile={props.profile} mobile={mobile}/>
+                                <Home profile={props.profile} mobile={mobile} socialMedias={props.socialMedias}/>
                             </Route>
-                            <Route path="/blog/:id" component={BlogDetail}/>
-                            <Route path="/blog" component={Blog}/>
+                            <Route path="/blogs/:id" component={Blog}/>
+                            <Route path="/blogs" component={Blog}/>
 
                             <Route>
-                                <Home profile={props.profile} mobile={mobile}/>
+                                <Home profile={props.profile} mobile={mobile} socialMedias={props.socialMedias}/>
                             </Route>
                         </Switch>
                     )}
@@ -91,13 +95,15 @@ const App = (props: IAppProps) => {
 const mapStateToProps = (store: IApplicationState) => {
     return {
         profile: store.profile.profile,
-        loading: store.profile.loading
+        loading: store.profile.loading,
+        socialMedias: store.socialMedia.socialMedias
     };
 };
 
 const mapDispatchToProps = (dispatch: any) => {
     return {
-        getProfile: () => dispatch(getProfile())
+        getProfile: () => dispatch(getProfile()),
+        getAllSocialMedia: () => dispatch(getAllSocialMedia())
     };
 };
 

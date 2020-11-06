@@ -3907,3 +3907,11 @@ p {
     width: 365px;
     height: 286px;
 }
+
+.blog_thumb {
+    text-align: center;
+}
+
+.rp_data div:nth-child(1) {
+    margin-bottom: 10px;
+}

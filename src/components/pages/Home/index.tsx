@@ -27,7 +27,6 @@ interface IHomeProps {
     socialMedias: ISocialMedia[];
     getAllJobs: typeof getAllJobs;
     getAllSkills: typeof getAllSkills;
-    getAllSocialMedia: typeof getAllSocialMedia;
     getAllBlogs: typeof getAllBlogs;
 }
 
@@ -35,7 +34,6 @@ const Home = ( props: IHomeProps) => {
     React.useEffect(() => {
         props.getAllJobs();
         props.getAllSkills();
-        props.getAllSocialMedia();
         props.getAllBlogs();
     }, []);
 
@@ -58,7 +56,6 @@ const Home = ( props: IHomeProps) => {
 const mapStateToProps = (store: IApplicationState) => {
     return {
         skillsGroups: store.skills.skillsGroups,
-        socialMedias: store.socialMedia.socialMedias,
         jobs: store.jobs.jobs,
         blogs: store.blogs.blogs
     };
@@ -68,7 +65,6 @@ const mapDispatchToProps = (dispatch: any) => {
     return {
         getAllJobs: () => dispatch(getAllJobs()),
         getAllSkills: () => dispatch(getAllSkills()),
-        getAllSocialMedia: () => dispatch(getAllSocialMedia()),
         getAllBlogs: () => dispatch(getAllBlogs())
     };
 };

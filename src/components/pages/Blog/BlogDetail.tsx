@@ -1,24 +1,17 @@
 import React from "react";
-import Moment from "moment";
-import {RouteComponentProps, withRouter} from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import {CmsImage} from "../../common/CmsImage";
 import {properties} from "../../../services/Environment";
-import {BlogTag} from "./BlogTag";
 import {IBlog} from "../../../model/Blog";
-import {getOneBlog} from "../../../services/BlogService";
-import {IApplicationState} from "../../../state/Store";
-import {connect} from "react-redux";
+import {faCalendarAlt, faUserEdit} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import Moment from "moment";
 
-interface IBlogDetailProps extends RouteComponentProps<{ id: string }> {
-    blog?: IBlog,
-    getOneBlog: typeof getOneBlog;
+interface IProps {
+    blog: IBlog
 }
 
-const BlogDetail = (props : IBlogDetailProps) => {
-    React.useEffect(() => {
-        props.getOneBlog((props as RouteComponentProps<{id: string}> ).match.params.id);
-    }, []);
+const BlogDetail = ({blog} : IProps ) => {
 
     const imageUrl = (url: string) => {
         return `${properties.apiUrl}${url}`;
@@ -26,61 +19,33 @@ const BlogDetail = (props : IBlogDetailProps) => {
 
     return (
         <>
-            {props.blog && (
-                <section className="module">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-lg-12">
-                                <article className="post">
-                                    <div className="post-preview">
-                                        <CmsImage src={props.blog.image} type={"medium"}/>
-                                        <div>
-                                            {props.blog.tags.map((tag, i) => (
-                                                <BlogTag tag={tag.name} link={"#"} key={i}/>
-                                            ))}
-                                        </div>
-                                    </div>
-                                    <div className="post-wrapper">
-                                        <div className="post-header">
-                                            <h2 className="post-title">{props.blog.title}</h2>
-                                            <ul className="post-meta h6">
-                                                <li>
-                                                    {Moment(props.blog.createdAt).format(" MMMM DD, YYYY")}
-                                                </li>
-                                            </ul>
-
-                                        </div>
-                                        <div className="post-content">
-                                            <ReactMarkdown
-                                                source={props.blog.content}
-                                                transformImageUri={imageUrl}
-                                                linkTarget="_blank"
-                                            />
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
-                        </div>
+            <div className="blog_wrapper">
+                <div className="blog_data">
+                    <div className="blog_thumb">
+                        <CmsImage src={blog.image} type={"medium"} />
                     </div>
-                </section>
-            )}
+                    <div className="blog_content">
+                        <div className="blog_postinfo pb-3">
+                            <ul>
+                                <li><FontAwesomeIcon icon={faCalendarAlt} /> {Moment(blog.createdAt).format("DD-MMM-YYYY")}
+                                </li>
+                                <li> <FontAwesomeIcon icon={faUserEdit} /> by Simon Rowe</li>
+                            </ul>
+                        </div>
+                        <h4 className="blog_heading">{blog.title}</h4>
+                        <ReactMarkdown
+                            source={blog.content}
+                            transformImageUri={imageUrl}
+                            linkTarget="_blank"
+                        />
+
+                    </div>
+                </div>
+            </div>
         </>
     );
 };
-const mapStateToProps = (store: IApplicationState) => {
-    return {
-        blog: store.blogs.currentBlog,
-    };
-};
 
-const mapDispatchToProps = (dispatch: any) => {
-    return {
-        getOneBlog: (id: string) => dispatch(getOneBlog(id))
-    };
-};
+export {BlogDetail}
 
-const BlogDetailWithRouter = withRouter(BlogDetail);
-
-export default
-    connect(mapStateToProps, mapDispatchToProps)(BlogDetailWithRouter);
 

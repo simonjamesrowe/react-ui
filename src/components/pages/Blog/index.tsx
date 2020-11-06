@@ -1,24 +1,22 @@
 import React from "react";
-
-import { BlogPreview } from "./BlogPreview";
 import {getAllTags} from "../../../services/TagService";
-import Moment from "moment";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
-import { CmsImage } from "../../common/CmsImage";
+import {RouteComponentProps} from "react-router-dom";
 import {IBlog} from "../../../model/Blog";
 import {ITag} from "../../../model/Tag";
 import {connect} from "react-redux";
 import {IApplicationState} from "../../../state/Store";
-import {getAllBlogs} from "../../../services/BlogService";
+import {getAllBlogs, getOneBlog} from "../../../services/BlogService";
+import {BlogDetail} from "./BlogDetail";
+import {BlogPreview} from "./BlogPreview";
 
 
-interface IBlogProps {
+interface IBlogProps extends RouteComponentProps<{ id?: string }>{
   blogs: IBlog[],
   tags: ITag[],
+  currentBlog: IBlog,
   getAllBlogs: typeof getAllBlogs;
   getAllTags: typeof getAllTags;
+  getOneBlog: typeof getOneBlog;
 }
 
 const Blog = (props : IBlogProps) => {
@@ -28,74 +26,59 @@ const Blog = (props : IBlogProps) => {
     props.getAllTags();
   }, []);
 
+  React.useEffect(() => {
+    if (props.match.params.id) {
+      props.getOneBlog(props.match.params.id)
+    }
+  }, [props.blogs, props.match.params])
+
   return (
     <>
-      <section className="module">
-        <div className="container">
-          <div className="row d-flex flex-row-reverse">
-            <div className="col-lg-4 float-left">
-              <div className="sidebar">
-                <aside className="widget widget_search">
-                  <form>
-                    <input
-                      className="form-control"
-                      type="search"
-                      placeholder="Type search here"
-                    />
-                    <button className="search-button" type="submit">
-                      <FontAwesomeIcon size="lg" icon={faSearch} />
-                    </button>
-                  </form>
-                </aside>
-                <aside className="widget widget_recent_entries_custom">
-                  <div className="widget-title">
-                    <h6>Recent Posts</h6>
-                  </div>
-                  <ul>
-                    {props.blogs
-                      .filter((blog, key) => key < 5)
-                      .map((blog, key: number) => (
-                        <li className="clearfix" key={key}>
-                          <div className="wi">
-                            <Link to={`/blog/${blog.id}`}>
-                              <CmsImage src={blog.image} type={"thumbnail"}/>
-                            </Link>
-                          </div>
-                          <div className="wb">
-                            <Link to={`/blog/${blog.id}`}>{blog.title}</Link>
-                            <span className="post-date">
-                              {Moment(blog.createdAt).format(" MMMM DD, YYYY")}
-                            </span>
-                          </div>
-                        </li>
-                      ))}
-                  </ul>
-                </aside>
-                <aside className="widget widget_tag_cloud">
-                  <div className="widget-title">
-                    <h6>Tags</h6>
-                  </div>
-                  <div className="tagcloud">
-                    {props.tags.map(tag => (
-                      <a href="#">{tag.name}</a>
-                    ))}
-                  </div>
-                </aside>
+      <div className="port_sec_warapper">
+        <div className="port_singleblog_wrapper prt_toppadder80 prt_bottompadder80 ">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-8">
+                {props.currentBlog && (
+                  <BlogDetail blog={props.currentBlog} />
+                )}
               </div>
-            </div>
+              <div className="col-lg-4">
+                <div className="blogsidebar_wrapper">
+                  <div className="widget search_widget">
+                    <form>
+                      <input className="form-control" type="text" value=""  name="search"
+                             placeholder="Search here..." />
+                        <a href="javascript:;" className="blog_searchicon"><i className="fas fa-search"></i></a>
+                    </form>
+                  </div>
+                  <div className="widget repost_widget">
+                    <h4 className="widget_title">Recent Post</h4>
+                    <div className="widget_rp">
+                      <ul>
+                        {props.blogs.map(blog => (
+                            <BlogPreview blog={blog} />
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
 
-            <div className="col-lg-8 float-right">
-              <div className="row blog-grid">
-                {props.blogs.map((blog, i) => (
-                  <>
-                    <BlogPreview blog={blog} i={i} />
-                  </>
-                ))}
+                  <div className="widget tag_widget">
+                    <h4 className="widget_title">Tag</h4>
+                    <ul>
+                      {props.tags.map(tag => (
+                          <li><a href="javascript:;" className="comment_reply">{tag.name}</a></li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+
+
     </>
   );
 };
@@ -103,6 +86,7 @@ const Blog = (props : IBlogProps) => {
 const mapStateToProps = (store: IApplicationState) => {
   return {
     blogs: store.blogs.blogs,
+    currentBlog: store.blogs.currentBlog!!,
     tags: store.tags.tags
   };
 };
@@ -110,7 +94,8 @@ const mapStateToProps = (store: IApplicationState) => {
 const mapDispatchToProps = (dispatch: any) => {
   return {
     getAllBlogs: () => dispatch(getAllBlogs()),
-    getAllTags: () => dispatch(getAllTags())
+    getAllTags: () => dispatch(getAllTags()),
+    getOneBlog: (id: String) => dispatch(getOneBlog(id))
   };
 };
 
