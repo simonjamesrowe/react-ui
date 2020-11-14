@@ -60,6 +60,13 @@ const App = (props: IAppProps) => {
     const scrollToTop = (event: any) => {
         $("html, body").animate({ scrollTop: "0" },  500);
     }
+    const openMobileMenu = () => {
+        if($('.port_togglebox').length > 0){
+            $('.port_togglebox').on('click', () => {
+                $('body').toggleClass("port_menu_open");
+            });
+        }
+    }
 
     return (
         <>
@@ -76,6 +83,11 @@ const App = (props: IAppProps) => {
                     {props.profile && (
                         <>
                             <SideBar socialMedias={props.socialMedias} profile={props.profile}/>
+                            <div className="port_togglebox" onClick={openMobileMenu}>
+                                <span>&nbsp;</span>
+                                <span>&nbsp;</span>
+                                <span>&nbsp;</span>
+                            </div>
                             <Switch>
                                 <Route path="/" exact={true}>
                                     <Home profile={props.profile} mobile={mobile} socialMedias={props.socialMedias}/>

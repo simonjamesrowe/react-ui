@@ -10,7 +10,7 @@ interface IHeadlineProps {
 
 const Headline = ({ profile, mobile }: IHeadlineProps) => {
   const style: CSSProperties = {
-    backgroundImage: mobile ?  `url(${properties.apiUrl}${profile.backgroundImage.formats?.small?.url})` :
+    backgroundImage: mobile ?  `url(${properties.apiUrl}${profile.mobileBackgroundImage.url})` :
       `url(${properties.apiUrl}${profile.backgroundImage.formats?.large?.url})`
   };
   return (

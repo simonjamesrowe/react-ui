@@ -13,4 +13,5 @@ export interface IProfile {
     primaryEmail: string;
     secondaryEmail: string;
     sidebarImage: IImage;
+    mobileBackgroundImage: IImage;
 }
