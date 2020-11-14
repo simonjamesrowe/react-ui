@@ -1,10 +1,8 @@
 import React from "react";
-import MobileMenu from "./components/common/MobileMenu";
-import Menu from "./components/common/Menu";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Home from "./components/pages/Home/index";
 import Blog from "./components/pages/Blog/index";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
 import loader from "./assets/images/loader.gif"
 import {IProfile} from "./model/Profile";
 import {IApplicationState} from "./state/Store";
@@ -17,6 +15,9 @@ import {properties} from "./services/Environment";
 import SideBar from "./components/common/Sidebar";
 import {ISocialMedia} from "./model/SocialMedia";
 import {getAllSocialMedia} from "./services/SocialMediaService";
+import {faArrowUp} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import $ from 'jquery'
 
 interface IAppProps {
     loading: boolean,
@@ -37,16 +38,12 @@ const App = (props: IAppProps) => {
 
 
     const onScroll = (event: any) => {
-
         if (window.location.pathname.startsWith("/blog")) {
             return;
         }
-
-        let top = true
-        if (window.scrollY > 5) {
-            top = false;
-        }
-
+        const scrolled = window.scrollY;
+        if (scrolled > 600) {$('.bottom_top').addClass("active");}
+        if (scrolled < 600) {$('.bottom_top').removeClass("active");}
 
     };
 
@@ -59,6 +56,10 @@ const App = (props: IAppProps) => {
             window.removeEventListener("scroll", onScroll);
         };
     }, []);
+
+    const scrollToTop = (event: any) => {
+        $("html, body").animate({ scrollTop: "0" },  500);
+    }
 
     return (
         <>
@@ -88,6 +89,11 @@ const App = (props: IAppProps) => {
                             </Switch>
                         </>
                     )}
+
+                    <div className="bottom_top" onClick={scrollToTop} >
+                        <FontAwesomeIcon icon={faArrowUp} />
+                    </div>
+
                 </Analytics>
             </Router>
         </>
