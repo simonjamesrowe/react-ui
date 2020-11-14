@@ -44,10 +44,10 @@ const Profile = ({profile, socialMedias}: IProfileProperties) => {
                                             <ul className="info-list">
 
                                                 <li><span className="title">E-mail</span><span className="value"><a
-                                                    href="mailto:simon.rowe@gmail.com">simon.rowe@gmail.com</a></span></li>
+                                                    href={`mailto:${profile.primaryEmail}`}>{profile.primaryEmail}</a></span></li>
                                                 <li><span className="title">Residence</span><span
-                                                    className="value">London</span></li>
-                                                <li><span className="title">Phone</span><span className="value">+44 7909083522 </span>
+                                                    className="value">{profile.location}</span></li>
+                                                <li><span className="title">Phone</span><span className="value">{profile.phoneNumber}</span>
                                                 </li>
                                             </ul>
 

@@ -45,11 +45,8 @@ const Home = ( props: IHomeProps) => {
                 <Resume jobs={props.jobs} />
                 <SkillsOutline skillsGroups={props.skillsGroups} />
                 <BlogPreview blogs={props.blogs} />
-                <Contact />
+                <Contact profile={props.profile} />
             </div>
-            {/**
-            <Profile profile={props.profile} skillsGroups={props.skillsGroups} socialMedias={props.socialMedias}/>
-            <Resume />**/}
         </>
     );
 };

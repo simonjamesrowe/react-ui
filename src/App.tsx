@@ -71,19 +71,22 @@ const App = (props: IAppProps) => {
                             </div>
                         </div>
                     )}
-                    <SideBar socialMedias={props.socialMedias}/>
-                    {props.profile && (
-                        <Switch>
-                            <Route path="/" exact={true}>
-                                <Home profile={props.profile} mobile={mobile} socialMedias={props.socialMedias}/>
-                            </Route>
-                            <Route path="/blogs/:id" component={Blog}/>
-                            <Route path="/blogs" component={Blog}/>
 
-                            <Route>
-                                <Home profile={props.profile} mobile={mobile} socialMedias={props.socialMedias}/>
-                            </Route>
-                        </Switch>
+                    {props.profile && (
+                        <>
+                            <SideBar socialMedias={props.socialMedias} profile={props.profile}/>
+                            <Switch>
+                                <Route path="/" exact={true}>
+                                    <Home profile={props.profile} mobile={mobile} socialMedias={props.socialMedias}/>
+                                </Route>
+                                <Route path="/blogs/:id" component={Blog}/>
+                                <Route path="/blogs" component={Blog}/>
+
+                                <Route>
+                                    <Home profile={props.profile} mobile={mobile} socialMedias={props.socialMedias}/>
+                                </Route>
+                            </Switch>
+                        </>
                     )}
                 </Analytics>
             </Router>

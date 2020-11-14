@@ -8,4 +8,9 @@ export interface IProfile {
     headline: string;
     description: string;
     cv: IImage;
+    location: string;
+    phoneNumber: string;
+    primaryEmail: string;
+    secondaryEmail: string;
+    sidebarImage: IImage;
 }

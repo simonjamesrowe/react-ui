@@ -42,7 +42,7 @@ const SkillsOutline = ({skillsGroups}: IProps) => {
                     }}/>
                 )
             )}
-            <div className="port_services_setions prt_toppadder80">
+            <div className="port_services_setions prt_toppadder80" id="skills">
                 <div className="services_section">
                     <div className="container">
                         <div className="row">

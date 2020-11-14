@@ -1,8 +1,12 @@
 import React from "react";
 import {faMapPin,faPhone,faMailBulk} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {IProfile} from "../../../model/Profile";
 
-const Contact = () => {
+interface IProps {
+    profile: IProfile
+}
+const Contact = ({profile} : IProps) => {
     return (
         <>
             <div className="port_contact_wrapper prt_toppadder80 page_scroll" data-scroll="3" id="contact_sec">
@@ -99,7 +103,7 @@ const Contact = () => {
                                                 <FontAwesomeIcon icon={faMapPin} size={"3x"} />
                                             </div>
                                             <h2 className="footer_heading">Location</h2>
-                                            <p>London</p>
+                                            <p>{profile.location}</p>
                                         </div>
                                     </div>
                                     <div className="col-sm-4 text-center">
@@ -108,7 +112,7 @@ const Contact = () => {
                                                 <FontAwesomeIcon icon={faPhone} size={"3x"} />
                                             </div>
                                             <h2 className="footer_heading">Phone</h2>
-                                            <p><a href="javascript:;">+(44) 7909083522</a></p>
+                                            <p><a href="javascript:;">{profile.phoneNumber}</a></p>
 
                                         </div>
                                     </div>
@@ -118,8 +122,8 @@ const Contact = () => {
                                                 <FontAwesomeIcon icon={faMailBulk} size={"3x"} />
                                             </div>
                                             <h2 className="footer_heading">Email</h2>
-                                            <p><a href="javascript:;">simon.rowe@gmail.com</a></p>
-                                            <p><a href="javascript:;">simon@simonjamesrowe.com</a></p>
+                                            <p><a href="javascript:;">{profile.primaryEmail}</a></p>
+                                            <p><a href="javascript:;">{profile.secondaryEmail}</a></p>
                                         </div>
                                     </div>
 

@@ -38,7 +38,7 @@ const Resume = ({jobs}: IProps) => {
     }
 
     return (<>
-            <div className="port_experience_setions prt_toppadder80">
+            <div className="port_experience_setions prt_toppadder80" id="experience">
                 <div className="experience_section">
                     <div className="container">
                         <div className="row">

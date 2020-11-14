@@ -2,29 +2,35 @@ import React from "react";
 import {RouteComponentProps, withRouter} from "react-router-dom";
 import {getMediaClass, getMediaIcon, ISocialMedia} from "../../model/SocialMedia";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {IProfile} from "../../model/Profile";
+import {CmsImage} from "./CmsImage";
+import {HashLink as Link} from 'react-router-hash-link';
+import {Link as RealLink} from 'react-router-dom';
+import blogicon from "../../assets/images/blogicon.svg"
 
 interface IProps extends RouteComponentProps {
-    socialMedias: ISocialMedia[]
+    socialMedias: ISocialMedia[],
+    profile: IProfile
 }
 
-const SideBar =  ({socialMedias} : IProps) => {
+const SideBar = ({socialMedias, profile}: IProps) => {
 
     return (
         <>
             <div className="port_sidebar_wrapper mport_sidebar_wrapper">
                 <div className="port_sidebar_profile">
-                    <a href="javascript:;" className="port_sidebar_position active">
+                    <Link to="/#top" className="port_sidebar_position active">
                         <div className="profile_circle ">
-                            <img src="http://via.placeholder.com/79x81" alt="profile-image" className="img-fluid"/>
+                            <CmsImage src={profile.sidebarImage}/>
                         </div>
-                    </a>
+                    </Link>
                 </div>
                 <div className="port_sidebar_nav">
                     <div className="port_navigation index_navigation">
                         <ul className="nav_list">
                             <li data-number="0">
                                 <div className="tooltip_box">
-                                    <a href="javascript:;" className="siderbar_menuicon">
+                                    <Link to="/#about_sec" className="siderbar_menuicon">
                                 <span className="first_micon">
 										<svg className="nav_about_svg" width="26px" height="26px">
 											<defs>
@@ -43,6 +49,7 @@ const SideBar =  ({socialMedias} : IProps) => {
 											</g>
 										</svg>
 									</span>
+
                                         <span className="second_micon">
 
 										<svg className="nav_about_svg" width="26px" height="26px">
@@ -62,14 +69,15 @@ const SideBar =  ({socialMedias} : IProps) => {
 											</g>
 										</svg>
 									</span>
-                                    </a>
+
+                                    </Link>
                                     <span className="menu_tooltip">About</span>
                                 </div>
                             </li>
                             <li data-number="1">
                                 <div className="tooltip_box">
-                                    <a href="" className="siderbar_menuicon">
-									<span className="first_micon">
+                                    <Link to="/#experience" className="siderbar_menuicon">
+                                <span className="first_micon">
 										<svg className="nav__portfolio_svg" width="26px" height="25px">
 										<image x="0px" y="0px" width="26px" height="25px"
                                                href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAZCAMAAAAYAM5SAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABy1BMVEUbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeT///9q9kCWAAAAl3RSTlMAQFNRRAN//v2SDvO5KhkcGiOn/CVLT163vrhxjO4R5u/BxcDrCeiVvV1K+zKh1CxWVFJl9pZ0UKqNbFrt+vf4+fFu58tNTky/9XxqE2bTPS/gOwu19OlzAqRpYhfC6pCUuivKzrHWMEfQem3yxuQ4V4kiX1xbWKzeGHaIQTx+8GshMwEehjouvH2zcJiFNa0bH8yde4EEd8zwsQAAAAFiS0dEmHbRBj4AAAAHdElNRQfjBRAQDhhVNA3LAAABoklEQVQoz3WRazsbQRSAT4LN1DUyugnVNq7Fkg1CtemsBNlI0YtbUYJN742gTetatE3VXWja83e7Vhbr4X3mw3nn/XKeGYA0JnOGhjkzC4xwFiQaiDeMJTsnNy+/QMVaaKNFhnQTebujWKXklsliN6TS23fuOsvKyysqnVXV9wypuMZKa0+GOqG+waXfiu7GpmaPrYW23ldp9rQ9wIdNje56AO8jIjBKJcLamSCwdh+RGGUC8XdAZxcf4OWgHAjKvKyeYEDWpu4Q4GO4kh4Edp5664LWM+kj4H/yNC3PXAJ93p+WgcEhGEb6YkSzUWnsZaXjtIxPYBg8k1M4bVJERYm8Anj95q0iisq79yFHDrAP8DGKGjNZYDudMDY7ZwHfPMAn8+f4l6+uCMDCYtwbj9v5JVim4FvRd2qLrn6LTeumJramS2YYcT1Dtw0CUst3/VvFno0f6fFn4heDMFpmNi8/xe8toi4frdmOORVjKahe53aGAHeh0L9nTPvSAXgRQoeJ/FxX8ugCyeNIIvmHwDJewzyMyByXSq0ZSKW4v+5//wG5n3qzco5eOwAAAABJRU5ErkJggg=="/>
@@ -81,13 +89,13 @@ const SideBar =  ({socialMedias} : IProps) => {
                                                href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAZCAMAAAAYAM5SAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABy1BMVEUbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeQbyeT///9q9kCWAAAAl3RSTlMAQFNRRAN//v2SDvO5KhkcGiOn/CVLT163vrhxjO4R5u/BxcDrCeiVvV1K+zKh1CxWVFJl9pZ0UKqNbFrt+vf4+fFu58tNTky/9XxqE2bTPS/gOwu19OlzAqRpYhfC6pCUuivKzrHWMEfQem3yxuQ4V4kiX1xbWKzeGHaIQTx+8GshMwEehjouvH2zcJiFNa0bH8yde4EEd8zwsQAAAAFiS0dEmHbRBj4AAAAHdElNRQfjBRAQDhhVNA3LAAABoklEQVQoz3WRazsbQRSAT4LN1DUyugnVNq7Fkg1CtemsBNlI0YtbUYJN742gTetatE3VXWja83e7Vhbr4X3mw3nn/XKeGYA0JnOGhjkzC4xwFiQaiDeMJTsnNy+/QMVaaKNFhnQTebujWKXklsliN6TS23fuOsvKyysqnVXV9wypuMZKa0+GOqG+waXfiu7GpmaPrYW23ldp9rQ9wIdNje56AO8jIjBKJcLamSCwdh+RGGUC8XdAZxcf4OWgHAjKvKyeYEDWpu4Q4GO4kh4Edp5664LWM+kj4H/yNC3PXAJ93p+WgcEhGEb6YkSzUWnsZaXjtIxPYBg8k1M4bVJERYm8Anj95q0iisq79yFHDrAP8DGKGjNZYDudMDY7ZwHfPMAn8+f4l6+uCMDCYtwbj9v5JVim4FvRd2qLrn6LTeumJramS2YYcT1Dtw0CUst3/VvFno0f6fFn4heDMFpmNi8/xe8toi4frdmOORVjKahe53aGAHeh0L9nTPvSAXgRQoeJ/FxX8ugCyeNIIvmHwDJewzyMyByXSq0ZSKW4v+5//wG5n3qzco5eOwAAAABJRU5ErkJggg=="/>
 										</svg>
 									</span>
-                                    </a>
-                                    <span className="menu_tooltip">Portfolio</span>
+                                    </Link>
+                                    <span className="menu_tooltip">Experience</span>
                                 </div>
                             </li>
                             <li data-number="2">
                                 <div className="tooltip_box">
-                                    <a href="" className="siderbar_menuicon">
+                                    <Link to="/#skills" className="siderbar_menuicon">
 									<span className="first_micon">
 										<svg className="nav_quotes_svg" xmlns="http://www.w3.org/2000/svg"
                                              viewBox="0 0 508.044 508.044">
@@ -118,13 +126,13 @@ const SideBar =  ({socialMedias} : IProps) => {
 											</g>
 										</svg>
 									</span>
-                                    </a>
-                                    <span className="menu_tooltip">Testimonial</span>
+                                    </Link>
+                                    <span className="menu_tooltip">Skills</span>
                                 </div>
                             </li>
                             <li data-number="3">
                                 <div className="tooltip_box">
-                                    <a href="" className="siderbar_menuicon">
+                                    <Link to="/#contact_sec" className="siderbar_menuicon">
 									<span className="first_micon">
 										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480.56 480.56"
                                              className="nav_contact_svg" width="20px" height="20px">
@@ -163,10 +171,23 @@ const SideBar =  ({socialMedias} : IProps) => {
 											</g>
 										</svg>
 									</span>
-                                    </a>
+                                    </Link>
                                     <span className="menu_tooltip">Contact</span>
                                 </div>
                             </li>
+							<li data-number="4">
+								<div className="tooltip_box">
+									<Link to="/blogs#top" className="siderbar_menuicon">
+									<span className="first_micon">
+										<img src={blogicon} className="nav_contact_svg" width="30px" height="30px"/>
+									</span>
+										<span className="second_micon">
+										<img src={blogicon} className="nav_contact_svg" width="30px" height="30px"/>
+									</span>
+									</Link>
+									<span className="menu_tooltip">Blog</span>
+								</div>
+							</li>
                         </ul>
                     </div>
                 </div>
@@ -179,8 +200,11 @@ const SideBar =  ({socialMedias} : IProps) => {
                             {socialMedias.map(socialMedia => (
                                 <li>
                                     <a href={socialMedia.link} className="siderbar_icon">
-                                        <span className="first_icon"><FontAwesomeIcon icon={getMediaIcon(socialMedia.type)!!} className={getMediaClass(socialMedia.type)} /></span>
-                                        <span className="second_icon"><FontAwesomeIcon icon={getMediaIcon(socialMedia.type)!!} className={getMediaClass(socialMedia.type)} /></span>
+                            <span className="first_icon"><FontAwesomeIcon icon={getMediaIcon(socialMedia.type)!!}
+                                                                          className={getMediaClass(socialMedia.type)}/></span>
+                                        <span className="second_icon"><FontAwesomeIcon
+                                            icon={getMediaIcon(socialMedia.type)!!}
+                                            className={getMediaClass(socialMedia.type)}/></span>
                                     </a>
                                 </li>
                             ))}
