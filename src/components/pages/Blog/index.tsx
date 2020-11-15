@@ -1,6 +1,6 @@
 import React from "react";
 import {getAllTags} from "../../../services/TagService";
-import {RouteComponentProps} from "react-router-dom";
+import {RouteComponentProps, withRouter} from "react-router-dom";
 import {IBlog} from "../../../model/Blog";
 import {ITag} from "../../../model/Tag";
 import {connect} from "react-redux";
@@ -95,11 +95,13 @@ const mapDispatchToProps = (dispatch: any) => {
   return {
     getAllBlogs: () => dispatch(getAllBlogs()),
     getAllTags: () => dispatch(getAllTags()),
-    getOneBlog: (id: String) => dispatch(getOneBlog(id))
+    getOneBlog: (id: string) => dispatch(getOneBlog(id))
   };
 };
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Blog);
+const BlogWithRouter = withRouter(Blog);
+
+export default connect(mapStateToProps, mapDispatchToProps)(BlogWithRouter);
+
+
+
