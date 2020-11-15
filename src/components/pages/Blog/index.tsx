@@ -9,8 +9,7 @@ import {getAllBlogs, getOneBlog} from "../../../services/BlogService";
 import {BlogDetail} from "./BlogDetail";
 import {BlogPreview} from "./BlogPreview";
 
-
-interface IBlogProps extends RouteComponentProps<{ id?: string }>{
+interface IBlogProps {
   blogs: IBlog[],
   tags: ITag[],
   currentBlog: IBlog,
@@ -19,7 +18,7 @@ interface IBlogProps extends RouteComponentProps<{ id?: string }>{
   getOneBlog: typeof getOneBlog;
 }
 
-const Blog = (props : IBlogProps) => {
+const Blog = (props : IBlogProps & RouteComponentProps<{ id?: string }>) => {
 
   React.useEffect(() => {
     props.getAllBlogs();
