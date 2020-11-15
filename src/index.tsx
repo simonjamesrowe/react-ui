@@ -5,7 +5,9 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./assets/css/template.css";
+
+import "./assets/css/style.css";
+import "./assets/css/font.css";
 import {Store} from "redux";
 import configureStore, {IApplicationState} from "./state/Store";
 

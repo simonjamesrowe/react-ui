@@ -1,26 +1,30 @@
 import React from "react";
-import "./App.css";
-import MobileMenu from "./components/common/MobileMenu";
-import Menu from "./components/common/Menu";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Home from "./components/pages/Home/index";
 import Blog from "./components/pages/Blog/index";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-
-import BlogDetail from "./components/pages/Blog/BlogDetail";
+import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
+import loader from "./assets/images/loader.gif"
 import {IProfile} from "./model/Profile";
 import {IApplicationState} from "./state/Store";
 import {connect} from "react-redux";
 import Analytics from 'react-router-ga';
 import {getProfile} from "./services/ProfileService";
 import ReactGA from 'react-ga';
-import { hotjar } from 'react-hotjar';
+import {hotjar} from 'react-hotjar';
 import {properties} from "./services/Environment";
+import SideBar from "./components/common/Sidebar";
+import {ISocialMedia} from "./model/SocialMedia";
+import {getAllSocialMedia} from "./services/SocialMediaService";
+import {faArrowUp} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import $ from 'jquery'
 
 interface IAppProps {
     loading: boolean,
     profile?: IProfile,
+    socialMedias: ISocialMedia[],
     getProfile: typeof getProfile;
+    getAllSocialMedia: typeof getAllSocialMedia;
 }
 
 const App = (props: IAppProps) => {
@@ -34,102 +38,74 @@ const App = (props: IAppProps) => {
 
 
     const onScroll = (event: any) => {
-        const isMobile = window.innerWidth <= 991;
-        const header = document.getElementById("header") as HTMLElement;
         if (window.location.pathname.startsWith("/blog")) {
             return;
         }
-        if (header) {
-            let top = true
-            if (window.scrollY > 5) {
-                top = false;
-            }
+        const scrolled = window.scrollY;
+        if (scrolled > 600) {$('.bottom_top').addClass("active");}
+        if (scrolled < 600) {$('.bottom_top').removeClass("active");}
 
-            if (isMobile && top) {
-                header.style.display = "none";
-            } else if (isMobile && !top) {
-                header.style.display = "block";
-            } else if (top) {
-                header.className = "header header-center header-light";
-            } else {
-                header.className = "header header-center header-small";
-            }
-        }
     };
 
     React.useEffect(() => {
         setTimeout(() => setLoading(false), 500);
         window.addEventListener("scroll", onScroll);
         props.getProfile();
+        props.getAllSocialMedia();
         return () => {
             window.removeEventListener("scroll", onScroll);
         };
     }, []);
+
+    const scrollToTop = (event: any) => {
+        $("html, body").animate({ scrollTop: "0" },  500);
+    }
+    const openMobileMenu = () => {
+        if($('.port_togglebox').length > 0){
+            $('.port_togglebox').on('click', () => {
+                $('body').toggleClass("port_menu_open");
+            });
+        }
+    }
 
     return (
         <>
             <Router>
                 <Analytics id={properties.gaTrackingToken}>
                     {(loading || !props.profile) && (
-                        <div className="page-loader">
-                            <div className="cssload-container">
-                                <div className="cssload-whirlpool">&nbsp;</div>
+                        <div className="preloader">
+                            <div className="status"><img src={loader} id="preloader_image"
+                                                         alt="loader"/>
                             </div>
                         </div>
                     )}
-                    {mobile && <MobileMenu/>}
-                    {!mobile && <Menu/>}
-                    {props.profile && (
-                        <Switch>
-                            <Route path="/" exact={true}>
-                                <Home profile={props.profile} mobile={mobile}/>
-                            </Route>
-                            <Route path="/blog/:id" component={BlogDetail}/>
-                            <Route path="/blog" component={Blog}/>
 
-                            <Route>
-                                <Home profile={props.profile} mobile={mobile}/>
-                            </Route>
-                        </Switch>
-                    )}
-                    <footer className="footer">
-                        <div className="container">
-                            <div className="row align-items-center">
-                                <div className="col-md-6">
-                                    <span className="copyright">© 2020 www.simonjamesrowe.com</span>
-                                </div>
-                                <div className="col-md-6">
-                                    <ul className="social-icons">
-                                        <li>
-                                            <a href="#">
-                                                <i className="fa fa-facebook-square"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i className="fa fa-google-plus-square"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i className="fa fa-twitter-square"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i className="fa fa-behance-square"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i className="fa fa-pinterest-square"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
+                    {props.profile && (
+                        <>
+                            <SideBar socialMedias={props.socialMedias} profile={props.profile}/>
+                            <div className="port_togglebox" onClick={openMobileMenu}>
+                                <span>&nbsp;</span>
+                                <span>&nbsp;</span>
+                                <span>&nbsp;</span>
                             </div>
-                        </div>
-                    </footer>
+                            <Switch>
+                                <Route path="/" exact={true}>
+                                    <Home profile={props.profile} mobile={mobile} socialMedias={props.socialMedias}/>
+                                </Route>
+                                <Route path="/blogs/:id" component={Blog}/>
+                                <Route path="/blogs" component={Blog}/>
+
+                                <Route>
+                                    <Home profile={props.profile} mobile={mobile} socialMedias={props.socialMedias}/>
+                                </Route>
+                            </Switch>
+                        </>
+                    )}
+
+                    <div className="bottom_top" onClick={scrollToTop} >
+                        <FontAwesomeIcon icon={faArrowUp} />
+                    </div>
+
                 </Analytics>
             </Router>
         </>
@@ -140,13 +116,15 @@ const App = (props: IAppProps) => {
 const mapStateToProps = (store: IApplicationState) => {
     return {
         profile: store.profile.profile,
-        loading: store.profile.loading
+        loading: store.profile.loading,
+        socialMedias: store.socialMedia.socialMedias
     };
 };
 
 const mapDispatchToProps = (dispatch: any) => {
     return {
-        getProfile: () => dispatch(getProfile())
+        getProfile: () => dispatch(getProfile()),
+        getAllSocialMedia: () => dispatch(getAllSocialMedia())
     };
 };
 

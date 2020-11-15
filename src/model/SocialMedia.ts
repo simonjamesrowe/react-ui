@@ -15,3 +15,13 @@ export const getMediaIcon = (type : "github" | "linkedin" | "twitter") => {
         return faLinkedin;
     }
 }
+
+export const getMediaClass = (type : "github" | "linkedin" | "twitter")  => {
+    if (type === "github") {
+        return "fab nav_insta";
+    } else if (type === "twitter") {
+        return "fab nav_twit";
+    } else if (type === "linkedin") {
+        return "fab nav_in";
+    }
+}

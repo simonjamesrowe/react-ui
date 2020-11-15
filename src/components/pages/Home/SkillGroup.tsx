@@ -18,50 +18,63 @@ const SkillGroup = ({open, skillGroup, close}: ISkillGroupProps) => {
     // tslint:disable-next-line:no-empty
     const onOpen = () => {
     };
+
     return (
         <SwipeableDrawer anchor={"right"} open={open} onClose={close} onOpen={onOpen}>
-            <header className="header header-small header-skills">
-                <div className="closeIcon">
-                    <FontAwesomeIcon
-                        className="pointer"
-                        size="2x"
-                        icon={faTimes}
-                        onClick={close}
-                    />
-                </div>
-            </header>
-            <div className="container content-skills">
-                <div className="row">
-                    <div className="col-md-12 headline m-title c-align">
-                        <CmsImage src={skillGroup.image} type={"thumbnail"}/>
-                        <h2> {skillGroup.name} </h2>
-                    </div>
-                    <div className="col-md-12">
-                        <p>{skillGroup.description}</p>
+            <nav className="navbar navbar-default fixed-top-drawer">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-sm-12">
+                            <FontAwesomeIcon
+                                className="pointer"
+                                size="2x"
+                                icon={faTimes}
+                                onClick={close}
+                            />
+                        </div>
                     </div>
                 </div>
-                <div className="row">
-                    {skillGroup.skills.map((skill, index) =>
-                        <div className="col-sm-4 w">
-                            <div className="service">
-                                <div className="m-title c-align">
-                                    <div className="icon">
-                                        <CmsThumbnail src={skill.image} size={"medium"}/>
+            </nav>
+
+            <div className="port_services_setions prt_toppadder20">
+                <div className="services_section">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div
+                                    className="port_heading_wrapper text-center prt_bottompadder40 port_services_box_header">
+                                    <div className="port_sub_heading_wrapper">
+                                        <CmsImage src={skillGroup.image} type={"thumbnail"}/>
                                     </div>
-                                    <h4>{skill.name}</h4>
-                                </div>
-                                <ProgressBar now={skill.rating * 10} variant={getVariant(skill.rating)}/>
-                                <div className="text">
-                                    <ReactMarkdown
-                                        source={skill.description}
-                                        linkTarget="_blank"
-                                    />
+                                    <h1 className="port_heading">{skillGroup.name}</h1>
+                                    <br/>
+                                    <ReactMarkdown source={skillGroup.description}/>
                                 </div>
                             </div>
                         </div>
-                    )}
+                        <div className="row">
+                            {skillGroup.skills.map(skill => (
+                                <div className="col-lg-6 col-md-6 text-center">
+                                    <div className="port_services_box_wrapper">
+                                        <div className="port_services_box">
+                                            <CmsImage src={skill.image} type={"thumbnail"}/>
+                                            <h2 className="project_heading">{skill.name}</h2>
+                                            <ProgressBar now={skill.rating * 10} variant={getVariant(skill.rating)}/>
+                                            <br/>
+                                            <ReactMarkdown
+                                                source={skill.description}
+                                                linkTarget="_blank"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
+
+
         </SwipeableDrawer>
 
     )

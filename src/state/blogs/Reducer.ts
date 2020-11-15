@@ -17,6 +17,7 @@ export const blogsReducer: Reducer<IBlogsState, BlogActions> = (
         case BlogActionTypes.GETALL: {
             return {
                 blogs: action.blogs,
+                currentBlog: action.blogs[0],
                 loading: false
             };
         }

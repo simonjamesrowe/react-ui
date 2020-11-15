@@ -92,7 +92,7 @@ const MobileMenu: React.SFC<RouteComponentProps> = props => {
                     <ListItemIcon>
                       <VerticalSplitIcon />
                     </ListItemIcon>
-                    <ListItemText primary="Resume" />
+                    <ListItemText primary="OldResume" />
                   </ListItem>
                 </NavLink>
                 <Divider />
