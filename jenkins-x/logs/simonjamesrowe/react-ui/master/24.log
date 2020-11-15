@@ -1,0 +1,95 @@
+
+Showing logs for build [32msimonjamesrowe-react-ui-master-c29qr-24[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-mkvws[0m
+{"level":"info","ts":1605437229.6525476,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
+{"level":"info","ts":1605437229.6544755,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32msimonjamesrowe-react-ui-master-c29qr-24[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-9fmj5[0m
+{"level":"info","ts":1605437230.0701907,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1605437230.0728226,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32msimonjamesrowe-react-ui-master-c29qr-24[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32msimonjamesrowe-react-ui-master-c29qr-24[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-simonjamesrowe-react-ui-master-c29qr-8rkxd[0m
+{"level":"info","ts":1605437235.1147778,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
+{"level":"info","ts":1605437237.8559234,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/simonjamesrowe/react-ui.git @ v0.0.33 in path /workspace/source"}
+
+Showing logs for build [32msimonjamesrowe-react-ui-master-c29qr-24[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:ced99c448c17157062d1efd3d1dba1c92ec0ebbe
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32msimonjamesrowe-react-ui-master-c29qr-24[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
+
+Showing logs for build [32msimonjamesrowe-react-ui-master-c29qr-24[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0000] Using dockerignore file: /workspace/source/.dockerignore 
+[36mINFO[0m[0000] Retrieving image manifest node:13            
+[36mINFO[0m[0002] Retrieving image manifest node:13            
+[36mINFO[0m[0003] Built cross stage deps: map[]                
+[36mINFO[0m[0003] Retrieving image manifest node:13            
+[36mINFO[0m[0004] Retrieving image manifest node:13            
+[36mINFO[0m[0005] Executing 0 build triggers                   
+[36mINFO[0m[0005] Checking for cached layer harbor.simonjamesrowe.com/todo/cache:20469b97b25e6dac432fcdb7f478df6a6505e174c658be1f635642762e9561f9... 
+[36mINFO[0m[0006] No cached layer found for cmd COPY . .       
+[36mINFO[0m[0006] Unpacking ****fs as cmd COPY . . requires it. 
+[36mINFO[0m[0039] WORKDIR /app                                 
+[36mINFO[0m[0039] cmd: workdir                                 
+[36mINFO[0m[0039] Changed working directory to /app            
+[36mINFO[0m[0039] Creating directory /app                      
+[36mINFO[0m[0039] Resolving 1 paths                            
+[36mINFO[0m[0039] Taking snapshot of files...                  
+[36mINFO[0m[0039] COPY . .                                     
+[36mINFO[0m[0039] Resolving 147 paths                          
+[36mINFO[0m[0039] Taking snapshot of files...                  
+[36mINFO[0m[0039] ENV NODE_ENV=production                      
+[36mINFO[0m[0039] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0039] RUN yarn install                             
+[36mINFO[0m[0039] Taking snapshot of full filesystem...        
+[36mINFO[0m[0039] Pushing layer harbor.simonjamesrowe.com/todo/cache:20469b97b25e6dac432fcdb7f478df6a6505e174c658be1f635642762e9561f9 to cache now 
+[36mINFO[0m[0041] Resolving 40855 paths                        
+[36mINFO[0m[0047] cmd: /bin/sh                                 
+[36mINFO[0m[0047] args: [-c yarn install]                      
+[36mINFO[0m[0047] Running: [/bin/sh -c yarn install]           
+yarn install v1.22.4
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+info fsevents@2.1.2: The platform "linux" is incompatible with this module.
+info "fsevents@2.1.2" is an optional dependency and failed compatibility check. Excluding it from installation.
+info fsevents@1.2.13: The platform "linux" is incompatible with this module.
+info "fsevents@1.2.13" is an optional dependency and failed compatibility check. Excluding it from installation.
+info fsevents@2.1.3: The platform "linux" is incompatible with this module.
+info "fsevents@2.1.3" is an optional dependency and failed compatibility check. Excluding it from installation.
+[3/4] Linking dependencies...
+warning " > bootstrap@4.5.0" has unmet peer dependency "popper.js@^1.16.0".
+warning " > react-ga@3.1.2" has unmet peer dependency "prop-types@^15.6.0".
+[4/4] Building fresh packages...
+Done in 132.03s.
+[36mINFO[0m[0180] Taking snapshot of full filesystem...        
+[36mINFO[0m[0181] Resolving 200345 paths                       
+[36mINFO[0m[0324] Pushing layer harbor.simonjamesrowe.com/todo/cache:d212a6119f40722e505830f513e2e8c81528fd721e03b2b097403d9a1d83424f to cache now 
+[36mINFO[0m[0324] RUN yarn run build                           
+[36mINFO[0m[0324] cmd: /bin/sh                                 
+[36mINFO[0m[0324] args: [-c yarn run build]                    
+[36mINFO[0m[0324] Running: [/bin/sh -c yarn run build]         
+yarn run v1.22.4
+$ react-scripts build
+Creating an optimized production build...
+Failed to compile.
+
+/app/src/components/pages/Blog/index.tsx
+TypeScript error in /app/src/components/pages/Blog/index.tsx(30,15):
+Property 'match' does not exist on type 'IBlogProps'.  TS2339
+
+    28 | 
+    29 |   React.useEffect(() => {
+  > 30 |     if (props.match.params.id) {
+       |               ^
+    31 |       props.getOneBlog(props.match.params.id)
+    32 |     }
+    33 |   }, [props.blogs, props.match.params])
+
+
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+error building image: error building stage: failed to execute command: waiting for process to exit: exit status 1
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-build-container-build'. The execution of the pipeline has stopped.[0m
