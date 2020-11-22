@@ -2,7 +2,7 @@ import React from "react";
 import Moment from "moment";
 import {CmsImage} from "../../common/CmsImage";
 import {IBlog} from "../../../model/Blog";
-import {Link} from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 
 interface IBlogPreviewProps {
     blog: IBlog;

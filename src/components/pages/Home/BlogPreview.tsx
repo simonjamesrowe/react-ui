@@ -4,7 +4,7 @@ import {CmsImage} from "../../common/CmsImage";
 import {IBlog} from "../../../model/Blog";
 import {faUserEdit} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {Link} from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 
 interface IProps {
     blogs: IBlog[];
