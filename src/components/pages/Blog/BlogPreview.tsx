@@ -14,12 +14,12 @@ const BlogPreview = ({blog}: IBlogPreviewProps) => {
         <>
             <li>
                 <div className="rp_thumb">
-                    <Link to={`/blogs/${blog.id}`}>
+                    <Link to={`/blogs/${blog.id}#top`}>
                         <CmsImage src={blog.image} type={"thumbnail"}/>
                     </Link>
                 </div>
                 <div className="rp_data">
-                    <Link to={`/blogs/${blog.id}`}>
+                    <Link to={`/blogs/${blog.id}#top`}>
                         <div>{blog.title}</div>
                         <div>{Moment(blog.createdAt).format("DD-MMM-YYYY")}</div>
                     </Link>

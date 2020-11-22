@@ -30,7 +30,7 @@ const BlogPreview = ({blogs}: IProps) => {
                                 </div>
 
                                 <div className="col-md-12 col-lg-4">
-                                    <Link to={`/blogs/${blogs[0].id}`}>
+                                    <Link to={`/blogs/${blogs[0].id}#top`}>
                                         <div className="port_blog_mainbox vertical_content">
                                             <div className="port_blog_imgbox">
                                                 <div className="home-blog-0 blog_thumb">
@@ -58,7 +58,7 @@ const BlogPreview = ({blogs}: IProps) => {
 
 
                                 <div className="col-lg-8 col-md-12 ">
-                                    <Link to={`/blogs/${blogs[1].id}`}>
+                                    <Link to={`/blogs/${blogs[1].id}#top`}>
                                         <div className="port_blog_mainbox left_content">
                                             <div className="row no-gutters">
                                                 <div className="col-md-6 order-md-1 order-2">
@@ -85,7 +85,7 @@ const BlogPreview = ({blogs}: IProps) => {
                                             </div>
                                         </div>
                                     </Link>
-                                    <Link to={`/blogs/${blogs[2].id}`}>
+                                    <Link to={`/blogs/${blogs[2].id}#top`}>
                                         <div className="port_blog_mainbox right_content">
                                             <div className="row no-gutters">
                                                 <div className="col-md-6 align-self-center">
