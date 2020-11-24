@@ -96,7 +96,7 @@ const SideBar = ({socialMedias, profile, toggleMenu}: IProps) => {
                             </li>
                             <li data-number="2">
                                 <div className="tooltip_box">
-                                    <Link to="/#skills" className="siderbar_menuicon">
+                                    <Link to="/#skills" className="siderbar_menuicon" onClick={toggleMenu}>
 									<span className="first_micon">
 										<svg className="nav_quotes_svg" xmlns="http://www.w3.org/2000/svg"
                                              viewBox="0 0 508.044 508.044">
