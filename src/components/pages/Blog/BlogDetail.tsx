@@ -37,6 +37,7 @@ const BlogDetail = ({blog} : IProps ) => {
                         <h4 className="blog_heading">{blog.title}</h4><br />
 
                         <ReactMarkdown
+                            className="blog_markdown"
                             source={blog.content}
                             transformImageUri={imageUrl}
                             linkTarget="_blank"

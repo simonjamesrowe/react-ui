@@ -2756,6 +2756,24 @@ h2.project_heading:after {
     padding: 30px 30px 20px 30px;
 }
 
+.blog_markdown p {
+    margin-bottom: 10px;
+}
+
+.blog_markdown ul {
+    margin-bottom: 10px;
+}
+
+.blog_markdown pre {
+    background-color: #e7e2e2;
+    padding: 8px;
+    overflow: scroll;
+}
+
+.blog_markdown ul li {
+    margin-left: 20px;
+}
+
 .blog_postinfo ul {
     list-style-type: none;
 }
