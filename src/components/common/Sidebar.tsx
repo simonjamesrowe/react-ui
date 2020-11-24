@@ -10,16 +10,17 @@ import blogicon from "../../assets/images/blogicon.svg"
 
 interface IProps extends RouteComponentProps {
     socialMedias: ISocialMedia[],
-    profile: IProfile
+    profile: IProfile,
+	toggleMenu()
 }
 
-const SideBar = ({socialMedias, profile}: IProps) => {
+const SideBar = ({socialMedias, profile, toggleMenu}: IProps) => {
 
     return (
         <>
             <div className="port_sidebar_wrapper mport_sidebar_wrapper">
                 <div className="port_sidebar_profile">
-                    <Link to="/#top" className="port_sidebar_position active">
+                    <Link to="/#top" className="port_sidebar_position active" onClick={toggleMenu}>
                         <div className="profile_circle ">
                             <CmsImage src={profile.sidebarImage}/>
                         </div>
@@ -30,7 +31,7 @@ const SideBar = ({socialMedias, profile}: IProps) => {
                         <ul className="nav_list">
                             <li data-number="0">
                                 <div className="tooltip_box">
-                                    <Link to="/#about_sec" className="siderbar_menuicon">
+                                    <Link to="/#about_sec" className="siderbar_menuicon" onClick={toggleMenu}>
                                 <span className="first_micon">
 										<svg className="nav_about_svg" width="26px" height="26px">
 											<defs>
@@ -76,7 +77,7 @@ const SideBar = ({socialMedias, profile}: IProps) => {
                             </li>
                             <li data-number="1">
                                 <div className="tooltip_box">
-                                    <Link to="/#experience" className="siderbar_menuicon">
+                                    <Link to="/#experience" className="siderbar_menuicon" onClick={toggleMenu}>
                                 <span className="first_micon">
 										<svg className="nav__portfolio_svg" width="26px" height="25px">
 										<image x="0px" y="0px" width="26px" height="25px"
@@ -132,7 +133,7 @@ const SideBar = ({socialMedias, profile}: IProps) => {
                             </li>
                             <li data-number="3">
                                 <div className="tooltip_box">
-                                    <Link to="/#contact_sec" className="siderbar_menuicon">
+                                    <Link to="/#contact_sec" className="siderbar_menuicon" onClick={toggleMenu}>
 									<span className="first_micon">
 										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480.56 480.56"
                                              className="nav_contact_svg" width="20px" height="20px">
@@ -177,7 +178,7 @@ const SideBar = ({socialMedias, profile}: IProps) => {
                             </li>
 							<li data-number="4">
 								<div className="tooltip_box">
-									<Link to="/blogs#top" className="siderbar_menuicon">
+									<Link to="/blogs#top" className="siderbar_menuicon" onClick={toggleMenu}>
 									<span className="first_micon">
 										<img src={blogicon} className="nav_contact_svg" width="30px" height="30px"/>
 									</span>
