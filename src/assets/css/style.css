@@ -896,7 +896,7 @@ ul {
     bottom: 0;
     left: 0;
     margin: 0 auto;
-    width: 244px;
+    width: 350px;
     background: #ffc455;
     z-index: -1;
 }
@@ -2770,6 +2770,17 @@ h2.project_heading:after {
     overflow: scroll;
 }
 
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: rgba(0, 0, 0, .5);
+    box-shadow: 0 0 0.5px rgba(255, 255, 255, .5);
+}
+
 .blog_markdown ul li {
     margin-left: 20px;
 }
@@ -3567,7 +3578,7 @@ h2.project_heading:after {
     }
 
     .bannner_leftpart h2.stranger:after {
-        width: 195px;
+        width: 270px;
     }
 
     .bannner_leftpart .banner_name {
@@ -3892,7 +3903,7 @@ h2.project_heading:after {
     }
 
     .bannner_leftpart h2.stranger:after {
-        width: 160px;
+        width: 225px;
     }
 
     .banner_typingtext {
