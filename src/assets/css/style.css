@@ -2764,18 +2764,17 @@ h2.project_heading:after {
     margin-bottom: 10px;
 }
 
-.blog_markdown pre {
+.blog_markdown > pre {
     background-color: #e7e2e2;
-    padding: 8px;
-    overflow: scroll;
+    padding: 10px;
 }
 
-::-webkit-scrollbar {
+.blog_markdown > ::-webkit-scrollbar {
     -webkit-appearance: none;
     width: 4px;
 }
 
-::-webkit-scrollbar-thumb {
+.blog_markdown > ::-webkit-scrollbar-thumb {
     border-radius: 2px;
     background-color: rgba(0, 0, 0, .5);
     box-shadow: 0 0 0.5px rgba(255, 255, 255, .5);

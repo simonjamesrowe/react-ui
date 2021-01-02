@@ -34,7 +34,7 @@ const Blog = (props : IBlogProps & RouteComponentProps<{ id?: string }>) => {
   return (
     <>
       <div className="port_sec_warapper" id="top">
-        <div className="port_singleblog_wrapper prt_toppadder80 prt_bottompadder80 ">
+        <div className="port_singleblog_wrapper prt_toppadder20 prt_bottompadder80 ">
           <div className="container">
             <div className="row">
               <div className="col-lg-8" >
