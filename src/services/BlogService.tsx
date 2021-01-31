@@ -28,8 +28,11 @@ export const getOneBlog: ActionCreator<
     ThunkAction<Promise<any>, IBlogsState, null, BlogActions>
     > = (id: string) => {
   return async (dispatch: Dispatch) => {
+    let queryString =
+        `${properties.apiUrl}/blogs/${id}`;
+    const response = await axios.get<IBlog>(queryString);
     dispatch({
-      blogId: id,
+      blog: response.data,
       type: BlogActionTypes.GETONE
     });
   };

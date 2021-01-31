@@ -428,7 +428,7 @@ ul {
     left: 0;
     height: 100%;
     box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
-    z-index: 2;
+    z-index: 100;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     -ms-transition: all 0.3s;
@@ -3336,9 +3336,23 @@ h2.project_heading:after {
     .portfolio_btn {
         min-width: 190px;
     }
+
+    .dropdown-item span:nth-child(3) {
+        display: block;
+    }
 }
 
+
+
 @media (max-width: 991px) {
+    .dropdown-item img:nth-child(1) {
+        display: none;
+    }
+
+    .dropdown-item span:nth-child(3) {
+        display: none;
+    }
+
     .banner_img {
         right: 0;
         top: 20px;
@@ -3351,7 +3365,6 @@ h2.project_heading:after {
     .education_main_wrapper:after {
         display: none;
     }
-
 
     .port_progress_setions {
         padding-bottom: 21px;
@@ -3410,15 +3423,26 @@ h2.project_heading:after {
         padding-bottom: 50px;
     }
 
+
+
 }
 
 @media (min-width: 768px) {
     .port_togglebox {
         display: none;
     }
+
+    .dropdown-item span:nth-child(2){
+        margin-left: 15px;
+        margin-right: 25px;
+    }
+
 }
 
 @media (max-width: 767px) {
+
+
+
     /* Start toggle box */
     .port_togglebox {
         width: 30px;
@@ -3944,7 +3968,7 @@ p {
     top: 0;
     left: inherit;
     right: 0;
-    z-index: 1030;
+    z-index: 90;
 }
 
 .navbar {
@@ -3972,4 +3996,22 @@ p {
 
 .rp_data div:nth-child(1) {
     margin-bottom: 10px;
+}
+
+.dropdown-item img{
+    height: 45px;
+    width: 45px;
+}
+
+.dropdown-item span svg, .date_span svg {
+    color: #ff517e;
+}
+
+.tags {
+    color: #ff517e;
+    margin-bottom: 5px;
+}
+
+.search_widget input{
+    background-color: #fff;
 }

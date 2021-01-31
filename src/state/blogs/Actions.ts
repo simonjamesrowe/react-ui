@@ -18,7 +18,7 @@ export interface IBlogsLoadingAction {
 
 export interface IBlogsGetOneAction {
     type: BlogActionTypes.GETONE,
-    blogId: string
+    blog: IBlog
 }
 
 export type BlogActions = IBlogsGetAllAction | IBlogsGetOneAction | IBlogsLoadingAction

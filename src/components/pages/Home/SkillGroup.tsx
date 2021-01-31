@@ -7,6 +7,7 @@ import {ProgressBar} from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
 import {faTimes} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {ClosableHeader} from "../../common/CloseableHeader";
 
 interface ISkillGroupProps {
     open: boolean;
@@ -21,20 +22,8 @@ const SkillGroup = ({open, skillGroup, close}: ISkillGroupProps) => {
 
     return (
         <SwipeableDrawer anchor={"right"} open={open} onClose={close} onOpen={onOpen}>
-            <nav className="navbar navbar-default fixed-top-drawer">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-sm-12">
-                            <FontAwesomeIcon
-                                className="pointer"
-                                size="2x"
-                                icon={faTimes}
-                                onClick={close}
-                            />
-                        </div>
-                    </div>
-                </div>
-            </nav>
+
+            <ClosableHeader close={close} />
 
             <div className="port_services_setions prt_toppadder20">
                 <div className="services_section">

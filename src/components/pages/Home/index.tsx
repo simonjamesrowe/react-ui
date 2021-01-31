@@ -6,11 +6,9 @@ import {IProfile} from "../../../model/Profile";
 import {getAllJobs} from "../../../services/JobService";
 import {connect} from "react-redux";
 import {ISkillGroup} from "../../../model/Skill";
-
 import {getAllSkills} from "../../../services/SkillsService";
 import {IApplicationState} from "../../../state/Store";
 import {ISocialMedia} from "../../../model/SocialMedia";
-import {getAllSocialMedia} from "../../../services/SocialMediaService";
 import {IJob} from "../../../model/Job";
 import {SkillsOutline} from "./SkillsOutline";
 import {IBlog} from "../../../model/Blog";

@@ -2,7 +2,7 @@ import React from "react";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Home from "./components/pages/Home/index";
 import Blog from "./components/pages/Blog/index";
-import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import loader from "./assets/images/loader.gif"
 import {IProfile} from "./model/Profile";
 import {IApplicationState} from "./state/Store";
@@ -18,6 +18,7 @@ import {getAllSocialMedia} from "./services/SocialMediaService";
 import {faArrowUp} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import $ from 'jquery'
+import BlogDetail from "./components/pages/Blog/BlogDetail";
 
 interface IAppProps {
     loading: boolean,
@@ -33,18 +34,14 @@ const App = (props: IAppProps) => {
 
     const mobile = useMediaQuery("(max-width:991px)");
     const [loading, setLoading] = React.useState<boolean>(
-        !window.location.pathname.startsWith("/blog")
+true
     );
 
 
     const onScroll = (event: any) => {
-        if (window.location.pathname.startsWith("/blog")) {
-            return;
-        }
         const scrolled = window.scrollY;
         if (scrolled > 600) {$('.bottom_top').addClass("active");}
         if (scrolled < 600) {$('.bottom_top').removeClass("active");}
-
     };
 
     React.useEffect(() => {
@@ -52,9 +49,6 @@ const App = (props: IAppProps) => {
         window.addEventListener("scroll", onScroll);
         props.getProfile();
         props.getAllSocialMedia();
-        return () => {
-            window.removeEventListener("scroll", onScroll);
-        };
     }, []);
 
     const scrollToTop = (event: any) => {
@@ -63,7 +57,6 @@ const App = (props: IAppProps) => {
     const toggleMenu = () => {
         $('body').toggleClass(`port_menu_open`);
     }
-
 
     return (
         <>
@@ -89,7 +82,7 @@ const App = (props: IAppProps) => {
                                 <Route path="/" exact={true}>
                                     <Home profile={props.profile} mobile={mobile} socialMedias={props.socialMedias}/>
                                 </Route>
-                                <Route path="/blogs/:id" component={Blog}/>
+                                <Route path="/blogs/:id" component={BlogDetail}/>
                                 <Route path="/blogs" component={Blog}/>
 
                                 <Route>

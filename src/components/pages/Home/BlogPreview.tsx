@@ -1,10 +1,9 @@
 import React from "react";
-import Moment from "moment";
-import {CmsImage} from "../../common/CmsImage";
 import {IBlog} from "../../../model/Blog";
-import {faUserEdit} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import { HashLink as Link } from "react-router-hash-link";
+import {HashLink as Link} from "react-router-hash-link";
+import {BlogVertical} from "../Blog/BlogVertical";
+import {BlogHorizontalImageRight} from "../Blog/BlogHorizontalImageRight";
+import {BlogHorizontalImageLeft} from "../Blog/BlogHorizontalImageLeft";
 
 interface IProps {
     blogs: IBlog[];
@@ -28,89 +27,13 @@ const BlogPreview = ({blogs}: IProps) => {
                                         </Link>
                                     </div>
                                 </div>
-
                                 <div className="col-md-12 col-lg-4">
-                                    <Link to={`/blogs/${blogs[0].id}#top`}>
-                                        <div className="port_blog_mainbox vertical_content">
-                                            <div className="port_blog_imgbox">
-                                                <div className="home-blog-0 blog_thumb">
-                                                    <CmsImage src={blogs[0].image} type={"small"}/>
-                                                </div>
-                                            </div>
-
-
-                                            <div className="port_blog_contentbox">
-                                            <span
-                                                className="date_span">{Moment(blogs[0].createdAt).format("DD-MMM-YYYY")}</span>
-                                                <h4 className="blog_heading">
-                                                    <a href="blog.html">{blogs[0].title}</a>
-                                                </h4>
-                                                <p>{blogs[0].shortDescription}</p>
-                                                <div className="blog_readmore">
-                                                    <a href="blog.html" className="readmore_btn">Read
-                                                        More <FontAwesomeIcon
-                                                            icon={faUserEdit}/></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </Link>
+                                    <BlogVertical blog={blogs[0]} />
                                 </div>
 
-
                                 <div className="col-lg-8 col-md-12 ">
-                                    <Link to={`/blogs/${blogs[1].id}#top`}>
-                                        <div className="port_blog_mainbox left_content">
-                                            <div className="row no-gutters">
-                                                <div className="col-md-6 order-md-1 order-2">
-                                                    <div className="port_blog_contentbox">
-                                                    <span
-                                                        className="date_span">{Moment(blogs[1].createdAt).format("DD-MMM-YYYY")}</span>
-                                                        <h4 className="blog_heading">
-                                                            <a href="blog.html">{blogs[1].title}</a>
-                                                        </h4>
-                                                        <p>{blogs[1].shortDescription}</p>
-                                                        <div className="blog_readmore">
-                                                            <div className="blog_readmore">
-                                                                <a href="blog.html" className="readmore_btn">Read
-                                                                    More <FontAwesomeIcon icon={faUserEdit}/></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-md-6 order-1 align-self-center">
-                                                    <div className="port_blog_imgbox blog_thumb">
-                                                        <CmsImage src={blogs[1].image} type={"small"}/>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </Link>
-                                    <Link to={`/blogs/${blogs[2].id}#top`}>
-                                        <div className="port_blog_mainbox right_content">
-                                            <div className="row no-gutters">
-                                                <div className="col-md-6 align-self-center">
-
-                                                    <div className="port_blog_imgbox blog_thumb">
-                                                        <CmsImage src={blogs[2].image} type={"small"}/>
-                                                    </div>
-                                                </div>
-                                                <div className="col-md-6">
-                                                    <div className="port_blog_contentbox">
-                                                    <span
-                                                        className="date_span">{Moment(blogs[2].createdAt).format("DD-MMM-YYYY")}</span>
-                                                        <h4 className="blog_heading">
-                                                            <a href="blog.html">{blogs[2].title}</a>
-                                                        </h4>
-                                                        <p>{blogs[2].shortDescription}</p>
-                                                        <div className="blog_readmore">
-                                                            <a href="blog.html" className="readmore_btn">Read
-                                                                More <FontAwesomeIcon icon={faUserEdit}/></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </Link>
+                                    <BlogHorizontalImageRight blog={blogs[1]} />
+                                    <BlogHorizontalImageLeft blog={blogs[2]} />
                                 </div>
                             </div>
                         </div>

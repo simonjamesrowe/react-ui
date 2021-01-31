@@ -11,3 +11,15 @@ export interface IBlog {
     createdAt: Date;
     tags: ITag[];
 }
+
+export interface IBlogSearchResult {
+    id: string;
+    title: string;
+    shortDescription: string;
+    tags: string[];
+    skills: string[];
+    thumbnailImage: string;
+    smallImage?: string;
+    mediumImage?: string;
+    createdDate: Date;
+}

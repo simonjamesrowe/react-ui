@@ -6,6 +6,7 @@ import {faTimes} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {IJob} from "../../../model/Job";
 import Moment from "moment";
+import {ClosableHeader} from "../../common/CloseableHeader";
 
 interface IProps {
     open: boolean;
@@ -29,20 +30,9 @@ const JobDetail = ({open, job, close}: IProps) => {
 
     return (
         <SwipeableDrawer anchor={"right"} open={open} onClose={close} onOpen={onOpen}>
-            <nav className="navbar navbar-default fixed-top-drawer">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-sm-12">
-                            <FontAwesomeIcon
-                                className="pointer"
-                                size="2x"
-                                icon={faTimes}
-                                onClick={close}
-                            />
-                        </div>
-                    </div>
-                </div>
-            </nav>
+
+            <ClosableHeader close={close} />
+
             <div>
                 <div className="port_services_setions prt_toppadder10">
                     <div className="services_section">
