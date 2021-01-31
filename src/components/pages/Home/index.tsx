@@ -1,7 +1,7 @@
 import React from "react";
 import {Headline} from "./Headline";
 import {Profile} from "./Profile";
-import {Resume} from "./Resume";
+import Resume from "./Resume";
 import {IProfile} from "../../../model/Profile";
 import {getAllJobs} from "../../../services/JobService";
 import {connect} from "react-redux";
@@ -10,7 +10,7 @@ import {getAllSkills} from "../../../services/SkillsService";
 import {IApplicationState} from "../../../state/Store";
 import {ISocialMedia} from "../../../model/SocialMedia";
 import {IJob} from "../../../model/Job";
-import {SkillsOutline} from "./SkillsOutline";
+import SkillsOutline from "./SkillsOutline";
 import {IBlog} from "../../../model/Blog";
 import {getAllBlogs} from "../../../services/BlogService";
 import {BlogPreview} from "./BlogPreview";

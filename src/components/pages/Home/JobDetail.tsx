@@ -34,7 +34,7 @@ const JobDetail = ({open, job, close}: IProps) => {
             <ClosableHeader close={close} />
 
             <div>
-                <div className="port_services_setions prt_toppadder10">
+                <div className="port_services_setions prt_toppadder10 swipe-container">
                     <div className="services_section">
                         <div className="container">
                             <div className="row">

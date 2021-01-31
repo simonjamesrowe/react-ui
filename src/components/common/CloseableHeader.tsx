@@ -10,7 +10,7 @@ interface Props {
 const ClosableHeader = ({close}: Props) => {
     return (
         <nav className="navbar navbar-default fixed-top-drawer">
-            <div className="container">
+            <div className="container-fluid">
                 <div className="row">
                     <div className="col-sm-12">
                         <FontAwesomeIcon

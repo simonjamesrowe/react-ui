@@ -1,22 +1,21 @@
 import React from "react";
 import {ISkillGroup} from "../../../model/Skill";
-import {CmsThumbnail} from "../../common/CmsThumbnail";
 import {CmsImage} from "../../common/CmsImage";
 import ReactGA from 'react-ga';
 import {SkillGroup} from "./SkillGroup";
-import {properties} from "../../../services/Environment";
+import {RouteComponentProps, useHistory, withRouter} from "react-router-dom";
 
-
-interface IProps {
+interface IProps extends RouteComponentProps<{ id?: string }> {
     skillsGroups: ISkillGroup[];
 }
 
-const SkillsOutline = ({skillsGroups}: IProps) => {
+const SkillsOutline = ({skillsGroups, match}: IProps & RouteComponentProps) => {
     const [skillsDraw, setSkillsDraw] = React.useState<{ [key: string]: boolean }>({});
+    const history = useHistory();
 
     React.useEffect(() => {
         let newSkillsDraw = {};
-        skillsGroups.forEach(sk => newSkillsDraw[sk._id] = false);
+        skillsGroups.forEach(sk => newSkillsDraw[sk._id] = match.params.id == sk._id);
         setSkillsDraw(newSkillsDraw);
     }, [skillsGroups]);
 
@@ -26,18 +25,20 @@ const SkillsOutline = ({skillsGroups}: IProps) => {
             category: "Skill",
             action: `Skill Group Expanded: ${name}`,
         });
+        history.replace(`/skills-group/${id}`);
         setSkillsDraw({...skillsDraw, [id]: true});
     };
 
 
     const collapseSkillGroup = (id: string) => {
+        history.replace(`/`);
         setSkillsDraw({...skillsDraw, [id]: false});
     }
 
     return (
         <>
             {skillsGroups.map(skillGroup => (
-                    <SkillGroup open={skillsDraw[skillGroup._id] || false } skillGroup={skillGroup} close={() => {
+                    <SkillGroup open={skillsDraw[skillGroup._id] || false} skillGroup={skillGroup} close={() => {
                         collapseSkillGroup(skillGroup._id)
                     }}/>
                 )
@@ -75,4 +76,4 @@ const SkillsOutline = ({skillsGroups}: IProps) => {
     );
 };
 
-export {SkillsOutline};
+export default withRouter(SkillsOutline);

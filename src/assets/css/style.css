@@ -3428,6 +3428,12 @@ h2.project_heading:after {
 }
 
 @media (min-width: 768px) {
+
+    div .MuiDrawer-paperAnchorRight {
+        left:120px;
+        right:0px;
+    }
+
     .port_togglebox {
         display: none;
     }
@@ -3441,7 +3447,10 @@ h2.project_heading:after {
 
 @media (max-width: 767px) {
 
-
+    div .MuiDrawer-paperAnchorRight {
+        left:0px;
+        right:0px;
+    }
 
     /* Start toggle box */
     .port_togglebox {
@@ -3804,6 +3813,11 @@ h2.project_heading:after {
 }
 
 @media (max-width: 480px) {
+    div .MuiDrawer-paperAnchorRight {
+        left:0px;
+        right:0px;
+    }
+
     .personal_details h1.ps_name {
         font-size: 18px;
     }
@@ -3880,6 +3894,7 @@ h2.project_heading:after {
 }
 
 @media (max-width: 380px) {
+
     .right_section h2.about_tophead {
         font-size: 26px;
     }
@@ -4014,4 +4029,8 @@ p {
 
 .search_widget input{
     background-color: #fff;
+}
+
+.swipe-container {
+    width: 100%;
 }

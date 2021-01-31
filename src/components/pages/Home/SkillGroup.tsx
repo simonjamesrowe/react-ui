@@ -2,11 +2,8 @@ import React from "react"
 import {getVariant, ISkillGroup} from "../../../model/Skill";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import {CmsImage} from "../../common/CmsImage";
-import {CmsThumbnail} from "../../common/CmsThumbnail";
 import {ProgressBar} from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
-import {faTimes} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {ClosableHeader} from "../../common/CloseableHeader";
 
 interface ISkillGroupProps {
@@ -21,11 +18,11 @@ const SkillGroup = ({open, skillGroup, close}: ISkillGroupProps) => {
     };
 
     return (
-        <SwipeableDrawer anchor={"right"} open={open} onClose={close} onOpen={onOpen}>
+        <SwipeableDrawer anchor={"right"} open={open} onClose={close} onOpen={onOpen} >
 
             <ClosableHeader close={close} />
 
-            <div className="port_services_setions prt_toppadder20">
+            <div className="port_services_setions prt_toppadder20 swipe-container">
                 <div className="services_section">
                     <div className="container">
                         <div className="row">

@@ -3,18 +3,19 @@ import {IJob} from "../../../model/Job";
 import {JobBlock} from "./JobBlock";
 import ReactGA from "react-ga";
 import {JobDetail} from "./JobDetail";
+import {RouteComponentProps, useHistory, withRouter} from "react-router-dom";
 
-interface IProps {
+interface IProps extends RouteComponentProps<{id?: string}>{
     jobs: IJob[];
 }
 
-const Resume = ({jobs}: IProps) => {
-
+const Resume = ( {jobs, match}: IProps & RouteComponentProps<{id?: string}>) => {
+    const history = useHistory();
     const [jobsDraw, setJobsDraw] = React.useState<{ [key: string]: boolean }>({});
 
     React.useEffect(() => {
         let newJobsDrawer = {};
-        jobs.forEach(j => newJobsDrawer[j._id] = false);
+        jobs.forEach(j => newJobsDrawer[j._id] = match.params.id == j._id);
         setJobsDraw(newJobsDrawer);
     }, [jobs]);
 
@@ -30,10 +31,12 @@ const Resume = ({jobs}: IProps) => {
             category: "Job",
             action: `Job Expanded: ${name}`,
         });
+        history.replace(`/jobs/${id}`);
         setJobsDraw({...jobsDraw, [id]: true});
     };
 
     const collapseJobDrawer = (id: string) => {
+        history.replace('/');
         setJobsDraw({...jobsDraw, [id]: false});
     }
 
@@ -77,4 +80,4 @@ const Resume = ({jobs}: IProps) => {
     )
 }
 
-export {Resume}
+export default withRouter(Resume)
