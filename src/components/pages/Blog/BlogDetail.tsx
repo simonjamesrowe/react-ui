@@ -17,7 +17,7 @@ interface IProps extends RouteComponentProps<{ id: string }> {
     getOneBlog: typeof getOneBlog;
 }
 
-const BlogDetail = ({blog, getOneBlog, match}: IProps) => {
+const BlogDetail = ({blog, getOneBlog, match}: IProps & RouteComponentProps<{id: string}>) => {
 
     const history = useHistory();
     React.useEffect(() => {

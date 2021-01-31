@@ -14,7 +14,7 @@ interface IBlogProps {
     getAllBlogs: typeof getAllBlogs;
 }
 
-const Blog = (props: IBlogProps & RouteComponentProps<{ id?: string }>) => {
+const Blog = (props: IBlogProps) => {
 
     React.useEffect(() => {
         props.getAllBlogs();
@@ -84,9 +84,7 @@ const mapDispatchToProps = (dispatch: any) => {
     };
 };
 
-const BlogWithRouter = withRouter(Blog);
-
-export default connect(mapStateToProps, mapDispatchToProps)(BlogWithRouter);
+export default connect(mapStateToProps, mapDispatchToProps)(Blog);
 
 
 
