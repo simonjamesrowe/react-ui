@@ -22,7 +22,7 @@ const SkillGroup = ({open, skillGroup, close, location}: ISkillGroupProps & Rout
             setTimeout(() => {
                 const skillId = window.location.hash.substr(1);
                 const skillGroup = window.location.pathname.substr(window.location.pathname.lastIndexOf("/") + 1);
-                const offsetTop = $(`#${skillId}`).offset().top;
+                const offsetTop = $(`#${skillId}`).offset().top - 55;
                 $(`#${skillGroup} div.MuiDrawer-paper`).animate({scrollTop: offsetTop});
             }, 300)
         }
