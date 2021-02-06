@@ -5,11 +5,11 @@ import ReactGA from "react-ga";
 import {JobDetail} from "./JobDetail";
 import {RouteComponentProps, useHistory, withRouter} from "react-router-dom";
 
-interface IProps extends RouteComponentProps<{id?: string}>{
+interface IProps extends RouteComponentProps<{ id?: string }> {
     jobs: IJob[];
 }
 
-const Resume = ( {jobs, match}: IProps & RouteComponentProps<{id?: string}>) => {
+const Resume = ({jobs, match, location}: IProps & RouteComponentProps<{ id?: string }>) => {
     const history = useHistory();
     const [jobsDraw, setJobsDraw] = React.useState<{ [key: string]: boolean }>({});
 
@@ -17,7 +17,7 @@ const Resume = ( {jobs, match}: IProps & RouteComponentProps<{id?: string}>) => 
         let newJobsDrawer = {};
         jobs.forEach(j => newJobsDrawer[j._id] = match.params.id == j._id);
         setJobsDraw(newJobsDrawer);
-    }, [jobs]);
+    }, [jobs, location]);
 
     const experienceBoxStyle = (index: number): string => {
         if ([0, 1, 4, 5, 8, 9, 12, 13].find(left => left == index) !== undefined) {

@@ -9,7 +9,7 @@ interface IProps extends RouteComponentProps<{ id?: string }> {
     skillsGroups: ISkillGroup[];
 }
 
-const SkillsOutline = ({skillsGroups, match}: IProps & RouteComponentProps) => {
+const SkillsOutline = ({skillsGroups, match, location}: IProps & RouteComponentProps) => {
     const [skillsDraw, setSkillsDraw] = React.useState<{ [key: string]: boolean }>({});
     const history = useHistory();
 
@@ -17,7 +17,7 @@ const SkillsOutline = ({skillsGroups, match}: IProps & RouteComponentProps) => {
         let newSkillsDraw = {};
         skillsGroups.forEach(sk => newSkillsDraw[sk._id] = match.params.id == sk._id);
         setSkillsDraw(newSkillsDraw);
-    }, [skillsGroups]);
+    }, [skillsGroups, location]);
 
 
     const expandSkillGroup = (id: string, name: string) => {
@@ -25,7 +25,7 @@ const SkillsOutline = ({skillsGroups, match}: IProps & RouteComponentProps) => {
             category: "Skill",
             action: `Skill Group Expanded: ${name}`,
         });
-        history.replace(`/skills-group/${id}`);
+        history.replace(`/skills-groups/${id}`);
         setSkillsDraw({...skillsDraw, [id]: true});
     };
 

@@ -87,7 +87,7 @@ true
                                 <Route path="/jobs/:id" >
                                     <Home profile={props.profile} mobile={mobile} socialMedias={props.socialMedias}/>
                                 </Route>
-                                <Route path="/skills-group/:id" >
+                                <Route path="/skills-groups/:id" >
                                     <Home profile={props.profile} mobile={mobile} socialMedias={props.socialMedias}/>
                                 </Route>
                                 <Route>

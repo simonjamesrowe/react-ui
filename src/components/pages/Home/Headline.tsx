@@ -2,6 +2,7 @@ import React from "react";
 import { CSSProperties } from "@material-ui/core/styles/withStyles";
 import {properties} from "../../../services/Environment";
 import {IProfile} from "../../../model/Profile";
+import {SiteSearch} from "./SiteSearch";
 
 interface IHeadlineProps {
   profile: IProfile;
@@ -48,6 +49,7 @@ const Headline = ({ profile, mobile }: IHeadlineProps) => {
                         <li className="list-inline-item">{profile.title.split(" ")[1]}</li>
                       </ul>
                     </div>
+                    <SiteSearch />
                     <div className="banner_btn">
                       <a href={properties.apiUrl + profile.cv.url} className="portfolio_btn btn_yellow">
                         <span className="first_text">Download CV</span>

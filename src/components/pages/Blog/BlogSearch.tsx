@@ -13,11 +13,9 @@ const BlogSearch = () => {
     const [isLoading, setIsLoading] = React.useState(false);
     const [options, setOptions] = React.useState<IBlogSearchResult[]>([]);
     const handleSearch = (query) => {
-        setIsLoading(true);
         axios.get<IBlogSearchResult[]>(`${properties.apiUrl}/search/blogs?q=${query}`)
             .then((response) => {
                 setOptions(response.data);
-                setIsLoading(false);
             })
     };
 
