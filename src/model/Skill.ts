@@ -12,6 +12,7 @@ export interface ISkillGroup {
 }
 
 export interface ISkill {
+    id: string,
     name: string,
     rating: number,
     order: number,

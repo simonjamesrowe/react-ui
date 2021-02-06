@@ -52,23 +52,28 @@ const SiteSearch = () => {
                 placeholder="Search for skills, experience, blogs ..."
                 renderMenu={(results: TypeaheadResult<ISiteSearchOption>[], menuProps) => (
                     <Menu {...menuProps}>
-                        {
-                            options.length > 0 && options[0].results.map((result, resultIndex) =>
-                                <div className="site-search-result">
-                                    <div>{result.type}</div>
-                                    {result.hits.map((hit, hitIndex) => (
-                                        <MenuItem
-                                            label={hit.name}
-                                            option={options[options.findIndex(it => it.name == hit.name)]}
-                                            position={options.findIndex(it => it.name == hit.name)}
-                                        >
-                                            <img src={`${properties.apiUrl}${hit.imageUrl}`} />
-                                            <span>{hit.name}</span>
-                                        </MenuItem>
-                                    ))}
+                        {options.length == 0 && (
 
-                                </div>
-                            )}
+                            <span className="site-search-result-heading">No results found</span>
+
+                        )}
+                        {options.length > 0 && options[0].results.map((result, resultIndex) =>
+                            <>
+                                <span className="site-search-result-heading">{result.type}</span>
+                                {result.hits.map((hit, hitIndex) => (
+                                    <MenuItem
+                                        label={hit.name}
+                                        option={options[options.findIndex(it => it.name == hit.name)]}
+                                        position={options.findIndex(it => it.name == hit.name)}
+                                        className="site-search-result-hit"
+                                    >
+                                        <img src={`${properties.apiUrl}${hit.imageUrl}`}/>
+                                        <span>{hit.name}</span>
+                                    </MenuItem>
+                                ))}
+
+                            </>
+                        )}
                     </Menu>
                 )}
             />

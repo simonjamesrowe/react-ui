@@ -4041,12 +4041,12 @@ p {
     opacity: 0.75;
 }
 
-.site-search-result div {
+.site-search-result-heading {
     padding-left: 10px;
     margin-bottom: 5px;
 }
 
-.site-search-result a {
+a.site-search-result-hit {
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 45px;

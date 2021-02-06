@@ -2,7 +2,7 @@ import React from "react";
 import {ISkillGroup} from "../../../model/Skill";
 import {CmsImage} from "../../common/CmsImage";
 import ReactGA from 'react-ga';
-import {SkillGroup} from "./SkillGroup";
+import SkillGroup from "./SkillGroup";
 import {RouteComponentProps, useHistory, withRouter} from "react-router-dom";
 
 interface IProps extends RouteComponentProps<{ id?: string }> {
