@@ -4,12 +4,14 @@ import {CmsImage} from "../../common/CmsImage";
 import ReactGA from 'react-ga';
 import SkillGroup from "./SkillGroup";
 import {RouteComponentProps, useHistory, withRouter} from "react-router-dom";
+import {IJob} from "../../../model/Job";
 
 interface IProps extends RouteComponentProps<{ id?: string }> {
     skillsGroups: ISkillGroup[];
+    jobs: IJob[];
 }
 
-const SkillsOutline = ({skillsGroups, match, location}: IProps & RouteComponentProps) => {
+const SkillsOutline = ({skillsGroups, match, location, jobs}: IProps & RouteComponentProps) => {
     const [skillsDraw, setSkillsDraw] = React.useState<{ [key: string]: boolean }>({});
     const history = useHistory();
 
@@ -38,7 +40,7 @@ const SkillsOutline = ({skillsGroups, match, location}: IProps & RouteComponentP
     return (
         <>
             {skillsGroups.map(skillGroup => (
-                    <SkillGroup open={skillsDraw[skillGroup._id] || false} skillGroup={skillGroup} close={() => {
+                    <SkillGroup jobs={jobs} open={skillsDraw[skillGroup._id] || false} skillGroup={skillGroup} close={() => {
                         collapseSkillGroup(skillGroup._id)
                     }}/>
                 )

@@ -1,20 +1,33 @@
 import React, {Ref, RefObject} from "react"
-import {getVariant, ISkillGroup} from "../../../model/Skill";
+import {getVariant, ISkill, ISkillGroup} from "../../../model/Skill";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import {CmsImage} from "../../common/CmsImage";
-import {ProgressBar} from "react-bootstrap";
+import {Card, ProgressBar} from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
 import {ClosableHeader} from "../../common/CloseableHeader";
 import {RouteComponentProps, withRouter} from "react-router-dom";
 import $ from 'jquery'
+import {IJob} from "../../../model/Job";
+import {properties} from "../../../services/Environment";
 
 interface ISkillGroupProps extends RouteComponentProps {
     open: boolean;
     skillGroup: ISkillGroup;
+    jobs: IJob[];
     close();
 }
 
-const SkillGroup = ({open, skillGroup, close, location}: ISkillGroupProps & RouteComponentProps) => {
+const SkillGroup = ({open, skillGroup, close, location, jobs}: ISkillGroupProps & RouteComponentProps) => {
+
+    const getJobsWithSkill = (skill: ISkill) : IJob[] => {
+        const jobsWithSkill: IJob[] = [];
+        jobs.forEach(job => {
+            if (job.skills.find(jobSkill => jobSkill.id === skill.id)) {
+                jobsWithSkill.push(job);
+            }
+        })
+        return jobsWithSkill;
+    }
 
     const scrollToSkill = () => {
         if (open && location.hash && skillGroup.skills.find(skill => skill.id == location.hash.substr(1))) {
@@ -70,6 +83,14 @@ const SkillGroup = ({open, skillGroup, close, location}: ISkillGroupProps & Rout
                                                 source={skill.description}
                                                 linkTarget="_blank"
                                             />
+                                            <hr />
+                                            {getJobsWithSkill(skill).map(job => (
+                                                <Card>
+                                                    <Card.Body>
+                                                        <Card.Text><Card.Img variant="top" src={`${properties.apiUrl}${job.companyImage?.formats?.thumbnail?.url}`} />{job.company} - {job.title}</Card.Text>
+                                                    </Card.Body>
+                                                </Card>
+                                            ))}
                                         </div>
                                     </div>
                                 </div>

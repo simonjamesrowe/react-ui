@@ -41,7 +41,7 @@ const Home = ( props: IHomeProps) => {
             <div className="port_sec_warapper">
                 <Profile profile={props.profile} socialMedias={props.socialMedias}/>
                 <Resume jobs={props.jobs} />
-                <SkillsOutline skillsGroups={props.skillsGroups} />
+                <SkillsOutline skillsGroups={props.skillsGroups} jobs={props.jobs}/>
                 <BlogPreview blogs={props.blogs} />
                 <Contact profile={props.profile} />
             </div>

@@ -1,4 +1,5 @@
 import {IImage} from "./Image";
+import {ISkill} from "./Skill";
 
 export interface IJob {
     _id: string;
@@ -7,6 +8,8 @@ export interface IJob {
     company: string;
     companyUrl: string;
     shortDescription: string;
+    longDescription: string;
     companyImage: IImage;
     title: string;
+    skills: ISkill[];
 }

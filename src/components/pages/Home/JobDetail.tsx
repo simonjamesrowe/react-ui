@@ -2,11 +2,12 @@ import React from "react"
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import {CmsImage} from "../../common/CmsImage";
 import ReactMarkdown from "react-markdown";
-import {faTimes} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+
 import {IJob} from "../../../model/Job";
 import Moment from "moment";
 import {ClosableHeader} from "../../common/CloseableHeader";
+import {Card, Tab, Tabs} from "react-bootstrap";
+import {properties} from "../../../services/Environment";
 
 interface IProps {
     open: boolean;
@@ -53,17 +54,34 @@ const JobDetail = ({open, job, close}: IProps) => {
                 </div>
                 <div className="port_singleblog_wrapper ">
                     <div className="container">
-                        <div className="row">
-                            <div className="col-lg-12">
-                                <div className="blog_wrapper">
-                                    <div className="blog_data">
-                                        <div className="blog_content">
-                                            <ReactMarkdown source={job.shortDescription} />
+                        <Tabs id={`job-tabs-${job._id}`} defaultActiveKey="about">
+                            <Tab eventKey="about" title="About">
+                                <div className="row">
+                                    <div className="col-lg-12">
+                                        <div className="blog_wrapper">
+                                            <div className="blog_data">
+                                                <div className="blog_content blog_markdown">
+                                                    <ReactMarkdown source={job.longDescription} />
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                            </Tab>
+                            <Tab eventKey="skills" title="Skills">
+                                <div className="row">
+                                    {job.skills.sort((x,y) => (x.name > y.name) ? 1 : -1 ).map(skill => (
+                                        <div className="col-md-6 col-lg-4 col-sm-12">
+                                            <Card>
+                                                <Card.Body>
+                                                    <Card.Text><Card.Img variant="top" src={`${properties.apiUrl}${skill.image?.formats?.thumbnail?.url}`} /> {skill.name}</Card.Text>
+                                                </Card.Body>
+                                            </Card>
+                                        </div>
+                                    ))}
+                                </div>
+                            </Tab>
+                        </Tabs>
                     </div>
                 </div>
             </div>

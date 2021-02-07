@@ -4120,3 +4120,14 @@ a.site-search-result-hit {
         padding-right: 10px;
     }
 }
+
+img.card-img-top {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+div.port_services_box .card .card-body {
+    padding: 5px;
+    margin: 0px;
+}
