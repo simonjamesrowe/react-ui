@@ -4130,4 +4130,5 @@ img.card-img-top {
 div.port_services_box .card .card-body {
     padding: 5px;
     margin: 0px;
+    text-align: left;
 }
