@@ -9,6 +9,7 @@ import {RouteComponentProps, withRouter} from "react-router-dom";
 import $ from 'jquery'
 import {IJob} from "../../../model/Job";
 import {properties} from "../../../services/Environment";
+import Moment from "moment";
 
 interface ISkillGroupProps extends RouteComponentProps {
     open: boolean;
@@ -85,9 +86,9 @@ const SkillGroup = ({open, skillGroup, close, location, jobs}: ISkillGroupProps 
                                             />
                                             <hr />
                                             {getJobsWithSkill(skill).map(job => (
-                                                <Card>
+                                                <Card title={`${job.company} - ${Moment(job.startDate).format("MMM-YYYY")} to ${job.endDate ? Moment(job.endDate)?.format("MMM-YYYY") : "Now"}`}>
                                                     <Card.Body>
-                                                        <Card.Text><CmsImage src={job.companyImage} type={"thumbnail"}/> {job.company} - {job.title}</Card.Text>
+                                                        <Card.Text><CmsImage src={job.companyImage} type={"thumbnail"}/> {job.title}</Card.Text>
                                                     </Card.Body>
                                                 </Card>
                                             ))}
