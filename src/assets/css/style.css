@@ -4121,7 +4121,7 @@ a.site-search-result-hit {
     }
 }
 
-img.card-img-top {
+.card img {
     width: 30px;
     height: 30px;
     text-align: center;

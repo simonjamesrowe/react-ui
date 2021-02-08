@@ -74,7 +74,7 @@ const JobDetail = ({open, job, close}: IProps) => {
                                         <div className="col-md-6 col-lg-4 col-sm-12">
                                             <Card>
                                                 <Card.Body>
-                                                    <Card.Text><Card.Img variant="top" src={`${properties.apiUrl}${skill.image?.formats?.thumbnail?.url}`} /> {skill.name}</Card.Text>
+                                                    <Card.Text><CmsImage src={skill.image} type={"thumbnail"}/> {skill.name}</Card.Text>
                                                 </Card.Body>
                                             </Card>
                                         </div>

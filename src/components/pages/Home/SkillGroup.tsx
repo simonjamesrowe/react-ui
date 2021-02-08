@@ -87,7 +87,7 @@ const SkillGroup = ({open, skillGroup, close, location, jobs}: ISkillGroupProps 
                                             {getJobsWithSkill(skill).map(job => (
                                                 <Card>
                                                     <Card.Body>
-                                                        <Card.Text><Card.Img variant="top" src={`${properties.apiUrl}${job.companyImage?.formats?.thumbnail?.url}`} />{job.company} - {job.title}</Card.Text>
+                                                        <Card.Text><CmsImage src={job.companyImage} type={"thumbnail"}/> {job.company} - {job.title}</Card.Text>
                                                     </Card.Body>
                                                 </Card>
                                             ))}
