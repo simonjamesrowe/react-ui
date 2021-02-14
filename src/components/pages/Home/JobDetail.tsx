@@ -32,7 +32,7 @@ const JobDetail = ({open, job, close}: IProps) => {
     return (
         <SwipeableDrawer anchor={"right"} open={open} onClose={close} onOpen={onOpen}>
 
-            <ClosableHeader close={close} />
+            <ClosableHeader close={close}/>
 
             <div>
                 <div className="port_services_setions prt_toppadder10 swipe-container">
@@ -42,11 +42,13 @@ const JobDetail = ({open, job, close}: IProps) => {
                                 <div className="col-md-12">
                                     <div className="port_heading_wrapper text-center ">
                                         <div className="port_sub_heading_wrapper">
-                                            <CmsImage src={job.companyImage} type={"small"}/>
+                                            <a href={job.companyUrl} target="_blank" title={job.company}>
+                                                <CmsImage src={job.companyImage} type={"small"}/>
+                                            </a>
                                         </div>
                                         <h5>{Moment(job.startDate).format("MMM-YYYY")} to {Moment(job.endDate)?.format("MMM-YYYY") || "Now"}</h5>
                                         <h2 className="port_heading project_heading">{job.title}</h2>
-                                     </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -61,7 +63,7 @@ const JobDetail = ({open, job, close}: IProps) => {
                                         <div className="blog_wrapper">
                                             <div className="blog_data">
                                                 <div className="blog_content blog_markdown">
-                                                    <ReactMarkdown source={job.longDescription} />
+                                                    <ReactMarkdown source={job.longDescription}/>
                                                 </div>
                                             </div>
                                         </div>
@@ -70,11 +72,12 @@ const JobDetail = ({open, job, close}: IProps) => {
                             </Tab>
                             <Tab eventKey="skills" title="Skills">
                                 <div className="row">
-                                    {job.skills.sort((x,y) => (x.name > y.name) ? 1 : -1 ).map(skill => (
+                                    {job.skills.sort((x, y) => (x.name > y.name) ? 1 : -1).map(skill => (
                                         <div className="col-md-6 col-lg-4 col-sm-12">
                                             <Card>
                                                 <Card.Body>
-                                                    <Card.Text><CmsImage src={skill.image} type={"thumbnail"}/> {skill.name}</Card.Text>
+                                                    <Card.Text><CmsImage src={skill.image}
+                                                                         type={"thumbnail"}/> {skill.name}</Card.Text>
                                                 </Card.Body>
                                             </Card>
                                         </div>

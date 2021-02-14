@@ -4132,3 +4132,9 @@ div.port_services_box .card .card-body {
     margin: 0px;
     text-align: left;
 }
+
+.ex_rightside h4 a img {
+    width: 50px;
+    height: 50px;
+    float: right;
+}
