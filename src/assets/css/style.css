@@ -4138,3 +4138,12 @@ div.port_services_box .card .card-body {
     height: 50px;
     float: right;
 }
+
+.form-group .error {
+    color: #dc3545;
+    margin-top: 10px;
+}
+
+div.alert {
+    margin-top: 10px;
+}
