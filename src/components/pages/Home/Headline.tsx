@@ -3,17 +3,21 @@ import { CSSProperties } from "@material-ui/core/styles/withStyles";
 import {properties} from "../../../services/Environment";
 import {IProfile} from "../../../model/Profile";
 import {SiteSearch} from "./SiteSearch";
+import {IApplicationState} from "../../../state/Store";
+import {connect} from "react-redux";
 
 interface IHeadlineProps {
   profile: IProfile;
   mobile: boolean;
+  searchQuery: string;
 }
 
-const Headline = ({ profile, mobile }: IHeadlineProps) => {
+const Headline = ({ profile, mobile, searchQuery }: IHeadlineProps) => {
   const style: CSSProperties = {
     backgroundImage: mobile ?  `url(${properties.apiUrl}${profile.mobileBackgroundImage.url})` :
       `url(${properties.apiUrl}${profile.backgroundImage.formats?.large?.url})`
   };
+
   return (
     <>
       <div className="port_bannerbg_wrapper" style={style}>
@@ -49,9 +53,9 @@ const Headline = ({ profile, mobile }: IHeadlineProps) => {
                         <li className="list-inline-item">{profile.title.split(" ")[1]}</li>
                       </ul>
                     </div>
-                    <SiteSearch />
+                    <SiteSearch searchQuery={searchQuery} />
                     <div className="banner_btn">
-                      <a href={properties.apiUrl + profile.cv.url} className="portfolio_btn btn_yellow">
+                      <a href={properties.apiUrl + profile.cv.url} className="tour-download-cv portfolio_btn btn_yellow">
                         <span className="first_text">Download CV</span>
                         <span className="second_text">Download</span>
                       </a>
@@ -74,4 +78,14 @@ const Headline = ({ profile, mobile }: IHeadlineProps) => {
   );
 };
 
-export { Headline };
+const mapStateToProps = (store: IApplicationState) => {
+      return {
+        searchQuery: store.simulate.searchQuery
+      };
+    }
+;
+
+export default connect(
+    mapStateToProps
+)(Headline);
+

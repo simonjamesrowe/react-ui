@@ -12,6 +12,7 @@ import {ISkillGroup} from "../model/Skill";
 import {skillsReducer} from "./skills/Reducer";
 import {ISocialMedia} from "../model/SocialMedia";
 import {socialMediaReducer} from "./socialMedia/Reducer";
+import {simulateReducer} from "./simulation/Reducer";
 
 export interface IJobState {
     loading: boolean,
@@ -44,16 +45,19 @@ export interface ISocialMediaState {
     socialMedias: ISocialMedia[]
 }
 
+export interface ISimulateState {
+    searchQuery: string;
+}
+
 export interface IApplicationState {
     jobs: IJobState,
     blogs: IBlogsState,
     tags: ITagsState,
     profile: IProfileState,
     skills: ISkillsState,
-    socialMedia: ISocialMediaState
+    socialMedia: ISocialMediaState,
+    simulate: ISimulateState
 }
-
-
 
 const rootReducer = combineReducers<IApplicationState>({
     jobs: jobsReducer,
@@ -61,7 +65,8 @@ const rootReducer = combineReducers<IApplicationState>({
     tags: tagsReducer,
     profile: profileReducer,
     skills: skillsReducer,
-    socialMedia: socialMediaReducer
+    socialMedia: socialMediaReducer,
+    simulate: simulateReducer
 });
 
 export default function configureStore(): Store<IApplicationState> {
