@@ -36,7 +36,9 @@ const SiteSearch = ({searchQuery}: ISearchProps) => {
             })
     };
     React.useEffect(() => {
-        handleSearch(searchQuery);
+        if (searchQuery.length > 0) {
+            handleSearch(searchQuery);
+        }
         setMinLength(searchQuery.length > 0 ? 0 : 1);
     }, [searchQuery]);
 

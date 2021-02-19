@@ -46,7 +46,6 @@ const Home = (props: IHomeProps) => {
 
     return (
         <>
-            <Tour />
             <Headline profile={props.profile} mobile={props.mobile}/>
             <div className="port_sec_warapper">
                 <Profile profile={props.profile} socialMedias={props.socialMedias}/>
@@ -55,26 +54,34 @@ const Home = (props: IHomeProps) => {
                 <BlogPreview blogs={props.blogs}/>
                 <Contact profile={props.profile}/>
             </div>
+            {!mobile && props.jobs.length > 0 && props.skillsGroups.length > 0 && (
+                <Tour/>
+            )}
         </>
     );
-};
-const mapStateToProps = (store: IApplicationState) => {
+}
+;
+const mapStateToProps = (store: IApplicationState) =>
+{
     return {
         skillsGroups: store.skills.skillsGroups,
         jobs: store.jobs.jobs,
         blogs: store.blogs.blogs
     };
-};
+}
+;
 
-const mapDispatchToProps = (dispatch: any) => {
+const mapDispatchToProps = (dispatch: any) =>
+{
     return {
         getAllJobs: () => dispatch(getAllJobs()),
         getAllSkills: () => dispatch(getAllSkills()),
         getAllBlogs: () => dispatch(getAllBlogs())
     };
-};
+}
+;
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+mapStateToProps,
+mapDispatchToProps
 )(Home);

@@ -4150,12 +4150,22 @@ div.alert {
 
 .introjs-tooltip {
     max-width: 650px;
+    min-width: 450px;
 }
 
 .introjs-tooltip-header h1 {
     color: #86cfda;
 }
 
+.introjs-tooltip-header h1 img {
+    height: 30px;
+    width: 30px;
+}
+
+.introjs-tooltiptext, .introjs-tooltiptext p{
+    color: whitesmoke;
+}
+
 .introjs-tooltip-header {
-    border-bottom: whitesmoke   2px groove;
+    border-bottom: whitesmoke 2px groove;
 }

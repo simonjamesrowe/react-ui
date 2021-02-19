@@ -44,7 +44,7 @@ const Resume = ({jobs, match, location}: IProps & RouteComponentProps<{ id?: str
             <div className="port_experience_setions prt_toppadder80" id="experience">
                 <div className="experience_section">
                     <div className="container">
-                        <div className="row">
+                        <div className="row tour-experience">
                             <div className="col-md-12">
                                 <div className="port_heading_wrapper text-center prt_bottompadder40">
                                     <div className="port_sub_heading_wrapper">
@@ -54,24 +54,22 @@ const Resume = ({jobs, match, location}: IProps & RouteComponentProps<{ id?: str
                                 </div>
                             </div>
                         </div>
+                        <div className="row">
+                            {jobs.map((job, i) => (
+                                <div className={`col-lg-6 col-md-12 ${i ==0 ? "": ""}`}>
+                                    <div className={experienceBoxStyle(i)}>
+                                        <div className="row pointer tour-experience-1"
+                                             onClick={() => expandJobDrawer(job._id, job.title)}>
+                                            <JobBlock job={job} index={i}/>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                         {jobs.map(job => (
                             <JobDetail open={jobsDraw[job._id]} job={job}
                                        close={() => collapseJobDrawer(job._id)}/>
                         ))}
-                        <div className="row">
-                            {jobs.map((job, i) => (
-                                <>
-                                    <div className="col-lg-6 col-md-12">
-                                        <div className={experienceBoxStyle(i)}>
-                                            <div className="row pointer"
-                                                 onClick={() => expandJobDrawer(job._id, job.title)}>
-                                                <JobBlock job={job} index={i}/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </>
-                            ))}
-                        </div>
                     </div>
                 </div>
             </div>

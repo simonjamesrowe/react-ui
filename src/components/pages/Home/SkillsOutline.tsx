@@ -60,7 +60,7 @@ const SkillsOutline = ({skillsGroups, match, location, jobs}: IProps & RouteComp
                         </div>
                         <div className="row">
                             {skillsGroups.map(skillGroup => (
-                                <div className="col-lg-4 col-md-6 text-center"
+                                <div className="col-lg-4 col-md-6 text-center tour-skills"
                                      onClick={() => expandSkillGroup(skillGroup._id, skillGroup.name)}>
                                     <div className="port_services_box_wrapper">
                                         <div className="port_services_box">
