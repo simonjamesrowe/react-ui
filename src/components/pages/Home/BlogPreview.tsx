@@ -27,7 +27,7 @@ const BlogPreview = ({blogs}: IProps) => {
                                         </Link>
                                     </div>
                                 </div>
-                                <div className="col-md-12 col-lg-4">
+                                <div className="col-md-12 col-lg-4 tour-blogs">
                                     <BlogVertical blog={blogs[0]} />
                                 </div>
 

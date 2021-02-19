@@ -69,7 +69,7 @@ const Profile = ({profile, socialMedias}: IProfileProperties) => {
                                             <h2 className="port_sub_heading">About Me </h2>
                                         </div>
                                     </div>
-                                    <h2 className="about_tophead">{profile.headline}</h2>
+                                    <h2 className="about_tophead tour-about">{profile.headline}</h2>
                                     <ReactMarkdown source={profile.description} />
 
                                     <div className="anout_section_btn">

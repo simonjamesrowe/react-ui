@@ -104,7 +104,7 @@ const Contact = ({profile}: IProps) => {
                                             <form onSubmit={formik.handleSubmit}>
                                                 <div className="row">
                                                     <div className="col-sm-6">
-                                                        <div className="form-group">
+                                                        <div className="form-group tour-contact">
                                                             <input type="text" name="firstName"
                                                                    className="form-control require" id="firstName"
                                                                    value={formik.values.firstName}

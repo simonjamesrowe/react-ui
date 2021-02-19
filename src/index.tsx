@@ -6,6 +6,8 @@ import * as serviceWorker from "./serviceWorker";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import 'intro.js/introjs.css';
+import 'intro.js/themes/introjs-modern.css';
 import "./assets/css/style.css";
 import "./assets/css/font.css";
 import {Store} from "redux";
