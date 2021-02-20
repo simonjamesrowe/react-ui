@@ -1,19 +1,21 @@
 import React from "react";
 import {Steps} from 'intro.js-react';
-import {simulateSearch, sleep} from "../../services/SimulateService";
+import {finishSimulation, simulateSearch, sleep} from "../../services/SimulateService";
 import {connect} from "react-redux";
 import {mapStep, Step, TourStep} from "../../model/TourStep";
 import Axios from "axios";
 import {properties} from "../../services/Environment";
 import $ from "jquery";
+import {IApplicationState} from "../../state/Store";
 
 interface ITourProps {
-    simulateSearch: typeof simulateSearch
+    simulateSearch: typeof simulateSearch,
+    finishSimulation: typeof finishSimulation,
+    simulationFinished: boolean
 }
 
-const Tour = ({simulateSearch}: ITourProps) => {
+const Tour = ({simulateSearch, simulationFinished, finishSimulation}: ITourProps) => {
     const [steps, setSteps] = React.useState<Step[]>([]);
-    const [enabled, setEnabled] = React.useState<boolean>(true);
 
     React.useEffect(() => {
         Axios.get<TourStep[]>(`${properties.apiUrl}/tour-steps`).then(response => {
@@ -37,13 +39,13 @@ const Tour = ({simulateSearch}: ITourProps) => {
         <>
             {steps.length > 0 && (
                 <Steps
-                    enabled={enabled}
+                    enabled={!simulationFinished}
                     initialStep={0}
                     steps={steps}
                     onAfterChange={onAfterChange}
                     onExit={() => {
-                        setEnabled(false)
-                        $("html, body").animate({ scrollTop: "0" },  500);
+                        finishSimulation();
+                        $("html, body").animate({scrollTop: "0"}, 500);
                     }}
                 />)
             }
@@ -56,10 +58,18 @@ const Tour = ({simulateSearch}: ITourProps) => {
 const mapDispatchToProps = (dispatch: any) => {
     return {
         simulateSearch: (searchQuery: string) => dispatch(simulateSearch(searchQuery)),
+        finishSimulation: () => dispatch(finishSimulation())
     };
 };
 
+const mapStateToProps = (store: IApplicationState) => {
+        return {
+            simulationFinished: store.simulate.simulationFinished
+        };
+    }
+;
+
 export default connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
 )(Tour);

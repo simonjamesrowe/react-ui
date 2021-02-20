@@ -47,6 +47,7 @@ export interface ISocialMediaState {
 
 export interface ISimulateState {
     searchQuery: string;
+    simulationFinished: boolean;
 }
 
 export interface IApplicationState {
