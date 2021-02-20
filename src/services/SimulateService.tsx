@@ -21,6 +21,12 @@ export const finishSimulation: ActionCreator<ThunkAction<Promise<any>, ISimulate
     };
 };
 
+export const startSimulation: ActionCreator<ThunkAction<Promise<any>, ISimulateState, null, SimulateActions>> = () => {
+    return async (dispatch: Dispatch) => {
+        dispatch({type: SimulationActionTypes.STARTED});
+    };
+};
+
 export function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }

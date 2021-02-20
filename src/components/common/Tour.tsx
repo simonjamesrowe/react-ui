@@ -35,6 +35,12 @@ const Tour = ({simulateSearch, simulationFinished, finishSimulation}: ITourProps
             simulateSearch("");
         }
     }
+
+    const options = {
+        "showProgress": true,
+        "showStepNumbers": true
+    };
+
     return (
         <>
             {steps.length > 0 && (
@@ -42,6 +48,7 @@ const Tour = ({simulateSearch, simulationFinished, finishSimulation}: ITourProps
                     enabled={!simulationFinished}
                     initialStep={0}
                     steps={steps}
+                    options={options}
                     onAfterChange={onAfterChange}
                     onExit={() => {
                         finishSimulation();

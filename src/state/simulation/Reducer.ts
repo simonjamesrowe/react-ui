@@ -30,6 +30,12 @@ export const simulateReducer: Reducer<ISimulateState, SimulateActions> = (
                 simulationFinished: true
             };
         }
+        case SimulationActionTypes.STARTED: {
+            return {
+                ...state,
+                simulationFinished: false
+            };
+        }
     }
     return state;
 };

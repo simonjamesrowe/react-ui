@@ -1,6 +1,7 @@
 export enum SimulationActionTypes {
     SEARCH = "SIMULATE/SEARCH",
-    FINISHED = "SIMULATE/FINISHED"
+    FINISHED = "SIMULATE/FINISHED",
+    STARTED = "SIMULATE/STARTED"
 }
 
 export interface ISimulateSearchAction {
@@ -12,4 +13,8 @@ export interface ISimulationFinishedAction {
     type: SimulationActionTypes.FINISHED
 }
 
-export type SimulateActions = ISimulateSearchAction | ISimulationFinishedAction
+export interface ISimulationStartedAction {
+    type: SimulationActionTypes.STARTED
+}
+
+export type SimulateActions = ISimulateSearchAction | ISimulationFinishedAction | ISimulationStartedAction

@@ -901,6 +901,12 @@ ul {
     z-index: -1;
 }
 
+div.align-right  div {
+    margin-top: 10px;
+    margin-right:10px;
+    float: right;
+}
+
 .bannner_leftpart span.stran {
     color: #222222;
 }
@@ -4162,7 +4168,7 @@ div.alert {
     width: 30px;
 }
 
-.introjs-tooltiptext, .introjs-tooltiptext p{
+.introjs-tooltiptext, .introjs-tooltiptext p, .introjs-helperNumberLayer{
     color: whitesmoke;
 }
 

@@ -1,21 +1,28 @@
 import React from "react";
-import { CSSProperties } from "@material-ui/core/styles/withStyles";
+import {CSSProperties} from "@material-ui/core/styles/withStyles";
 import {properties} from "../../../services/Environment";
 import {IProfile} from "../../../model/Profile";
 import {SiteSearch} from "./SiteSearch";
 import {IApplicationState} from "../../../state/Store";
 import {connect} from "react-redux";
+import {startSimulation} from "../../../services/SimulateService";
+import AirplanemodeActiveIcon from '@material-ui/icons/AirplanemodeActive';
+import {Chip} from "@material-ui/core";
 
 interface IHeadlineProps {
   profile: IProfile;
   mobile: boolean;
   searchQuery: string;
+  startSimulation: typeof startSimulation;
 }
 
-const Headline = ({ profile, mobile, searchQuery }: IHeadlineProps) => {
+const Headline = ({ profile, mobile, searchQuery, startSimulation }: IHeadlineProps) => {
   const style: CSSProperties = {
     backgroundImage: mobile ?  `url(${properties.apiUrl}${profile.mobileBackgroundImage.url})` :
       `url(${properties.apiUrl}${profile.backgroundImage.formats?.large?.url})`
+  };
+  const invokeTour = () => {
+    startSimulation();
   };
 
   return (
@@ -25,6 +32,7 @@ const Headline = ({ profile, mobile, searchQuery }: IHeadlineProps) => {
           <div className="container-fluid">
 
             <div className="row">
+
               <div className="banner_img_wrapper">
                 <div className="banner_img">
                   <div className="banner_rcontent vert-move">
@@ -41,11 +49,22 @@ const Headline = ({ profile, mobile, searchQuery }: IHeadlineProps) => {
 
                 </div>
               </div>
+                { !mobile && (
+                <div className="col-xl-12 col-lg-12 col-md-12 align-right">
+                    <Chip
+                        icon={<AirplanemodeActiveIcon />}
+                        label="Take a tour"
+                        onClick={invokeTour}
+
+                    />
+                </div>
+                )}
               <div className="col-xl-12 col-lg-12 col-md-12 align-self-center">
                 <div className="banner_content">
                   <div className="bannner_leftpart mbannner_leftpart">
-                    <h2 className="stranger">HELLO! <span className="stran">Stranger!</span></h2>
+                    <h2 className="stranger">HELLO! <span className="stran">Stranger!</span> </h2>
                     <h1 className="banner_name ">Mr. {profile.name}</h1>
+
 
                     <p className="banner_pera"> {profile.title.split(" ")[0]} </p>
                     <div className="banner_typingtext">
@@ -53,6 +72,7 @@ const Headline = ({ profile, mobile, searchQuery }: IHeadlineProps) => {
                         <li className="list-inline-item">{profile.title.split(" ")[1]}</li>
                       </ul>
                     </div>
+
                     <SiteSearch searchQuery={searchQuery} />
                     <div className="banner_btn">
                       <a href={properties.apiUrl + profile.cv.url} className="tour-download-cv portfolio_btn btn_yellow">
@@ -85,7 +105,16 @@ const mapStateToProps = (store: IApplicationState) => {
     }
 ;
 
+const mapDispatchToProps = (dispatch: any) =>
+    {
+      return {
+        startSimulation: () => dispatch(startSimulation()),
+      };
+    }
+;
+
 export default connect(
-    mapStateToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(Headline);
 
