@@ -67,6 +67,7 @@ const BlogDetail = ({blog, getOneBlog, match}: IProps & RouteComponentProps<{id:
                                                     source={blog.content}
                                                     transformImageUri={imageUrl}
                                                     linkTarget="_blank"
+                                                    allowDangerousHtml={true}
                                                 />
 
                                             </div>

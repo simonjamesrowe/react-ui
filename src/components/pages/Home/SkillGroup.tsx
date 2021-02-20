@@ -67,7 +67,7 @@ const SkillGroup = ({open, skillGroup, close, location, jobs}: ISkillGroupProps 
                                     </div>
                                     <h1 className="port_heading">{skillGroup.name}</h1>
                                     <br/>
-                                    <ReactMarkdown source={skillGroup.description}/>
+                                    <ReactMarkdown source={skillGroup.description!!}/>
                                 </div>
                             </div>
                         </div>
@@ -81,9 +81,8 @@ const SkillGroup = ({open, skillGroup, close, location, jobs}: ISkillGroupProps 
                                             <ProgressBar now={skill.rating * 10} variant={getVariant(skill.rating)}/>
                                             <br/>
                                             <ReactMarkdown
-                                                source={skill.description}
-                                                linkTarget="_blank"
-                                            />
+                                                source={skill.description!!}
+                                                linkTarget="_blank" />
                                             <hr />
                                             {getJobsWithSkill(skill).map(job => (
                                                 <Card title={`${job.company} - ${Moment(job.startDate).format("MMM-YYYY")} to ${job.endDate ? Moment(job.endDate)?.format("MMM-YYYY") : "Now"}`}>
