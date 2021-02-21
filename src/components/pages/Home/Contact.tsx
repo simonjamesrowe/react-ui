@@ -6,6 +6,7 @@ import {useFormik} from 'formik';
 import {Alert, Toast} from "react-bootstrap";
 import Axios from "axios";
 import {properties} from "../../../services/Environment";
+import ReCAPTCHA from "react-google-recaptcha";
 
 interface IProps {
     profile: IProfile
@@ -35,6 +36,10 @@ const validate = values => {
         errors.content = 'Required';
     }
 
+    if (!values.recaptcha) {
+        errors.recaptcha = 'Required';
+    }
+
     return errors;
 };
 
@@ -48,7 +53,8 @@ const Contact = ({profile}: IProps) => {
             "lastName": "",
             "emailAddress": "",
             "subject": "",
-            "content": ""
+            "content": "",
+            "recaptcha" : ""
         },
         validate,
         onSubmit: (values) => {
@@ -66,7 +72,8 @@ const Contact = ({profile}: IProps) => {
                     setLoading(false);
                 }
             )
-        }
+        },
+
     });
     return (
         <>
@@ -157,6 +164,16 @@ const Contact = ({profile}: IProps) => {
                                                                       placeholder="Message"></textarea>
                                                             {formik.touched.content && formik.errors.content ? <div
                                                                 className="error">{formik.errors.content}</div> : null}
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-12">
+                                                        <div className="form-group">
+                                                            <ReCAPTCHA
+                                                                sitekey="6LeQhGEaAAAAAI8TtlXo0p6gQi2r6x3lvql4OWYq"
+                                                                onChange={(value) => {formik.values.recaptcha =  value;}}
+                                                            />
+                                                            {formik.touched.recaptcha && formik.errors.recaptcha ? <div
+                                                                className="error">{formik.errors.recaptcha}</div> : null}
                                                         </div>
                                                     </div>
                                                     <div className="col-12">

@@ -11,10 +11,10 @@ import {IApplicationState} from "../../state/Store";
 interface ITourProps {
     simulateSearch: typeof simulateSearch,
     finishSimulation: typeof finishSimulation,
-    simulationFinished: boolean
+    isRunning: boolean
 }
 
-const Tour = ({simulateSearch, simulationFinished, finishSimulation}: ITourProps) => {
+const Tour = ({simulateSearch, isRunning, finishSimulation}: ITourProps) => {
     const [steps, setSteps] = React.useState<Step[]>([]);
 
     React.useEffect(() => {
@@ -45,7 +45,7 @@ const Tour = ({simulateSearch, simulationFinished, finishSimulation}: ITourProps
         <>
             {steps.length > 0 && (
                 <Steps
-                    enabled={!simulationFinished}
+                    enabled={isRunning}
                     initialStep={0}
                     steps={steps}
                     options={options}
@@ -71,7 +71,7 @@ const mapDispatchToProps = (dispatch: any) => {
 
 const mapStateToProps = (store: IApplicationState) => {
         return {
-            simulationFinished: store.simulate.simulationFinished
+            isRunning: !store.simulate.simulationFinished
         };
     }
 ;
