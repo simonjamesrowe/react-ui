@@ -1,55 +1,56 @@
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-tjgl2-20[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-l6nfc[0m
-{"level":"info","ts":1601451390.361346,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
-{"level":"info","ts":1601451390.364381,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Showing logs for build [32msimonjamesrowe-react-ui-master-qtpwm-20[0m stage [32mfrom-build-pack[0m and container [32mcredential-initializer[0m
+{"level":"info","ts":1613914969.0422688,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-tjgl2-20[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-mgm4g[0m
-{"level":"info","ts":1601451391.5053933,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
-{"level":"info","ts":1601451391.5080473,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+Showing logs for build [32msimonjamesrowe-react-ui-master-qtpwm-20[0m stage [32mfrom-build-pack[0m and container [32mworking-dir-initializer[0m
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-tjgl2-20[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+Showing logs for build [32msimonjamesrowe-react-ui-master-qtpwm-20[0m stage [32mfrom-build-pack[0m and container [32mplace-tools[0m
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-tjgl2-20[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-simonjamesrowe-react-ui-master-tjgl2-cghcj[0m
-{"level":"info","ts":1601451396.5555828,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
-{"level":"info","ts":1601451398.6000874,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/simonjamesrowe/react-ui.git @ v0.0.29 in path /workspace/source"}
+Showing logs for build [32msimonjamesrowe-react-ui-master-qtpwm-20[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-simonjamesrowe-react-ui-master-qtpwm-9v8xw[0m
+{"level":"info","ts":1613914976.595131,"caller":"git/git.go:105","msg":"Successfully cloned https://github.com/simonjamesrowe/react-ui.git @ v0.0.63 in path /workspace/source"}
+{"level":"warn","ts":1613914976.5953336,"caller":"git/git.go:152","msg":"Unexpected error: creating symlink: symlink /tekton/home/.ssh /****/.ssh: file exists"}
+{"level":"info","ts":1613914976.6679015,"caller":"git/git.go:133","msg":"Successfully initialized and updated submodules in path /workspace/source"}
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-tjgl2-20[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
-Using SHAs from PULL_REFS=master:52c3bb847c06e6b399d71ed956cb48c6209121d4
+Showing logs for build [32msimonjamesrowe-react-ui-master-qtpwm-20[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-builder-home[0m
+
+Showing logs for build [32msimonjamesrowe-react-ui-master-qtpwm-20[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:2ebe51fdab87d4cfab1b0257e2417dd2d22cfd9f
 WARNING: no SHAs to merge, falling back to initial cloned commit
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-tjgl2-20[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Showing logs for build [32msimonjamesrowe-react-ui-master-qtpwm-20[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
 Generated Git credentials file /workspace/xdg_config/git/credentials
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-tjgl2-20[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
-[36mINFO[0m[0001] Using dockerignore file: /workspace/source/.dockerignore 
-[36mINFO[0m[0001] Retrieving image manifest node:13            
-[36mINFO[0m[0003] Retrieving image manifest node:13            
-[36mINFO[0m[0005] Built cross stage deps: map[]                
-[36mINFO[0m[0005] Retrieving image manifest node:13            
-[36mINFO[0m[0006] Retrieving image manifest node:13            
-[36mINFO[0m[0008] Executing 0 build triggers                   
-[36mINFO[0m[0009] Checking for cached layer harbor.simonjamesrowe.com/todo/cache:4884039a7c88228412604a69c12240ec5ed6aa095d679e4b3477f83c5577a78c... 
-[36mINFO[0m[0011] No cached layer found for cmd COPY . .       
-[36mINFO[0m[0011] Unpacking ****fs as cmd COPY . . requires it. 
-[36mINFO[0m[0083] WORKDIR /app                                 
-[36mINFO[0m[0083] cmd: workdir                                 
-[36mINFO[0m[0083] Changed working directory to /app            
-[36mINFO[0m[0083] Creating directory /app                      
-[36mINFO[0m[0083] Resolving 1 paths                            
-[36mINFO[0m[0083] Taking snapshot of files...                  
-[36mINFO[0m[0083] COPY . .                                     
-[36mINFO[0m[0084] Resolving 211 paths                          
-[36mINFO[0m[0084] Taking snapshot of files...                  
-[36mINFO[0m[0084] ENV NODE_ENV=production                      
-[36mINFO[0m[0084] No files changed in this command, skipping snapshotting. 
-[36mINFO[0m[0084] RUN yarn install                             
-[36mINFO[0m[0084] Taking snapshot of full filesystem...        
-[36mINFO[0m[0084] Pushing layer harbor.simonjamesrowe.com/todo/cache:4884039a7c88228412604a69c12240ec5ed6aa095d679e4b3477f83c5577a78c to cache now 
-[36mINFO[0m[0089] Resolving 40919 paths                        
-[36mINFO[0m[0099] cmd: /bin/sh                                 
-[36mINFO[0m[0099] args: [-c yarn install]                      
-[36mINFO[0m[0099] Running: [/bin/sh -c yarn install]           
-yarn install v1.22.4
+Showing logs for build [32msimonjamesrowe-react-ui-master-qtpwm-20[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0000] Using dockerignore file: /workspace/source/.dockerignore 
+[36mINFO[0m[0000] Retrieving image manifest node:14            
+[36mINFO[0m[0001] Retrieving image manifest node:14            
+[36mINFO[0m[0002] Built cross stage deps: map[]                
+[36mINFO[0m[0002] Retrieving image manifest node:14            
+[36mINFO[0m[0003] Retrieving image manifest node:14            
+[36mINFO[0m[0004] Executing 0 build triggers                   
+[36mINFO[0m[0004] Checking for cached layer harbor.simonjamesrowe.com/todo/cache:9a9aacaf8822d7d9ee067b14e0ff31019e4fbf297cc32c1990bd2777839d08b6... 
+[36mINFO[0m[0004] No cached layer found for cmd COPY . .       
+[36mINFO[0m[0004] Unpacking ****fs as cmd COPY . . requires it. 
+[36mINFO[0m[0031] WORKDIR /app                                 
+[36mINFO[0m[0031] cmd: workdir                                 
+[36mINFO[0m[0031] Changed working directory to /app            
+[36mINFO[0m[0031] Creating directory /app                      
+[36mINFO[0m[0031] Resolving 1 paths                            
+[36mINFO[0m[0031] Taking snapshot of files...                  
+[36mINFO[0m[0031] COPY . .                                     
+[36mINFO[0m[0032] Resolving 160 paths                          
+[36mINFO[0m[0032] Taking snapshot of files...                  
+[36mINFO[0m[0032] Pushing layer harbor.simonjamesrowe.com/todo/cache:9a9aacaf8822d7d9ee067b14e0ff31019e4fbf297cc32c1990bd2777839d08b6 to cache now 
+[36mINFO[0m[0032] ENV NODE_ENV=production                      
+[36mINFO[0m[0032] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0032] RUN yarn install                             
+[36mINFO[0m[0032] Taking snapshot of full filesystem...        
+[36mINFO[0m[0036] Resolving 40880 paths                        
+[36mINFO[0m[0041] cmd: /bin/sh                                 
+[36mINFO[0m[0041] args: [-c yarn install]                      
+[36mINFO[0m[0041] Running: [/bin/sh -c yarn install]           
+yarn install v1.22.5
+warning package-lock.json found. Your project contains lock files generated by tools other than Yarn. It is advised not to mix package managers in order to avoid resolution inconsistencies caused by unsynchronized lock files. To clear this warning, remove package-lock.json.
 [1/4] Resolving packages...
 [2/4] Fetching packages...
 info fsevents@2.1.2: The platform "linux" is incompatible with this module.
@@ -59,77 +60,129 @@ info "fsevents@1.2.13" is an optional dependency and failed compatibility check.
 info fsevents@2.1.3: The platform "linux" is incompatible with this module.
 info "fsevents@2.1.3" is an optional dependency and failed compatibility check. Excluding it from installation.
 [3/4] Linking dependencies...
-warning " > bootstrap@4.5.0" has unmet peer dependency "jquery@1.9.1 - 3".
 warning " > bootstrap@4.5.0" has unmet peer dependency "popper.js@^1.16.0".
+warning " > intro.js-react@0.3.0" has incorrect peer dependency "intro.js@^2.5.0".
+warning " > react-ga@3.1.2" has unmet peer dependency "prop-types@^15.6.0".
 [4/4] Building fresh packages...
-Done in 155.37s.
-[36mINFO[0m[0255] Taking snapshot of full filesystem...        
-[36mINFO[0m[0258] Resolving 177687 paths                       
-[36mINFO[0m[0347] Pushing layer harbor.simonjamesrowe.com/todo/cache:c10afa50ef82b9a8860570c2aa2ca89a5ceb28f95fa7474328d842d2a65d5295 to cache now 
-[36mINFO[0m[0347] RUN yarn run build                           
-[36mINFO[0m[0347] cmd: /bin/sh                                 
-[36mINFO[0m[0347] args: [-c yarn run build]                    
-[36mINFO[0m[0347] Running: [/bin/sh -c yarn run build]         
-yarn run v1.22.4
+Done in 130.58s.
+[36mINFO[0m[0172] Taking snapshot of full filesystem...        
+[36mINFO[0m[0173] Resolving 211526 paths                       
+[36mINFO[0m[0279] Pushing layer harbor.simonjamesrowe.com/todo/cache:5d58804e572a872b3cde9f36098965d900883dd3c465aa24b832ad9717a6a5c1 to cache now 
+[36mINFO[0m[0279] RUN yarn run build                           
+[36mINFO[0m[0279] cmd: /bin/sh                                 
+[36mINFO[0m[0279] args: [-c yarn run build]                    
+[36mINFO[0m[0279] Running: [/bin/sh -c yarn run build]         
+yarn run v1.22.5
 $ react-scripts build
 Creating an optimized production build...
+Browserslist: caniuse-lite is outdated. Please run:
+npx browserslist@latest --update-db
 Compiled with warnings.
+
+./src/components/pages/Home/JobDetail.tsx
+  Line 10:9:   'properties' is defined but never used                                                                                        @typescript-eslint/no-unused-vars
+  Line 24:11:  'jobTitlePrefix' is assigned a value but never used                                                                           @typescript-eslint/no-unused-vars
+  Line 28:11:  'jobTitleHighlighted' is assigned a value but never used                                                                      @typescript-eslint/no-unused-vars
+  Line 45:70:  Using target="_blank" without rel="noopener noreferrer" is a security risk: see https://mathiasbynens.github.io/rel-noopener  react/jsx-no-target-blank
+
+./src/components/pages/Blog/BlogSearch.tsx
+  Line 13:23:  'setIsLoading' is assigned a value but never used                                                          @typescript-eslint/no-unused-vars
+  Line 23:36:  Expected '===' and instead saw '=='                                                                        eqeqeq
+  Line 46:25:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+
+./src/components/pages/Home/Resume.tsx
+  Line 18:66:  Expected '===' and instead saw '=='                                                                                       eqeqeq
+  Line 20:8:   React Hook React.useEffect has a missing dependency: 'match.params.id'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  Line 23:58:  Expected '===' and instead saw '=='                                                                                       eqeqeq
+  Line 59:73:  Expected '===' and instead saw '=='                                                                                       eqeqeq
+
+./src/components/pages/Home/SkillGroup.tsx
+  Line 1:16:   'Ref' is defined but never used                                                                                         @typescript-eslint/no-unused-vars
+  Line 1:21:   'RefObject' is defined but never used                                                                                   @typescript-eslint/no-unused-vars
+  Line 11:9:   'properties' is defined but never used                                                                                  @typescript-eslint/no-unused-vars
+  Line 34:79:  Expected '===' and instead saw '=='                                                                                     eqeqeq
+  Line 35:19:  'selectedSkillId' is assigned a value but never used                                                                    @typescript-eslint/no-unused-vars
+  Line 47:8:   React Hook React.useEffect has a missing dependency: 'scrollToSkill'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
 ./src/state/socialMedia/Actions.ts
   Line 1:9:  'ISkillGroup' is defined but never used  @typescript-eslint/no-unused-vars
 
+./src/components/pages/Home/SkillsOutline.tsx
+  Line 20:76:  Expected '===' and instead saw '=='                                                                                       eqeqeq
+  Line 22:8:   React Hook React.useEffect has a missing dependency: 'match.params.id'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
 ./src/components/pages/Blog/BlogDetail.tsx
-  Line 21:8:  React Hook React.useEffect has a missing dependency: 'props'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
-
-./src/components/pages/Home/Profile.tsx
-  Line 26:6:  React Hook React.useEffect has a missing dependency: 'skillsDraw'. Either include it or remove the dependency array. You can also do a functional update 'setSkillsDraw(s => ...)' if you only need 'skillsDraw' in the 'setSkillsDraw' call  react-hooks/exhaustive-deps
-
-./src/components/pages/Blog/index.tsx
-  Line 29:6:   React Hook React.useEffect has a missing dependency: 'props'. Either include it or remove the dependency array. However, 'props' will change when *any* prop changes, so the preferred fix is to destructure the 'props' object outside of the useEffect call and refer to those specific props inside React.useEffect                                            react-hooks/exhaustive-deps
-  Line 80:23:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
-
-./src/components/pages/Home/Resume.tsx
-  Line 29:71:  Using target="_blank" without rel="noopener noreferrer" is a security risk: see https://mathiasbynens.github.io/rel-noopener  react/jsx-no-target-blank
+  Line 25:8:   React Hook React.useEffect has missing dependencies: 'getOneBlog' and 'match.params.id'. Either include them or remove the dependency array. If 'getOneBlog' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+  Line 36:29:  Expected '===' and instead saw '=='                                                                                                                                                                                                                                eqeqeq
 
 ./src/state/profile/Reducer.ts
   Line 2:24:  'ITagsState' is defined but never used  @typescript-eslint/no-unused-vars
 
+./src/components/pages/Home/JobHeadline.tsx
+  Line 2:8:    'Moment' is defined but never used                                                                                                                                                                                                                                                                                                                                       @typescript-eslint/no-unused-vars
+  Line 24:66:  Using target="_blank" without rel="noopener noreferrer" is a security risk: see https://mathiasbynens.github.io/rel-noopener                                                                                                                                                                                                                                             react/jsx-no-target-blank
+  Line 31:17:  The href attribute is required for an anchor to be keyboard accessible. Provide a valid, navigable address as the href value. If you cannot provide an href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+./src/components/pages/Home/JobBlock.tsx
+  Line 2:8:    'Moment' is defined but never used   @typescript-eslint/no-unused-vars
+  Line 15:61:  Expected '===' and instead saw '=='  eqeqeq
+
+./src/components/pages/Blog/index.tsx
+  Line 2:9:    'RouteComponentProps' is defined but never used                                                                                                                                                                                                                                                                         @typescript-eslint/no-unused-vars
+  Line 2:30:   'withRouter' is defined but never used                                                                                                                                                                                                                                                                                  @typescript-eslint/no-unused-vars
+  Line 21:8:   React Hook React.useEffect has a missing dependency: 'props'. Either include it or remove the dependency array. However, 'props' will change when *any* prop changes, so the preferred fix is to destructure the 'props' object outside of the useEffect call and refer to those specific props inside React.useEffect  react-hooks/exhaustive-deps
+  Line 43:49:  Expected '===' and instead saw '=='                                                                                                                                                                                                                                                                                     eqeqeq
+  Line 43:63:  Expected '===' and instead saw '=='                                                                                                                                                                                                                                                                                     eqeqeq
+  Line 48:49:  Expected '===' and instead saw '=='                                                                                                                                                                                                                                                                                     eqeqeq
+  Line 56:48:  Expected '===' and instead saw '=='                                                                                                                                                                                                                                                                                     eqeqeq
+
 ./src/components/pages/Home/index.tsx
-  Line 30:8:  React Hook React.useEffect has a missing dependency: 'props'. Either include it or remove the dependency array. However, 'props' will change when *any* prop changes, so the preferred fix is to destructure the 'props' object outside of the useEffect call and refer to those specific props inside React.useEffect  react-hooks/exhaustive-deps
+  Line 36:11:  'history' is assigned a value but never used                                                                                                                                                                                                                                                                            @typescript-eslint/no-unused-vars
+  Line 44:8:   React Hook React.useEffect has a missing dependency: 'props'. Either include it or remove the dependency array. However, 'props' will change when *any* prop changes, so the preferred fix is to destructure the 'props' object outside of the useEffect call and refer to those specific props inside React.useEffect  react-hooks/exhaustive-deps
 
-./src/services/SocialMediaService.tsx
-  Line 3:9:   'IJob' is defined but never used            @typescript-eslint/no-unused-vars
-  Line 6:9:   'IJobState' is defined but never used       @typescript-eslint/no-unused-vars
-  Line 7:9:   'JobActions' is defined but never used      @typescript-eslint/no-unused-vars
-  Line 7:21:  'JobActionTypes' is defined but never used  @typescript-eslint/no-unused-vars
+./src/model/TourStep.tsx
+  Line 3:8:  'Tour' is defined but never used  @typescript-eslint/no-unused-vars
 
-./src/services/SkillsService.tsx
-  Line 3:9:   'IJob' is defined but never used            @typescript-eslint/no-unused-vars
-  Line 6:9:   'IJobState' is defined but never used       @typescript-eslint/no-unused-vars
-  Line 7:9:   'JobActions' is defined but never used      @typescript-eslint/no-unused-vars
-  Line 7:21:  'JobActionTypes' is defined but never used  @typescript-eslint/no-unused-vars
-  Line 9:9:   'ISkill' is defined but never used          @typescript-eslint/no-unused-vars
+./src/components/common/CloseableHeader.tsx
+  Line 4:8:  'SwipeableDrawer' is defined but never used  @typescript-eslint/no-unused-vars
 
 ./src/App.tsx
-  Line 60:6:    React Hook React.useEffect has a missing dependency: 'props'. Either include it or remove the dependency array. However, 'props' will change when *any* prop changes, so the preferred fix is to destructure the 'props' object outside of the useEffect call and refer to those specific props inside React.useEffect                                            react-hooks/exhaustive-deps
-  Line 96:21:   The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
-  Line 101:21:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
-  Line 106:21:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
-  Line 111:21:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
-  Line 116:21:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+  Line 52:8:  React Hook React.useEffect has a missing dependency: 'props'. Either include it or remove the dependency array. However, 'props' will change when *any* prop changes, so the preferred fix is to destructure the 'props' object outside of the useEffect call and refer to those specific props inside React.useEffect  react-hooks/exhaustive-deps
 
-./src/components/pages/Home/SkillGroup.tsx
-  Line 8:8:  'IconButton' is defined but never used  @typescript-eslint/no-unused-vars
+./src/components/pages/Home/Contact.tsx
+  Line 6:16:    'Toast' is defined but never used                                                                                                                                                                                                                                                                                                                                 @typescript-eslint/no-unused-vars
+  Line 64:39:   Expected '===' and instead saw '=='                                                                                                                                                                                                                                                                                                                               eqeqeq
+  Line 218:48:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+  Line 218:56:  Script URL is a form of eval                                                                                                                                                                                                                                                                                                                                      no-script-url
+  Line 228:48:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+  Line 228:56:  Script URL is a form of eval                                                                                                                                                                                                                                                                                                                                      no-script-url
+  Line 229:48:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+  Line 229:56:  Script URL is a form of eval                                                                                                                                                                                                                                                                                                                                      no-script-url
+
+./src/components/pages/Home/SiteSearch.tsx
+  Line 7:9:    'IApplicationState' is defined but never used                                                              @typescript-eslint/no-unused-vars
+  Line 8:9:    'connect' is defined but never used                                                                        @typescript-eslint/no-unused-vars
+  Line 24:23:  'setIsLoading' is assigned a value but never used                                                          @typescript-eslint/no-unused-vars
+  Line 46:34:  Expected '===' and instead saw '=='                                                                        eqeqeq
+  Line 72:41:  Expected '===' and instead saw '=='                                                                        eqeqeq
+  Line 81:89:  Expected '===' and instead saw '=='                                                                        eqeqeq
+  Line 82:83:  Expected '===' and instead saw '=='                                                                        eqeqeq
+  Line 85:41:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+
+./src/components/common/Sidebar.tsx
+  Line 8:17:    'RealLink' is defined but never used                                                                       @typescript-eslint/no-unused-vars
+  Line 183:11:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 186:11:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
 
 Search for the keywords to learn more about each warning.
 To ignore, add // eslint-disable-next-line to the line before.
 
 File sizes after gzip:
 
-  146.12 KB  build/static/js/2.fc584f67.chunk.js
-  22.47 KB   build/static/css/2.af3c1da9.chunk.css
-  10.34 KB   build/static/css/main.bdd66f74.chunk.css
-  5.01 KB    build/static/js/main.0907dee0.chunk.js
+  252.32 KB  build/static/js/2.e464989a.chunk.js
+  31.06 KB   build/static/js/main.40ed23a4.chunk.js
+  24.01 KB   build/static/css/2.506b9889.chunk.css
+  10.3 KB    build/static/css/main.276bbf98.chunk.css
   772 B      build/static/js/runtime-main.89ce72de.js
 
 The project was built assuming it is hosted at /.
@@ -145,51 +198,52 @@ Find out more about deployment here:
 
   bit.ly/CRA-deploy
 
-Done in 55.45s.
-[36mINFO[0m[0404] Taking snapshot of full filesystem...        
-[36mINFO[0m[0404] Resolving 178403 paths                       
-[36mINFO[0m[0486] ENV PORT=8080                                
-[36mINFO[0m[0486] No files changed in this command, skipping snapshotting. 
-[36mINFO[0m[0486] CMD ["node", "server.js"]                    
-[36mINFO[0m[0486] No files changed in this command, skipping snapshotting. 
-[36mINFO[0m[0486] Pushing layer harbor.simonjamesrowe.com/todo/cache:b15f28928eef78622a7b64584e16016e360864853fb45aa5d5e480fb7879972a to cache now 
-[33mWARN[0m[0487] error uploading layer to cache: failed to push to destination harbor.simonjamesrowe.com/todo/cache:4884039a7c88228412604a69c12240ec5ed6aa095d679e4b3477f83c5577a78c: HEAD https://harbor.simonjamesrowe.com/v2/todo/cache/blobs/sha256:c5a28bbe97cbaec9339e1bec0655b0f198750b850f0b0bd37ce338d0493d846c: unsupported status code 401 
+Done in 69.05s.
+[36mINFO[0m[0349] Taking snapshot of full filesystem...        
+[36mINFO[0m[0350] Resolving 212778 paths                       
+[36mINFO[0m[0427] ENV PORT=8080                                
+[36mINFO[0m[0427] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0427] CMD ["node", "server.js"]                    
+[36mINFO[0m[0427] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0427] Pushing layer harbor.simonjamesrowe.com/todo/cache:521f9a94b54bcee78e828f4ebc8bbd57f931e37b0519b450544f7bb2c1187110 to cache now 
+[33mWARN[0m[0427] error uploading layer to cache: failed to push to destination harbor.simonjamesrowe.com/todo/cache:9a9aacaf8822d7d9ee067b14e0ff31019e4fbf297cc32c1990bd2777839d08b6: HEAD https://harbor.simonjamesrowe.com/v2/todo/cache/blobs/sha256:9a737db6325a5b2119bf1e45cfb365f6f795f5e9ba1138ecca37cbd601af6ca4: unsupported status code 401 
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-tjgl2-20[0m stage [32mfrom-build-pack[0m and container [32mstep-build-post-build[0m
+Showing logs for build [32msimonjamesrowe-react-ui-master-qtpwm-20[0m stage [32mfrom-build-pack[0m and container [32mstep-build-post-build[0m
 no CVE provider running in the current ** namespace so skip adding image to be analysed
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-tjgl2-20[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-changelog[0m
+Showing logs for build [32msimonjamesrowe-react-ui-master-qtpwm-20[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-changelog[0m
 Converted /workspace/source/charts/react-ui to an unshallow repository
-Generating change log from git ref 761d439e7a7dbd276c5fdd843de6ed7bf83bca95 => fd19095d1ddbb8c7f94cd5c715d7dc3901bf750a
-WARNING: Failed to enrich commit 52c3bb847c06e6b399d71ed956cb48c6209121d4 with issues: users.jenkins.io "x-0" already exists
-WARNING: Failed to enrich commit 52c3bb847c06e6b399d71ed956cb48c6209121d4 with issues: users.jenkins.io "x-0" already exists
+Generating change log from git ref 44d6119932091543e9ef76785b87a023e89b0f4e => 89e258b9861d2a370193424586fc2fe794816cce
+Associating user simon-rowe in users.jenkins.io with email simon.rowe@gmail.com to git GitProvider user with login simon-rowe-0 as emails match
+Adding label jenkins.io/git-github-userid=simon-rowe-0 to user simon-rowe in users.jenkins.io
+Associating user simon-rowe in users.jenkins.io with email simon.rowe@gmail.com to git GitProvider user with login simon-rowe-0 as emails match
+Adding label jenkins.io/git-github-userid=simon-rowe-0 to user simon-rowe in users.jenkins.io
 Finding issues in commit messages using git format
-WARNING: No release found for simonjamesrowe/react-ui and tag v0.0.29 so creating a new release
-Updated the release information at https://github.com/simonjamesrowe/react-ui/releases/tag/v0.0.29
+WARNING: No release found for simonjamesrowe/react-ui and tag v0.0.63 so creating a new release
+Updated the release information at https://github.com/simonjamesrowe/react-ui/releases/tag/v0.0.63
 generated: /workspace/source/charts/react-ui/templates/release.yaml
-Created Release react-ui-0-0-29 resource in namespace **
-Updating PipelineActivity simonjamesrowe-react-ui-master-20 with version 0.0.29
-Updated PipelineActivities simonjamesrowe-react-ui-master-20 with release notes URL: https://github.com/simonjamesrowe/react-ui/releases/tag/v0.0.29
+Created Release react-ui-0-0-63 resource in namespace **
+Updating PipelineActivity simonjamesrowe-react-ui-master-20 with version 0.0.63
+Updated PipelineActivities simonjamesrowe-react-ui-master-20 with release notes URL: https://github.com/simonjamesrowe/react-ui/releases/tag/v0.0.63
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-tjgl2-20[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-helm-release[0m
+Showing logs for build [32msimonjamesrowe-react-ui-master-qtpwm-20[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-helm-release[0m
 WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
 Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
 Successfully added Helm repository storage.googleapis.com.
 Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
 Successfully added Helm repository jenkins-x-chartmuseum.
 WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
-Uploading chart file react-ui-0.0.29.tgz to http://jenkins-x-chartmuseum:8080/api/charts
+Uploading chart file react-ui-0.0.63.tgz to http://jenkins-x-chartmuseum:8080/api/charts
 Received 201 response: {"saved":true}
 
-Showing logs for build [32msimonjamesrowe-react-ui-master-tjgl2-20[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-promote[0m
+Showing logs for build [32msimonjamesrowe-react-ui-master-qtpwm-20[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-promote[0m
 WARNING: prow based install so skip waiting for the merge of Pull Requests to go green as currently there is an issue with gettingstatuses from the PR, see https://github.com/jenkins-x/**/issues/2410
 WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
-Promoting app react-ui version 0.0.29 to namespace **-staging
-Created Pull Request: https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/48
-Added label updatebot to Pull Request https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/48
-WARNING: Failed to query the Pull Request last commit status for https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/48 ref a77d4a04c1060507af944cef2eb92a06d658f6c7 Could not find a status for repository simonjamesrowe/environment-simonjamesrowe-staging with ref a77d4a04c1060507af944cef2eb92a06d658f6c7
-got git provider status pending from PR https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/48
-got git provider status pending from PR https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/48
-Pull Request https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/48 is merged at sha 249fab402da2afbcf93bfe89b2d9eb3395454d65
+Promoting app react-ui version 0.0.63 to namespace **-staging
+Created Pull Request: https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/70
+Added label updatebot to Pull Request https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/70
+got git provider status pending from PR https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/70
+got git provider status pending from PR https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/70
+Pull Request https://github.com/simonjamesrowe/environment-simonjamesrowe-staging/pull/70 is merged at sha de3b4923951b828d8ea626f606a4d5a967e3facb
 Pull Request merged but we are not waiting for the update pipeline to complete!
 WARNING: Could not find the service URL in namespace **-staging for names react-ui, **-react-ui, **-staging-react-ui
