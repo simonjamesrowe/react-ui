@@ -11,6 +11,7 @@ import {RouteComponentProps, useHistory, withRouter} from "react-router-dom";
 import {IApplicationState} from "../../../state/Store";
 import {connect} from "react-redux";
 import {ClosableHeader} from "../../common/CloseableHeader";
+import {CodeBlock} from "../../common/CodeBlock";
 
 interface IProps extends RouteComponentProps<{ id: string }> {
     blog: IBlog,
@@ -68,6 +69,7 @@ const BlogDetail = ({blog, getOneBlog, match}: IProps & RouteComponentProps<{id:
                                                     transformImageUri={imageUrl}
                                                     linkTarget="_blank"
                                                     allowDangerousHtml={true}
+                                                    renderers={{ code: CodeBlock }}
                                                 />
 
                                             </div>
