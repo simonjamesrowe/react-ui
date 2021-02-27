@@ -75,7 +75,7 @@ const Headline = ({ profile, mobile, searchQuery, startSimulation }: IHeadlinePr
 
                     <SiteSearch searchQuery={searchQuery} />
                     <div className="banner_btn">
-                      <a href={properties.apiUrl + profile.cv.url} className="tour-download-cv portfolio_btn btn_yellow">
+                      <a href={properties.apiUrl + "/resume"} className="tour-download-cv portfolio_btn btn_yellow">
                         <span className="first_text">Download CV</span>
                         <span className="second_text">Download</span>
                       </a>

@@ -7,7 +7,6 @@ export interface IProfile {
     profileImage: IImage;
     headline: string;
     description: string;
-    cv: IImage;
     location: string;
     phoneNumber: string;
     primaryEmail: string;

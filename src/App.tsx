@@ -19,6 +19,7 @@ import {faArrowUp} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import $ from 'jquery'
 import BlogDetail from "./components/pages/Blog/BlogDetail";
+import MetaTags from 'react-meta-tags';
 
 interface IAppProps {
     loading: boolean,
@@ -72,6 +73,10 @@ true
 
                     {props.profile && (
                         <>
+                            <MetaTags>
+                                <title>{props.profile.name}</title>
+                                <meta name="description" content={props.profile.headline} />
+                            </MetaTags>
                             <SideBar socialMedias={props.socialMedias} profile={props.profile} toggleMenu={toggleMenu}/>
                             <div className="port_togglebox" onClick={toggleMenu}>
                                 <span>&nbsp;</span>

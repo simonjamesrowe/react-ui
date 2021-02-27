@@ -73,7 +73,7 @@ const Profile = ({profile, socialMedias}: IProfileProperties) => {
                                     <ReactMarkdown source={profile.description} />
 
                                     <div className="anout_section_btn">
-                                        <a href={properties.apiUrl + profile.cv.url} className="portfolio_btn btn_yellow">
+                                        <a href={properties.apiUrl + "/resume"} className="portfolio_btn btn_yellow">
                                             <span className="first_text">Download CV</span>
                                             <span className="second_text">Download</span>
                                         </a>
