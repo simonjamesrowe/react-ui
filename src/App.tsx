@@ -20,6 +20,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import $ from 'jquery'
 import BlogDetail from "./components/pages/Blog/BlogDetail";
 import MetaTags from 'react-meta-tags';
+import { init as initApm } from '@elastic/apm-rum'
 
 interface IAppProps {
     loading: boolean,
@@ -37,6 +38,12 @@ const App = (props: IAppProps) => {
     const [loading, setLoading] = React.useState<boolean>(
 true
     );
+
+    const apm = initApm({
+        serviceName: 'react-ui',
+        serverUrl: properties.apmUrl,
+        environment: properties.environment
+    })
 
 
     const onScroll = (event: any) => {
