@@ -21,6 +21,7 @@ import $ from 'jquery'
 import BlogDetail from "./components/pages/Blog/BlogDetail";
 import MetaTags from 'react-meta-tags';
 import { init as initApm } from '@elastic/apm-rum'
+import { ApmRoute } from '@elastic/apm-rum-react'
 
 interface IAppProps {
     loading: boolean,
@@ -91,20 +92,20 @@ true
                                 <span>&nbsp;</span>
                             </div>
                             <Switch>
-                                <Route path="/" exact={true}>
+                                <ApmRoute path="/" exact={true}>
                                     <Home profile={props.profile} mobile={mobile} socialMedias={props.socialMedias}/>
-                                </Route>
-                                <Route path="/blogs/:id" component={BlogDetail}/>
-                                <Route path="/blogs" component={Blog}/>
-                                <Route path="/jobs/:id" >
+                                </ApmRoute>
+                                <ApmRoute path="/blogs/:id" component={BlogDetail}/>
+                                <ApmRoute path="/blogs" component={Blog}/>
+                                <ApmRoute path="/jobs/:id" >
                                     <Home profile={props.profile} mobile={mobile} socialMedias={props.socialMedias}/>
-                                </Route>
-                                <Route path="/skills-groups/:id" >
+                                </ApmRoute>
+                                <ApmRoute path="/skills-groups/:id" >
                                     <Home profile={props.profile} mobile={mobile} socialMedias={props.socialMedias}/>
-                                </Route>
-                                <Route>
+                                </ApmRoute>
+                                <ApmRoute>
                                     <Home profile={props.profile} mobile={mobile} socialMedias={props.socialMedias}/>
-                                </Route>
+                                </ApmRoute>
                             </Switch>
                         </>
                     )}
