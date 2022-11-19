@@ -34,7 +34,7 @@
     "react-router-dom": "^5.2.0",
     "react-router-ga": "^1.2.3",
     "react-router-hash-link": "^2.2.2",
-    "react-scripts": "^3.4.1",
+    "react-scripts": "^5.0.1",
     "react-scroll": "^1.8.1",
     "react-syntax-highlighter": "^15.4.3",
     "redux": "^4.0.4",
