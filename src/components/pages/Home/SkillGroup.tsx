@@ -1,6 +1,6 @@
 import React, {Ref, RefObject} from "react"
 import {getVariant, ISkill, ISkillGroup} from "../../../model/Skill";
-import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
+import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import {CmsImage} from "../../common/CmsImage";
 import {Card, ProgressBar} from "react-bootstrap";
 import ReactMarkdown from "react-markdown";

@@ -16,7 +16,7 @@ import {getAllBlogs} from "../../../services/BlogService";
 import {BlogPreview} from "./BlogPreview";
 import {Contact} from "./Contact";
 import {useHistory} from "react-router-dom";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { useMediaQuery } from "@mui/material";
 import Tour from "../../common/Tour";
 
 

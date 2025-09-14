@@ -1,13 +1,13 @@
 import React from "react";
-import {CSSProperties} from "@material-ui/core/styles/withStyles";
+import {CSSProperties} from "react";
 import {properties} from "../../../services/Environment";
 import {IProfile} from "../../../model/Profile";
 import {SiteSearch} from "./SiteSearch";
 import {IApplicationState} from "../../../state/Store";
 import {connect} from "react-redux";
 import {startSimulation} from "../../../services/SimulateService";
-import AirplanemodeActiveIcon from '@material-ui/icons/AirplanemodeActive';
-import {Chip} from "@material-ui/core";
+import AirplanemodeActiveIcon from '@mui/icons-material/AirplanemodeActive';
+import {Chip} from "@mui/material";
 
 interface IHeadlineProps {
   profile: IProfile;
