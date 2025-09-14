@@ -1,15 +1,14 @@
 import React from "react";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { useMediaQuery } from "@mui/material";
 import Home from "./components/pages/Home/index";
 import Blog from "./components/pages/Blog/index";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import loader from "./assets/images/loader.gif"
 import {IProfile} from "./model/Profile";
 import {IApplicationState} from "./state/Store";
 import {connect} from "react-redux";
-import Analytics from 'react-router-ga';
 import {getProfile} from "./services/ProfileService";
-import ReactGA from 'react-ga';
+import ReactGA from 'react-ga4';
 import {hotjar} from 'react-hotjar';
 import {properties} from "./services/Environment";
 import SideBar from "./components/common/Sidebar";
@@ -21,7 +20,6 @@ import $ from 'jquery'
 import BlogDetail from "./components/pages/Blog/BlogDetail";
 import MetaTags from 'react-meta-tags';
 import { init as initApm } from '@elastic/apm-rum'
-import { ApmRoute } from '@elastic/apm-rum-react'
 
 interface IAppProps {
     loading: boolean,
@@ -32,8 +30,10 @@ interface IAppProps {
 }
 
 const App = (props: IAppProps) => {
-    ReactGA.initialize(properties.gaTrackingToken);
-    hotjar.initialize(Number(properties.hotJarTrackingToken), 6);
+    React.useEffect(() => {
+        ReactGA.initialize(properties.gaTrackingToken);
+        hotjar.initialize(Number(properties.hotJarTrackingToken), 6);
+    }, []);
 
     const mobile = useMediaQuery("(max-width:991px)");
     const [loading, setLoading] = React.useState<boolean>(
@@ -70,7 +70,6 @@ true
     return (
         <>
             <Router>
-                <Analytics id={properties.gaTrackingToken}>
                     {(loading || !props.profile) && (
                         <div className="preloader">
                             <div className="status"><img src={loader} id="preloader_image"
@@ -91,22 +90,14 @@ true
                                 <span>&nbsp;</span>
                                 <span>&nbsp;</span>
                             </div>
-                            <Switch>
-                                <ApmRoute path="/" exact={true}>
-                                    <Home profile={props.profile} mobile={mobile} socialMedias={props.socialMedias}/>
-                                </ApmRoute>
-                                <ApmRoute path="/blogs/:id" component={BlogDetail}/>
-                                <ApmRoute path="/blogs" component={Blog}/>
-                                <ApmRoute path="/jobs/:id" >
-                                    <Home profile={props.profile} mobile={mobile} socialMedias={props.socialMedias}/>
-                                </ApmRoute>
-                                <ApmRoute path="/skills-groups/:id" >
-                                    <Home profile={props.profile} mobile={mobile} socialMedias={props.socialMedias}/>
-                                </ApmRoute>
-                                <ApmRoute>
-                                    <Home profile={props.profile} mobile={mobile} socialMedias={props.socialMedias}/>
-                                </ApmRoute>
-                            </Switch>
+                            <Routes>
+                                <Route path="/" element={<Home profile={props.profile} mobile={mobile} socialMedias={props.socialMedias}/>} />
+                                <Route path="/blogs/:id" element={<BlogDetail />} />
+                                <Route path="/blogs" element={<Blog />} />
+                                <Route path="/jobs/:id" element={<Home profile={props.profile} mobile={mobile} socialMedias={props.socialMedias}/>} />
+                                <Route path="/skills-groups/:id" element={<Home profile={props.profile} mobile={mobile} socialMedias={props.socialMedias}/>} />
+                                <Route path="*" element={<Home profile={props.profile} mobile={mobile} socialMedias={props.socialMedias}/>} />
+                            </Routes>
                         </>
                     )}
 
@@ -114,7 +105,6 @@ true
                         <FontAwesomeIcon icon={faArrowUp} />
                     </div>
 
-                </Analytics>
             </Router>
         </>
     );

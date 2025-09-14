@@ -7,20 +7,11 @@ interface IAppProps {
 }
 
 const properties: IAppProps = {
-    // @ts-ignore
-    apiUrl: window.API_URL || "https://api.simonjamesrowe.com",
-    // @ts-ignore
-    gaTrackingToken: window.GA_TRACKING_TOKEN || "UA-179384022-3",
-
-    // @ts-ignore
-    hotJarTrackingToken: window.HOT_JAR_TRACKING_TOKEN || "2022739",
-
-    // @ts-ignore
-    environment: window.ENVIRONMENT || "local",
-
-    // @ts-ignore
-    apmUrl: window.APM_URL || "https://apm.simonjamesrowe.com"
+    apiUrl: window.API_URL || import.meta.env.VITE_API_URL || "https://api.simonjamesrowe.com",
+    gaTrackingToken: window.GA_TRACKING_TOKEN || import.meta.env.VITE_GA_TRACKING_TOKEN || "UA-179384022-3",
+    hotJarTrackingToken: window.HOT_JAR_TRACKING_TOKEN || import.meta.env.VITE_HOTJAR_ID || "2022739",
+    environment: window.ENVIRONMENT || import.meta.env.VITE_ELASTIC_APM_ENVIRONMENT || "local",
+    apmUrl: window.APM_URL || import.meta.env.VITE_ELASTIC_APM_SERVER_URL || "https://apm.simonjamesrowe.com"
 }
 
-// @ts-ignore
 export {properties};

@@ -1,7 +1,6 @@
 import {IJob} from "../model/Job";
-import {applyMiddleware, combineReducers, createStore, Store} from "redux";
+import {configureStore} from "@reduxjs/toolkit";
 import {jobsReducer} from "./jobs/Reducer";
-import thunk from "redux-thunk";
 import {IBlog} from "../model/Blog";
 import {blogsReducer} from "./blogs/Reducer";
 import {ITag} from "../model/Tag";
@@ -50,27 +49,24 @@ export interface ISimulateState {
     simulationFinished: boolean;
 }
 
-export interface IApplicationState {
-    jobs: IJobState,
-    blogs: IBlogsState,
-    tags: ITagsState,
-    profile: IProfileState,
-    skills: ISkillsState,
-    socialMedia: ISocialMediaState,
-    simulate: ISimulateState
+export default function createAppStore() {
+    return configureStore({
+        reducer: {
+            jobs: jobsReducer,
+            blogs: blogsReducer,
+            tags: tagsReducer,
+            profile: profileReducer,
+            skills: skillsReducer,
+            socialMedia: socialMediaReducer,
+            simulate: simulateReducer
+        },
+        middleware: (getDefaultMiddleware) =>
+            getDefaultMiddleware({
+                thunk: true,
+                serializableCheck: false,
+            }),
+    });
 }
 
-const rootReducer = combineReducers<IApplicationState>({
-    jobs: jobsReducer,
-    blogs: blogsReducer,
-    tags: tagsReducer,
-    profile: profileReducer,
-    skills: skillsReducer,
-    socialMedia: socialMediaReducer,
-    simulate: simulateReducer
-});
-
-export default function configureStore(): Store<IApplicationState> {
-    const store = createStore(rootReducer, undefined, applyMiddleware(thunk));
-    return store;
-}
+const store = createAppStore();
+export type IApplicationState = ReturnType<typeof store.getState>;
