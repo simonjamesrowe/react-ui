@@ -3,19 +3,21 @@ import {IJob} from "../../../model/Job";
 import {JobBlock} from "./JobBlock";
 import ReactGA from "react-ga";
 import {JobDetail} from "./JobDetail";
-import {RouteComponentProps, useHistory, withRouter} from "react-router-dom";
+import {useNavigate, useParams, useLocation} from "react-router-dom";
 
-interface IProps extends RouteComponentProps<{ id?: string }> {
+interface IProps {
     jobs: IJob[];
 }
 
-const Resume = ({jobs, match, location}: IProps & RouteComponentProps<{ id?: string }>) => {
-    const history = useHistory();
+const Resume = ({jobs}: IProps) => {
+    const { id } = useParams<{ id?: string }>();
+    const location = useLocation();
+    const navigate = useNavigate();
     const [jobsDraw, setJobsDraw] = React.useState<{ [key: string]: boolean }>({});
 
     React.useEffect(() => {
         let newJobsDrawer = {};
-        jobs.forEach(j => newJobsDrawer[j._id] = match.params.id == j._id);
+        jobs.forEach(j => newJobsDrawer[j._id] = id == j._id);
         setJobsDraw(newJobsDrawer);
     }, [jobs, location]);
 
@@ -31,12 +33,12 @@ const Resume = ({jobs, match, location}: IProps & RouteComponentProps<{ id?: str
             category: "Job",
             action: `Job Expanded: ${name}`,
         });
-        history.replace(`/jobs/${id}`);
+        navigate(`/jobs/${id}`, { replace: true });
         setJobsDraw({...jobsDraw, [id]: true});
     };
 
     const collapseJobDrawer = (id: string) => {
-        history.replace('/');
+        navigate('/', { replace: true });
         setJobsDraw({...jobsDraw, [id]: false});
     }
 
@@ -78,4 +80,4 @@ const Resume = ({jobs, match, location}: IProps & RouteComponentProps<{ id?: str
     )
 }
 
-export default withRouter(Resume)
+export default Resume

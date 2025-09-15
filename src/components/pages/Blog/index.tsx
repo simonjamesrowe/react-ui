@@ -1,5 +1,4 @@
 import React from "react";
-import {RouteComponentProps, withRouter} from "react-router-dom";
 import {IBlog} from "../../../model/Blog";
 import {connect} from "react-redux";
 import {IApplicationState} from "../../../state/Store";

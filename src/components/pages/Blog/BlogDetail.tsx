@@ -7,22 +7,22 @@ import {faCalendarAlt, faTags, faUserEdit} from "@fortawesome/free-solid-svg-ico
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import Moment from "moment";
 import {getOneBlog} from "../../../services/BlogService";
-import {RouteComponentProps, useHistory, withRouter} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {IApplicationState} from "../../../state/Store";
 import {connect} from "react-redux";
 import {ClosableHeader} from "../../common/CloseableHeader";
 import {CodeBlock} from "../../common/CodeBlock";
 
-interface IProps extends RouteComponentProps<{ id: string }> {
+interface IProps {
     blog: IBlog,
     getOneBlog: typeof getOneBlog;
 }
 
-const BlogDetail = ({blog, getOneBlog, match}: IProps & RouteComponentProps<{id: string}>) => {
-
-    const history = useHistory();
+const BlogDetail = ({blog, getOneBlog}: IProps) => {
+    const { id } = useParams<{ id: string }>();
+    const navigate = useNavigate();
     React.useEffect(() => {
-        getOneBlog(match.params.id)
+        getOneBlog(id!)
     }, [])
 
     const imageUrl = (url: string) => {
@@ -30,11 +30,11 @@ const BlogDetail = ({blog, getOneBlog, match}: IProps & RouteComponentProps<{id:
     };
 
     const close = () => {
-        history.goBack();
+        navigate(-1);
     }
 
     return (
-        <> {blog && blog.id == match.params.id &&  (
+        <> {blog && blog.id == id &&  (
             <div className="port_sec_warapper" id="top">
 
                 <div className="port_blog_setions prt_toppadder20 prt_bottompadder20">
@@ -100,8 +100,6 @@ const mapDispatchToProps = (dispatch: any) => {
     };
 };
 
-const BlogDetailWithRouter = withRouter(BlogDetail);
-
-export default connect(mapStateToProps, mapDispatchToProps)(BlogDetailWithRouter);
+export default connect(mapStateToProps, mapDispatchToProps)(BlogDetail);
 
 

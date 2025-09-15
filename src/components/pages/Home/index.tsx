@@ -15,7 +15,7 @@ import {IBlog} from "../../../model/Blog";
 import {getAllBlogs} from "../../../services/BlogService";
 import {BlogPreview} from "./BlogPreview";
 import {Contact} from "./Contact";
-import {useHistory} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import { useMediaQuery } from "@mui/material";
 import Tour from "../../common/Tour";
 
@@ -33,7 +33,7 @@ interface IHomeProps {
 }
 
 const Home = (props: IHomeProps) => {
-    const history = useHistory();
+    const navigate = useNavigate();
     const mobile = useMediaQuery("(max-width:991px)");
 
     React.useEffect(() => {
