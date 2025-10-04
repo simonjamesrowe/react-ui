@@ -6,10 +6,10 @@ import {AsyncTypeahead} from "react-bootstrap-typeahead";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCalendarAlt} from "@fortawesome/free-solid-svg-icons";
 import Moment from "moment";
-import {useHistory} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const BlogSearch = () => {
-    const history = useHistory()
+    const navigate = useNavigate()
     const [isLoading, setIsLoading] = React.useState(false);
     const [options, setOptions] = React.useState<IBlogSearchResult[]>([]);
     const handleSearch = (query) => {
@@ -23,7 +23,7 @@ const BlogSearch = () => {
         if (!blogs || blogs.length == 0) {
             return;
         }
-        history.push(`/blogs/${blogs[0].id}`);
+        navigate(`/blogs/${blogs[0].id}`);
     }
 
     // Bypass client-side filtering by returning `true`. Results are already

@@ -3,21 +3,23 @@ import {ISkillGroup} from "../../../model/Skill";
 import {CmsImage} from "../../common/CmsImage";
 import ReactGA from 'react-ga';
 import SkillGroup from "./SkillGroup";
-import {RouteComponentProps, useHistory, withRouter} from "react-router-dom";
+import {useNavigate, useParams, useLocation} from "react-router-dom";
 import {IJob} from "../../../model/Job";
 
-interface IProps extends RouteComponentProps<{ id?: string }> {
+interface IProps {
     skillsGroups: ISkillGroup[];
     jobs: IJob[];
 }
 
-const SkillsOutline = ({skillsGroups, match, location, jobs}: IProps & RouteComponentProps) => {
+const SkillsOutline = ({skillsGroups, jobs}: IProps) => {
+    const { id } = useParams<{ id?: string }>();
+    const location = useLocation();
     const [skillsDraw, setSkillsDraw] = React.useState<{ [key: string]: boolean }>({});
-    const history = useHistory();
+    const navigate = useNavigate();
 
     React.useEffect(() => {
         let newSkillsDraw = {};
-        skillsGroups.forEach(sk => newSkillsDraw[sk._id] = match.params.id == sk._id);
+        skillsGroups.forEach(sk => newSkillsDraw[sk._id] = id == sk._id);
         setSkillsDraw(newSkillsDraw);
     }, [skillsGroups, location]);
 
@@ -27,13 +29,13 @@ const SkillsOutline = ({skillsGroups, match, location, jobs}: IProps & RouteComp
             category: "Skill",
             action: `Skill Group Expanded: ${name}`,
         });
-        history.replace(`/skills-groups/${id}`);
+        navigate(`/skills-groups/${id}`, { replace: true });
         setSkillsDraw({...skillsDraw, [id]: true});
     };
 
 
     const collapseSkillGroup = (id: string) => {
-        history.replace(`/`);
+        navigate(`/`, { replace: true });
         setSkillsDraw({...skillsDraw, [id]: false});
     }
 
@@ -78,4 +80,4 @@ const SkillsOutline = ({skillsGroups, match, location, jobs}: IProps & RouteComp
     );
 };
 
-export default withRouter(SkillsOutline);
+export default SkillsOutline;

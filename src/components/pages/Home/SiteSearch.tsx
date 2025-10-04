@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import {properties} from "../../../services/Environment";
 import {AsyncTypeahead, Menu, MenuItem, TypeaheadResult} from "react-bootstrap-typeahead";
-import {useHistory} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {IHit, ISiteResult} from "../../../model/Site";
 import {IApplicationState} from "../../../state/Store";
 import {connect} from "react-redux";
@@ -20,7 +20,7 @@ interface ISearchProps {
 
 const SiteSearch = ({searchQuery}: ISearchProps) => {
     const [minLength, setMinLength] = React.useState<number>(searchQuery.length > 0 ? 0 : 1);
-    const history = useHistory()
+    const navigate = useNavigate()
     const [isLoading, setIsLoading] = React.useState(false);
     const [options, setOptions] = React.useState<ISiteSearchOption[]>([]);
     const handleSearch = (query) => {
@@ -46,7 +46,7 @@ const SiteSearch = ({searchQuery}: ISearchProps) => {
         if (!hits || hits.length == 0) {
             return;
         }
-        history.push(hits[0].hit.link);
+        navigate(hits[0].hit.link);
     }
 
 

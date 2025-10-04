@@ -7,7 +7,7 @@ import Axios from "axios";
 import {properties} from "../../services/Environment";
 import $ from "jquery";
 import {IApplicationState} from "../../state/Store";
-import {RouteComponentProps, withRouter} from "react-router-dom";
+import {useLocation} from "react-router-dom";
 
 interface ITourProps {
     simulateSearch: typeof simulateSearch,
@@ -15,7 +15,8 @@ interface ITourProps {
     isRunning: boolean
 }
 
-const Tour = ({simulateSearch, isRunning, finishSimulation, location}: ITourProps & RouteComponentProps) => {
+const Tour = ({simulateSearch, isRunning, finishSimulation}: ITourProps) => {
+    const location = useLocation();
     const [steps, setSteps] = React.useState<Step[]>([]);
 
     React.useEffect(() => {
@@ -80,4 +81,4 @@ const mapStateToProps = (store: IApplicationState) => {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(withRouter(Tour));
+)(Tour);

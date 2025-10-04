@@ -7,15 +7,7 @@ import {Alert, Toast} from "react-bootstrap";
 import Axios from "axios";
 import {properties} from "../../../services/Environment";
 import ReCAPTCHA from "react-google-recaptcha";
-import {Backdrop, CircularProgress} from "@material-ui/core";
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles((theme) => ({
-    backdrop: {
-        zIndex: 9999999,
-        color: '#fff',
-    },
-}));
+import {Backdrop, CircularProgress} from "@mui/material";
 
 interface IProps {
     profile: IProfile
@@ -56,7 +48,6 @@ const Contact = ({profile}: IProps) => {
     const [showAlert, setShowAlert] = React.useState<boolean>(false);
     const [loading, setLoading] = React.useState<boolean>(false);
     const [success, setSuccess] = React.useState<boolean>(false);
-    const classes = useStyles();
     const formik = useFormik({
         initialValues: {
             "firstName": "",
@@ -89,7 +80,7 @@ const Contact = ({profile}: IProps) => {
         <>
 
             <div className="port_contact_wrapper prt_toppadder80 page_scroll" data-scroll="3" id="contact_sec">
-                <Backdrop className={classes.backdrop} open={loading} >
+                <Backdrop sx={{ zIndex: 9999999, color: '#fff' }} open={loading} >
                     <CircularProgress color="inherit" />
                 </Backdrop>
                 <div className="container">

@@ -1,7 +1,7 @@
 import React from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTimes} from "@fortawesome/free-solid-svg-icons";
-import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
+import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 
 interface Props {
     close();

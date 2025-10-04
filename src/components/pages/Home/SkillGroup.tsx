@@ -1,24 +1,25 @@
 import React, {Ref, RefObject} from "react"
 import {getVariant, ISkill, ISkillGroup} from "../../../model/Skill";
-import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
+import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import {CmsImage} from "../../common/CmsImage";
 import {Card, ProgressBar} from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
 import {ClosableHeader} from "../../common/CloseableHeader";
-import {RouteComponentProps, withRouter} from "react-router-dom";
+import {useLocation} from "react-router-dom";
 import $ from 'jquery'
 import {IJob} from "../../../model/Job";
 import {properties} from "../../../services/Environment";
 import Moment from "moment";
 
-interface ISkillGroupProps extends RouteComponentProps {
+interface ISkillGroupProps {
     open: boolean;
     skillGroup: ISkillGroup;
     jobs: IJob[];
     close();
 }
 
-const SkillGroup = ({open, skillGroup, close, location, jobs}: ISkillGroupProps & RouteComponentProps) => {
+const SkillGroup = ({open, skillGroup, close, jobs}: ISkillGroupProps) => {
+    const location = useLocation();
 
     const getJobsWithSkill = (skill: ISkill) : IJob[] => {
         const jobsWithSkill: IJob[] = [];
@@ -106,4 +107,4 @@ const SkillGroup = ({open, skillGroup, close, location, jobs}: ISkillGroupProps 
     )
 }
 
-export default withRouter(SkillGroup);
+export default SkillGroup;

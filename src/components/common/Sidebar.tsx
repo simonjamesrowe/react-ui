@@ -1,5 +1,4 @@
 import React from "react";
-import {RouteComponentProps, withRouter} from "react-router-dom";
 import {getMediaClass, getMediaIcon, ISocialMedia} from "../../model/SocialMedia";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {IProfile} from "../../model/Profile";
@@ -8,7 +7,7 @@ import {HashLink as Link} from 'react-router-hash-link';
 import {Link as RealLink} from 'react-router-dom';
 import blogicon from "../../assets/images/blogicon.svg"
 
-interface IProps extends RouteComponentProps {
+interface IProps {
     socialMedias: ISocialMedia[],
     profile: IProfile,
 	toggleMenu()
@@ -218,4 +217,4 @@ const SideBar = ({socialMedias, profile, toggleMenu}: IProps) => {
         ;
 };
 
-export default withRouter(SideBar);
+export default SideBar;
