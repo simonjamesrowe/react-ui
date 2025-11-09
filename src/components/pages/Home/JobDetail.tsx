@@ -8,6 +8,7 @@ import Moment from "moment";
 import {ClosableHeader} from "../../common/CloseableHeader";
 import {Card, Tab, Tabs} from "react-bootstrap";
 import {properties} from "../../../services/Environment";
+import {ExternalLink} from "../../common/markdownComponents";
 
 interface IProps {
     open: boolean;
@@ -63,7 +64,9 @@ const JobDetail = ({open, job, close}: IProps) => {
                                         <div className="blog_wrapper">
                                             <div className="blog_data">
                                                 <div className="blog_content blog_markdown">
-                                                    <ReactMarkdown source={job.longDescription}/>
+                                                    <ReactMarkdown components={{ a: ExternalLink }}>
+                                                        {job.longDescription ?? ""}
+                                                    </ReactMarkdown>
                                                 </div>
                                             </div>
                                         </div>
@@ -72,8 +75,8 @@ const JobDetail = ({open, job, close}: IProps) => {
                             </Tab>
                             <Tab eventKey="skills" title="Skills">
                                 <div className="row">
-                                    {job.skills.sort((x, y) => (x.name > y.name) ? 1 : -1).map(skill => (
-                                        <div className="col-md-6 col-lg-4 col-sm-12">
+                                    {[...job.skills].sort((x, y) => (x.name > y.name) ? 1 : -1).map(skill => (
+                                        <div className="col-md-6 col-lg-4 col-sm-12" key={skill.id}>
                                             <Card>
                                                 <Card.Body>
                                                     <Card.Text><CmsImage src={skill.image}

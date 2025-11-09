@@ -1,14 +1,14 @@
-import React, {Ref, RefObject} from "react"
+import React from "react"
 import {getVariant, ISkill, ISkillGroup} from "../../../model/Skill";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import {CmsImage} from "../../common/CmsImage";
 import {Card, ProgressBar} from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
+import {ExternalLink} from "../../common/markdownComponents";
 import {ClosableHeader} from "../../common/CloseableHeader";
 import {useLocation} from "react-router-dom";
 import $ from 'jquery'
 import {IJob} from "../../../model/Job";
-import {properties} from "../../../services/Environment";
 import Moment from "moment";
 
 interface ISkillGroupProps {
@@ -32,8 +32,7 @@ const SkillGroup = ({open, skillGroup, close, jobs}: ISkillGroupProps) => {
     }
 
     const scrollToSkill = () => {
-        if (open && location.hash && skillGroup.skills.find(skill => skill.id == location.hash.substr(1))) {
-            const selectedSkillId = location.hash.substr(1);
+        if (open && location.hash && skillGroup.skills.find(skill => skill.id === location.hash.substr(1))) {
             setTimeout(() => {
                 const skillId = window.location.hash.substr(1);
                 const skillGroup = window.location.pathname.substr(window.location.pathname.lastIndexOf("/") + 1);
@@ -68,25 +67,30 @@ const SkillGroup = ({open, skillGroup, close, jobs}: ISkillGroupProps) => {
                                     </div>
                                     <h1 className="port_heading">{skillGroup.name}</h1>
                                     <br/>
-                                    <ReactMarkdown source={skillGroup.description!!}/>
+                                    <ReactMarkdown components={{ a: ExternalLink }}>
+                                        {skillGroup.description ?? ""}
+                                    </ReactMarkdown>
                                 </div>
                             </div>
                         </div>
                         <div className="row">
                             {skillGroup.skills.map(skill => (
-                                <div className="col-lg-6 col-md-6 text-center">
+                                <div className="col-lg-6 col-md-6 text-center" key={skill.id}>
                                     <div className="port_services_box_wrapper">
                                         <div className="port_services_box" id={skill.id}>
                                             <CmsImage src={skill.image} type={"thumbnail"}/>
                                             <h2 className="project_heading">{skill.name}</h2>
                                             <ProgressBar now={skill.rating * 10} variant={getVariant(skill.rating)}/>
                                             <br/>
-                                            <ReactMarkdown
-                                                source={skill.description!!}
-                                                linkTarget="_blank" />
+                                            <ReactMarkdown components={{ a: ExternalLink }}>
+                                                {skill.description ?? ""}
+                                            </ReactMarkdown>
                                             <hr />
                                             {getJobsWithSkill(skill).map(job => (
-                                                <Card title={`${job.company} - ${Moment(job.startDate).format("MMM-YYYY")} to ${job.endDate ? Moment(job.endDate)?.format("MMM-YYYY") : "Now"}`}>
+                                                <Card
+                                                    key={`${skill.id}-${job._id}`}
+                                                    title={`${job.company} - ${Moment(job.startDate).format("MMM-YYYY")} to ${job.endDate ? Moment(job.endDate)?.format("MMM-YYYY") : "Now"}`}
+                                                >
                                                     <Card.Body>
                                                         <Card.Text><CmsImage src={job.companyImage} type={"thumbnail"}/> {job.title}</Card.Text>
                                                     </Card.Body>

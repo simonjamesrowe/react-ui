@@ -33,13 +33,13 @@ const BlogVertical = ({blog}: Props) => {
                     </span>
 
                     <h4 className="blog_heading">
-                        <a href="blog.html">{blog.title}</a>
+                        <span>{blog.title}</span>
                     </h4>
                     <p>{blog.shortDescription}</p>
                     <div className="blog_readmore">
-                        <a href="blog.html" className="readmore_btn">Read
-                            More <FontAwesomeIcon
-                                icon={faUserEdit}/></a>
+                        <span className="readmore_btn">
+                            Read More <FontAwesomeIcon icon={faUserEdit}/>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -49,4 +49,3 @@ const BlogVertical = ({blog}: Props) => {
 }
 
 export {BlogVertical}
-

@@ -4,14 +4,10 @@ import {properties} from "../../../services/Environment";
 import {AsyncTypeahead, Menu, MenuItem, TypeaheadResult} from "react-bootstrap-typeahead";
 import {useNavigate} from "react-router-dom";
 import {IHit, ISiteResult} from "../../../model/Site";
-import {IApplicationState} from "../../../state/Store";
-import {connect} from "react-redux";
-
 
 interface ISiteSearchOption {
     hit: IHit;
     name: string;
-    results: ISiteResult[];
 }
 
 interface ISearchProps {
@@ -23,17 +19,21 @@ const SiteSearch = ({searchQuery}: ISearchProps) => {
     const navigate = useNavigate()
     const [isLoading, setIsLoading] = React.useState(false);
     const [options, setOptions] = React.useState<ISiteSearchOption[]>([]);
+    const [groupedResults, setGroupedResults] = React.useState<ISiteResult[]>([]);
     const handleSearch = (query) => {
-        axios.get<ISiteResult[]>(`${properties.apiUrl}/search/site?q=${query}`)
+        setIsLoading(true);
+        axios.get<ISiteResult[]>(`${properties.apiUrl}/site?q=${query}`)
             .then((response) => {
-                const options: ISiteSearchOption[] = [];
+                const flattenedOptions: ISiteSearchOption[] = [];
                 response.data.forEach(siteResult =>
                     siteResult.hits.forEach(
-                        hit => options.push({hit: hit, name: hit.name, results: response.data})
+                        hit => flattenedOptions.push({hit, name: hit.name})
                     )
-                )
-                setOptions(options);
+                );
+                setOptions(flattenedOptions);
+                setGroupedResults(response.data);
             })
+            .finally(() => setIsLoading(false));
     };
     React.useEffect(() => {
         if (searchQuery.length > 0) {
@@ -67,30 +67,48 @@ const SiteSearch = ({searchQuery}: ISearchProps) => {
                 defaultInputValue={searchQuery}
                 options={options}
                 placeholder="Search for skills, experience, blogs ..."
-                renderMenu={(results: TypeaheadResult<ISiteSearchOption>[], menuProps) => (
-                    <Menu {...menuProps}>
-                        {options.length == 0 && (
-                            <span className="site-search-result-heading">No results found</span>
-                        )}
-                        {options.length > 0 && options[0].results.map((result, resultIndex) =>
-                            <>
-                                <span className="site-search-result-heading">{result.type}</span>
-                                {result.hits.map((hit, hitIndex) => (
-                                    <MenuItem
-                                        label={hit.name}
-                                        option={options[options.findIndex(it => it.name == hit.name)]}
-                                        position={options.findIndex(it => it.name == hit.name)}
-                                        className="site-search-result-hit"
-                                    >
-                                        <img src={`${properties.apiUrl}${hit.imageUrl}`}/>
-                                        <span>{hit.name}</span>
-                                    </MenuItem>
-                                ))}
-
-                            </>
-                        )}
-                    </Menu>
-                )}
+                renderMenu={(results: TypeaheadResult<ISiteSearchOption>[], menuProps) => {
+                    const {
+                        newSelectionPrefix,
+                        paginationText,
+                        renderMenuItemChildren,
+                        ...safeMenuProps
+                    } = menuProps;
+                    void newSelectionPrefix;
+                    void paginationText;
+                    void renderMenuItemChildren;
+                    return (
+                        <Menu {...safeMenuProps}>
+                            {groupedResults.length === 0 && (
+                                <span className="site-search-result-heading">No results found</span>
+                            )}
+                            {groupedResults.map((result) => (
+                                <React.Fragment key={result.type}>
+                                    <span className="site-search-result-heading">{result.type}</span>
+                                    {result.hits.map((hit) => {
+                                        const optionIndex = results.findIndex(it => it.hit.link === hit.link);
+                                        if (optionIndex === -1) {
+                                            return null;
+                                        }
+                                        const option = results[optionIndex];
+                                        return (
+                                            <MenuItem
+                                                key={hit.link}
+                                                label={hit.name}
+                                                option={option}
+                                                position={optionIndex}
+                                                className="site-search-result-hit"
+                                            >
+                                                <img src={`${properties.apiUrl}${hit.imageUrl}`} alt={hit.name}/>
+                                                <span>{hit.name}</span>
+                                            </MenuItem>
+                                        );
+                                    })}
+                                </React.Fragment>
+                            ))}
+                        </Menu>
+                    );
+                }}
             />
         </div>
     )

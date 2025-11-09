@@ -8,6 +8,19 @@
     <link rel="apple-touch-icon" href="/logo192.png" />
     <link rel="manifest" href="/manifest.json" />
     <script src="/environment/config.js" onerror="console.log('Config file not loaded, using defaults')"></script>
+    <script>
+      (function () {
+        const fallbackApiUrl = "https://api.simonjamesrowe.com";
+        const envApiUrl = "%VITE_API_URL%" || "";
+        if (
+          envApiUrl &&
+          envApiUrl !== "undefined" &&
+          (!window.API_URL || window.API_URL === fallbackApiUrl)
+        ) {
+          window.API_URL = envApiUrl;
+        }
+      })();
+    </script>
     <title>React App</title>
   </head>
   <body>
