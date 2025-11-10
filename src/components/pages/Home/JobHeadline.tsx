@@ -18,7 +18,7 @@ const JobHeadline = ({job}: IProps) => {
     }
 
     return (
-        <div className="col-lg-8 col-md-8 col-sm-8 col-12 w-100">
+        <div className="col-lg-8 col-md-8 col-sm-8 col-12">
             <div className="ex_rightside">
                 <h4>
                     <a title={job.company} href={job.companyUrl} target="_blank" onClick={(event) => event.stopPropagation() }>

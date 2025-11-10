@@ -14,14 +14,13 @@ export const getAllSkills: ActionCreator<
     const response = await axios.get<ISkillGroup[]>(
         `${properties.apiUrl}/skills-groups?_sort=order:asc`
     );
-    const skillsGroupsFromApi : ISkillGroup[] = response.data
-    skillsGroupsFromApi.forEach(skillGroup => {
-      skillGroup.skills = skillGroup.skills.sort((a,b) => a.order - b.order);
-    });
+    const skillsGroupsFromApi : ISkillGroup[] = response.data.map(skillGroup => ({
+        ...skillGroup,
+        skills: [...skillGroup.skills].sort((a,b) => a.order - b.order)
+    }));
     dispatch({
       skillsGroups: skillsGroupsFromApi,
       type: SkillsActionTypes.GETALL
     });
   };
 };
-

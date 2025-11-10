@@ -58,7 +58,7 @@ const Resume = ({jobs}: IProps) => {
                         </div>
                         <div className="row">
                             {jobs.map((job, i) => (
-                                <div className={`col-lg-6 col-md-12 ${i ==0 ? "": ""}`}>
+                                <div className="col-lg-6 col-md-12" key={job._id}>
                                     <div className={experienceBoxStyle(i)}>
                                         <div className="row pointer tour-experience-1"
                                              onClick={() => expandJobDrawer(job._id, job.title)}>
@@ -69,8 +69,12 @@ const Resume = ({jobs}: IProps) => {
                             ))}
                         </div>
                         {jobs.map(job => (
-                            <JobDetail open={jobsDraw[job._id]} job={job}
-                                       close={() => collapseJobDrawer(job._id)}/>
+                            <JobDetail
+                                key={`drawer-${job._id}`}
+                                open={jobsDraw[job._id]}
+                                job={job}
+                                close={() => collapseJobDrawer(job._id)}
+                            />
                         ))}
                     </div>
                 </div>

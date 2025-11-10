@@ -219,7 +219,7 @@ const Contact = ({profile}: IProps) => {
                                                 <FontAwesomeIcon icon={faPhone} size={"3x"}/>
                                             </div>
                                             <h2 className="footer_heading">Phone</h2>
-                                            <p><a href="javascript:;">{profile.phoneNumber}</a></p>
+                                            <p><a href={`tel:${profile.phoneNumber}`}>{profile.phoneNumber}</a></p>
 
                                         </div>
                                     </div>
@@ -229,8 +229,10 @@ const Contact = ({profile}: IProps) => {
                                                 <FontAwesomeIcon icon={faMailBulk} size={"3x"}/>
                                             </div>
                                             <h2 className="footer_heading">Email</h2>
-                                            <p><a href="javascript:;">{profile.primaryEmail}</a></p>
-                                            <p><a href="javascript:;">{profile.secondaryEmail}</a></p>
+                                            <p><a href={`mailto:${profile.primaryEmail}`}>{profile.primaryEmail}</a></p>
+                                            {profile.secondaryEmail && (
+                                                <p><a href={`mailto:${profile.secondaryEmail}`}>{profile.secondaryEmail}</a></p>
+                                            )}
                                         </div>
                                     </div>
 

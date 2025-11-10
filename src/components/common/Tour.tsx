@@ -21,7 +21,8 @@ const Tour = ({simulateSearch, isRunning, finishSimulation}: ITourProps) => {
 
     React.useEffect(() => {
         Axios.get<TourStep[]>(`${properties.apiUrl}/tour-steps`).then(response => {
-            setSteps(response.data.sort((x, y) => x.order - y.order).map(mapStep))
+            const orderedSteps = [...response.data].sort((x, y) => x.order - y.order).map(mapStep);
+            setSteps(orderedSteps);
         })
     }, []);
 

@@ -1,5 +1,6 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 import {CmsImage} from "../../common/CmsImage";
 import {properties} from "../../../services/Environment";
 import {IBlog} from "../../../model/Blog";
@@ -12,6 +13,7 @@ import {IApplicationState} from "../../../state/Store";
 import {connect} from "react-redux";
 import {ClosableHeader} from "../../common/CloseableHeader";
 import {CodeBlock} from "../../common/CodeBlock";
+import {ExternalLink} from "../../common/markdownComponents";
 
 interface IProps {
     blog: IBlog,
@@ -65,12 +67,12 @@ const BlogDetail = ({blog, getOneBlog}: IProps) => {
 
                                                 <ReactMarkdown
                                                     className="blog_markdown"
-                                                    source={blog.content}
-                                                    transformImageUri={imageUrl}
-                                                    linkTarget="_blank"
-                                                    allowDangerousHtml={true}
-                                                    renderers={{ code: CodeBlock }}
-                                                />
+                                                    urlTransform={imageUrl}
+                                                    rehypePlugins={[rehypeRaw]}
+                                                    components={{ code: CodeBlock, a: ExternalLink }}
+                                                >
+                                                    {blog.content ?? ""}
+                                                </ReactMarkdown>
 
                                             </div>
                                         </div>
@@ -101,5 +103,3 @@ const mapDispatchToProps = (dispatch: any) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(BlogDetail);
-
-

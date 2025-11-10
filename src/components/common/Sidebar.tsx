@@ -4,7 +4,6 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {IProfile} from "../../model/Profile";
 import {CmsImage} from "./CmsImage";
 import {HashLink as Link} from 'react-router-hash-link';
-import {Link as RealLink} from 'react-router-dom';
 import blogicon from "../../assets/images/blogicon.svg"
 
 interface IProps {
@@ -35,7 +34,7 @@ const SideBar = ({socialMedias, profile, toggleMenu}: IProps) => {
 										<svg className="nav_about_svg" width="26px" height="26px">
 											<defs>
 											<filter id="Filter_0">
-												<feFlood flood-color="rgb(255, 74, 74)" flood-opacity="1"
+												<feFlood floodColor="rgb(255, 74, 74)" floodOpacity="1"
                                                          result="floodOut"/>
 												<feComposite operator="atop" in="floodOut" in2="SourceGraphic"
                                                              result="compOut"/>
@@ -44,7 +43,7 @@ const SideBar = ({socialMedias, profile, toggleMenu}: IProps) => {
 
 											</defs>
 											<g filter="url(#Filter_0)">
-											<path fill-rule="evenodd" fill="rgb(14, 15, 33)"
+											<path fillRule="evenodd" fill="rgb(14, 15, 33)"
                                                   d="M21.937,13.863 L4.063,13.863 L4.063,7.776 L21.937,7.776 L21.937,13.863 ZM6.094,11.832 L19.906,11.832 L19.906,9.807 L6.094,9.807 L6.094,11.832 ZM21.937,3.866 L4.063,3.866 L4.063,5.897 L21.937,5.897 L21.937,3.866 ZM21.937,17.767 L12.188,17.767 L12.188,19.799 L21.937,19.799 L21.937,17.767 ZM10.156,21.830 L4.063,21.830 L4.063,15.742 L10.156,15.742 L10.156,21.830 ZM6.094,19.799 L8.125,19.799 L8.125,17.773 L6.094,17.773 L6.094,19.799 ZM22.953,26.000 L3.047,26.000 C1.367,26.000 0.000,24.633 0.000,22.953 L0.000,3.047 C0.000,1.367 1.367,0.000 3.047,0.000 L22.953,0.000 C24.633,0.000 26.000,1.367 26.000,3.047 L26.000,22.953 C26.000,24.633 24.633,26.000 22.953,26.000 L22.953,26.000 ZM3.047,2.031 C2.487,2.031 2.031,2.487 2.031,3.047 L2.031,22.953 C2.031,23.513 2.487,23.969 3.047,23.969 L22.953,23.969 C23.513,23.969 23.969,23.513 23.969,22.953 L23.969,3.047 C23.969,2.487 23.513,2.031 22.953,2.031 L3.047,2.031 Z"/>
 											</g>
 										</svg>
@@ -55,7 +54,7 @@ const SideBar = ({socialMedias, profile, toggleMenu}: IProps) => {
 										<svg className="nav_about_svg" width="26px" height="26px">
 											<defs>
 											<filter>
-												<feFlood flood-color="rgb(255, 74, 74)" flood-opacity="1"
+												<feFlood floodColor="rgb(255, 74, 74)" floodOpacity="1"
                                                          result="floodOut"/>
 												<feComposite operator="atop" in="floodOut" in2="SourceGraphic"
                                                              result="compOut"/>
@@ -64,7 +63,7 @@ const SideBar = ({socialMedias, profile, toggleMenu}: IProps) => {
 
 											</defs>
 											<g filter="url(#Filter_0)">
-											<path fill-rule="evenodd" fill="rgb(14, 15, 33)"
+											<path fillRule="evenodd" fill="rgb(14, 15, 33)"
                                                   d="M21.937,13.863 L4.063,13.863 L4.063,7.776 L21.937,7.776 L21.937,13.863 ZM6.094,11.832 L19.906,11.832 L19.906,9.807 L6.094,9.807 L6.094,11.832 ZM21.937,3.866 L4.063,3.866 L4.063,5.897 L21.937,5.897 L21.937,3.866 ZM21.937,17.767 L12.188,17.767 L12.188,19.799 L21.937,19.799 L21.937,17.767 ZM10.156,21.830 L4.063,21.830 L4.063,15.742 L10.156,15.742 L10.156,21.830 ZM6.094,19.799 L8.125,19.799 L8.125,17.773 L6.094,17.773 L6.094,19.799 ZM22.953,26.000 L3.047,26.000 C1.367,26.000 0.000,24.633 0.000,22.953 L0.000,3.047 C0.000,1.367 1.367,0.000 3.047,0.000 L22.953,0.000 C24.633,0.000 26.000,1.367 26.000,3.047 L26.000,22.953 C26.000,24.633 24.633,26.000 22.953,26.000 L22.953,26.000 ZM3.047,2.031 C2.487,2.031 2.031,2.487 2.031,3.047 L2.031,22.953 C2.031,23.513 2.487,23.969 3.047,23.969 L22.953,23.969 C23.513,23.969 23.969,23.513 23.969,22.953 L23.969,3.047 C23.969,2.487 23.513,2.031 22.953,2.031 L3.047,2.031 Z"/>
 											</g>
 										</svg>
@@ -198,8 +197,8 @@ const SideBar = ({socialMedias, profile, toggleMenu}: IProps) => {
                         </div>
                         <ul className="social_list">
                             {socialMedias.map(socialMedia => (
-                                <li>
-                                    <a href={socialMedia.link} className="siderbar_icon">
+                                <li key={socialMedia.link}>
+                                    <a href={socialMedia.link} className="siderbar_icon" rel="noreferrer" target="_blank">
                             <span className="first_icon"><FontAwesomeIcon icon={getMediaIcon(socialMedia.type)!!}
                                                                           className={getMediaClass(socialMedia.type)}/></span>
                                         <span className="second_icon"><FontAwesomeIcon

@@ -38,7 +38,7 @@ const Blog = (props: IBlogProps) => {
                                     </div>
                                 </div>
                                 {props.blogs.map((blog, i) => (
-                                    <>
+                                    <React.Fragment key={`${blog.id}-${i}`}>
                                         {(i % 6 == 0 || i % 6 == 5) && (
                                             <div className="col-md-12 col-lg-4">
                                                 <BlogVertical blog={blog}/>
@@ -60,7 +60,7 @@ const Blog = (props: IBlogProps) => {
                                                 )}
                                             </div>
                                         )}
-                                    </>
+                                    </React.Fragment>
                                 ))}
                             </div>
                         </div>
@@ -84,6 +84,5 @@ const mapDispatchToProps = (dispatch: any) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Blog);
-
 
 

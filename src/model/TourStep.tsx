@@ -3,6 +3,7 @@ import React, {ReactElement} from "react";
 import Tour from "../components/common/Tour";
 import {properties} from "../services/Environment";
 import ReactMarkdown from "react-markdown";
+import {ExternalLink} from "../components/common/markdownComponents";
 
 export interface TourStep {
     title: string;
@@ -28,7 +29,11 @@ export const mapStep = (tourStep: TourStep) : Step => {
     return {
       element : tourStep.selector,
       title: `${image} ${tourStep.title}`,
-      intro: <ReactMarkdown source={tourStep.description} linkTarget="_blank"/>,
+      intro: (
+          <ReactMarkdown components={{ a: ExternalLink }}>
+              {tourStep.description ?? ""}
+          </ReactMarkdown>
+      ),
       position: tourStep.position
     };
 }

@@ -7,6 +7,7 @@ import ReactMarkdown from "react-markdown";
 import {IProfile} from "../../../model/Profile";
 import {getMediaIcon, ISocialMedia} from "../../../model/SocialMedia";
 import {properties} from "../../../services/Environment";
+import {ExternalLink} from "../../common/markdownComponents";
 
 
 interface IProfileProperties {
@@ -53,8 +54,11 @@ const Profile = ({profile, socialMedias}: IProfileProperties) => {
 
                                             <ul className="social-links">
                                                 {socialMedias.map(socialMedia =>
-                                                    <li><a className="tip social-button" href={socialMedia.link}>
-                                                        <FontAwesomeIcon icon={getMediaIcon(socialMedia.type)!!} /></a></li>
+                                                    <li key={socialMedia.link}>
+                                                        <a className="tip social-button" href={socialMedia.link}>
+                                                            <FontAwesomeIcon icon={getMediaIcon(socialMedia.type)!!} />
+                                                        </a>
+                                                    </li>
                                                 )}
 
                                             </ul>
@@ -70,7 +74,9 @@ const Profile = ({profile, socialMedias}: IProfileProperties) => {
                                         </div>
                                     </div>
                                     <h2 className="about_tophead tour-about">{profile.headline}</h2>
-                                    <ReactMarkdown source={profile.description} />
+                                    <ReactMarkdown components={{ a: ExternalLink }}>
+                                        {profile.description ?? ""}
+                                    </ReactMarkdown>
 
                                     <div className="anout_section_btn">
                                         <a href={properties.apiUrl + "/resume"} className="portfolio_btn btn_yellow">

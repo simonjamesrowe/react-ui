@@ -8,7 +8,7 @@ interface IProps {
 
 const JobDate = ({job} : IProps) => {
     return (
-        <div className="col-lg-4 col-md-4 col-sm-4 col-12 padding-0 w-100">
+        <div className="col-lg-4 col-md-4 col-sm-4 col-12 padding-0">
             <div className="ex_leftside">
                 <h1>{Moment(job.startDate).format("YYYY")}</h1>
                 <h4>{Moment(job.startDate).format("MMM")} to {job.endDate ? Moment(job.endDate)?.format("MMM") : ""}</h4>

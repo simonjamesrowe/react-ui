@@ -19,7 +19,6 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import $ from 'jquery'
 import BlogDetail from "./components/pages/Blog/BlogDetail";
 import MetaTags from 'react-meta-tags';
-import { init as initApm } from '@elastic/apm-rum'
 
 interface IAppProps {
     loading: boolean,
@@ -36,18 +35,9 @@ const App = (props: IAppProps) => {
     }, []);
 
     const mobile = useMediaQuery("(max-width:991px)");
-    const [loading, setLoading] = React.useState<boolean>(
-true
-    );
+    const [loading, setLoading] = React.useState<boolean>(true);
 
-    const apm = initApm({
-        serviceName: 'react-ui',
-        serverUrl: properties.apmUrl,
-        environment: properties.environment
-    })
-
-
-    const onScroll = (event: any) => {
+    const onScroll = () => {
         const scrolled = window.scrollY;
         if (scrolled > 600) {$('.bottom_top').addClass("active");}
         if (scrolled < 600) {$('.bottom_top').removeClass("active");}
@@ -58,9 +48,12 @@ true
         window.addEventListener("scroll", onScroll);
         props.getProfile();
         props.getAllSocialMedia();
+        return () => {
+            window.removeEventListener("scroll", onScroll);
+        };
     }, []);
 
-    const scrollToTop = (event: any) => {
+    const scrollToTop = () => {
         $("html, body").animate({ scrollTop: "0" },  500);
     }
     const toggleMenu = () => {
@@ -69,7 +62,7 @@ true
 
     return (
         <>
-            <Router>
+            <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
                     {(loading || !props.profile) && (
                         <div className="preloader">
                             <div className="status"><img src={loader} id="preloader_image"
@@ -130,5 +123,3 @@ export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(App);
-
-
