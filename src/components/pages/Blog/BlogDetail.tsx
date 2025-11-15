@@ -28,7 +28,15 @@ const BlogDetail = ({blog, getOneBlog}: IProps) => {
     }, [])
 
     const imageUrl = (url: string) => {
-        return `${properties.apiUrl}${url}`;
+        const trimmedUrl = url?.trim() ?? "";
+        if (!trimmedUrl) {
+            return trimmedUrl;
+        }
+        // Only prefix CMS asset paths; allow absolute/protocol URLs (http, https, mailto, data, etc.) through untouched
+        if (/^([a-z][a-z0-9+\-.]*:)?\/\//i.test(trimmedUrl) || /^[a-z][a-z0-9+\-.]*:/i.test(trimmedUrl)) {
+            return trimmedUrl;
+        }
+        return `${properties.apiUrl}${trimmedUrl}`;
     };
 
     const close = () => {
