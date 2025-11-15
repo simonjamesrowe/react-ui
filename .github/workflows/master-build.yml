@@ -81,6 +81,9 @@ jobs:
     permissions:
       packages: write
     steps:
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
         with:
@@ -90,10 +93,10 @@ jobs:
 
       - name: Create and push versioned multi-arch manifest
         run: |
-          docker manifest create ghcr.io/simonjamesrowe/react-ui:${{ needs.version_release.outputs.new_tag }} \
+          docker buildx imagetools create \
+            -t ghcr.io/simonjamesrowe/react-ui:${{ needs.version_release.outputs.new_tag }} \
             ghcr.io/simonjamesrowe/react-ui:${{ needs.version_release.outputs.new_tag }}-amd64 \
             ghcr.io/simonjamesrowe/react-ui:${{ needs.version_release.outputs.new_tag }}-arm64
-          docker manifest push ghcr.io/simonjamesrowe/react-ui:${{ needs.version_release.outputs.new_tag }}
 
       - name: Extract version components
         id: version
@@ -111,21 +114,21 @@ jobs:
 
       - name: Create and push major.minor manifest
         run: |
-          docker manifest create ghcr.io/simonjamesrowe/react-ui:${{ steps.version.outputs.major }}.${{ steps.version.outputs.minor }} \
+          docker buildx imagetools create \
+            -t ghcr.io/simonjamesrowe/react-ui:${{ steps.version.outputs.major }}.${{ steps.version.outputs.minor }} \
             ghcr.io/simonjamesrowe/react-ui:${{ needs.version_release.outputs.new_tag }}-amd64 \
             ghcr.io/simonjamesrowe/react-ui:${{ needs.version_release.outputs.new_tag }}-arm64
-          docker manifest push ghcr.io/simonjamesrowe/react-ui:${{ steps.version.outputs.major }}.${{ steps.version.outputs.minor }}
 
       - name: Create and push major manifest
         run: |
-          docker manifest create ghcr.io/simonjamesrowe/react-ui:${{ steps.version.outputs.major }} \
+          docker buildx imagetools create \
+            -t ghcr.io/simonjamesrowe/react-ui:${{ steps.version.outputs.major }} \
             ghcr.io/simonjamesrowe/react-ui:${{ needs.version_release.outputs.new_tag }}-amd64 \
             ghcr.io/simonjamesrowe/react-ui:${{ needs.version_release.outputs.new_tag }}-arm64
-          docker manifest push ghcr.io/simonjamesrowe/react-ui:${{ steps.version.outputs.major }}
 
       - name: Create and push latest manifest
         run: |
-          docker manifest create ghcr.io/simonjamesrowe/react-ui:latest \
+          docker buildx imagetools create \
+            -t ghcr.io/simonjamesrowe/react-ui:latest \
             ghcr.io/simonjamesrowe/react-ui:${{ needs.version_release.outputs.new_tag }}-amd64 \
             ghcr.io/simonjamesrowe/react-ui:${{ needs.version_release.outputs.new_tag }}-arm64
-          docker manifest push ghcr.io/simonjamesrowe/react-ui:latest
