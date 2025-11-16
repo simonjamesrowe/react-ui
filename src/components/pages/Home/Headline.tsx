@@ -21,6 +21,8 @@ const Headline = ({ profile, mobile, searchQuery, startSimulation }: IHeadlinePr
     backgroundImage: mobile ?  `url(${properties.apiUrl}${profile.mobileBackgroundImage.url})` :
       `url(${properties.apiUrl}${profile.backgroundImage.formats?.large?.url})`
   };
+  const [titleLead, ...titleRemainderParts] = profile.title.split(" ");
+  const titleRemainder = titleRemainderParts.join(" ");
   const invokeTour = () => {
     startSimulation();
   };
@@ -66,12 +68,14 @@ const Headline = ({ profile, mobile, searchQuery, startSimulation }: IHeadlinePr
                     <h1 className="banner_name ">Mr. {profile.name}</h1>
 
 
-                    <p className="banner_pera"> {profile.title.split(" ")[0]} </p>
-                    <div className="banner_typingtext">
-                      <ul className="texts home-desc">
-                        <li className="list-inline-item">{profile.title.split(" ")[1]}</li>
-                      </ul>
-                    </div>
+                    <p className="banner_pera"> {titleLead || profile.title} </p>
+                    {titleRemainder && (
+                        <div className="banner_typingtext">
+                          <ul className="texts home-desc">
+                            <li className="list-inline-item">{titleRemainder}</li>
+                          </ul>
+                        </div>
+                    )}
 
                     <SiteSearch searchQuery={searchQuery} />
                     <div className="banner_btn">
