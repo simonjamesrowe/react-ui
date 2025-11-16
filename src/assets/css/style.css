@@ -870,6 +870,26 @@ div.align-right  div {
     float: right;
 }
 
+.take-tour-chip {
+    background: #ff9f1c !important;
+    color: #222222 !important;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-radius: 24px;
+    padding: 0 6px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.take-tour-chip:hover {
+    background: #ffb347 !important;
+    color: #1a1a1a !important;
+}
+
+.take-tour-chip .MuiChip-icon {
+    color: inherit;
+}
+
 .bannner_leftpart span.stran {
     color: #222222;
 }

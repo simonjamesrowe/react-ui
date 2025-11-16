@@ -55,7 +55,7 @@ const Headline = ({ profile, mobile, searchQuery, startSimulation }: IHeadlinePr
                         icon={<AirplanemodeActiveIcon />}
                         label="Take a tour"
                         onClick={invokeTour}
-
+                        className="take-tour-chip"
                     />
                 </div>
                 )}
@@ -117,4 +117,3 @@ export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(Headline);
-
